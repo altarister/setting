@@ -1,0 +1,30 @@
+<!doctype html>
+<!--[if lt IE 7 ]> <html lang="ko-KR" class="browser-ie6 browser-ie-regacy"> <![endif]-->
+<!--[if IE 7 ]>    <html lang="ko-KR" class="browser-ie7 browser-ie-regacy"> <![endif]-->
+<!--[if IE 8 ]>    <html lang="ko-KR" class="browser-ie8 browser-ie-regacy"> <![endif]-->
+<!--[if IE 9 ]>    <html lang="ko-KR" class="browser-ie9 browser-modern"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html lang="ko-KR" class="browser-modern"> <!--<![endif]-->
+<head>
+    {{> layout/meta}}
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>{{title}}</title>
+    {{> layout/css}}
+
+</head>
+
+<body id="memebox-service"
+      class=""
+      {{> layout/config}}>
+
+    {{> header}}
+
+    {{{block "memebox-content"}}}
+
+    {{> footer}}
+
+    {{> layout/scripts}}
+    {{{block "scripts"}}}
+</body>
+
+</html>
