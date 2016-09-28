@@ -1,9 +1,10 @@
-define(function() { return webpackJsonp([1],[
-/* 0 */
+define(["modernizr"], function(__WEBPACK_EXTERNAL_MODULE_6__) { return webpackJsonp([1],{
+
+/***/ 0:
 /***/ function(module, exports, __webpack_require__) {
 
-	//require('modernizr');
-	var $ = __webpack_require__(6);
+	__webpack_require__(6);
+	var $ = __webpack_require__(7);
 	//var Common = require('pcCommon');
 
 	const memeboxWrapSelector = '#memebox-service';
@@ -20,8 +21,9 @@ define(function() { return webpackJsonp([1],[
 
 	function pageControllerInitialize(){
 	    var controller = $(memeboxWrapSelector).data('controller');
+	    console.log('controller = ',controller);
 	    if (controller) {
-	        rocketpayRequire(['app/js-dist/controllers/' + controller], function (controller) {
+	        memeboxRequire(['dist/' + controller], function (controller) {
 	            if (controller && controller instanceof Function) {
 	                controller();
 	            }
@@ -33,7 +35,7 @@ define(function() { return webpackJsonp([1],[
 	    $('[data-widget]').each(function (index, widget) {
 	        var path = $(widget).data('widget'),
 	            data = $(widget).data('widget-data');
-	        rocketpayRequire([path], function (widgetFunction) {
+	        memeboxRequire([path], function (widgetFunction) {
 	            if (widgetFunction && widgetFunction instanceof Function) {
 	                widgetFunction(widget, data);
 	            }
@@ -52,10 +54,18 @@ define(function() { return webpackJsonp([1],[
 	    pageControllerInitialize();
 
 	    // 독립적인 위젯컨트롤러 실행하기
-	    widgetControllerInitialize();
+	    // widgetControllerInitialize();
 	};
 
 
 
+/***/ },
+
+/***/ 6:
+/***/ function(module, exports) {
+
+	module.exports = __WEBPACK_EXTERNAL_MODULE_6__;
+
 /***/ }
-])});;
+
+})});;

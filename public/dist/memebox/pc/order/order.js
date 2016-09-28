@@ -5,9 +5,9 @@ define(function() { return webpackJsonp([3],[
 	/**
 	 * Created by 160727-b on 2016. 9. 27..
 	 */
-	__webpack_require__(12);
+	__webpack_require__(13);
 
-	var home = __webpack_require__(9);
+	var home = __webpack_require__(8);
 
 	document.write(home +' , home');
 
@@ -325,22 +325,23 @@ define(function() { return webpackJsonp([3],[
 /* 5 */,
 /* 6 */,
 /* 7 */,
-/* 8 */,
-/* 9 */
+/* 8 */
 /***/ function(module, exports) {
 
 	module.exports = 'home';
 
 /***/ },
+/* 9 */,
 /* 10 */,
 /* 11 */,
-/* 12 */
+/* 12 */,
+/* 13 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(13);
+	var content = __webpack_require__(14);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(4)(content, {});
@@ -360,7 +361,7 @@ define(function() { return webpackJsonp([3],[
 	}
 
 /***/ },
-/* 13 */
+/* 14 */
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(3)();

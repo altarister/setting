@@ -128,7 +128,7 @@ module.exports = function (envString, deviceString) {
             console.log(!environment.test,'  plugins------------device.isMobile = ',device.isMobile)
 
             if (!environment.test) {
-                console.log('배포버전')
+                console.log('배포버전f')
                 plugins = [
                     new webpack.NoErrorsPlugin(),
                     new CommonsChunkPlugin({

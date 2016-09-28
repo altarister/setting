@@ -1,7 +1,7 @@
 var PROVIDER = {
     "cdn": function(url){
         return [
-            ((typeof window == 'object' && window.VALVE_BASEURL) ? window.VALVE_BASEURL : "//assets.coupangcdn.com/cdnjs") + url,
+            //((typeof window == 'object' && window.VALVE_BASEURL) ? window.VALVE_BASEURL : "//assets.coupangcdn.com/cdnjs") + url,
             "vendor" + url
         ]
     },

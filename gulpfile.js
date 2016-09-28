@@ -4,12 +4,9 @@ var gulp = require('gulp');
 var plumber = require('gulp-plumber');
 var watch = require('gulp-watch');
 var gutil = require('gulp-util');
-var cleanCSS = require('gulp-clean-css');
 var browserSync_front = require('browser-sync').create('front');
-//var nodemon = require('nodemon');
 var nodemon = require('gulp-nodemon')
 var del = require('del');
-var reload = browserSync_front.reload;
 
 // config
 var BASE_DIR = './';
@@ -48,8 +45,6 @@ gulp.task('nodemon', function (cb) {
         }
     });
 });
-
-
 
 // webpack config
 var webpackConfig = require('./gulp/webpack.config');

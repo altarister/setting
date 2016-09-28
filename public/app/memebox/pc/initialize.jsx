@@ -1,4 +1,4 @@
-//require('modernizr');
+require('modernizr');
 var $ = require('jquery');
 //var Common = require('pcCommon');
 
@@ -16,8 +16,9 @@ function globalSubscribePublishEvent(){
 
 function pageControllerInitialize(){
     var controller = $(memeboxWrapSelector).data('controller');
+    console.log('controller = ',controller);
     if (controller) {
-        rocketpayRequire(['app/js-dist/controllers/' + controller], function (controller) {
+        memeboxRequire(['dist/' + controller], function (controller) {
             if (controller && controller instanceof Function) {
                 controller();
             }
@@ -29,7 +30,7 @@ function widgetControllerInitialize(){
     $('[data-widget]').each(function (index, widget) {
         var path = $(widget).data('widget'),
             data = $(widget).data('widget-data');
-        rocketpayRequire([path], function (widgetFunction) {
+        memeboxRequire([path], function (widgetFunction) {
             if (widgetFunction && widgetFunction instanceof Function) {
                 widgetFunction(widget, data);
             }
@@ -48,6 +49,6 @@ module.exports = function () {
     pageControllerInitialize();
 
     // 독립적인 위젯컨트롤러 실행하기
-    widgetControllerInitialize();
+    // widgetControllerInitialize();
 };
 

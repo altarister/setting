@@ -2,16 +2,26 @@ define(function() { return webpackJsonp([2],[
 /* 0 */
 /***/ function(module, exports, __webpack_require__) {
 
-	/**
-	 * Created by 160727-b on 2016. 9. 26..
-	 */
-	__webpack_require__(7);
+	var home = __webpack_require__(8);
+	var work = __webpack_require__(9);
+	var dealView = __webpack_require__(10);
+	var $ = __webpack_require__(7);
+	__webpack_require__(11);
 
-	var home = __webpack_require__(9);
-	var work = __webpack_require__(10);
-	var dealView = __webpack_require__(11);
+	var main = function(){
+	    var controller = {
 
-	document.write(home + ',' + work + ', ' + dealView + '!!((((!!))))');
+	        initialize: function(){
+	            console.log(home + ',' + work + ', ' + dealView + '!!');
+	            //document.write(home + ',' + work + ', ' + dealView + '!!()');
+	        }
+	    };
+	    controller.initialize();
+	};
+
+	module.exports = main;
+
+
 
 /***/ },
 /* 1 */,
@@ -326,13 +336,38 @@ define(function() { return webpackJsonp([2],[
 /***/ },
 /* 5 */,
 /* 6 */,
-/* 7 */
+/* 7 */,
+/* 8 */
+/***/ function(module, exports) {
+
+	module.exports = 'home';
+
+/***/ },
+/* 9 */
+/***/ function(module, exports) {
+
+	/**
+	 * Created by 160727-b on 2016. 9. 26..
+	 */
+	module.exports = 'work';
+
+/***/ },
+/* 10 */
+/***/ function(module, exports) {
+
+	/**
+	 * Created by 160727-b on 2016. 9. 27..
+	 */
+	module.exports = 'dealView_v_1_0_1';
+
+/***/ },
+/* 11 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(8);
+	var content = __webpack_require__(12);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(4)(content, {});
@@ -352,7 +387,7 @@ define(function() { return webpackJsonp([2],[
 	}
 
 /***/ },
-/* 8 */
+/* 12 */
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(3)();
@@ -364,30 +399,6 @@ define(function() { return webpackJsonp([2],[
 
 	// exports
 
-
-/***/ },
-/* 9 */
-/***/ function(module, exports) {
-
-	module.exports = 'home';
-
-/***/ },
-/* 10 */
-/***/ function(module, exports) {
-
-	/**
-	 * Created by 160727-b on 2016. 9. 26..
-	 */
-	module.exports = 'work';
-
-/***/ },
-/* 11 */
-/***/ function(module, exports) {
-
-	/**
-	 * Created by 160727-b on 2016. 9. 27..
-	 */
-	module.exports = 'dealView_v_1_0_1';
 
 /***/ }
 ])});;

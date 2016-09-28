@@ -84,14 +84,14 @@ var main_data = {
     "title": "main",
     "dealViewData":dealViewData,
     "dealview_API": dealview_API(),
-    "controller": "main/main"
+    "controller": "memebox/pc/main/main"
 };
 app.get('/', function(req, res) {
     res.render('memebox/pc/main/main',main_data);
 });
 var cart_data = {
     "title": "cart",
-    "controller": "cart/cart"
+    "controller": "memebox/pc/cart/cart"
 };
 app.get('/cart', function(req, res) {
     res.render('memebox/pc/cart/cart',cart_data);
@@ -99,7 +99,7 @@ app.get('/cart', function(req, res) {
 
 var order_data = {
     "title": "order",
-    "controller": "order/order"
+    "controller": "memebox/pc/order/order"
 };
 app.get('/order', function(req, res) {
     res.render('memebox/pc/order/order',order_data);

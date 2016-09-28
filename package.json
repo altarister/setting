@@ -25,7 +25,6 @@
     "handlebars": "^4.0.5",
     "handlebars-loader": "^1.1.4",
     "hbs": "2.6.0",
-    "nodemon": "^1.10.2",
     "object-assign": "^4.1.0",
     "requirejs": "^2.3.2",
     "style-loader": "^0.13.1",
