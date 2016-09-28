@@ -9,10 +9,9 @@
 
 ### UI 개발 파일(css, js) 컴파일하기
 
-1. js compile(mobile)     : `gulp 'webpack_mobile_build(production)'` (watch 기능 포함)
-2. js compile(pc)         : `gulp 'webpack_pc_build(production)'`  (watch 기능 포함)
+1. js compile(mobile)     : `gulp 'front-browser-sync(production, pc)'` (watch 기능 포함)
 
 ### UI 로컬 개발서버 실행하기
 
 1. 로컬서버 실행 : `node server.js`
-2. http://localhost:3000/homework 으로이동
+2. http://localhost:5000 으로이동
