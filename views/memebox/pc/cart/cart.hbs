@@ -1,11 +1,13 @@
 {{#extend "memebox-content"}}
-    {{> dealView/dealView}}
+    카트
 {{/extend}}
 
 {{#extend "scripts"}}
     <script>
-        document.write('foo bar!');
+        document.write('cart!');
     </script>
+
+    <script src="/dist/memebox/pc/cart/cart.js"></script>
 {{/extend}}
 
 {{> layout_pc}}

@@ -5,11 +5,11 @@ var plumber = require('gulp-plumber');
 var watch = require('gulp-watch');
 var gutil = require('gulp-util');
 var cleanCSS = require('gulp-clean-css');
-var browserSync = require('browser-sync');
+var browserSync_front = require('browser-sync').create('front');
 //var nodemon = require('nodemon');
 var nodemon = require('gulp-nodemon')
 var del = require('del');
-var reload = browserSync.reload;
+var reload = browserSync_front.reload;
 
 // config
 var BASE_DIR = './';
@@ -29,6 +29,7 @@ var config = {
 
 var files = {
     public : APP_DIR_APP + '**/*.*',
+    dist : APP_DIR_DIST + '**/*.*',
     view : APP_DIR_VIEW + '**/*.*',
     server : SERVER_DIR + '**/*.*'
 };
@@ -48,34 +49,24 @@ gulp.task('nodemon', function (cb) {
     });
 });
 
-gulp.task('front-browser-sync', ['local_build_pc'], function() {
-    browserSync.init({
-        proxy: "http://localhost:5000",
-        files: [files.public],
-        browser: "google chrome",
-        port: 7000
-    });
-});
 
-gulp.task('server-browser-sync', ['nodemon'], function() {
-    browserSync.init({
-        proxy: "http://localhost:5000",
-        files: [files.server],
-        browser: "google chrome",
-        port: 7000
-    });
-});
-
-gulp.task('watch', function(){
-
-});
 
 // webpack config
 var webpackConfig = require('./gulp/webpack.config');
 var webpackBuild = require('./gulp/webpack.build');
-console.log('webpackConfig = ',webpackConfig('production', 'pc'));
 gulp.task('local_build_pc', webpackBuild(webpackConfig('production', 'pc')));
 
+gulp.task('front-browser-sync', ['local_build_pc'], function() {
+    browserSync_front.init({
+        proxy: "http://localhost:5000",
+        browser: "google chrome",
+        port: 7000
+    });
+
+    gulp.watch(files.view).on("change", browserSync_front.reload);
+    gulp.watch(files.public).on("change", webpackBuild(webpackConfig('production', 'pc')));
+    gulp.watch(files.dist).on("change", browserSync_front.reload);
+});
 
 gulp.task('default', ['nodemon'], function(){
     return gutil.log('Gulp is running');

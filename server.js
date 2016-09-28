@@ -17,8 +17,8 @@ hbs.registerPartials(__dirname + '/views/memebox/pc');
 hbs.registerPartials(__dirname + '/views/common/');
 
 hbs.registerHelper('extend', function(name, context) {
-    console.log('extend-name = ',name);
-    console.log('context = ', context);
+    //console.log('extend-name = ',name);
+    //console.log('context = ', context);
     var block = blocks[name];
     if (!block) {
         block = blocks[name] = [];
@@ -28,9 +28,9 @@ hbs.registerHelper('extend', function(name, context) {
 });
 
 hbs.registerHelper('block', function(name) {
-    console.log('block-name = ',name);
+    //console.log('block-name = ',name);
     var val = (blocks[name] || []).join('\n');
-    console.log('block-val = ',val);
+    //console.log('block-val = ',val);
     // clear the block
     blocks[name] = [];
     return val;
@@ -72,13 +72,6 @@ function dealview_API(){
     }
 };
 
-var data = {
-    "title": "altari",
-    "dealViewData":dealViewData,
-    "dealview_API": dealview_API(),
-    "controller": "homeWork/homeWork"
-};
-
 //express.register/////////////////////////
 app.engine('html', require('hbs').__express);
 app.set('views', 'views');
@@ -87,8 +80,29 @@ app.use('/dealAPI', ajax);
 app.use(express.static(__dirname +'/public'));
 app.use(express.static(__dirname +'/views'));
 
+var main_data = {
+    "title": "main",
+    "dealViewData":dealViewData,
+    "dealview_API": dealview_API(),
+    "controller": "main/main"
+};
 app.get('/', function(req, res) {
-    res.render('memebox/pc/main/index',data);
+    res.render('memebox/pc/main/main',main_data);
+});
+var cart_data = {
+    "title": "cart",
+    "controller": "cart/cart"
+};
+app.get('/cart', function(req, res) {
+    res.render('memebox/pc/cart/cart',cart_data);
+});
+
+var order_data = {
+    "title": "order",
+    "controller": "order/order"
+};
+app.get('/order', function(req, res) {
+    res.render('memebox/pc/order/order',order_data);
 });
 
 app.listen(5000);

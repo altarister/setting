@@ -5,7 +5,7 @@ var PROVIDER = {
             "vendor" + url
         ]
     },
-    "pc"    : "app/pc/controllers",
+    "pc"    : "app/memebox/pc",
     //"mobile": "app/js/controllers/payment/rocketpay/mobile",
     "common": "app/common",
     "vendor": "vendor"
@@ -36,7 +36,7 @@ var REQUIRE_JS_PATHS_CDN = {
     // "underscore"       : PROVIDER.cdn("/underscore.js/1.8.3/underscore-min"),
     // "underscore.string": PROVIDER.cdn("/underscore.string/3.2.2/underscore.string.min"),
 
-    "handlebars": PROVIDER.cdn("/handlebars.js/1.3.0/handlebars.min"),
+    "handlebars": PROVIDER.cdn("/handlebars.js/1.3.0/handlebars.min")
 
     // "iScroll": PROVIDER.cdn("/iScroll/5.2.0/iscroll.min"),
 
@@ -54,9 +54,9 @@ var REQUIRE_JS_PATHS_CDN = {
 (function(){
     var targetPaths = [REQUIRE_JS_PATHS_DIRECTORY, REQUIRE_JS_PATHS_CDN];
     var length = targetPaths.length;
-    //console.log('targetPaths = ',targetPaths);
-    console.log('length = ',length);
-    console.log('PROVIDER = ',PROVIDER);
+    // console.log('REQUIRE_JS_PATHS_CDN = ',REQUIRE_JS_PATHS_CDN);
+    // console.log('length = ',length);
+    // console.log('PROVIDER = ',PROVIDER);
     for(var i=0; i<length; i++){
         var path = targetPaths[i];
         for(var key in path){
@@ -65,6 +65,7 @@ var REQUIRE_JS_PATHS_CDN = {
             }
         }
     }
+    console.log('REQUIRE_JS_PATHS = ',REQUIRE_JS_PATHS)
 })();
 
 var REQUIRE_JS_SHIM = {
