@@ -1,8 +1,8 @@
 <div class="memebox-menu-wrap"
-     data-component="{{component.name}}"
-     data-component-data='{{{json component.data}}}'>
+     data-component="menu"
+     data-component-data='{{{json component.menu}}}'>
     <ul class="memebox-menu">
-        {{#each component.data}}
+        {{#each component.menu}}
             <li>
                 <a href="{{this.url}}">
                     {{this.text}}

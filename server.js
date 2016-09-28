@@ -71,8 +71,7 @@ var main_data = {
     "dealview_API": dealview_API(),
     "controller": "memebox/pc/main/main",
     "component":{
-        "name" : "menu",
-        "data" : menuData
+        "menu" : menuData
     }
 };
 app.get('/', function(req, res) {

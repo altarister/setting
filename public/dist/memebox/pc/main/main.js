@@ -388,6 +388,7 @@ define(function() { return webpackJsonp([2],[
 	__webpack_require__(12);
 	var $ = __webpack_require__(7);
 	var utility = __webpack_require__(14);
+
 	var templates = {
 	    menu: __webpack_require__(15)
 	}
@@ -405,10 +406,25 @@ define(function() { return webpackJsonp([2],[
 
 	            utility.uiEnhancements.call(this);
 
-	            // var html = templates.menu({
-	            //     menu : this.element.data('component-data')
-	            // });
-	            // this.element.append(html);
+	            this.makeList()
+	        },
+
+	        makeList: function(){
+	            var menuData = this.element.data('component-data');
+	            console.log(' menuData = ',menuData)
+	            var addData = menuData.push(
+	                {
+	                    "url" : "/order",
+	                    "text" : "order"
+	                });
+	            var component = {
+	                "component":{
+	                    "menu" : menuData
+	                }
+	            };
+	            console.log('component = ',component)
+	            var html = templates.menu(component);
+	            this.element.append(html);
 	        }
 	    };
 	    component.initialize();
@@ -474,12 +490,10 @@ define(function() { return webpackJsonp([2],[
 	},"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
 	    var stack1, alias1=depth0 != null ? depth0 : {};
 
-	  return "<div class=\"memebox-menu-wrap\"\n     data-component=\""
-	    + container.escapeExpression(container.lambda(((stack1 = (depth0 != null ? depth0.component : depth0)) != null ? stack1.name : stack1), depth0))
-	    + "\"\n     data-component-data='"
-	    + ((stack1 = (helpers.json || (depth0 && depth0.json) || helpers.helperMissing).call(alias1,((stack1 = (depth0 != null ? depth0.component : depth0)) != null ? stack1.data : stack1),{"name":"json","hash":{},"data":data})) != null ? stack1 : "")
+	  return "<div class=\"memebox-menu-wrap\"\n     data-component=\"menu\"\n     data-component-data='"
+	    + ((stack1 = (helpers.json || (depth0 && depth0.json) || helpers.helperMissing).call(alias1,((stack1 = (depth0 != null ? depth0.component : depth0)) != null ? stack1.menu : stack1),{"name":"json","hash":{},"data":data})) != null ? stack1 : "")
 	    + "'>\n    <ul class=\"memebox-menu\">\n"
-	    + ((stack1 = helpers.each.call(alias1,((stack1 = (depth0 != null ? depth0.component : depth0)) != null ? stack1.data : stack1),{"name":"each","hash":{},"fn":container.program(1, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+	    + ((stack1 = helpers.each.call(alias1,((stack1 = (depth0 != null ? depth0.component : depth0)) != null ? stack1.menu : stack1),{"name":"each","hash":{},"fn":container.program(1, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
 	    + "    </ul>\n</div>";
 	},"useData":true});
 

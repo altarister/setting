@@ -4,6 +4,7 @@
 require('./_menu.css');
 var $ = require('jquery');
 var utility = require('utility');
+
 var templates = {
     menu: require('./_menu.hbs')
 }
@@ -21,10 +22,25 @@ var menu = function(){
 
             utility.uiEnhancements.call(this);
 
-            // var html = templates.menu({
-            //     menu : this.element.data('component-data')
-            // });
-            // this.element.append(html);
+            this.makeList()
+        },
+
+        makeList: function(){
+            var menuData = this.element.data('component-data');
+            console.log(' menuData = ',menuData)
+            var addData = menuData.push(
+                {
+                    "url" : "/order",
+                    "text" : "order"
+                });
+            var component = {
+                "component":{
+                    "menu" : menuData
+                }
+            };
+            console.log('component = ',component)
+            var html = templates.menu(component);
+            this.element.append(html);
         }
     };
     component.initialize();

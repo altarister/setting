@@ -97,6 +97,7 @@ module.exports = function (envString, deviceString) {
                 for(var key in COMMON_CHUNK){
                     HELPER_CHUNK.push(COMMON_CHUNK[key]);
                 }
+                console.log('HELPER_CHUNK = ',HELPER_CHUNK)
                 return HELPER_CHUNK;
             })()},
             ENTRY_POINTS
