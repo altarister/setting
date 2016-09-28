@@ -15,6 +15,7 @@ var blocks = {};
 hbs.registerPartials(__dirname + '/views/memebox/layouts');
 hbs.registerPartials(__dirname + '/views/memebox/pc');
 hbs.registerPartials(__dirname + '/views/common/');
+hbs.registerPartials(__dirname + '/public/app/components');
 
 hbs.registerHelper('extend', function(name, context) {
     //console.log('extend-name = ',name);
@@ -43,24 +44,8 @@ hbs.registerHelper('json', function(context) {
 //data.register/////////////////////////
 
 var dealData = require('./controllers/json/deal.json');
-var dealViewData = [
-    {
-        "titel" : "gellery",
-        "viewType" : "gellery",
-        "layerType" : "modal",
-        "selected" : "selected"
-    },{
-        "titel" : "list",
-        "viewType" : "list",
-        "layerType" : "modeless",
-        "selected" : ""
-    },{
-        "titel" : "none-style",
-        "viewType" : "nonestyle",
-        "layerType" : "",
-        "selected" : ""
-    }
-];
+var menuData = require('./controllers/json/menu.json');
+var dealViewData = require('./controllers/json/dealView_menu.json');
 
 function dealview_API(){
     return {
@@ -84,7 +69,11 @@ var main_data = {
     "title": "main",
     "dealViewData":dealViewData,
     "dealview_API": dealview_API(),
-    "controller": "memebox/pc/main/main"
+    "controller": "memebox/pc/main/main",
+    "component":{
+        "name" : "menu",
+        "data" : menuData
+    }
 };
 app.get('/', function(req, res) {
     res.render('memebox/pc/main/main',main_data);

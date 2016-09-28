@@ -90,7 +90,10 @@ module.exports = function (envString, deviceString) {
         context: PUBLIC_DIR,
         entry: objectAssign(
             {common: (function(){
-                var HELPER_CHUNK = [];
+                var HELPER_CHUNK = [
+                    requirejsConfig.PROVIDER.common + '/handlebars-helpers/json'
+                ];
+
                 for(var key in COMMON_CHUNK){
                     HELPER_CHUNK.push(COMMON_CHUNK[key]);
                 }
@@ -110,6 +113,10 @@ module.exports = function (envString, deviceString) {
         devtool: environment.production && device.isMobile ? 'source-map' : '',
         module: {
             loaders: [
+                {
+                    test: /\.hbs$/,
+                    loader: 'handlebars-loader?helperDirs[]=' + path.resolve(PUBLIC_DIR, './app/js/common/handlebars-helpers')
+                },
                 {
                     test: /\.css$/,
                     loader: 'style!css'

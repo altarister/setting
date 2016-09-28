@@ -1,20 +1,20 @@
-define(function() { return webpackJsonp([3],[
-/* 0 */
+define(function() { return webpackJsonp([3],{
+
+/***/ 0:
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
 	 * Created by 160727-b on 2016. 9. 27..
 	 */
-	__webpack_require__(13);
+	__webpack_require__(37);
 
 	var home = __webpack_require__(8);
 
 	document.write(home +' , home');
 
 /***/ },
-/* 1 */,
-/* 2 */,
-/* 3 */
+
+/***/ 3:
 /***/ function(module, exports) {
 
 	/*
@@ -70,7 +70,8 @@ define(function() { return webpackJsonp([3],[
 
 
 /***/ },
-/* 4 */
+
+/***/ 4:
 /***/ function(module, exports, __webpack_require__) {
 
 	/*
@@ -322,26 +323,21 @@ define(function() { return webpackJsonp([3],[
 
 
 /***/ },
-/* 5 */,
-/* 6 */,
-/* 7 */,
-/* 8 */
+
+/***/ 8:
 /***/ function(module, exports) {
 
 	module.exports = 'home';
 
 /***/ },
-/* 9 */,
-/* 10 */,
-/* 11 */,
-/* 12 */,
-/* 13 */
+
+/***/ 37:
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(14);
+	var content = __webpack_require__(38);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(4)(content, {});
@@ -361,7 +357,8 @@ define(function() { return webpackJsonp([3],[
 	}
 
 /***/ },
-/* 14 */
+
+/***/ 38:
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(3)();
@@ -375,4 +372,5 @@ define(function() { return webpackJsonp([3],[
 
 
 /***/ }
-])});;
+
+})});;

@@ -99,8 +99,9 @@ define(["jquery"], function(__WEBPACK_EXTERNAL_MODULE_7__) { return /******/ (fu
 /***/ 0:
 /***/ function(module, exports, __webpack_require__) {
 
-	__webpack_require__(15);
-	module.exports = __webpack_require__(16);
+	__webpack_require__(39);
+	__webpack_require__(14);
+	module.exports = __webpack_require__(40);
 
 
 /***/ },
@@ -112,7 +113,7 @@ define(["jquery"], function(__WEBPACK_EXTERNAL_MODULE_7__) { return /******/ (fu
 
 /***/ },
 
-/***/ 15:
+/***/ 14:
 /***/ function(module, exports, __webpack_require__) {
 
 	var $ = __webpack_require__(7);
@@ -303,7 +304,17 @@ define(["jquery"], function(__WEBPACK_EXTERNAL_MODULE_7__) { return /******/ (fu
 
 /***/ },
 
-/***/ 16:
+/***/ 39:
+/***/ function(module, exports) {
+
+	module.exports = function (value) {
+	    return JSON.stringify(value);
+	};
+
+
+/***/ },
+
+/***/ 40:
 /***/ function(module, exports) {
 
 	// jquery: event.keyCode
