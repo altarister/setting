@@ -27,7 +27,7 @@ var menu = function(){
 
         makeList: function(){
             var menuData = this.element.data('component-data');
-            console.log(' menuData = ',menuData)
+
             var addData = menuData.push(
                 {
                     "url" : "/order",
@@ -40,7 +40,7 @@ var menu = function(){
             };
             console.log('component = ',component)
             var html = templates.menu(component);
-            this.element.append(html);
+            this.element.html(html);
         }
     };
     component.initialize();

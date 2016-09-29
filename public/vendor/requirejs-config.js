@@ -27,7 +27,7 @@ var REQUIRE_JS_PATHS_CDN = {
 
     "modernizr" : PROVIDER.cdn("/modernizr/2.8.3/modernizr.min"),
 
-    // "es5-shim" : PROVIDER.cdn("/es5-shim/4.3.1/es5-shim.min"),
+    "es5-shim" : PROVIDER.cdn("/es5-shim/4.3.1/es5-shim.min"),
 
     "jquery": PROVIDER.cdn("/jquery/1.11.3/jquery.min"),
     // "jquery.spin": PROVIDER.vendor + "/spin/jquery.spin.min",
@@ -54,9 +54,7 @@ var REQUIRE_JS_PATHS_CDN = {
 (function(){
     var targetPaths = [REQUIRE_JS_PATHS_DIRECTORY, REQUIRE_JS_PATHS_CDN];
     var length = targetPaths.length;
-    // console.log('REQUIRE_JS_PATHS_CDN = ',REQUIRE_JS_PATHS_CDN);
-    // console.log('length = ',length);
-    // console.log('PROVIDER = ',PROVIDER);
+
     for(var i=0; i<length; i++){
         var path = targetPaths[i];
         for(var key in path){
@@ -65,7 +63,6 @@ var REQUIRE_JS_PATHS_CDN = {
             }
         }
     }
-    console.log('REQUIRE_JS_PATHS = ',REQUIRE_JS_PATHS)
 })();
 
 var REQUIRE_JS_SHIM = {

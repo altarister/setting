@@ -3,25 +3,33 @@ define(["modernizr"], function(__WEBPACK_EXTERNAL_MODULE_6__) { return webpackJs
 /***/ 0:
 /***/ function(module, exports, __webpack_require__) {
 
+	'use strict';
+
 	__webpack_require__(6);
 	var $ = __webpack_require__(7);
 	//var Common = require('pcCommon');
 
-	const memeboxWrapSelector = '#memebox-service';
+	var memeboxWrapSelector = '#memebox-service';
 
-	function globalSubscribePublishEvent(){
+	function globalSubscribePublishEvent() {
 	    var o = $({});
-	    $.subscribe   = function(){ o.on.apply(o, arguments); };
-	    $.unsubscribe = function(){ o.off.apply(o, arguments); };
-	    $.publish     = function(){ o.trigger.apply(o, arguments); };
-	    window.publish = function(){
+	    $.subscribe = function () {
+	        o.on.apply(o, arguments);
+	    };
+	    $.unsubscribe = function () {
+	        o.off.apply(o, arguments);
+	    };
+	    $.publish = function () {
 	        o.trigger.apply(o, arguments);
-	    }
+	    };
+	    window.publish = function () {
+	        o.trigger.apply(o, arguments);
+	    };
 	}
 
-	function pageControllerInitialize(){
+	function pageControllerInitialize() {
 	    var controller = $(memeboxWrapSelector).data('controller');
-	    console.log('controller = ',controller);
+	    console.log('controller = ', controller);
 	    if (controller) {
 	        memeboxRequire(['dist/' + controller], function (controller) {
 	            if (controller && controller instanceof Function) {
@@ -31,7 +39,7 @@ define(["modernizr"], function(__WEBPACK_EXTERNAL_MODULE_6__) { return webpackJs
 	    }
 	}
 
-	function widgetControllerInitialize(){
+	function widgetControllerInitialize() {
 	    $('[data-widget]').each(function (index, widget) {
 	        var path = $(widget).data('widget'),
 	            data = $(widget).data('widget-data');
@@ -56,8 +64,6 @@ define(["modernizr"], function(__WEBPACK_EXTERNAL_MODULE_6__) { return webpackJs
 	    // 독립적인 위젯컨트롤러 실행하기
 	    // widgetControllerInitialize();
 	};
-
-
 
 /***/ },
 

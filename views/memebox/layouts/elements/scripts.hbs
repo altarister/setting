@@ -3,13 +3,8 @@
     window.VALVE_BASEURL = "{{!vAssetLibUrl 'cdnjs'}}";
 </script>
 
-<!--[if IE 7 ]> assetScript "vendor/json2/json2.js" <![endif]-->
+<!--[if IE 7 ]> <script src="/vendor/json2/json2.js"></script> <![endif]-->
 
-<!--<script type="text/javascript" src="/vendor/require.js/2.1.17/require.js"></script>-->
-<!--<script type="text/javascript" src="/vendor/requirejs-config.js"></script>-->
-
-<!--<script data-main="/dist/js/app" title="gggffffsdfsd"-->
-        <!--src="/vendor/requirejs/require.2.1.11.min.js"></script>-->
 <script src="/vendor/requirejs/require.2.1.11.min.js"></script>
 <script src="/vendor/requirejs-config.js"></script>
 
@@ -23,8 +18,7 @@
         map : REQUIRE_JS_MAP
     });
 
-    //console.log('memeboxRequire = ',memeboxRequire);
-    memeboxRequire(['vendor/pc.commons.chunk'], function () {
+    memeboxRequire(['es5-shim', 'vendor/pc.commons.chunk'], function () {
         memeboxRequire(['path_pc/initialize'], function (initialize) {
             initialize();
         });

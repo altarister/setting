@@ -3,14 +3,16 @@ define(function() { return webpackJsonp([3],{
 /***/ 0:
 /***/ function(module, exports, __webpack_require__) {
 
+	'use strict';
+
 	/**
 	 * Created by 160727-b on 2016. 9. 27..
 	 */
-	__webpack_require__(37);
+	__webpack_require__(38);
 
 	var home = __webpack_require__(8);
 
-	document.write(home +' , home');
+	document.write(home + ' , home');
 
 /***/ },
 
@@ -327,17 +329,19 @@ define(function() { return webpackJsonp([3],{
 /***/ 8:
 /***/ function(module, exports) {
 
+	'use strict';
+
 	module.exports = 'home';
 
 /***/ },
 
-/***/ 37:
+/***/ 38:
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(38);
+	var content = __webpack_require__(39);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(4)(content, {});
@@ -358,7 +362,7 @@ define(function() { return webpackJsonp([3],{
 
 /***/ },
 
-/***/ 38:
+/***/ 39:
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(3)();

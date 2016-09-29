@@ -2,25 +2,24 @@ define(function() { return webpackJsonp([2],[
 /* 0 */
 /***/ function(module, exports, __webpack_require__) {
 
+	'use strict';
+
 	var home = __webpack_require__(8);
 	var work = __webpack_require__(9);
 	var dealView = __webpack_require__(10);
 	var menu = __webpack_require__(11);
 
-
 	var $ = __webpack_require__(7);
 	var utility = __webpack_require__(14);
 
+	__webpack_require__(36);
 
-	__webpack_require__(35);
-
-	var main = function(){
+	var main = function main() {
 	    var controller = {
 
 	        element: '#memebox-service',
 
-
-	        initialize: function(){
+	        initialize: function initialize() {
 
 	            //utility.uiEnhancements.call(this);
 
@@ -29,7 +28,7 @@ define(function() { return webpackJsonp([2],[
 	            //document.write(home + ',' + work + ', ' + dealView + '!!()');
 	        },
 
-	        makeMenu: function(wrap){
+	        makeMenu: function makeMenu(wrap) {
 	            console.log('component-data = component-dat,$wrap.data');
 	            new menu();
 	        }
@@ -38,8 +37,6 @@ define(function() { return webpackJsonp([2],[
 	};
 
 	module.exports = main;
-
-
 
 /***/ },
 /* 1 */,
@@ -358,11 +355,15 @@ define(function() { return webpackJsonp([2],[
 /* 8 */
 /***/ function(module, exports) {
 
+	'use strict';
+
 	module.exports = 'home';
 
 /***/ },
 /* 9 */
 /***/ function(module, exports) {
+
+	'use strict';
 
 	/**
 	 * Created by 160727-b on 2016. 9. 26..
@@ -373,6 +374,8 @@ define(function() { return webpackJsonp([2],[
 /* 10 */
 /***/ function(module, exports) {
 
+	'use strict';
+
 	/**
 	 * Created by 160727-b on 2016. 9. 27..
 	 */
@@ -381,6 +384,8 @@ define(function() { return webpackJsonp([2],[
 /***/ },
 /* 11 */
 /***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
 
 	/**
 	 * Created by 160727-b on 2016. 9. 28..
@@ -391,40 +396,39 @@ define(function() { return webpackJsonp([2],[
 
 	var templates = {
 	    menu: __webpack_require__(15)
-	}
+	};
 
-	var menu = function(){
+	var menu = function menu() {
 	    var component = {
 
 	        element: '.memebox-menu-wrap',
 	        ui: {
-	            memeboxMenuWrap : '.memebox-menu-wrap'
+	            memeboxMenuWrap: '.memebox-menu-wrap'
 	        },
 
-	        initialize: function(){
+	        initialize: function initialize() {
 	            console.log('menu require!!!');
 
 	            utility.uiEnhancements.call(this);
 
-	            this.makeList()
+	            this.makeList();
 	        },
 
-	        makeList: function(){
+	        makeList: function makeList() {
 	            var menuData = this.element.data('component-data');
-	            console.log(' menuData = ',menuData)
-	            var addData = menuData.push(
-	                {
-	                    "url" : "/order",
-	                    "text" : "order"
-	                });
+
+	            var addData = menuData.push({
+	                "url": "/order",
+	                "text": "order"
+	            });
 	            var component = {
-	                "component":{
-	                    "menu" : menuData
+	                "component": {
+	                    "menu": menuData
 	                }
 	            };
-	            console.log('component = ',component)
+	            console.log('component = ', component);
 	            var html = templates.menu(component);
-	            this.element.append(html);
+	            this.element.html(html);
 	        }
 	    };
 	    component.initialize();
@@ -491,7 +495,7 @@ define(function() { return webpackJsonp([2],[
 	    var stack1, alias1=depth0 != null ? depth0 : {};
 
 	  return "<div class=\"memebox-menu-wrap\"\n     data-component=\"menu\"\n     data-component-data='"
-	    + ((stack1 = (helpers.json || (depth0 && depth0.json) || helpers.helperMissing).call(alias1,((stack1 = (depth0 != null ? depth0.component : depth0)) != null ? stack1.menu : stack1),{"name":"json","hash":{},"data":data})) != null ? stack1 : "")
+	    + container.escapeExpression(__default(__webpack_require__(35)).call(alias1,((stack1 = (depth0 != null ? depth0.component : depth0)) != null ? stack1.menu : stack1),{"name":"json","hash":{},"data":data}))
 	    + "'>\n    <ul class=\"memebox-menu\">\n"
 	    + ((stack1 = helpers.each.call(alias1,((stack1 = (depth0 != null ? depth0.component : depth0)) != null ? stack1.menu : stack1),{"name":"each","hash":{},"fn":container.program(1, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
 	    + "    </ul>\n</div>";
@@ -1673,13 +1677,14 @@ define(function() { return webpackJsonp([2],[
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
 /***/ },
-/* 35 */
+/* 35 */,
+/* 36 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(36);
+	var content = __webpack_require__(37);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(4)(content, {});
@@ -1699,7 +1704,7 @@ define(function() { return webpackJsonp([2],[
 	}
 
 /***/ },
-/* 36 */
+/* 37 */
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(3)();

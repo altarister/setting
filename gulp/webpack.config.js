@@ -115,8 +115,16 @@ module.exports = function (envString, deviceString) {
         module: {
             loaders: [
                 {
+                    test: /\.js(x?)$/,
+                    loader: 'babel-loader',
+                    exclude: /(node_modules|bower_components)/,
+                    query: {
+                        presets: ['es2015', 'stage-0', 'react']
+                    }
+                },
+                {
                     test: /\.hbs$/,
-                    loader: 'handlebars-loader?helperDirs[]=' + path.resolve(PUBLIC_DIR, './app/js/common/handlebars-helpers')
+                    loader: 'handlebars-loader?helperDirs[]=' + path.resolve(PUBLIC_DIR, './app/common/handlebars-helpers')
                 },
                 {
                     test: /\.css$/,
