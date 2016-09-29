@@ -1,11 +1,15 @@
-{{#extend "memebox-content"}}
+{{#extend "memebox-header"}}
     {{> menu_v_1_0_0/_menu}}
-    {{> dealView/dealView}}
+{{/extend}}
+
+{{#extend "memebox-content"}}
+    {{!> menu_v_1_0_0/_menu}}
+    memebox-content
 {{/extend}}
 
 {{#extend "scripts"}}
     <script>
-        document.write('madfdfin');
+        document.write('script test');
     </script>
 {{/extend}}
 

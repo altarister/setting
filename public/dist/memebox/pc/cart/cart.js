@@ -11,7 +11,7 @@ define(function() { return webpackJsonp([0],[
 
 	var dealView = __webpack_require__(5);
 
-	document.write(dealView + 'cart');
+	//document.write(dealView + 'cart');
 
 /***/ },
 /* 1 */

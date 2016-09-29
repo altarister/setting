@@ -12,7 +12,7 @@ define(function() { return webpackJsonp([3],{
 
 	var home = __webpack_require__(8);
 
-	document.write(home + ' , home');
+	//document.write(home +' , home');
 
 /***/ },
 

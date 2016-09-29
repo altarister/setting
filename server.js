@@ -4,9 +4,7 @@ var fs = require('fs');
 var express = require('express');
 var hbs = require('hbs');
 var app = express();
-var ajax = require('./controllers/routes/ajax');
-
-console.log('__dirname = ',__dirname)
+var ajax = require('./server/routes/ajax');
 
 //hbs.register/////////////////////////
 var blocks = {};
@@ -38,11 +36,11 @@ hbs.registerHelper('json', function(context) {
 });
 
 //data.register/////////////////////////
-
-var dealData = require('./controllers/json/deal.json');
-var menuData = require('./controllers/json/menu.json');
-var dealView_menuData = require('./controllers/json/dealView_menu.json');
-var dealView_APIData = require('./controllers/json/dealView_API.json');
+var configData = require('./server/json/config.json');
+var dealData = require('./server/json/deal.json');
+var menuData = require('./server/json/menu.json');
+var dealView_menuData = require('./server/json/dealView_menu.json');
+var dealView_APIData = require('./server/json/dealView_API.json');
 
 function dealview_API(){
     return dealView_APIData.data = dealData;
@@ -58,35 +56,41 @@ app.use(express.static(__dirname +'/views'));
 
 
 //main page/////////////////////////
-var main_data = {
-    "title": "main",
-    "dealViewData":dealView_menuData,
-    "dealview_API": dealview_API(),
-    "controller": "memebox/pc/main/main",
+var data = {
+    "config" : configData,
     "component":{
         "menu" : menuData
     }
 };
 app.get('/', function(req, res) {
-    res.render('memebox/pc/main/main',main_data);
+    data.config.controller = 'memebox/pc/main/main';
+    data.config.title = 'main';
+    data.config.info.device = 'pc';
+    data.config.info.service = 'memebox';
+    data.dealViewData = dealView_menuData;
+    data.dealview_API = dealview_API();
+
+    res.render('memebox/pc/main/main',data);
 });
 
 //cart page/////////////////////////
-var cart_data = {
-    "title": "cart",
-    "controller": "memebox/pc/cart/cart"
-};
 app.get('/cart', function(req, res) {
-    res.render('memebox/pc/cart/cart',cart_data);
+    data.config.controller = 'memebox/pc/cart/cart';
+    data.config.title = 'cart';
+    data.config.info.device = 'pc';
+    data.config.info.service = 'memebox';
+
+    res.render('memebox/pc/cart/cart',data);
 });
 
 //order page/////////////////////////
-var order_data = {
-    "title": "order",
-    "controller": "memebox/pc/order/order"
-};
 app.get('/order', function(req, res) {
-    res.render('memebox/pc/order/order',order_data);
+    data.config.controller = 'memebox/pc/order/order';
+    data.config.title = 'order';
+    data.config.info.device = 'pc';
+    data.config.info.service = 'memebox';
+
+    res.render('memebox/pc/order/order',data);
 });
 
 app.listen(5000);

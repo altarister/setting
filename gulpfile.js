@@ -7,8 +7,10 @@ var gutil = require('gulp-util');
 var browserSync_front = require('browser-sync').create('front');
 var nodemon = require('gulp-nodemon')
 var del = require('del');
+var webpackConfig = require('./gulp/webpack.config');
+var webpackBuild = require('./gulp/webpack.build');
 
-// config
+// config/////////////////////////
 var BASE_DIR = './';
 var APP_DIR_RESOURCES = BASE_DIR + 'public/';
 var APP_DIR_APP = APP_DIR_RESOURCES + 'app/';
@@ -31,6 +33,7 @@ var files = {
     server : SERVER_DIR + '**/*.*'
 };
 
+// task/////////////////////////
 gulp.task('nodemon', function (cb) {
     var started = false;
 
@@ -46,9 +49,6 @@ gulp.task('nodemon', function (cb) {
     });
 });
 
-// webpack config
-var webpackConfig = require('./gulp/webpack.config');
-var webpackBuild = require('./gulp/webpack.build');
 gulp.task('local_build_pc', webpackBuild(webpackConfig('production', 'pc')));
 
 gulp.task('front-browser-sync', ['local_build_pc'], function() {

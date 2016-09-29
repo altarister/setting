@@ -10,17 +10,17 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>{{title}}</title>
     {{> elements/css}}
-
 </head>
 
 <body id="memebox-service"
-      class=""
       {{> elements/config}}>
 
     {{> header}}
+    {{{block "memebox-header"}}}
 
     {{{block "memebox-content"}}}
 
+    {{{block "memebox-footer"}}}
     {{> footer}}
 
     {{> elements/scripts}}

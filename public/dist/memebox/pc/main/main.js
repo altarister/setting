@@ -20,16 +20,11 @@ define(function() { return webpackJsonp([2],[
 	        element: '#memebox-service',
 
 	        initialize: function initialize() {
-
-	            //utility.uiEnhancements.call(this);
-
 	            this.makeMenu();
 	            console.log(home + ',' + work + ', ' + dealView + '!!');
-	            //document.write(home + ',' + work + ', ' + dealView + '!!()');
 	        },
 
-	        makeMenu: function makeMenu(wrap) {
-	            console.log('component-data = component-dat,$wrap.data');
+	        makeMenu: function makeMenu() {
 	            new menu();
 	        }
 	    };

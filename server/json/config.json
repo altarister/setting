@@ -1,0 +1,14 @@
+{
+	"controller": "",
+	"info" : {
+		"device" : "",
+		"service" : ""
+	},
+	"domain" : {
+		"current" : "http://localhost:5000/",
+		"cdnImage" : "http://cdn.memebox.com/"
+	},
+	"message" : {
+		"error" : ""
+	}
+}

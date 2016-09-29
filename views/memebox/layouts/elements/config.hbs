@@ -1,8 +1,5 @@
-data-device="{{!_device}}"
-data-controller="{{controller}}"
-data-controller-data='{
-"cdnStaticImage": "{{!cdnStaticImage ''}}",
-"myCoupangDomain": "{{!default myCoupangDomain 'http://my.coupang.com/'}}",
-"orderWebDomain" : "{{!default orderWebDomain 'http://order.coupang.com'}}"
-}'
-data-controller-error-message="{{!default controllerErrorMessage}}"
+class="{{config.info.service}}"
+data-controller="{{config.controller}}"
+data-controller-info='{{json config.info}}'
+data-controller-domain='{{json config.domain}}'
+data-controller-message='{{json config.message}}'
