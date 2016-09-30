@@ -1,10 +1,28 @@
-/**
- * Created by 160727-b on 2016. 9. 26..
- */
+var home = require('homework/v.1.0.0/home.jsx');
+var work = require('homework/v.1.0.0/work.jsx');
+var dealView = require('dealView/v.1.0.0/dealView.jsx');
+var Menu = require('menu/v.1.0.0/_menu.jsx');
+
+var $ = require('jquery');
+var utility = require('utility');
+
 require('./main.css');
 
-var home = require('../../../../components/homework/home');
-var work = require('../../../../components/homework/work');
-var dealView = require('../../../../components/dealView_v_1_0_1/dealView');
+var main = function(){
+    var controller = {
 
-document.write(home + ',' + work + ', ' + dealView + '!!((((!!))))');
+        element: '#memebox-service',
+
+        initialize: function(){
+            this.makeMenu();
+            console.log(home + ',' + work + ', ' + dealView + '!!');
+        },
+
+        makeMenu: function(){
+            new Menu();
+        }
+    };
+    controller.initialize();
+};
+
+module.exports = main;

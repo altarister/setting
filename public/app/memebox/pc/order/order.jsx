@@ -3,6 +3,6 @@
  */
 require('./order.css');
 
-var home = require('../../../components/homework_v_1_0_0/home.jsx');
+var home = require('components/homework/v.1.0.0/home.jsx');
 
 //document.write(home +' , home');

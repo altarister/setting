@@ -5,14 +5,15 @@ var express = require('express');
 var hbs = require('hbs');
 var app = express();
 var ajax = require('./server/routes/ajax');
+var service = 'memebox'
 
 //hbs.register/////////////////////////
 var blocks = {};
 
-hbs.registerPartials(__dirname + '/views/memebox/layouts');
-hbs.registerPartials(__dirname + '/views/memebox/pc');
+hbs.registerPartials(__dirname + '/views/'+service+'/layouts');
+hbs.registerPartials(__dirname + '/views/'+service+'/pc');
 hbs.registerPartials(__dirname + '/views/common/');
-hbs.registerPartials(__dirname + '/public/app/components');
+hbs.registerPartials(__dirname + '/package/components/');
 
 hbs.registerHelper('extend', function(name, context) {
     var block = blocks[name];
@@ -46,6 +47,13 @@ function dealview_API(){
     return dealView_APIData.data = dealData;
 };
 
+var data = {
+    "config" : configData,
+    "component":{
+        "menu" : menuData
+    }
+};
+
 //express.register/////////////////////////
 app.engine('html', require('hbs').__express);
 app.set('views', 'views');
@@ -54,14 +62,19 @@ app.use('/dealAPI', ajax);
 app.use(express.static(__dirname +'/public'));
 app.use(express.static(__dirname +'/views'));
 
+//deal page/////////////////////////
+app.get('/deal', function(req, res) {
+    data.config.controller = 'memebox/pc/deal/deal';
+    data.config.title = 'deal';
+    data.config.info.device = 'pc';
+    data.config.info.service = 'memebox';
+    data.dealViewData = dealView_menuData;
+    data.dealview_API = dealview_API();
+
+    res.render('memebox/pc/deal/deal',data);
+});
 
 //main page/////////////////////////
-var data = {
-    "config" : configData,
-    "component":{
-        "menu" : menuData
-    }
-};
 app.get('/', function(req, res) {
     data.config.controller = 'memebox/pc/main/main';
     data.config.title = 'main';

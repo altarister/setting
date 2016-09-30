@@ -1,7 +1,7 @@
-var home = require('../../../components/homework_v_1_0_0/home.jsx');
-var work = require('../../../components/homework_v_1_0_0/work.jsx');
-var dealView = require('../../../components/dealView_v_1_0_1/dealView.jsx');
-var menu = require('../../../components/menu_v_1_0_0/_menu.jsx');
+var home = require('components/homework/v.1.0.0/home.jsx');
+var work = require('components/homework/v.1.0.0/work.jsx');
+var dealView = require('components/dealView/v.1.0.0/dealView.jsx');
+var Menu = require('components/menu/v.1.0.0/_menu.jsx');
 
 var $ = require('jquery');
 var utility = require('utility');
@@ -19,11 +19,10 @@ var main = function(){
         },
 
         makeMenu: function(){
-            new menu();
+            new Menu();
         }
     };
     controller.initialize();
 };
 
 module.exports = main;
-

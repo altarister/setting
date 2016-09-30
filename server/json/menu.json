@@ -6,5 +6,9 @@
 	{
 		"url" : "/cart",
 		"text" : "cart"
+	},
+	{
+		"url" : "/deal",
+		"text" : "deal"
 	}
 ]

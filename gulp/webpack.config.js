@@ -3,6 +3,7 @@ var glob = require("glob");//특정 패턴으로 파일을 찾은 후 배열 형
 var objectAssign = require('object-assign');
 var ROOT_DIR = process.cwd();
 var PUBLIC_DIR = path.resolve(process.cwd(), 'public');//path.resolve([from ...], to) to를 절대경로로 변환한다.
+var COMPONENTS_DIR = path.resolve(process.cwd(), 'components');
 var APP_DIR = path.resolve(process.cwd(), 'public/app');
 var requirejsConfig = require(path.resolve(PUBLIC_DIR, 'vendor/requirejs-config.js'));
 var webpack = require('webpack');
@@ -120,7 +121,7 @@ module.exports = function (envString, deviceString) {
         },
         externals: Object.keys(requirejsConfig.REQUIRE_JS_PATHS_CDN),
         resolve: {
-            root: [ROOT_DIR, PUBLIC_DIR],
+            root: [ROOT_DIR, PUBLIC_DIR, path.resolve('./package')],
             extensions: ['', '.js', '.jsx'],
             modulesDirectories: ['node_modules'],
             alias: COMMON_CHUNK
