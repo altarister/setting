@@ -20,13 +20,13 @@
          data-controller = 'homeWork/controller'>
         <h1 class="dealview-title">상품 목록</h1>
         <ul id="dealview-ul"
-            class="dealview-gellery mustGetRequestData"
+            class="dealview-list mustGetRequestData"
             data-request='{{{json dealview_API}}}'>
-            <li class="dealview-li">
-                <div class="deal-loading">
-                    상품을 준비 중입니다.
-                </div>
-            </li>
+            {{#each dealview_API}}
+                <li class="dealview-li">
+                    {{> modules/deal/v.1.0.0/_deal}}
+                </li>
+            {{/each}}
         </ul>
     </div>
 </div>

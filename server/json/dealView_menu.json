@@ -1,14 +1,14 @@
 [
 	{
-		"titel" : "gellery",
-		"viewType" : "gellery",
-		"layerType" : "modal",
-		"selected" : "selected"
-	},
-	{
 		"titel" : "list",
 		"viewType" : "list",
 		"layerType" : "modeless",
+		"selected" : "selected"
+	},
+	{
+		"titel" : "gellery",
+		"viewType" : "gellery",
+		"layerType" : "modal",
 		"selected" : ""
 	},
 	{

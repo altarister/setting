@@ -1,6 +1,6 @@
-var home = require('components/homework/v.1.0.0/home.jsx');
-var work = require('components/homework/v.1.0.0/work.jsx');
-var dealView = require('components/dealView/v.1.0.0/dealView.jsx');
+var home = require('components/homework/v.1.0.0/_home.jsx');
+var work = require('components/homework/v.1.0.0/_work.jsx');
+var dealView = require('components/dealView/v.1.0.0/_dealView.jsx');
 var Menu = require('components/menu/v.1.0.0/_menu.jsx');
 
 var $ = require('jquery');

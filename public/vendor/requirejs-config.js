@@ -1,14 +1,15 @@
 var PROVIDER = {
     "cdn": function(url){
         return [
-            //((typeof window == 'object' && window.VALVE_BASEURL) ? window.VALVE_BASEURL : "//assets.coupangcdn.com/cdnjs") + url,
+            //((typeof window == 'object' && window.VALVE_BASEURL) ? window.VALVE_BASEURL : "//s2cdn.memebox.com//cdnjs") + url,
             "vendor" + url
         ]
     },
     "pc"    : "app/memebox/pc",
-    //"mobile": "app/js/controllers/payment/rocketpay/mobile",
+    "mobile": "app/memebox/mobile",
     "common": "app/common",
     "vendor": "vendor"
+    //,"helper" : "package/helper"
 };
 
 var REQUIRE_JS_PATHS = {};
@@ -16,7 +17,7 @@ var REQUIRE_JS_PATHS = {};
 // directory
 var REQUIRE_JS_PATHS_DIRECTORY = {
     "path_common": PROVIDER.common.replace("app/", "dist/"),
-    //"path_mobile": PROVIDER.mobile.replace("app/js/", "app/js-dist/"),
+    "path_mobile": PROVIDER.mobile.replace("app/", "dist/"),
     "path_pc"    : PROVIDER.pc    .replace("app/", "dist/")
 };
 

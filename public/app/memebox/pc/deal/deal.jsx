@@ -1,4 +1,4 @@
-var dealView = require('components/dealView/v.1.0.1/dealView.jsx');
+var dealView = require('components/dealView/v.1.0.1/_dealView.jsx');
 require('./deal.css');
 
 var deal = function(){
@@ -7,13 +7,13 @@ var deal = function(){
         element: '#memebox-service',
 
         initialize: function(){
-            console.log(DealView + '!!');
+            console.log(dealView + '!!');
             this.displayDealView();
         },
 
         displayDealView: function(){
             console.log('DealView');
-            new DealView();
+            new dealView();
         }
     };
     controller.initialize();

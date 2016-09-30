@@ -3,7 +3,8 @@ var glob = require("glob");//특정 패턴으로 파일을 찾은 후 배열 형
 var objectAssign = require('object-assign');
 var ROOT_DIR = process.cwd();
 var PUBLIC_DIR = path.resolve(process.cwd(), 'public');//path.resolve([from ...], to) to를 절대경로로 변환한다.
-var COMPONENTS_DIR = path.resolve(process.cwd(), 'components');
+var PACKAGE_DIR = path.resolve(process.cwd(), 'package');
+var HELPER_DIR = path.resolve(process.cwd(), 'package/helper');
 var APP_DIR = path.resolve(process.cwd(), 'public/app');
 var requirejsConfig = require(path.resolve(PUBLIC_DIR, 'vendor/requirejs-config.js'));
 var webpack = require('webpack');
@@ -43,16 +44,15 @@ var DEFAULT_COMMON_CHUNK = {
 };
 
 var PC_COMMON_CHUNK = {
-
+    //"pcCommon": requirejsConfig.PROVIDER.pc + "/common/_common"
 };
 
 var MOBILE_COMMON_CHUNK = {
-
+    //"mobileCommon": requirejsConfig.PROVIDER.mobile + "/common/_common"
 };
 
-module.exports = function (envString, deviceString) {
-    console.log('envString = ',envString);
-    console.log('deviceString = ',deviceString);
+module.exports = function (serviceString, envString, deviceString) {
+
     var environment = {
         develop: envString === 'develop',
         production: envString === 'production',
@@ -79,13 +79,14 @@ module.exports = function (envString, deviceString) {
         entry: objectAssign(
             {common: (function(){
                 var HELPER_CHUNK = [
-                    requirejsConfig.PROVIDER.common + '/handlebars-helpers/json'
+                    HELPER_DIR + '/json',
+                    HELPER_DIR + '/formatNumber'
                 ];
 
                 for(var key in COMMON_CHUNK){
                     HELPER_CHUNK.push(COMMON_CHUNK[key]);
                 }
-                console.log('HELPER_CHUNK = ',HELPER_CHUNK)
+
                 return HELPER_CHUNK;
             })()},
             ENTRY_POINTS
@@ -115,7 +116,7 @@ module.exports = function (envString, deviceString) {
                 },
                 {
                     test: /\.css$/,
-                    loader: 'style!css'
+                    loader: ExtractTextPlugin.extract('style-loader', 'css-loader?modules&importLoaders=1&localIdentName=[local]!postcss-loader')
                 }
             ]
         },
@@ -137,7 +138,7 @@ module.exports = function (envString, deviceString) {
                         minChunks: Infinity
                     }),
                     new ExtractTextPlugin(
-                        'app/scss-dist-' + (device.isMobile ? 'mobile' : 'pc') + '/[name].css',
+                        '[name].css',
                         { allChunks: true }
                     )
                 ];

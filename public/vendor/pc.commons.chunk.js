@@ -1,4 +1,4 @@
-define(["jquery"], function(__WEBPACK_EXTERNAL_MODULE_7__) { return /******/ (function(modules) { // webpackBootstrap
+define(["jquery"], function(__WEBPACK_EXTERNAL_MODULE_5__) { return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// install a JSONP callback for chunk loading
 /******/ 	var parentJsonpFunction = window["webpackJsonp"];
 /******/ 	window["webpackJsonp"] = function webpackJsonpCallback(chunkIds, moreModules) {
@@ -99,26 +99,27 @@ define(["jquery"], function(__WEBPACK_EXTERNAL_MODULE_7__) { return /******/ (fu
 /***/ 0:
 /***/ function(module, exports, __webpack_require__) {
 
-	__webpack_require__(39);
-	__webpack_require__(8);
-	module.exports = __webpack_require__(44);
+	__webpack_require__(37);
+	__webpack_require__(38);
+	__webpack_require__(6);
+	module.exports = __webpack_require__(39);
 
 
 /***/ },
 
-/***/ 7:
+/***/ 5:
 /***/ function(module, exports) {
 
-	module.exports = __WEBPACK_EXTERNAL_MODULE_7__;
+	module.exports = __WEBPACK_EXTERNAL_MODULE_5__;
 
 /***/ },
 
-/***/ 8:
+/***/ 6:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var $ = __webpack_require__(7);
+	var $ = __webpack_require__(5);
 
 	var utility = {
 	    // element의 data를 json 형식으로 리턴한다.
@@ -309,7 +310,7 @@ define(["jquery"], function(__WEBPACK_EXTERNAL_MODULE_7__) { return /******/ (fu
 
 /***/ },
 
-/***/ 39:
+/***/ 37:
 /***/ function(module, exports) {
 
 	"use strict";
@@ -320,7 +321,21 @@ define(["jquery"], function(__WEBPACK_EXTERNAL_MODULE_7__) { return /******/ (fu
 
 /***/ },
 
-/***/ 44:
+/***/ 38:
+/***/ function(module, exports) {
+
+	'use strict';
+
+	module.exports = function (value) {
+	    if (!value) {
+	        return '0';
+	    }
+	    return String(value).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+	};
+
+/***/ },
+
+/***/ 39:
 /***/ function(module, exports) {
 
 	'use strict';

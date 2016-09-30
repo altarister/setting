@@ -33,6 +33,7 @@
     "handlebars-loader": "^1.1.4",
     "hbs": "2.6.0",
     "object-assign": "^4.1.0",
+    "postcss-loader": "^0.13.0",
     "requirejs": "^2.3.2",
     "style-loader": "^0.13.1",
     "webpack": "^1.13.2"

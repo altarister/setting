@@ -5,15 +5,18 @@ var express = require('express');
 var hbs = require('hbs');
 var app = express();
 var ajax = require('./server/routes/ajax');
-var service = 'memebox'
+var service = 'memebox';
 
 //hbs.register/////////////////////////
+
+
+
 var blocks = {};
 
 hbs.registerPartials(__dirname + '/views/'+service+'/layouts');
 hbs.registerPartials(__dirname + '/views/'+service+'/pc');
 hbs.registerPartials(__dirname + '/views/common/');
-hbs.registerPartials(__dirname + '/package/components/');
+hbs.registerPartials(__dirname + '/package');
 
 hbs.registerHelper('extend', function(name, context) {
     var block = blocks[name];
@@ -32,8 +35,14 @@ hbs.registerHelper('block', function(name) {
     return val;
 });
 
+var helper = require('./package/helper/json');
 hbs.registerHelper('json', function(context) {
-    return JSON.stringify(context);
+    return helper(context);
+});
+
+var formatNumber = require('./package/helper/formatNumber');
+hbs.registerHelper('formatNumber', function(context) {
+    return formatNumber(context);
 });
 
 //data.register/////////////////////////

@@ -1,23 +1,20 @@
 /**
- * Created by 160727-b on 2016. 9. 27..
+ * Created by 160727-b on 2016. 9. 30..
  */
 var $ = require('jquery');
 var utility = require('utility');
-require('./dealView.css');
+require('./_deal.css');
 
 
-var dealView = function(){
+var deal = function(){
     var controller = {
 
         element: '#memebox-service',
 
         initialize: function(){
-            this.dealView();
-        },
 
-        dealView: function(){
         }
     };
     controller.initialize();
 };
-module.exports = dealView;
+module.exports = deal;

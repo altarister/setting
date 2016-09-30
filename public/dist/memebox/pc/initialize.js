@@ -1,12 +1,12 @@
-define(["modernizr"], function(__WEBPACK_EXTERNAL_MODULE_13__) { return webpackJsonp([2],{
+define(["modernizr"], function(__WEBPACK_EXTERNAL_MODULE_10__) { return webpackJsonp([2],{
 
 /***/ 0:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	__webpack_require__(13);
-	var $ = __webpack_require__(7);
+	__webpack_require__(10);
+	var $ = __webpack_require__(5);
 	//var Common = require('pcCommon');
 
 	var memeboxWrapSelector = '#memebox-service';
@@ -67,10 +67,10 @@ define(["modernizr"], function(__WEBPACK_EXTERNAL_MODULE_13__) { return webpackJ
 
 /***/ },
 
-/***/ 13:
+/***/ 10:
 /***/ function(module, exports) {
 
-	module.exports = __WEBPACK_EXTERNAL_MODULE_13__;
+	module.exports = __WEBPACK_EXTERNAL_MODULE_10__;
 
 /***/ }
 

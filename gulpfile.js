@@ -49,7 +49,7 @@ gulp.task('nodemon', function (cb) {
     });
 });
 
-gulp.task('local_build_pc', webpackBuild(webpackConfig('production', 'pc')));
+gulp.task('local_build_pc', webpackBuild(webpackConfig('memebox', 'production', 'pc')));
 
 gulp.task('front-browser-sync', ['local_build_pc'], function() {
     browserSync_front.init({
@@ -59,7 +59,7 @@ gulp.task('front-browser-sync', ['local_build_pc'], function() {
     });
 
     gulp.watch(files.view).on("change", browserSync_front.reload);
-    gulp.watch(files.public).on("change", webpackBuild(webpackConfig('production', 'pc')));
+    gulp.watch(files.public).on("change", webpackBuild(webpackConfig('memebox', 'production', 'pc')));
     gulp.watch(files.public).on("change", browserSync_front.reload);
 });
 

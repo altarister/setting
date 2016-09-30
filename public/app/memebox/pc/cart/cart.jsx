@@ -3,6 +3,6 @@
  */
 require('./cart.css');
 
-var dealView = require('components/dealView/v.1.0.0/dealView.jsx');
+var dealView = require('components/dealView/v.1.0.0/_dealView.jsx');
 
 //document.write(dealView + 'cart');
