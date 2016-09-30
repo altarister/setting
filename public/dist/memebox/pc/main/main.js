@@ -12,7 +12,7 @@ define(function() { return webpackJsonp([3],[
 	var $ = __webpack_require__(5);
 	var utility = __webpack_require__(6);
 
-	__webpack_require__(35);
+	__webpack_require__(36);
 
 	var main = function main() {
 	    var controller = {
@@ -151,7 +151,7 @@ define(function() { return webpackJsonp([3],[
 	    var stack1, alias1=depth0 != null ? depth0 : {};
 
 	  return "<div class=\"memebox-menu-wrap\"\n     data-component=\"menu\"\n     data-component-data='"
-	    + container.escapeExpression((helpers.json || (depth0 && depth0.json) || helpers.helperMissing).call(alias1,((stack1 = (depth0 != null ? depth0.component : depth0)) != null ? stack1.menu : stack1),{"name":"json","hash":{},"data":data}))
+	    + container.escapeExpression(__default(__webpack_require__(35)).call(alias1,((stack1 = (depth0 != null ? depth0.component : depth0)) != null ? stack1.menu : stack1),{"name":"json","hash":{},"data":data}))
 	    + "'>\n    <ul class=\"memebox-menu\">\n"
 	    + ((stack1 = helpers.each.call(alias1,((stack1 = (depth0 != null ? depth0.component : depth0)) != null ? stack1.menu : stack1),{"name":"each","hash":{},"fn":container.program(1, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
 	    + "    </ul>\n</div>";
@@ -1333,7 +1333,8 @@ define(function() { return webpackJsonp([3],[
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
 /***/ },
-/* 35 */
+/* 35 */,
+/* 36 */
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin

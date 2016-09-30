@@ -35,12 +35,12 @@ hbs.registerHelper('block', function(name) {
     return val;
 });
 
-var helper = require('./package/helper/json');
+var helper = require('./public/app/common/handlebars-helpers/json');
 hbs.registerHelper('json', function(context) {
     return helper(context);
 });
 
-var formatNumber = require('./package/helper/formatNumber');
+var formatNumber = require('./public/app/common/handlebars-helpers/formatNumber');
 hbs.registerHelper('formatNumber', function(context) {
     return formatNumber(context);
 });

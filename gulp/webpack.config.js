@@ -79,13 +79,16 @@ module.exports = function (serviceString, envString, deviceString) {
         entry: objectAssign(
             {common: (function(){
                 var HELPER_CHUNK = [
-                    HELPER_DIR + '/json',
-                    HELPER_DIR + '/formatNumber'
+                    requirejsConfig.PROVIDER.common + '/handlebars-helpers/json',
+                    requirejsConfig.PROVIDER.common + '/handlebars-helpers/formatNumber'
+                    //requirejsConfig.PROVIDER.helper + '/json'
+                    //HELPER_DIR + '/json'
                 ];
 
                 for(var key in COMMON_CHUNK){
                     HELPER_CHUNK.push(COMMON_CHUNK[key]);
                 }
+                console.log('HELPER_CHUNK = ',HELPER_CHUNK)
 
                 return HELPER_CHUNK;
             })()},

@@ -5,6 +5,7 @@ require('./_menu.css');
 var $ = require('jquery');
 var utility = require('utility');
 
+
 var templates = {
     menu: require('./_menu.hbs')
 }
