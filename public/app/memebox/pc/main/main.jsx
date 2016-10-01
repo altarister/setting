@@ -6,7 +6,7 @@ var Menu = require('components/menu/v.1.0.0/_menu.jsx');
 var $ = require('jquery');
 var utility = require('utility');
 
-require('./main.css');
+require('./main.scss');
 
 var main = function(){
     var controller = {

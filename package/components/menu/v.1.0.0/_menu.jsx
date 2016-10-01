@@ -1,10 +1,9 @@
 /**
  * Created by 160727-b on 2016. 9. 28..
  */
-require('./_menu.css');
+require('./_menu.scss');
 var $ = require('jquery');
 var utility = require('utility');
-
 
 var templates = {
     menu: require('./_menu.hbs')

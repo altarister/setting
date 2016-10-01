@@ -1,5 +1,5 @@
 var dealView = require('components/dealView/v.1.0.1/_dealView.jsx');
-require('./deal.css');
+require('./deal.scss');
 
 var deal = function(){
     var controller = {

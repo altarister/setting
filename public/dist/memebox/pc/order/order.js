@@ -8,15 +8,15 @@ define(function() { return webpackJsonp([4],{
 	/**
 	 * Created by 160727-b on 2016. 9. 27..
 	 */
-	__webpack_require__(37);
+	__webpack_require__(39);
 
-	var home = __webpack_require__(11);
+	var home = __webpack_require__(13);
 
 	//document.write(home +' , home');
 
 /***/ },
 
-/***/ 11:
+/***/ 13:
 /***/ function(module, exports) {
 
 	'use strict';
@@ -25,7 +25,7 @@ define(function() { return webpackJsonp([4],{
 
 /***/ },
 
-/***/ 37:
+/***/ 39:
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin

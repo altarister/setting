@@ -1,0 +1,108 @@
+.dealview-gellery {
+    .deal-item {
+        position: relative;
+        overflow: hidden;
+        margin: 0 10px 10px 0;
+        border: 1px solid #aaa;
+    }
+    .deal-title {
+        position: absolute;
+        top: 0;
+        left: 0;
+        margin: 5px;
+        padding: 5px;
+        line-height: 11px;
+        opacity: 0.8;
+        background-color: #000;
+        color: #fff;
+    }
+    .deal-title-main {
+        display: block;
+        font-size: 13px;
+        line-height: 13px;
+        letter-spacing: -2px;
+    }
+    .deal-title-sub {
+        padding-top: 5px;
+        display: block;
+        font-style: normal;
+        font-size: 11px;
+    }
+    .dell-price {
+        display: none;
+    }
+    .dell-link {
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: block;
+        width: 100%;
+        height: 100%;
+        text-indent: -9999px;
+
+        &:hover {
+            background-color: #000;
+            opacity: 0.5;
+        }
+    }
+    .deal-img {
+        width: 100%;
+        height: 100%;
+    }
+}
+
+.dealview-list {
+    .deal-item {
+        position: relative;
+        overflow: hidden;
+        margin: 0 10px 10px 0;
+    }
+    .deal-title {
+        padding-left: 60px;
+    }
+    .deal-title-main {
+        display: block;
+        color: #333;
+    }
+    .deal-title-sub {
+        font-style: normal;
+        font-size: 11px;
+        color: #666;
+    }
+    .dell-price {
+        margin: 0;
+        padding-left: 60px;
+        font-size: 11px;
+        color: #999;
+        letter-spacing: -1px;
+    }
+    .dell-price-origin {
+        text-decoration: line-through;
+    }
+    .dell-price-discount {
+        color: blue;
+    }
+    .dell-price-result {
+        color: red;
+        font-size: 13px;
+    }
+    .dell-link {
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: block;
+        width: 100%;
+        height: 100%;
+        text-indent: -9999px;
+    }
+    .dell-link:hover {
+    }
+    .deal-img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 50px;
+        height: 50px;
+        border: 1px solid #aaa;
+    }
+}

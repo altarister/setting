@@ -5,7 +5,7 @@ define(function() { return webpackJsonp([1],[
 	'use strict';
 
 	var dealView = __webpack_require__(3);
-	__webpack_require__(9);
+	__webpack_require__(11);
 
 	var deal = function deal() {
 	    var controller = {
@@ -42,7 +42,8 @@ define(function() { return webpackJsonp([1],[
 
 	var $ = __webpack_require__(5);
 	var utility = __webpack_require__(6);
-	__webpack_require__(8);
+	__webpack_require__(9);
+	__webpack_require__(10);
 
 	var dom = utility.uiEnhancements.call({
 	    element: '.balance-historyList',
@@ -84,6 +85,7 @@ define(function() { return webpackJsonp([1],[
 	var $ = __webpack_require__(5);
 	var utility = __webpack_require__(6);
 	__webpack_require__(7);
+	__webpack_require__(8);
 
 	var deal = function deal() {
 	    var controller = {
@@ -110,10 +112,23 @@ define(function() { return webpackJsonp([1],[
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
-	module.exports = {"dealview":"dealview","dealview-selecter":"dealview-selecter","dealview-selecter-link":"dealview-selecter-link","selected":"selected","dealview-content":"dealview-content","dealview-title":"dealview-title","dealview-gellery":"dealview-gellery","dealview-li":"dealview-li","dealview-list":"dealview-list","clearfix":"clearfix"};
+	module.exports = {"dealview-list":"dealview-list"};
 
 /***/ },
 /* 9 */
+/***/ function(module, exports) {
+
+	// removed by extract-text-webpack-plugin
+	module.exports = {"dealview":"dealview","dealview-selecter":"dealview-selecter","dealview-selecter-link":"dealview-selecter-link","selected":"selected","dealview-content":"dealview-content","dealview-title":"dealview-title","dealview-gellery":"dealview-gellery","dealview-li":"dealview-li","dealview-list":"dealview-list","clearfix":"clearfix"};
+
+/***/ },
+/* 10 */
+/***/ function(module, exports) {
+
+	// removed by extract-text-webpack-plugin
+
+/***/ },
+/* 11 */
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin

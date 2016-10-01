@@ -8,6 +8,8 @@ var HELPER_DIR = path.resolve(process.cwd(), 'package/helper');
 var APP_DIR = path.resolve(process.cwd(), 'public/app');
 var requirejsConfig = require(path.resolve(PUBLIC_DIR, 'vendor/requirejs-config.js'));
 var webpack = require('webpack');
+var SpritesmithPlugin = require('webpack-spritesmith');
+
 var CommonsChunkPlugin = require("webpack/lib/optimize/CommonsChunkPlugin");
 var ExtractTextPlugin = require('extract-text-webpack-plugin'); //sass 를  최종 css로 변환
 
@@ -118,8 +120,12 @@ module.exports = function (serviceString, envString, deviceString) {
                     loader: 'handlebars-loader?helperDirs[]=' + path.resolve(PUBLIC_DIR, './app/common/handlebars-helpers')
                 },
                 {
-                    test: /\.css$/,
-                    loader: ExtractTextPlugin.extract('style-loader', 'css-loader?modules&importLoaders=1&localIdentName=[local]!postcss-loader')
+                    test: /\.png$/,
+                    loaders: ['file?name=i/[hash].[ext]']
+                },
+                {
+                    test: /\.(s?)css$/,
+                    loader: ExtractTextPlugin.extract('style-loader', ['css-loader?modules&importLoaders=1&localIdentName=[local]!postcss-loader', 'sass-loader'])
                 }
             ]
         },
@@ -135,6 +141,20 @@ module.exports = function (serviceString, envString, deviceString) {
             if (!environment.test) {
                 plugins = [
                     new webpack.NoErrorsPlugin(),
+                    new SpritesmithPlugin({
+                        src: {
+                            cwd: path.resolve(__dirname, 'src/ico'),
+                            glob: '*.png'
+                        },
+                        target: {
+                            image: path.resolve(__dirname, 'src/spritesmith-generated/sprite.png'),
+                            css: path.resolve(__dirname, 'src/spritesmith-generated/sprite.styl')
+                        },
+                        apiOptions: {
+                            cssImageRef: "~sprite.png"
+                        }
+                    }),
+
                     new CommonsChunkPlugin({
                         name: "common",
                         filename: device.isMobile ? "vendor/mobile.commons.chunk.js" : "vendor/pc.commons.chunk.js",

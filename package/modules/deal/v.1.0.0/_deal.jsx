@@ -3,8 +3,8 @@
  */
 var $ = require('jquery');
 var utility = require('utility');
+require('./_deal.scss');
 require('./_deal.css');
-
 
 var deal = function(){
     var controller = {

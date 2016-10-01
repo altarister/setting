@@ -5,8 +5,8 @@ var deal = require('modules/deal/v.1.0.0/_deal.jsx');
 
 var $ = require('jquery');
 var utility = require('utility');
+require('./_dealView.scss');
 require('./_dealView.css');
-
 
 const dom = utility.uiEnhancements.call({
     element: '.balance-historyList',
