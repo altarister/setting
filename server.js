@@ -4,13 +4,11 @@ var fs = require('fs');
 var express = require('express');
 var hbs = require('hbs');
 var app = express();
-var ajax = require('./server/routes/ajax');
+var dealAPI = require('./server/routes/dealAPI');
+var zipCodeAPI = require('./server/routes/zipCodeAPI');
 var service = 'memebox';
 
 //hbs.register/////////////////////////
-
-
-
 var blocks = {};
 
 hbs.registerPartials(__dirname + '/views/'+service+'/layouts');
@@ -51,6 +49,7 @@ var dealData = require('./server/json/deal.json');
 var menuData = require('./server/json/menu.json');
 var dealView_menuData = require('./server/json/dealView_menu.json');
 var dealView_APIData = require('./server/json/dealView_API.json');
+var zipcodeData = require('./server/json/zipcode.json');
 
 function dealview_API(){
     return dealView_APIData.data = dealData;
@@ -58,18 +57,18 @@ function dealview_API(){
 
 var data = {
     "config" : configData,
-    "component":{
-        "menu" : menuData
-    }
+    "component" : {}
 };
 
 //express.register/////////////////////////
 app.engine('html', require('hbs').__express);
 app.set('views', 'views');
 app.set('view engine', 'hbs');
-app.use('/dealAPI', ajax);
+app.use('/dealAPI', dealAPI);
+app.use('/zipCodeAPI', zipCodeAPI);
 app.use(express.static(__dirname +'/public'));
 app.use(express.static(__dirname +'/views'));
+app.use(express.static(__dirname +'/package'));
 
 //deal page/////////////////////////
 app.get('/deal', function(req, res) {
@@ -77,6 +76,7 @@ app.get('/deal', function(req, res) {
     data.config.title = 'deal';
     data.config.info.device = 'pc';
     data.config.info.service = 'memebox';
+    data.component.menu = menuData;
     data.dealViewData = dealView_menuData;
     data.dealview_API = dealview_API();
 
@@ -89,6 +89,8 @@ app.get('/', function(req, res) {
     data.config.title = 'main';
     data.config.info.device = 'pc';
     data.config.info.service = 'memebox';
+    data.component.menu = menuData;
+    data.component.zipcode = zipcodeData;
     data.dealViewData = dealView_menuData;
     data.dealview_API = dealview_API();
 
@@ -101,6 +103,7 @@ app.get('/cart', function(req, res) {
     data.config.title = 'cart';
     data.config.info.device = 'pc';
     data.config.info.service = 'memebox';
+    data.component.menu = menuData;
 
     res.render('memebox/pc/cart/cart',data);
 });
@@ -111,6 +114,7 @@ app.get('/order', function(req, res) {
     data.config.title = 'order';
     data.config.info.device = 'pc';
     data.config.info.service = 'memebox';
+    data.component.menu = menuData;
 
     res.render('memebox/pc/order/order',data);
 });

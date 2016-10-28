@@ -1,0 +1,150 @@
+.zip-code-search {
+    background-color: #fff; }
+
+.zip-code-search a {
+    cursor: auto;
+    text-decoration: none; }
+
+.zip-code-search-type-selector-ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    overflow: hidden;
+    border-top: 1px solid #999; }
+
+.zip-code-search-type-selector-road,
+.zip-code-search-type-selector-jibun {
+    float: left;
+    width: 50%; }
+
+.zip-code-search-type-selector-trigger {
+    display: block;
+    border-right: 1px solid #999;
+    text-align: center; }
+
+.zip-code-search-type-selector-trigger:first-child {
+    border-left: 1px solid #999; }
+
+.zip-code-search-type-selector-trigger.selected {
+    background-color: #999; }
+
+.zip-code-search-contents {
+    border: 1px solid #999;
+    padding-top: 20px; }
+
+.zip-code-search-user-choice-wrap {
+    margin: 0 20px; }
+
+.zip-code-search-user-input-wrap {
+    position: relative;
+    padding-right: 50px; }
+
+.zip-code-search-user-input {
+    display: block;
+    width: 100%;
+    line-height: 20px;
+    padding: 0;
+    border: 1px solid #2c2c2c; }
+
+.zip-code-search-user-choice-submit {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50px;
+    line-height: 20px;
+    padding: 0;
+    border: 1px solid #2c2c2c; }
+
+.zip-code-search-user-choice-gide {
+    margin: 0 20px; }
+
+.zip-code-search-user-choice-gide-ol {
+    margin: 0;
+    padding-left: 1em; }
+
+.zip-code-search-result-wrap {
+    display: none; }
+
+.zip-code-search-result-filter-wrap {
+    display: none; }
+
+.zip-code-search-result-contents-ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    border-top: 1px solid #eee; }
+
+.zip-code-search-result-contents-li {
+    position: relative;
+    border-bottom: 1px solid #eee; }
+
+.zip-code-search-result-key {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    width: 50px;
+    line-height: 20px;
+    margin-top: -10px; }
+
+.zip-code-search-result-trigger {
+    display: block; }
+
+.zip-code-search-result-trigger:hover {
+    background-color: #f2f2f2; }
+
+.zip-code-search-result-road,
+.zip-code-search-result-jibun {
+    position: relative;
+    display: block;
+    padding: 2px 0;
+    margin: 0 55px;
+    border-right: 1px solid #eee; }
+
+.zip-code-search-result-type {
+    position: absolute;
+    top: 50%;
+    left: -50px;
+    margin-top: -10px;
+    display: inline-block;
+    width: 50px;
+    line-height: 20px;
+    text-align: center;
+    background-color: #999;
+    color: #000; }
+@charset "UTF-8";
+/* 모달설정 - body */
+html.modal-open,
+html.modal-open body {
+    overflow: hidden !important; }
+
+/* 모달설정 - 배경색 투명레이어 */
+.modal-backdrop {
+    display: none;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: black;
+    opacity: 0.6;
+    filter: alpha(opacity=60);
+    z-index: 9000; }
+
+/* 모달설정 - 스크롤영역 */
+.modal-scrollArea {
+    overflow: auto;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 9001;
+    -webkit-overflow-scrolling: touch; }
+
+@media print {
+    .modal-backdrop {
+        display: none; }
+    .modal-scrollArea > div {
+        margin-top: 0 !important;
+        margin-bottom: 0 !important; } }

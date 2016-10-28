@@ -1,31 +1,103 @@
-define(function() { return webpackJsonp([3],[
+define(["iScroll","jquery.ui.position"], function(__WEBPACK_EXTERNAL_MODULE_37__, __WEBPACK_EXTERNAL_MODULE_44__) { return webpackJsonp([3],[
 /* 0 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var home = __webpack_require__(13);
-	var work = __webpack_require__(14);
-	var dealView = __webpack_require__(2);
-	var Menu = __webpack_require__(15);
-
 	var $ = __webpack_require__(5);
 	var utility = __webpack_require__(6);
-
-	__webpack_require__(38);
+	var dealView = __webpack_require__(2);
+	var menu = __webpack_require__(13);
+	// webpack 이면 풀어야 한다.
+	var zipcode = __webpack_require__(36);
+	__webpack_require__(43);
+	__webpack_require__(46);
 
 	var main = function main() {
 	    var controller = {
 
 	        element: '#memebox-service',
+	        ui: {
+	            components: '[data-component]',
+	            zipcodeTrigger: '.memebox-altari-zipcode-trigger',
+	            zipcodeValue: '.memebox-altari-zipcode-value',
+	            addressValue: '.memebox-altari-address-value',
+	            moduleModalLayer: '.module-modal-layer',
+	            moduleModalLayer__contents: '.module-modal-layer__contents',
+	            moduleModalLayer__closing: '.module-modal-layer-closing',
+	            moduleModalLayer__controller: '.module-modal-layer-controller'
+	        },
+
+	        components: {},
 
 	        initialize: function initialize() {
+	            utility.uiEnhancements.call(this);
+	            this.getComponents();
 	            this.makeMenu();
-	            console.log(home + ',' + work + ', ' + dealView + '!!');
+	            this.addEventListener();
+	        },
+
+	        addEventListener: function addEventListener() {
+	            this.element.off().on('click', this.ui.__uiString.zipcodeTrigger, $.proxy(this.zipcodeEvent, this));
+	        },
+
+	        zipcodeEvent: function zipcodeEvent() {
+	            var layerStyle = { width: 300, height: 500, background: 'white' };
+
+	            this.ui.moduleModalLayer.off().on('shown.ui.modal', function ($modal) {
+	                $(window).on('resize.ui.modal', function () {
+	                    $modal.position({
+	                        my: "center",
+	                        at: "center",
+	                        of: window,
+	                        using: function using(pos) {
+	                            var topOffset = $(this).css(pos).offset();
+	                            if (topOffset.top < 20) {
+	                                $(this).css("top", 20);
+	                            }
+	                            if (topOffset.left < 20) {
+	                                $(this).css("left", pos.left - topOffset.left);
+	                            }
+	                        }
+	                    });
+	                }).trigger('resize.ui.modal');
+	            }).on('hide.ui.modal', function () {
+	                $(window).off('resize.ui.modal');
+	            }).on('click', controller.ui.__uiString.moduleModalLayer__closing, function (event) {
+	                event.preventDefault();
+	                controller.ui.moduleModalLayer.modal('hide');
+	            }).css(layerStyle).modal('show');
+	            this.setLayerContentHeight();
+	            new zipcode(this.collBackZipcode, this.ui.moduleModalLayer__contents);
+	        },
+
+	        setLayerContentHeight: function setLayerContentHeight() {
+	            var layerHeight = this.ui.moduleModalLayer.outerHeight();
+	            var layerHeaderHeight = this.ui.moduleModalLayer__controller.outerHeight();
+	            var layerPadding = (this.ui.moduleModalLayer__contents.outerWidth(true) - this.ui.moduleModalLayer__contents.innerWidth()) / 2;
+	            console.log(layerHeight, '-', layerHeaderHeight, '-', layerPadding);
+	            var contentHeight = layerHeight - layerHeaderHeight - layerPadding;
+	            this.ui.moduleModalLayer__contents.height(contentHeight);
+	        },
+
+	        getComponents: function getComponents() {
+	            this.ui.components.each(function (index, element) {
+	                var component = $(element).data('component');
+	                console.log('component ====== ', component);
+	            });
+	        },
+
+	        collBackZipcode: function collBackZipcode(data) {
+	            console.log('data ++++++++++ ', data, ' ++++++++');
+	            controller.ui.zipcodeValue.text(data.zipcode);
+	            controller.ui.addressValue.text(data.roads);
+	            controller.ui.moduleModalLayer.modal('hide');
+	            controller.ui.moduleModalLayer__contents.empty();
+	            console.log('%%%%%%%%%%%%%%%%%%%%%%%', data);
 	        },
 
 	        makeMenu: function makeMenu() {
-	            new Menu();
+	            new menu();
 	        }
 	    };
 	    controller.initialize();
@@ -57,25 +129,6 @@ define(function() { return webpackJsonp([3],[
 /* 11 */,
 /* 12 */,
 /* 13 */
-/***/ function(module, exports) {
-
-	'use strict';
-
-	module.exports = '_home';
-
-/***/ },
-/* 14 */
-/***/ function(module, exports) {
-
-	'use strict';
-
-	/**
-	 * Created by 160727-b on 2016. 9. 26..
-	 */
-	module.exports = '_work';
-
-/***/ },
-/* 15 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -83,12 +136,12 @@ define(function() { return webpackJsonp([3],[
 	/**
 	 * Created by 160727-b on 2016. 9. 28..
 	 */
-	__webpack_require__(16);
+	__webpack_require__(14);
 	var $ = __webpack_require__(5);
 	var utility = __webpack_require__(6);
 
 	var templates = {
-	    menu: __webpack_require__(17)
+	    menu: __webpack_require__(15)
 	};
 
 	var menu = function menu() {
@@ -109,7 +162,6 @@ define(function() { return webpackJsonp([3],[
 
 	        makeList: function makeList() {
 	            var menuData = this.element.data('component-data');
-
 	            var addData = menuData.push({
 	                "url": "/order",
 	                "text": "order"
@@ -130,16 +182,16 @@ define(function() { return webpackJsonp([3],[
 	module.exports = menu;
 
 /***/ },
-/* 16 */
+/* 14 */
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
 
 /***/ },
-/* 17 */
+/* 15 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var Handlebars = __webpack_require__(18);
+	var Handlebars = __webpack_require__(16);
 	function __default(obj) { return obj && (obj.__esModule ? obj["default"] : obj); }
 	module.exports = (Handlebars["default"] || Handlebars).template({"1":function(container,depth0,helpers,partials,data) {
 	    var alias1=container.lambda, alias2=container.escapeExpression;
@@ -153,23 +205,23 @@ define(function() { return webpackJsonp([3],[
 	    var stack1, alias1=depth0 != null ? depth0 : {};
 
 	  return "<div class=\"memebox-menu-wrap\"\n     data-component=\"menu\"\n     data-component-data='"
-	    + container.escapeExpression(__default(__webpack_require__(37)).call(alias1,((stack1 = (depth0 != null ? depth0.component : depth0)) != null ? stack1.menu : stack1),{"name":"json","hash":{},"data":data}))
+	    + container.escapeExpression(__default(__webpack_require__(35)).call(alias1,((stack1 = (depth0 != null ? depth0.component : depth0)) != null ? stack1.menu : stack1),{"name":"json","hash":{},"data":data}))
 	    + "'>\n    <ul class=\"memebox-menu\">\n"
 	    + ((stack1 = helpers.each.call(alias1,((stack1 = (depth0 != null ? depth0.component : depth0)) != null ? stack1.menu : stack1),{"name":"each","hash":{},"fn":container.program(1, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
 	    + "    </ul>\n</div>";
 	},"useData":true});
 
 /***/ },
-/* 18 */
+/* 16 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// Create a simple path alias to allow browserify to resolve
 	// the runtime on a supported path.
-	module.exports = __webpack_require__(19)['default'];
+	module.exports = __webpack_require__(17)['default'];
 
 
 /***/ },
-/* 19 */
+/* 17 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -183,30 +235,30 @@ define(function() { return webpackJsonp([3],[
 
 	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj['default'] = obj; return newObj; } }
 
-	var _handlebarsBase = __webpack_require__(20);
+	var _handlebarsBase = __webpack_require__(18);
 
 	var base = _interopRequireWildcard(_handlebarsBase);
 
 	// Each of these augment the Handlebars object. No need to setup here.
 	// (This is done to easily share code between commonjs and browse envs)
 
-	var _handlebarsSafeString = __webpack_require__(34);
+	var _handlebarsSafeString = __webpack_require__(32);
 
 	var _handlebarsSafeString2 = _interopRequireDefault(_handlebarsSafeString);
 
-	var _handlebarsException = __webpack_require__(22);
+	var _handlebarsException = __webpack_require__(20);
 
 	var _handlebarsException2 = _interopRequireDefault(_handlebarsException);
 
-	var _handlebarsUtils = __webpack_require__(21);
+	var _handlebarsUtils = __webpack_require__(19);
 
 	var Utils = _interopRequireWildcard(_handlebarsUtils);
 
-	var _handlebarsRuntime = __webpack_require__(35);
+	var _handlebarsRuntime = __webpack_require__(33);
 
 	var runtime = _interopRequireWildcard(_handlebarsRuntime);
 
-	var _handlebarsNoConflict = __webpack_require__(36);
+	var _handlebarsNoConflict = __webpack_require__(34);
 
 	var _handlebarsNoConflict2 = _interopRequireDefault(_handlebarsNoConflict);
 
@@ -241,7 +293,7 @@ define(function() { return webpackJsonp([3],[
 
 
 /***/ },
-/* 20 */
+/* 18 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -252,17 +304,17 @@ define(function() { return webpackJsonp([3],[
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
-	var _utils = __webpack_require__(21);
+	var _utils = __webpack_require__(19);
 
-	var _exception = __webpack_require__(22);
+	var _exception = __webpack_require__(20);
 
 	var _exception2 = _interopRequireDefault(_exception);
 
-	var _helpers = __webpack_require__(23);
+	var _helpers = __webpack_require__(21);
 
-	var _decorators = __webpack_require__(31);
+	var _decorators = __webpack_require__(29);
 
-	var _logger = __webpack_require__(33);
+	var _logger = __webpack_require__(31);
 
 	var _logger2 = _interopRequireDefault(_logger);
 
@@ -351,7 +403,7 @@ define(function() { return webpackJsonp([3],[
 
 
 /***/ },
-/* 21 */
+/* 19 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -481,7 +533,7 @@ define(function() { return webpackJsonp([3],[
 
 
 /***/ },
-/* 22 */
+/* 20 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -527,7 +579,7 @@ define(function() { return webpackJsonp([3],[
 
 
 /***/ },
-/* 23 */
+/* 21 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -538,31 +590,31 @@ define(function() { return webpackJsonp([3],[
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
-	var _helpersBlockHelperMissing = __webpack_require__(24);
+	var _helpersBlockHelperMissing = __webpack_require__(22);
 
 	var _helpersBlockHelperMissing2 = _interopRequireDefault(_helpersBlockHelperMissing);
 
-	var _helpersEach = __webpack_require__(25);
+	var _helpersEach = __webpack_require__(23);
 
 	var _helpersEach2 = _interopRequireDefault(_helpersEach);
 
-	var _helpersHelperMissing = __webpack_require__(26);
+	var _helpersHelperMissing = __webpack_require__(24);
 
 	var _helpersHelperMissing2 = _interopRequireDefault(_helpersHelperMissing);
 
-	var _helpersIf = __webpack_require__(27);
+	var _helpersIf = __webpack_require__(25);
 
 	var _helpersIf2 = _interopRequireDefault(_helpersIf);
 
-	var _helpersLog = __webpack_require__(28);
+	var _helpersLog = __webpack_require__(26);
 
 	var _helpersLog2 = _interopRequireDefault(_helpersLog);
 
-	var _helpersLookup = __webpack_require__(29);
+	var _helpersLookup = __webpack_require__(27);
 
 	var _helpersLookup2 = _interopRequireDefault(_helpersLookup);
 
-	var _helpersWith = __webpack_require__(30);
+	var _helpersWith = __webpack_require__(28);
 
 	var _helpersWith2 = _interopRequireDefault(_helpersWith);
 
@@ -579,14 +631,14 @@ define(function() { return webpackJsonp([3],[
 
 
 /***/ },
-/* 24 */
+/* 22 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 	exports.__esModule = true;
 
-	var _utils = __webpack_require__(21);
+	var _utils = __webpack_require__(19);
 
 	exports['default'] = function (instance) {
 	  instance.registerHelper('blockHelperMissing', function (context, options) {
@@ -624,7 +676,7 @@ define(function() { return webpackJsonp([3],[
 
 
 /***/ },
-/* 25 */
+/* 23 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -634,9 +686,9 @@ define(function() { return webpackJsonp([3],[
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
-	var _utils = __webpack_require__(21);
+	var _utils = __webpack_require__(19);
 
-	var _exception = __webpack_require__(22);
+	var _exception = __webpack_require__(20);
 
 	var _exception2 = _interopRequireDefault(_exception);
 
@@ -724,7 +776,7 @@ define(function() { return webpackJsonp([3],[
 
 
 /***/ },
-/* 26 */
+/* 24 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -734,7 +786,7 @@ define(function() { return webpackJsonp([3],[
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
-	var _exception = __webpack_require__(22);
+	var _exception = __webpack_require__(20);
 
 	var _exception2 = _interopRequireDefault(_exception);
 
@@ -755,14 +807,14 @@ define(function() { return webpackJsonp([3],[
 
 
 /***/ },
-/* 27 */
+/* 25 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 	exports.__esModule = true;
 
-	var _utils = __webpack_require__(21);
+	var _utils = __webpack_require__(19);
 
 	exports['default'] = function (instance) {
 	  instance.registerHelper('if', function (conditional, options) {
@@ -790,7 +842,7 @@ define(function() { return webpackJsonp([3],[
 
 
 /***/ },
-/* 28 */
+/* 26 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -822,7 +874,7 @@ define(function() { return webpackJsonp([3],[
 
 
 /***/ },
-/* 29 */
+/* 27 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -840,14 +892,14 @@ define(function() { return webpackJsonp([3],[
 
 
 /***/ },
-/* 30 */
+/* 28 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 	exports.__esModule = true;
 
-	var _utils = __webpack_require__(21);
+	var _utils = __webpack_require__(19);
 
 	exports['default'] = function (instance) {
 	  instance.registerHelper('with', function (context, options) {
@@ -879,7 +931,7 @@ define(function() { return webpackJsonp([3],[
 
 
 /***/ },
-/* 31 */
+/* 29 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -890,7 +942,7 @@ define(function() { return webpackJsonp([3],[
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
-	var _decoratorsInline = __webpack_require__(32);
+	var _decoratorsInline = __webpack_require__(30);
 
 	var _decoratorsInline2 = _interopRequireDefault(_decoratorsInline);
 
@@ -901,14 +953,14 @@ define(function() { return webpackJsonp([3],[
 
 
 /***/ },
-/* 32 */
+/* 30 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 	exports.__esModule = true;
 
-	var _utils = __webpack_require__(21);
+	var _utils = __webpack_require__(19);
 
 	exports['default'] = function (instance) {
 	  instance.registerDecorator('inline', function (fn, props, container, options) {
@@ -936,14 +988,14 @@ define(function() { return webpackJsonp([3],[
 
 
 /***/ },
-/* 33 */
+/* 31 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 	exports.__esModule = true;
 
-	var _utils = __webpack_require__(21);
+	var _utils = __webpack_require__(19);
 
 	var logger = {
 	  methodMap: ['debug', 'info', 'warn', 'error'],
@@ -989,7 +1041,7 @@ define(function() { return webpackJsonp([3],[
 
 
 /***/ },
-/* 34 */
+/* 32 */
 /***/ function(module, exports) {
 
 	// Build out our basic SafeString type
@@ -1010,7 +1062,7 @@ define(function() { return webpackJsonp([3],[
 
 
 /***/ },
-/* 35 */
+/* 33 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -1030,15 +1082,15 @@ define(function() { return webpackJsonp([3],[
 
 	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj['default'] = obj; return newObj; } }
 
-	var _utils = __webpack_require__(21);
+	var _utils = __webpack_require__(19);
 
 	var Utils = _interopRequireWildcard(_utils);
 
-	var _exception = __webpack_require__(22);
+	var _exception = __webpack_require__(20);
 
 	var _exception2 = _interopRequireDefault(_exception);
 
-	var _base = __webpack_require__(20);
+	var _base = __webpack_require__(18);
 
 	function checkRevision(compilerInfo) {
 	  var compilerRevision = compilerInfo && compilerInfo[0] || 1,
@@ -1308,7 +1360,7 @@ define(function() { return webpackJsonp([3],[
 
 
 /***/ },
-/* 36 */
+/* 34 */
 /***/ function(module, exports) {
 
 	/* WEBPACK VAR INJECTION */(function(global) {/* global window */
@@ -1335,11 +1387,637 @@ define(function() { return webpackJsonp([3],[
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
 /***/ },
-/* 37 */,
+/* 35 */,
+/* 36 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	//키워드가 같고 페이지가 바뀌면 more
+	//more를 실행해서 검색 결과가 없으면 더이상 request 정지
+	//키워드가 다르면 reset
+	// todo
+	//시도 시군구 선택
+	//ajax 요청 전 정합성 확인.
+	//ajax 요청중 스피너 .
+	//스크롤 다운 더보기
+	//필터 검색
+	//검색결과 사서함 리스트.
+	//검색결과 없음 화면
+
+	var $ = __webpack_require__(5);
+	var utility = __webpack_require__(6);
+	var IScroll = __webpack_require__(37);
+	__webpack_require__(38);
+
+	var templates = {
+	    gide: __webpack_require__(39),
+	    result: __webpack_require__(40),
+	    address: __webpack_require__(41),
+	    zipcode: __webpack_require__(42)
+	};
+
+	var zipcode = function zipcode(collBackFunction, $wraper, contentHeight) {
+	    var controller = {
+
+	        element: '.zip-code-search',
+	        ui: {
+	            typeSelector: '.zip-code-search-type-selector-ul',
+	            typeSelectorTrigger: '.zip-code-search-type-selector-trigger',
+	            zipcodeSearchContents: '.zip-code-search-contents',
+	            searchSelectorWrap: '.zip-code-search-user-select-wrap',
+	            userChoiceWrap: '.zip-code-search-user-choice-wrap',
+	            inputGide: '.zip-code-search-user-input-gide',
+	            choiceGide: '.zip-code-search-user-choice-gide',
+	            searchRequest: '.zip-code-search-user-choice-submit',
+	            searchKeyword: '.zip-code-search-user-input',
+	            result: '.zip-code-search-result-wrap',
+	            resultNoting: '.zip-code-search-result-noting-wrap'
+	        },
+
+	        requestParameterForAPI: {
+	            type: '',
+	            keyword: '',
+	            page: 1, //
+	            limit: 2,
+	            sido: '',
+	            sigungu: ''
+	        },
+
+	        beforeSearchStatus: {
+	            type: 'road',
+	            keyword: '',
+	            isSearchPossible: true
+	        },
+
+	        requestUrl: {
+	            zipcodeViewData: '/zipCodeAPI',
+
+	            develop: {
+	                jibun: 'https://internal.memeboxlabs.com:8012/api/zipcode/jibuns',
+	                range: 'https://internal.memeboxlabs.com:8012/api/zipcode/ranges',
+	                road: 'https://internal.memeboxlabs.com:8012/api/zipcode/roads'
+	            },
+	            production: {
+	                jibun: 'http://contents-api.memeboxlabs.com/api/zipcode/jibuns',
+	                range: 'http://contents-api.memeboxlabs.com/api/zipcode/ranges',
+	                road: 'http://contents-api.memeboxlabs.com/api/zipcode/roads'
+	            },
+	            stage: {
+	                jibun: 'http://contents-api-stage.memeboxlabs.com/api/zipcode/jibuns',
+	                range: 'http://contents-api-stage.memeboxlabs.com/api/zipcode/ranges',
+	                road: 'http://contents-api-stage.memeboxlabs.com/api/zipcode/roads'
+	            }
+	        },
+
+	        viewData: null,
+
+	        message: {
+	            SYSTEM_ERROR: '전송에 실패했습니다. 잠시 후 다시 시도해 주세요.',
+	            CHECK_SEARCH_REQUIRE: '시도 선택해',
+	            INPUT_ADDRESS: '주소를 입력해 주세요 '
+	        },
+
+	        initialize: function initialize() {
+	            console.log('IScroll = ', IScroll);
+	            console.log('this.requestUrl.zipcodeViewData = ', this.requestUrl.zipcodeViewData);
+	            $.ajax({
+	                type: 'GET',
+	                url: this.requestUrl.zipcodeViewData
+	            }).done(function (result) {
+	                var zipcodeHtml = templates.zipcode(result.data);
+	                $wraper.html(zipcodeHtml);
+	                controller.resetZipCodeTemplate();
+	            }).fail(function () {
+	                alert(this.message.SYSTEM_ERROR);
+	            });
+	        },
+
+	        resetZipCodeTemplate: function resetZipCodeTemplate() {
+	            utility.uiEnhancements.call(this);
+	            this.setViewData();
+
+	            this.displaySelector(this.beforeSearchStatus.type);
+	            this.displayUserSelectWrap(this.beforeSearchStatus.type);
+	            this.displayGide(this.beforeSearchStatus.type, true);
+	            this.displayFilter(this.beforeSearchStatus.type);
+	            this.setViewBox();
+	            this.addEventListener();
+	        },
+
+	        setViewBox: function setViewBox() {
+	            this.ui.zipcodeSearchContents.height($wraper.outerHeight() - this.ui.typeSelector.outerHeight() - 2);
+	        },
+
+	        setViewData: function setViewData() {
+	            this.viewData = this.element.data('component-data');
+	        },
+
+	        addEventListener: function addEventListener() {
+	            this.element.off().on('click', this.ui.__uiString.typeSelectorTrigger, $.proxy(this.selectTypeEvent, this)).on('click', this.ui.__uiString.searchRequest, $.proxy(this.searchRequestEvent, this));
+	            //enter key 를 넣어도 같은 검색 되어야 한다
+	        },
+
+	        searchRequestEvent: function searchRequestEvent(event) {
+	            event.preventDefault();
+	            this.requestParameterForAPI.keyword = this.ui.searchKeyword.val();
+	            this.decideSearchRequestType();
+	        },
+
+	        decideSearchRequestType: function decideSearchRequestType() {
+	            var isSameType = this.beforeSearchStatus.type === this.requestParameterForAPI.type;
+	            var isSameKeyword = this.requestParameterForAPI.keyword === this.beforeSearchStatus.keyword;
+
+	            if (!this.checkValid()) {
+	                return;
+	            }
+
+	            if (isSameKeyword && isSameType) {
+	                //키워드가 같고 텝도 같으면 기존 검색 검색버튼이면
+	                if (this.beforeSearchStatus.isSearchPossible) {
+	                    console.log('더보기 기능 작동 ');
+	                    //키워드가 같고 텝도 같으면 기존 검색 이고 앞으로도 검색 가능 하면 검색해
+	                    //검색이 가능 하다면 more
+	                    this.requestParameterForAPI.type = this.beforeSearchStatus.type;
+	                    this.requestParameterForAPI.page++;
+	                    this.ajaxSearchRequest(this.requestParameterForAPI, true);
+	                } else {
+	                    console.log('결과 다 보았음. ');
+	                    //키워드가 같고 텝도 같으면 기존 검색이고 내용이 더이상 없으면 호출 하지 말아야 한다
+	                    //페이지가 1이상이고. 결과가 없으면.
+	                    //  ajax 보내지 말아
+	                }
+	            } else {
+	                //키워드가 다르면 텝이 달라  새로운 검색
+	                //키워드가 다르고 텝이 같아 새로운 검색
+	                //키워드가 같고 텝이 달라 새로운 검색
+	                this.ui.result.html('');
+	                this.requestParameterForAPI.type = this.beforeSearchStatus.type;
+	                this.requestParameterForAPI.page = 1;
+	                this.ajaxSearchRequest(this.requestParameterForAPI, false);
+	            }
+	        },
+
+	        checkValid: function checkValid() {
+	            var isValid = true;
+	            if (false) {
+	                //지번 선택 확인
+	                //도로명일때 시도 시군이 선택되어 있는지 확인
+	                alert(this.message.CHECK_SEARCH_REQUIRE);
+	                isValid = false;
+	            }
+	            if (false) {
+	                //input 창에 값이 올바른지 확인
+	                //주소를 입력해 주세요
+	                alert(this.message.CHECK_SEARCH_REQUIRE);
+	                isValid = false;
+	            }
+	            return isValid;
+	        },
+
+	        ajaxSearchRequest: function ajaxSearchRequest(requestData, isMoreRequest) {
+	            //console.log('requestData = ',requestData)
+	            //console.log('isMoreRequest = ',isMoreRequest)
+	            //console.log('url = ',this.requestUrl.stage[this.beforeSearchStatus.type])
+	            $.ajax({
+	                url: this.requestUrl.stage[this.beforeSearchStatus.type],
+	                data: requestData,
+	                dataType: 'jsonp'
+	            }).done(function (result) {
+	                if (result.status === 'success') {
+	                    //console.log('result.data = ',result.data)
+	                    controller.beforeSearchStatus.keyword = requestData.keyword;
+	                    controller.beforeSearchStatus.type = requestData.type;
+	                    if (isMoreRequest) {
+	                        //console.log('address')
+	                        controller.makeResultAddress(result.data);
+	                    } else {
+	                        //console.log('초기화')
+	                        controller.makeResultContentsWrap(result.data);
+	                    }
+	                } else {
+	                    alert(controller.message.SYSTEM_ERROR);
+	                }
+	            });
+	        },
+
+	        resetRequestParameterForAPI: function resetRequestParameterForAPI() {},
+
+	        updateRequestParameterForAPI: function updateRequestParameterForAPI() {},
+
+	        makeResultContentsWrap: function makeResultContentsWrap(data) {
+	            if (data.address.length <= 0) {
+	                console.log('검색결과 없음');
+	                $('.zip-code-search-result-contents-wrap').empty();
+	                $('.zip-code-search-result-noting-wrap').show();
+	            } else {
+	                var resultHtml = templates.result(data);
+	                this.ui.result.append(resultHtml).show();
+	                $('.zip-code-search-result-noting-wrap').hide();
+	                this.makeResultAddress(data);
+	                this.displayGide(this.beforeSearchStatus.type, false);
+	                this.displayFilter(this.beforeSearchStatus.type);
+	                this.resultEventListener();
+	            }
+	            this.setScroll();
+	        },
+
+	        setScroll: function setScroll() {
+	            var SearchContents = this.ui.zipcodeSearchContents.innerHeight();
+	            var userChoice = $('.zip-code-search-user-choice-wrap').outerHeight(true);
+	            var resultInfo = $('.zip-code-search-result-info').outerHeight(true);
+	            console.log(SearchContents, '====', userChoice, '====', resultInfo);
+	            var height = SearchContents - userChoice - resultInfo - 10;
+	            $('.zip-code-search-result-contents-wrap').height(height);
+	        },
+
+	        makeResultAddress: function makeResultAddress(data) {
+	            var addressHtml = templates.address(data);
+	            $('.zip-code-search-result-contents-ul').append(addressHtml);
+	        },
+
+	        resultEventListener: function resultEventListener() {
+	            this.ui.result.off().on('click', '.more-result', $.proxy(this.decideSearchRequestType, this)).on('click', '.zip-code-search-result-trigger', $.proxy(this.resultTriggerEvent, this));
+	        },
+
+	        resultTriggerEvent: function resultTriggerEvent(event) {
+	            event.preventDefault();
+	            var zipcode = $(event.currentTarget).data('zipcode');
+	            collBackFunction(zipcode);
+	        },
+
+	        selectTypeEvent: function selectTypeEvent(event) {
+	            event.preventDefault();
+	            var $current = $(event.currentTarget);
+	            this.beforeSearchStatus.type = $current.attr('href').replace(/\#/g, '');
+	            this.displaySearchType();
+
+	            if (this.requestParameterForAPI.type === this.beforeSearchStatus.type) {} else {
+	                this.displaySelector(this.beforeSearchStatus.type);
+	                this.displayUserSelectWrap(this.beforeSearchStatus.type);
+	                this.displayGide(this.beforeSearchStatus.type, true);
+	                this.ui.result.empty();
+	            }
+	        },
+
+	        displaySearchType: function displaySearchType() {
+	            this.displaySelector(this.beforeSearchStatus.type);
+	            this.displayUserSelectWrap(this.beforeSearchStatus.type);
+	            this.displayGide(this.beforeSearchStatus.type, true);
+	            this.ui.result.empty();
+	        },
+
+	        displayFilter: function displayFilter(selectorType) {
+	            console.log('selectorType = +++++++', selectorType);
+	            var $resultFilter = $('.zip-code-search-result-filter-wrap');
+	            switch (selectorType) {
+	                case 'road':
+	                    $resultFilter.hide();
+	                    break;
+	                case 'jibun':
+	                    $resultFilter.show();
+	                    break;
+	            }
+	        },
+
+	        displaySelector: function displaySelector(selectorType) {
+	            this.ui.typeSelectorTrigger.each(function (index, element) {
+	                var $element = $(element);
+	                var currentType = $element.attr('href').replace(/\#/g, '');
+	                if (currentType === selectorType) {
+	                    $element.addClass('selected');
+	                } else {
+	                    $element.removeClass('selected');
+	                }
+	            });
+	        },
+
+	        displayUserSelectWrap: function displayUserSelectWrap(selectorType) {
+	            console.log('displayUserSelectWrap = ', selectorType);
+	            switch (selectorType) {
+	                case 'road':
+	                    this.ui.searchSelectorWrap.show();
+	                    break;
+	                case 'jibun':
+	                    this.ui.searchSelectorWrap.hide();
+	                    break;
+	            }
+	        },
+
+	        displayGide: function displayGide(selectorType, isShow) {
+	            console.log('isShow = ', isShow);
+	            if (isShow) {
+	                var gideData = this.viewData.information[selectorType];
+	                var html = templates.gide(gideData);
+	                this.ui.choiceGide.show().html(html);
+	            } else {
+	                this.ui.choiceGide.hide();
+	            }
+	        }
+
+	    };
+	    controller.initialize();
+	};
+
+	module.exports = zipcode;
+
+/***/ },
+/* 37 */
+/***/ function(module, exports) {
+
+	module.exports = __WEBPACK_EXTERNAL_MODULE_37__;
+
+/***/ },
 /* 38 */
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
+	module.exports = {"zip-code-search":"zip-code-search","zip-code-search-type-selector-ul":"zip-code-search-type-selector-ul","zip-code-search-type-selector-road":"zip-code-search-type-selector-road","zip-code-search-type-selector-jibun":"zip-code-search-type-selector-jibun","zip-code-search-type-selector-trigger":"zip-code-search-type-selector-trigger","selected":"selected","zip-code-search-contents":"zip-code-search-contents","zip-code-search-user-choice-wrap":"zip-code-search-user-choice-wrap","zip-code-search-user-select-wrap":"zip-code-search-user-select-wrap","zip-code-search-user-input-wrap":"zip-code-search-user-input-wrap","zip-code-search-user-input":"zip-code-search-user-input","zip-code-search-user-input-gide":"zip-code-search-user-input-gide","zip-code-search-user-choice-submit":"zip-code-search-user-choice-submit","zip-code-search-user-choice-gide":"zip-code-search-user-choice-gide","zip-code-search-user-choice-gide-ol":"zip-code-search-user-choice-gide-ol","zip-code-search-result-wrap":"zip-code-search-result-wrap","zip-code-search-result-info":"zip-code-search-result-info","zip-code-search-result-filter-wrap":"zip-code-search-result-filter-wrap","zip-code-search-result-filter-title":"zip-code-search-result-filter-title","zip-code-search-result-contents-wrap":"zip-code-search-result-contents-wrap","zip-code-search-result-contents-ul":"zip-code-search-result-contents-ul","zip-code-search-result-contents-li":"zip-code-search-result-contents-li","zip-code-search-result-key":"zip-code-search-result-key","zip-code-search-result-trigger":"zip-code-search-result-trigger","zip-code-search-result-road":"zip-code-search-result-road","zip-code-search-result-jibun":"zip-code-search-result-jibun","zip-code-search-result-type":"zip-code-search-result-type","zip-code-search-result-noting-wrap":"zip-code-search-result-noting-wrap","zip-code-search-result-noting_ul":"zip-code-search-result-noting_ul","zip-code-search-result-noting-trigger":"zip-code-search-result-noting-trigger"};
+
+/***/ },
+/* 39 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var Handlebars = __webpack_require__(16);
+	function __default(obj) { return obj && (obj.__esModule ? obj["default"] : obj); }
+	module.exports = (Handlebars["default"] || Handlebars).template({"1":function(container,depth0,helpers,partials,data) {
+	    return "        <li class=\"zip-code-search-user-choice-gide-li\">\n            "
+	    + container.escapeExpression(container.lambda(depth0, depth0))
+	    + "\n        </li>\n";
+	},"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
+	    var stack1, helper, alias1=depth0 != null ? depth0 : {};
+
+	  return "<string class=\"zip-code-search-user-choice-gide-title\">\n    "
+	    + container.escapeExpression(((helper = (helper = helpers.title || (depth0 != null ? depth0.title : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(alias1,{"name":"title","hash":{},"data":data}) : helper)))
+	    + "\n</string>\n\n<ol class=\"zip-code-search-user-choice-gide-ol\">\n"
+	    + ((stack1 = helpers.each.call(alias1,((stack1 = (depth0 != null ? depth0.gide : depth0)) != null ? stack1.choice : stack1),{"name":"each","hash":{},"fn":container.program(1, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+	    + "</ol>\n";
+	},"useData":true});
+
+/***/ },
+/* 40 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var Handlebars = __webpack_require__(16);
+	function __default(obj) { return obj && (obj.__esModule ? obj["default"] : obj); }
+	module.exports = (Handlebars["default"] || Handlebars).template({"1":function(container,depth0,helpers,partials,data) {
+	    var alias1=container.lambda, alias2=container.escapeExpression;
+
+	  return "            <option value=\""
+	    + alias2(alias1((depth0 != null ? depth0.key : depth0), depth0))
+	    + "\">"
+	    + alias2(alias1((depth0 != null ? depth0.key : depth0), depth0))
+	    + "("
+	    + alias2(alias1((depth0 != null ? depth0.count : depth0), depth0))
+	    + "건)</option>\n";
+	},"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
+	    var stack1, helper, alias1=depth0 != null ? depth0 : {};
+
+	  return "<p class=\"zip-code-search-result-info\">\n    검색결과 총 <span class=\"zip-code-search-result-info-count\">"
+	    + container.escapeExpression(((helper = (helper = helpers.totalCount || (depth0 != null ? depth0.totalCount : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(alias1,{"name":"totalCount","hash":{},"data":data}) : helper)))
+	    + "</span>건 입니다.\n    <span class=\"zip-code-search-result-gide\">정확한 검색을 위해 지번 또는 건물명을 함께 검색해주세요.</span>\n</p>\n\n\n<div class=\"zip-code-search-result-filter-wrap\">\n    <span class=\"zip-code-search-result-filter-title\">검색 결과 필터</span>\n    <select class=\"zip-code-search-result-filter-select-city\">\n        <option value=\"\">시/도 선택</option>\n"
+	    + ((stack1 = helpers.each.call(alias1,((stack1 = (depth0 != null ? depth0.aggregations : depth0)) != null ? stack1.sido : stack1),{"name":"each","hash":{},"fn":container.program(1, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+	    + "    </select>\n    <select class=\"zip-code-search-result-filter-select-town\" disabled>\n        <option value=\"\">시/군/구 선택</option>\n"
+	    + ((stack1 = helpers.each.call(alias1,((stack1 = (depth0 != null ? depth0.aggregations : depth0)) != null ? stack1.sigungu : stack1),{"name":"each","hash":{},"fn":container.program(1, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+	    + "    </select>\n</div>\n\n\n<div class=\"zip-code-search-result-contents-wrap\">\n    <span class=\"more-result\">더보기</span>\n    <ul class=\"zip-code-search-result-contents-ul\">\n    </ul>\n</div>\n\n\n<div class=\"zip-code-search-result-noting-wrap\">\n    <strong class=\"zip-code-search-result-noting-title\">주소가 없으신가요?</strong>\n    <ul class=\"zip-code-search-result-noting_ul\">\n        <li>* 주소가 올바르게 입력되었는지 다시 한번 확인해주세요.</li>\n        <li>* 찾으시려는 주소가 없는 경우 1:1문의하기로 문의해주세요.</li>\n    </ul>\n    <a href=\"#\" class=\"zip-code-search-result-noting-trigger\">1:1 문의하기</a>\n</div>\n";
+	},"useData":true});
+
+/***/ },
+/* 41 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var Handlebars = __webpack_require__(16);
+	function __default(obj) { return obj && (obj.__esModule ? obj["default"] : obj); }
+	module.exports = (Handlebars["default"] || Handlebars).template({"1":function(container,depth0,helpers,partials,data) {
+	    var alias1=container.escapeExpression, alias2=container.lambda;
+
+	  return "<li class=\"zip-code-search-result-contents-li\">\n    <a href=\"#\" class=\"zip-code-search-result-trigger\" data-zipcode=\""
+	    + alias1(__default(__webpack_require__(35)).call(depth0 != null ? depth0 : {},depth0,{"name":"json","hash":{},"data":data}))
+	    + "\">\n        <strong class=\"zip-code-search-result-key\">"
+	    + alias1(alias2((depth0 != null ? depth0.zipcode : depth0), depth0))
+	    + "</strong>\n        <em class=\"zip-code-search-result-road\">\n            <span class=\"zip-code-search-result-type\">도로명</span>\n            <span class=\"zip-code-search-result-address\">\n                "
+	    + alias1(alias2((depth0 != null ? depth0.roads : depth0), depth0))
+	    + "\n            </span>\n        </em>\n        <em class=\"zip-code-search-result-jibun\">\n            <span class=\"zip-code-search-result-type\">지번</span>\n            <span class=\"zip-code-search-result-address\">\n                "
+	    + alias1(alias2((depth0 != null ? depth0.jibuns : depth0), depth0))
+	    + "\n            </span>\n        </em>\n    </a>\n</li>\n";
+	},"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
+	    var stack1;
+
+	  return ((stack1 = helpers.each.call(depth0 != null ? depth0 : {},(depth0 != null ? depth0.address : depth0),{"name":"each","hash":{},"fn":container.program(1, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "");
+	},"useData":true});
+
+/***/ },
+/* 42 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var Handlebars = __webpack_require__(16);
+	function __default(obj) { return obj && (obj.__esModule ? obj["default"] : obj); }
+	module.exports = (Handlebars["default"] || Handlebars).template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
+	    return "<div class=\"zip-code-search\"\n     data-component=\"zipcode\"\n     data-component-data='"
+	    + container.escapeExpression(__default(__webpack_require__(35)).call(depth0 != null ? depth0 : {},depth0,{"name":"json","hash":{},"data":data}))
+	    + "'>\n\n    <ul class=\"zip-code-search-type-selector-ul\">\n        <li class=\"zip-code-search-type-selector-road\">\n            <a class=\"zip-code-search-type-selector-trigger selected\" href=\"#road\">도로명으로 찾기</a>\n        </li>\n        <li class=\"zip-code-search-type-selector-jibun\">\n            <a class=\"zip-code-search-type-selector-trigger\" href=\"#jibun\">지번으로 찾기</a>\n        </li>\n    </ul>\n\n    <div class=\"zip-code-search-contents\">\n        <div class=\"zip-code-search-user-choice-wrap\">\n            <div class=\"zip-code-search-user-select-wrap\">\n                <select class=\"zip-code-search-user-select-city\">\n                    <option value=\"\">시/도 선택</option>\n                    <option value=\"#강원도\">강원도</option>\n                </select>\n                <select class=\"zip-code-search-user-select-town\" disabled>\n                    <option value=\"\">시/군/구 선택</option>\n                </select>\n            </div>\n            <div class=\"zip-code-search-user-input-wrap\">\n                <input type=\"text\"\n                       class=\"zip-code-search-user-input\"\n                       name=\"searchKey\"\n                       value=\"\"\n                       placeholder=\"(예: 테헤란로 501, 삼성동 157-27, 반포자이아파트)\">\n                <button type=\"submit\"\n                        class=\"zip-code-search-user-choice-submit\">\n                    검색\n                </button>\n            </div>\n            <p class=\"zip-code-search-user-input-gide\">\n                시/도 , 시/군/구 선택 후 주소명을 입력해주세요.\n            </p>\n        </div>\n\n        <div class=\"zip-code-search-user-choice-gide\">\n        </div>\n        <div class=\"zip-code-search-result-wrap\">\n        </div>\n\n\n    </div>\n</div>";
+	},"useData":true});
+
+/***/ },
+/* 43 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
+	var $ = __webpack_require__(5);
+	__webpack_require__(44);
+	__webpack_require__(45);
+
+	var Modal = function Modal(_element, _options) {
+	    this.isShown = false;
+	    this.options = _options;
+
+	    this.$element = $(_element);
+
+	    this.$backdrop = null;
+	    this.$layout = null;
+
+	    this.options.enableModalFocus && this.$element.attr("tabindex", 0);
+	    this.$element.on("click", ".modal-close", $.proxy(function (e) {
+	        e.preventDefault();
+	        this.hide();
+	    }, this));
+	};
+
+	Modal.DEFAULTS = {
+	    enableModalFocus: false,
+	    enableClickBackdrop: false
+	};
+
+	Modal.prototype.show = function (params) {
+	    console.log('params = ', params);
+	    var breforeEvt = $.Event('show.ui.modal', this.$element),
+	        afterEvt = $.Event('shown.ui.modal', this.$element),
+	        $body = $("body"),
+	        prevObj = $body.data("ui.Modal");
+
+	    this.$element.trigger(breforeEvt);
+	    if (this.isShown || breforeEvt.isDefaultPrevented()) return;
+
+	    this.isShown = true;
+
+	    this.enforceFocus();
+
+	    prevObj && prevObj.hide && prevObj !== this && prevObj.hide();
+
+	    this.$backdrop = $('<div class="modal-backdrop"/>').appendTo("body");
+	    if (!this.$element.parent().hasClass('modal-scrollArea')) {
+	        this.$layout = this.$element.wrap('<div class="modal-scrollArea"/>').parent();
+	        this.$layout.appendTo('body');
+	    }
+
+	    $("html").addClass("modal-open");
+
+	    this.$backdrop.show();
+	    this.$layout.show();
+	    this.$element.show().scrollTop(0).focus();
+
+	    $body.data("ui.Modal", this);
+	    if (params && params.escape) this.$element.data("ui.modal.escape", params.escape);
+	    this.$element.trigger(afterEvt);
+
+	    this.options.enableClickBackdrop && this.clickBackdrop();
+	};
+
+	Modal.prototype.hide = function (params) {
+	    var breforeEvt = $.Event('hide.ui.modal', this.$element),
+	        afterEvt = $.Event('hidden.ui.modal', this.$element);
+
+	    if (this.isShown == false) return false;
+
+	    this.$element.trigger(breforeEvt);
+	    this.isShown = false;
+
+	    $(document).off('focusin.ui.modal');
+
+	    $("html").removeClass("modal-open");
+	    this.$backdrop.remove();
+	    this.$layout.hide();
+
+	    this.$element.trigger(afterEvt);
+	    $(params && params.escape || this.$element.data("ui.modal.escape") || {}).trigger('focus');
+	};
+
+	Modal.prototype.empty = function (params) {
+	    var breforeEvt = $.Event('hide.ui.modal', this.$element),
+	        afterEvt = $.Event('hidden.ui.modal', this.$element);
+
+	    this.$element.find('iframe').prop('src', '');
+	    if (this.isShown == false) return false;
+
+	    this.$element.trigger(breforeEvt);
+	    this.isShown = false;
+
+	    $(document).off('focusin.ui.modal');
+
+	    $("html").removeClass("modal-open");
+	    this.$backdrop.remove();
+	    this.$layout.hide();
+
+	    this.$element.trigger(afterEvt);
+	    $(params && params.escape || this.$element.data("ui.modal.escape") || {}).trigger('focus');
+	};
+
+	Modal.prototype.enforceFocus = function () {
+	    $(document).off('focusin.ui.modal').on('focusin.ui.modal', $.proxy(function (e) {
+	        if (this.$element[0] !== e.target && !this.$element.has(e.target).length) {
+	            this.$element.trigger("focus");
+	        }
+	    }, this));
+	};
+
+	Modal.prototype.clickBackdrop = function () {
+	    var that = this,
+	        flickingStart,
+	        isScroll,
+	        $back = this.$element.add(this.$backdrop).add(this.$layout);
+
+	    $back.on("touchstart mousedown", function (e) {
+	        $(document).off("touchmove mousemove", onMove).off("touchend mouseup", onEnd);
+	        flickingStart = functions._coordinates(e);
+	        isScroll = false;
+	        $(document).on("touchmove mousemove", onMove).on("touchend mouseup", onEnd);
+	    });
+
+	    function onMove(e) {
+	        if (!isScroll && Math.abs(functions._coordinates(e)[0] - flickingStart[0]) >= 20) {
+	            isScroll = true;
+	        }
+	    }
+
+	    function onEnd(e) {
+	        var dy = functions._coordinates(e)[0] - flickingStart[0],
+	            dx = functions._coordinates(e)[1] - flickingStart[1];
+	        if (isScroll) {}
+	        if (Math.sqrt(dx * dx + dy * dy) < 3) {
+	            $back.is(e.target) && that.hide();
+	        }
+	        $(document).off("touchmove touchend");
+	    }
+	};
+
+	var functions = {
+	    _coordinates: function _coordinates(e) {
+	        var t = e.type;
+	        switch (t) {
+	            case "pointerdown":
+	            case "MSPointerDown":
+	            case "pointermove":
+	            case "MSPointerMove":
+	            case "pointerup":
+	            case "MSPointerUp":
+	                return [e.originalEvent.pageY, e.originalEvent.pageX];
+	                break;
+	            case "touchstart":
+	            case "touchmove":
+	            case "touchend":
+	                var touch = e.originalEvent.touches[0] || e.originalEvent.changedTouches[0];
+	                return [touch.pageY, touch.pageX];
+	                break;
+	            default:
+	                return [e.pageY, e.pageX];
+	        }
+	    }
+	};
+
+	$.fn.modal = function (method, _params) {
+	    var arg = Array.prototype.slice.call(arguments, 1);
+	    return this.each(function () {
+	        var $this = $(this),
+	            data = $this.data('ui.modal'),
+	            options = $.extend({}, Modal.DEFAULTS, $this.data(), (typeof _params === 'undefined' ? 'undefined' : _typeof(_params)) == 'object' && _params);
+
+	        if (!data) $this.data('ui.modal', data = new Modal(this, options));
+	        if (typeof method == 'string') data[method].apply(data, arg);else data.show.apply(data, arg);
+	    });
+	};
+
+/***/ },
+/* 44 */
+/***/ function(module, exports) {
+
+	module.exports = __WEBPACK_EXTERNAL_MODULE_44__;
+
+/***/ },
+/* 45 */
+/***/ function(module, exports) {
+
+	// removed by extract-text-webpack-plugin
+	module.exports = {"modal-open":"modal-open","modal-backdrop":"modal-backdrop","modal-scrollArea":"modal-scrollArea","module-modal-layer":"module-modal-layer","module-modal-layer-title":"module-modal-layer-title","module-modal-layer__contents":"module-modal-layer__contents","module-modal-layer-controller":"module-modal-layer-controller","module-modal-layer-closing":"module-modal-layer-closing"};
+
+/***/ },
+/* 46 */
+/***/ function(module, exports) {
+
+	// removed by extract-text-webpack-plugin
+	module.exports = {"components-wrap":"components-wrap"};
 
 /***/ }
 ])});;

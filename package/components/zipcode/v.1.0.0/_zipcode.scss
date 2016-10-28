@@ -1,10 +1,14 @@
+$line-height: 20px;
+$space: 10px;
+
 .zip-code-search {
   background-color: #fff;
-  font-size: 12px; }
-
+  font-size: 12px;
+}
 .zip-code-search a {
   cursor: auto;
-  text-decoration: none; }
+  text-decoration: none;
+}
 
 .zip-code-search-type-selector-ul {
   list-style: none;
@@ -12,107 +16,123 @@
   padding: 0;
   width: 100%;
   overflow: hidden;
-  border-top: 1px solid #999; }
-
+  border-top: 1px solid #999;
+}
 .zip-code-search-type-selector-road,
 .zip-code-search-type-selector-jibun {
   float: left;
-  width: 50%; }
-
+  width: 50%;
+}
 .zip-code-search-type-selector-trigger {
   display: block;
   border-right: 1px solid #999;
   text-align: center;
-  padding: 5px 0; }
-
+  padding: 5px 0;
+}
 .zip-code-search-type-selector-trigger:first-child {
-  border-left: 1px solid #999; }
-
+  border-left: 1px solid #999;
+}
 .zip-code-search-type-selector-trigger.selected {
-  background-color: #999; }
+  background-color: #999;
+}
 
 .zip-code-search-contents {
-  border: 1px solid #999; }
-
+  border: 1px solid #999;
+  //padding-top: $space;
+}
 .zip-code-search-user-choice-wrap {
-  margin: 0 10px; }
-
+  margin: 0 $space;
+}
 .zip-code-search-user-select-wrap {
-  margin-top: 10px; }
+  margin-top: $space;
+}
+.zip-code-search-user-select-city {}
+.zip-code-search-user-select-town {}
 
 .zip-code-search-user-input-wrap {
   position: relative;
   padding-right: 50px;
-  margin-top: 10px; }
-
+  margin-top: $space;
+}
 .zip-code-search-user-input {
   display: block;
   width: 100%;
-  line-height: 20px;
+  line-height: $line-height;
   padding: 0;
-  border: 1px solid #2c2c2c; }
-
+  border: 1px solid #2c2c2c;
+}
 .zip-code-search-user-input-gide {
-  margin: 10px 0 0 0; }
-
+  margin: $space 0 0 0;
+}
 .zip-code-search-user-choice-submit {
   position: absolute;
   top: 0;
   right: 0;
   width: 50px;
-  line-height: 20px;
+  line-height: $line-height;
   padding: 0;
-  border: 1px solid #2c2c2c; }
+  border: 1px solid #2c2c2c;
+}
 
+// 검색 팁 : 검색 결과와 대치 ////////////////
 .zip-code-search-user-choice-gide {
-  margin: 10px 10px 0; }
-
+  margin: $space $space 0;
+}
+.zip-code-search-user-choice-gide-title {}
 .zip-code-search-user-choice-gide-ol {
   margin: 0;
-  padding-left: 1em; }
+  padding-left: 1em;
+}
+.zip-code-search-user-choice-gide-li {}
+
 
 .zip-code-search-result-wrap {
-  display: none; }
-
+  display: none;
+}
 .zip-code-search-result-info {
-  margin: 10px; }
+  margin: $space;
+}
+.zip-code-search-result-info-count {}
 
 .zip-code-search-result-filter-wrap {
   display: none;
   text-align: right;
-  margin: 10px 10px 0; }
-
+  margin: $space $space 0;
+}
 .zip-code-search-result-filter-title {
-  display: none; }
+  display: none;
+}
+.zip-code-search-result-filter-select-city {}
+.zip-code-search-result-filter-select-town {}
 
 .zip-code-search-result-contents-wrap {
-  margin: 0 10px;
-  overflow-y: auto; }
-
+  margin: 0 $space;
+  overflow-y: auto;
+}
 .zip-code-search-result-contents-ul {
   list-style: none;
   margin: 0;
   padding: 0;
-  border-top: 1px solid #eee; }
-
+  border-top: 1px solid #eee;
+}
 .zip-code-search-result-contents-li {
   position: relative;
-  border-bottom: 1px solid #eee; }
-
+  border-bottom: 1px solid #eee;
+}
 .zip-code-search-result-key {
   position: absolute;
   top: 50%;
   right: 0;
   width: 50px;
-  line-height: 20px;
-  margin-top: -10px; }
-
+  line-height: $line-height;
+  margin-top: -10px;
+}
 .zip-code-search-result-trigger {
-  display: block; }
-
+  display: block;
+}
 .zip-code-search-result-trigger:hover {
-  background-color: #f2f2f2; }
-
+  background-color: #f2f2f2;
+}
 .zip-code-search-result-road,
 .zip-code-search-result-jibun {
   position: relative;
@@ -120,8 +140,8 @@
   padding: 2px;
   margin: 0 55px;
   border-right: 1px solid #eee;
-  font-style: normal; }
-
+  font-style: normal;
+}
 .zip-code-search-result-type {
   position: absolute;
   top: 50%;
@@ -129,24 +149,28 @@
   margin-top: -10px;
   display: inline-block;
   width: 45px;
-  line-height: 20px;
+  line-height: $line-height;
   text-align: center;
   background-color: #999;
-  color: #000; }
+  color: #000;
+}
+.zip-code-search-result-address {}
+
 
 .zip-code-search-result-noting-wrap {
   position: absolute;
-  bottom: 0; }
-
+  bottom: 0;
+}
+.zip-code-search-result-noting-title {}
 .zip-code-search-result-noting_ul {
   list-style: none;
   margin: 0;
-  padding: 0; }
-
+  padding: 0;
+}
 .zip-code-search-result-noting_ul li {
   margin: 0;
-  padding: 0; }
-
+  padding: 0;
+}
 .zip-code-search-result-noting-trigger {
   position: absolute;
   top: 0;
@@ -155,67 +179,7 @@
   padding: 0 2px;
   line-height: 16px;
   text-decoration: none;
-  background-color: #999; }
-@charset "UTF-8";
-/* 모달설정 - body */
-html.modal-open,
-html.modal-open body {
-  overflow: hidden !important; }
+  background-color: #999;
+}
 
-/* 모달설정 - 배경색 투명레이어 */
-.modal-backdrop {
-  display: none;
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: black;
-  opacity: 0.6;
-  filter: alpha(opacity=60);
-  z-index: 9000; }
 
-/* 모달설정 - 스크롤영역 */
-.modal-scrollArea {
-  overflow: auto;
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 9001;
-  -webkit-overflow-scrolling: touch; }
-
-@media print {
-  .modal-backdrop {
-    display: none; }
-  .modal-scrollArea > div {
-    margin-top: 0 !important;
-    margin-bottom: 0 !important; } }
-
-.module-modal-layer {
-  margin: 10px;
-  display: none;
-  background-color: #fff; }
-
-.module-modal-layer-title {
-  margin: 5px;
-  line-height: 30px; }
-
-.module-modal-layer__contents {
-  margin: 0 5px; }
-
-.module-modal-layer-controller {
-  position: absolute;
-  top: 0;
-  width: 100%;
-  height: 30px; }
-
-.module-modal-layer-closing {
-  position: absolute;
-  top: 50%;
-  right: 5px;
-  margin-top: -10px;
-  line-height: 15px; }
-.components-wrap {
-  display: none; }

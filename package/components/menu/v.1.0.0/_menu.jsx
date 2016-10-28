@@ -27,7 +27,6 @@ var menu = function(){
 
         makeList: function(){
             var menuData = this.element.data('component-data');
-
             var addData = menuData.push(
                 {
                     "url" : "/order",

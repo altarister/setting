@@ -1,0 +1,41 @@
+/* 모달설정 - body */
+html.modal-open,
+html.modal-open body {
+    overflow:hidden !important;
+}
+
+/* 모달설정 - 배경색 투명레이어 */
+.modal-backdrop {
+    display:none;
+    position:fixed;
+    top:0;
+    bottom:0;
+    left:0;
+    right:0;
+    background:black;
+    opacity:0.6;
+    filter:alpha(opacity=60);
+    z-index:9000;
+}
+
+/* 모달설정 - 스크롤영역 */
+.modal-scrollArea {
+    overflow:auto;
+    position:fixed;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    z-index:9001;
+    -webkit-overflow-scrolling: touch;
+}
+
+@media print {
+    .modal-backdrop {
+        display:none;
+    }
+    .modal-scrollArea>div {
+        margin-top:0 !important;
+        margin-bottom:0 !important;
+    }
+}

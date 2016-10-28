@@ -1,0 +1,21 @@
+{{#each address}}
+<li class="zip-code-search-result-contents-li">
+    {{!-- start 우펀번호 + 도로주소 + 지번주소 --}}
+    <a href="#" class="zip-code-search-result-trigger" data-zipcode="{{json this}}">
+        <strong class="zip-code-search-result-key">{{this.zipcode}}</strong>
+        <em class="zip-code-search-result-road">
+            <span class="zip-code-search-result-type">도로명</span>
+            <span class="zip-code-search-result-address">
+                {{this.roads}}
+            </span>
+        </em>
+        <em class="zip-code-search-result-jibun">
+            <span class="zip-code-search-result-type">지번</span>
+            <span class="zip-code-search-result-address">
+                {{this.jibuns}}
+            </span>
+        </em>
+    </a>
+    {{!-- end 우펀번호 + 도로주소 + 지번주소 --}}
+</li>
+{{/each}}

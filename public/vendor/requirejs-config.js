@@ -8,6 +8,7 @@ var PROVIDER = {
     "pc"    : "app/memebox/pc",
     "mobile": "app/memebox/mobile",
     "common": "app/common",
+    "package": "package",
     "vendor": "vendor"
     //,"helper" : "package/helper"
 };
@@ -27,29 +28,11 @@ var REQUIRE_JS_PATHS_CDN = {
     "hbs" : PROVIDER.cdn("/requirejs-handlebars/0.0.2/hbars.min"),
 
     "modernizr" : PROVIDER.cdn("/modernizr/2.8.3/modernizr.min"),
-
     "es5-shim" : PROVIDER.cdn("/es5-shim/4.3.1/es5-shim.min"),
-
     "jquery": PROVIDER.cdn("/jquery/1.11.3/jquery.min"),
-    // "jquery.spin": PROVIDER.vendor + "/spin/jquery.spin.min",
-    // "jquery.ui.position" : PROVIDER.vendor + "/jqueryUi/jquery-ui-position.min",
-
-    // "underscore"       : PROVIDER.cdn("/underscore.js/1.8.3/underscore-min"),
-    // "underscore.string": PROVIDER.cdn("/underscore.string/3.2.2/underscore.string.min"),
-
-    "handlebars": PROVIDER.cdn("/handlebars.js/1.3.0/handlebars.min")
-
-    // "iScroll": PROVIDER.cdn("/iScroll/5.2.0/iscroll.min"),
-
-
-    // 날짜
-    // "moment"   : PROVIDER.cdn("/moment.js/2.4.0/moment.min"),
-    // "moment-ko": PROVIDER.cdn("/moment.js/2.4.0/lang/ko.min"),
-
-    // localStorage 라이브러리 (localStorage 미지원 브라우저는 cookie 로 fallback 지원)
-    // "store" : PROVIDER.cdn("/store.js/1.3.17/store.min"),
-
-    // 'zenorocha-clipboard' : PROVIDER.cdn('/clipboard.js/1.5.5/clipboard.min')
+    "handlebars": PROVIDER.cdn("/handlebars.js/1.3.0/handlebars.min"),
+    "iScroll": PROVIDER.cdn("/iScroll/5.2.0/iscroll.min"),
+    "jquery.ui.position" : PROVIDER.vendor + "/jqueryUi/jquery-ui-position.min"
 };
 
 (function(){

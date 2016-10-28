@@ -83,6 +83,7 @@ module.exports = function (serviceString, envString, deviceString) {
                 var HELPER_CHUNK = [
                     requirejsConfig.PROVIDER.common + '/handlebars-helpers/json',
                     requirejsConfig.PROVIDER.common + '/handlebars-helpers/formatNumber'
+
                     //requirejsConfig.PROVIDER.helper + '/json'
                     //HELPER_DIR + '/json'
                 ];

@@ -27,7 +27,7 @@ var config = {
 };
 
 var files = {
-    public : APP_DIR_APP + '**/*.*',
+    app : APP_DIR_APP + '**/*.*',
     dist : APP_DIR_DIST + '**/*.*',
     view : APP_DIR_VIEW + '**/*.*',
     server : SERVER_DIR + '**/*.*'
@@ -59,8 +59,8 @@ gulp.task('front-browser-sync', ['local_build_pc'], function() {
     });
 
     gulp.watch(files.view).on("change", browserSync_front.reload);
-    gulp.watch(files.public).on("change", webpackBuild(webpackConfig('memebox', 'production', 'pc')));
-    gulp.watch(files.public).on("change", browserSync_front.reload);
+    gulp.watch(files.app).on("change", webpackBuild(webpackConfig('memebox', 'production', 'pc')));
+    gulp.watch(files.dist).on("change", browserSync_front.reload);
 });
 
 gulp.task('default', ['nodemon'], function(){

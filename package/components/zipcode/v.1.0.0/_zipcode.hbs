@@ -1,0 +1,54 @@
+<div class="zip-code-search"
+     data-component="zipcode"
+     data-component-data='{{json this}}'>
+
+    {{!--검색 방밥 선택--}}
+    <ul class="zip-code-search-type-selector-ul">
+        <li class="zip-code-search-type-selector-road">
+            <a class="zip-code-search-type-selector-trigger selected" href="#road">도로명으로 찾기</a>
+        </li>
+        <li class="zip-code-search-type-selector-jibun">
+            <a class="zip-code-search-type-selector-trigger" href="#jibun">지번으로 찾기</a>
+        </li>
+    </ul>
+
+    <div class="zip-code-search-contents">
+        {{!--검색 사용자 입력 혹은 선택--}}
+        <div class="zip-code-search-user-choice-wrap">
+            <div class="zip-code-search-user-select-wrap">
+                <select class="zip-code-search-user-select-city">
+                    <option value="">시/도 선택</option>
+                    <option value="#강원도">강원도</option>
+                </select>
+                <select class="zip-code-search-user-select-town" disabled>
+                    <option value="">시/군/구 선택</option>
+                </select>
+            </div>
+            <div class="zip-code-search-user-input-wrap">
+                <input type="text"
+                       class="zip-code-search-user-input"
+                       name="searchKey"
+                       value=""
+                       placeholder="(예: 테헤란로 501, 삼성동 157-27, 반포자이아파트)">
+                <button type="submit"
+                        class="zip-code-search-user-choice-submit">
+                    검색
+                </button>
+            </div>
+            <p class="zip-code-search-user-input-gide">
+                시/도 , 시/군/구 선택 후 주소명을 입력해주세요.
+            </p>
+        </div>
+
+        {{!--검색 팁 : 검색 결과와 대치--}}
+        <div class="zip-code-search-user-choice-gide">
+            {{!> components/zipcode/v.1.0.0/_gide}}
+        </div>
+        {{!-- start 모든 검색 결과--}}
+        <div class="zip-code-search-result-wrap">
+            {{!> components/zipcode/v.1.0.0/_result}}
+        </div>
+
+
+    </div>
+</div>
