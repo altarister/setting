@@ -120,10 +120,10 @@ module.exports = function (serviceString, envString, deviceString) {
                     test: /\.hbs$/,
                     loader: 'handlebars-loader?helperDirs[]=' + path.resolve(PUBLIC_DIR, './app/common/handlebars-helpers')
                 },
-                {
-                    test: /\.png$/,
-                    loaders: ['file?name=i/[hash].[ext]']
-                },
+                // {
+                //     test: /\.png$/,
+                //     loaders: ['file?name=i/[hash].[ext]']
+                // },
                 {
                     test: /\.(s?)css$/,
                     loader: ExtractTextPlugin.extract('style-loader', ['css-loader?modules&importLoaders=1&localIdentName=[local]!postcss-loader', 'sass-loader'])

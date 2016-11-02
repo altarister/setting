@@ -24,11 +24,15 @@ var main = function(){
 
         components : {},
 
+        device: 'pc',
+
         initialize: function(){
             utility.uiEnhancements.call(this);
-            this.getComponents();
+            //this.getComponents();
             this.makeMenu();
             this.addEventListener();
+            //test 코드
+                this.ui.zipcodeTrigger.trigger('click')
         },
 
         addEventListener: function(){
@@ -37,33 +41,37 @@ var main = function(){
         },
 
         zipcodeEvent: function(){
-            var layerStyle = {width: 300, height: 500, background: 'white'};
+            if(this.device === 'pc'){
+                var layerStyle = {width: 320, height: 500, background: 'white'};
 
-            this.ui.moduleModalLayer
-                .off()
-                .on('shown.ui.modal', function ($modal) {
-                    $(window).on('resize.ui.modal', function () {
-                        $modal.position({
-                            my: "center",
-                            at: "center",
-                            of: window,
-                            using: function (pos) {
-                                var topOffset = $(this).css(pos).offset();
-                                if (topOffset.top < 20) { $(this).css("top", 20); }
-                                if (topOffset.left < 20) { $(this).css("left", pos.left - topOffset.left); }
-                            }
-                        });
-                    }).trigger('resize.ui.modal');
-                })
-                .on('hide.ui.modal', function () {
-                    $(window).off('resize.ui.modal');
-                })
-                .on('click', controller.ui.__uiString.moduleModalLayer__closing, function (event) {
-                    event.preventDefault();
-                    controller.ui.moduleModalLayer.modal('hide');
-                }).css(layerStyle).modal('show');
-            this.setLayerContentHeight();
-            new zipcode(this.collBackZipcode, this.ui.moduleModalLayer__contents);
+                $('.module-modal-layer')
+                    .off()
+                    .on('shown.ui.modal', function ($modal) {
+                        $(window).on('resize.ui.modal', function () {
+                            $modal.position({
+                                my: "center",
+                                at: "center",
+                                of: window,
+                                using: function (pos) {
+                                    var topOffset = $(this).css(pos).offset();
+                                    if (topOffset.top < 20) { $(this).css("top", 20); }
+                                    if (topOffset.left < 20) { $(this).css("left", pos.left - topOffset.left); }
+                                }
+                            });
+                        }).trigger('resize.ui.modal');
+                    })
+                    .on('hide.ui.modal', function () {
+                        $(window).off('resize.ui.modal');
+                    })
+                    .on('click', controller.ui.__uiString.moduleModalLayer__closing, function (event) {
+                        event.preventDefault();
+                        controller.ui.moduleModalLayer.modal('hide');
+                    }).css(layerStyle).modal('show');
+                this.setLayerContentHeight();
+                new zipcode(this.collBackZipcode, $('.module-modal-layer__contents'));
+            }else{
+                new zipcode(this.collBackZipcode, this.ui.moduleModalLayer__contents);
+            }
         },
 
         setLayerContentHeight: function(){
@@ -75,15 +83,16 @@ var main = function(){
             this.ui.moduleModalLayer__contents.height(contentHeight);
         },
 
-        getComponents: function(){
-            this.ui.components.each(function(index, element){
-                var component = $(element).data('component');
-                console.log('component ====== ',component)
-            })
-        },
+        // getComponents: function(){
+        //     this.ui.components.each(function(index, element){
+        //         var component = $(element).data('component');
+        //         console.log('component ====== ',component)
+        //     })
+        // },
 
         collBackZipcode: function(data){
             console.log('data ++++++++++ ',data,' ++++++++');
+            //db저장 //
             controller.ui.zipcodeValue.text(data.zipcode);
             controller.ui.addressValue.text(data.roads);
             controller.ui.moduleModalLayer.modal('hide');

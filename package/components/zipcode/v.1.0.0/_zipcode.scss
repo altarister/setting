@@ -16,7 +16,7 @@ $space: 10px;
   padding: 0;
   width: 100%;
   overflow: hidden;
-  border-top: 1px solid #999;
+  border-top: 1px solid #d2d2d2;
 }
 .zip-code-search-type-selector-road,
 .zip-code-search-type-selector-jibun {
@@ -25,20 +25,24 @@ $space: 10px;
 }
 .zip-code-search-type-selector-trigger {
   display: block;
-  border-right: 1px solid #999;
   text-align: center;
-  padding: 5px 0;
+  color: #8a8a8a;
+  background-color: #e6e6e6;
+  font-size: 15px;
+  line-height: 40px;
 }
 .zip-code-search-type-selector-trigger:first-child {
-  border-left: 1px solid #999;
+  //border-left: 1px solid #999;
 }
 .zip-code-search-type-selector-trigger.selected {
-  background-color: #999;
+  background-color: #ff5073;
+  color: #fff;
 }
 
 .zip-code-search-contents {
-  border: 1px solid #999;
+  border: none;
   //padding-top: $space;
+  background-color: #f9f9fa;
 }
 .zip-code-search-user-choice-wrap {
   margin: 0 $space;
@@ -51,27 +55,35 @@ $space: 10px;
 
 .zip-code-search-user-input-wrap {
   position: relative;
-  padding-right: 50px;
+  padding-right: 70px;
   margin-top: $space;
 }
 .zip-code-search-user-input {
   display: block;
   width: 100%;
-  line-height: $line-height;
+  line-height: 30px;
   padding: 0;
-  border: 1px solid #2c2c2c;
+  border: 1px solid #cccccc;
+  text-indent: 10px;
+  border-radius: 5px;
+  font-size: 12px;
 }
 .zip-code-search-user-input-gide {
   margin: $space 0 0 0;
+  color: #333;
 }
 .zip-code-search-user-choice-submit {
   position: absolute;
   top: 0;
   right: 0;
   width: 50px;
-  line-height: $line-height;
+  line-height: 30px;
   padding: 0;
-  border: 1px solid #2c2c2c;
+  border: 1px solid #ff5073;
+  border-radius: 5px;
+  background-color: #ff5073;
+  color: #fff;
+  font-size: 13px;
 }
 
 // 검색 팁 : 검색 결과와 대치 ////////////////
@@ -88,9 +100,10 @@ $space: 10px;
 
 .zip-code-search-result-wrap {
   display: none;
+  position: relative;
 }
 .zip-code-search-result-info {
-  margin: $space;
+  margin: $space $space 0;
 }
 .zip-code-search-result-info-count {}
 
@@ -106,8 +119,8 @@ $space: 10px;
 .zip-code-search-result-filter-select-town {}
 
 .zip-code-search-result-contents-wrap {
-  margin: 0 $space;
-  overflow-y: auto;
+  margin: $space $space 0;
+  position: relative;
 }
 .zip-code-search-result-contents-ul {
   list-style: none;
@@ -151,8 +164,8 @@ $space: 10px;
   width: 45px;
   line-height: $line-height;
   text-align: center;
-  background-color: #999;
-  color: #000;
+  background-color: #c6c6c6;
+  color: #fff;
 }
 .zip-code-search-result-address {}
 
@@ -160,6 +173,7 @@ $space: 10px;
 .zip-code-search-result-noting-wrap {
   position: absolute;
   bottom: 0;
+  width: 100%;
 }
 .zip-code-search-result-noting-title {}
 .zip-code-search-result-noting_ul {

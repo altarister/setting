@@ -5,31 +5,38 @@
     {{!--검색 방밥 선택--}}
     <ul class="zip-code-search-type-selector-ul">
         <li class="zip-code-search-type-selector-road">
-            <a class="zip-code-search-type-selector-trigger selected" href="#road">도로명으로 찾기</a>
+            <a class="zip-code-search-type-selector-trigger selected" href="#road"><span>도로명 주소</span></a>
         </li>
         <li class="zip-code-search-type-selector-jibun">
-            <a class="zip-code-search-type-selector-trigger" href="#jibun">지번으로 찾기</a>
+            <a class="zip-code-search-type-selector-trigger" href="#jibun"><span>지번 주소</span></a>
         </li>
     </ul>
 
     <div class="zip-code-search-contents">
         {{!--검색 사용자 입력 혹은 선택--}}
         <div class="zip-code-search-user-choice-wrap">
-            <div class="zip-code-search-user-select-wrap">
-                <select class="zip-code-search-user-select-city">
-                    <option value="">시/도 선택</option>
-                    <option value="#강원도">강원도</option>
-                </select>
-                <select class="zip-code-search-user-select-town" disabled>
-                    <option value="">시/군/구 선택</option>
-                </select>
-            </div>
+            <ul class="zip-code-search-user-select-wrap">
+                <li class="zip-code-search-user-select-li">
+                    <select class="zip-code-search-user-select-city"
+                            name="zip-code-search-user-select-city">
+                        <option value="">시/도 선택</option>
+                        <option value="강원도">강원도</option>
+                    </select>
+                </li>
+                <li class="zip-code-search-user-select-li">
+                    <select class="zip-code-search-user-select-town"
+                            name="zip-code-search-user-select-town"
+                            disabled>
+                        <option value="">시/군/구 선택</option>
+                    </select>
+                </li>
+            </ul>
             <div class="zip-code-search-user-input-wrap">
                 <input type="text"
                        class="zip-code-search-user-input"
                        name="searchKey"
-                       value=""
-                       placeholder="(예: 테헤란로 501, 삼성동 157-27, 반포자이아파트)">
+                       value="판교"
+                       placeholder="(예: 판교역로 146번길)">
                 <button type="submit"
                         class="zip-code-search-user-choice-submit">
                     검색
@@ -48,7 +55,6 @@
         <div class="zip-code-search-result-wrap">
             {{!> components/zipcode/v.1.0.0/_result}}
         </div>
-
 
     </div>
 </div>

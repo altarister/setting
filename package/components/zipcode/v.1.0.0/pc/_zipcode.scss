@@ -1,64 +1,85 @@
-@charset "UTF-8";
-.module-modal-layer {
-  background-color: black !important; }
+$line-height: 20px;
+$space: 10px;
+$assetHost: '';
+$zipcodeSprite: $assetHost+"/components/zipcode/v.1.0.0/pc/_zipcode.png";
 
 .zip-code-search {
   background-color: #fff;
   font-size: 12px;
-  height: 100%; }
-
+  height: 100%;
+}
 .zip-code-search a {
   cursor: auto;
-  text-decoration: none; }
+  text-decoration: none;
 
+  //font-family: 나눔고딕, NanumGothic, 돋움, Dotum, AppleSDGothic, AppleGothic, 굴림, Gulim, sans-serif;
+}
+//검색 조건 선택 (road와 jibun중 선택)/////////////////////////
 .zip-code-search-type-selector-ul {
   list-style: none;
   margin: 0;
   padding: 0;
   width: 100%;
-  overflow: hidden; }
-
+  overflow: hidden;
+  border-top: 1px solid #d2d2d2;
+}
 .zip-code-search-type-selector-road,
 .zip-code-search-type-selector-jibun {
   float: left;
-  width: 50%; }
-
+  width: 50%;
+}
 .zip-code-search-type-selector-trigger {
   display: block;
   text-align: center;
+  padding-bottom: 10px;
   color: #8a8a8a;
-  background-color: #fff;
+  background-color: #f9f9fa;
   font-size: 15px;
   line-height: 40px;
-  font-family: 나눔고딕볼드, NanumGothicBold, 나눔고딕, NanumGothic, 돋움, Dotum, AppleSDGothic, AppleGothic, 굴림, Gulim, sans-serif; }
-
+  font-family: 나눔고딕볼드, NanumGothicBold, 나눔고딕, NanumGothic, 돋움, Dotum, AppleSDGothic, AppleGothic, 굴림, Gulim, sans-serif;
+}
+.zip-code-search-type-selector-trigger span {
+  display: block;
+  background-color: #e6e6e6;
+}
 .zip-code-search-type-selector-trigger.selected {
-  color: #ff5073;
-  border-bottom: 3px solid #ff5073; }
-
+  color: #fff;
+  background-image: url($zipcodeSprite);
+  background-repeat: no-repeat;
+  //background-size: ;
+  background-position: 50% 40px;
+}
+.zip-code-search-type-selector-trigger.selected span {
+  background-color: #ff5073;
+  display: block;
+}
+//사용자 검색 입력 (select, input, submit)/////////////////////////
 .zip-code-search-contents {
   display: block;
-  border-top: 1px solid #e0e0e0;
-  background-color: #f2f2f2; }
-
+  background-color: #f2f2f2;
+}
 .zip-code-search-user-choice-wrap {
-  padding: 10px 20px;
-  background-color: #fff; }
-
+  padding: 0 10px;
+  background-color: #f9f9fa;
+}
+//.zip-code-search-user-select-wrap {
+//  margin-bottom: $space;
+//}
+//.zip-code-search-user-select-city {}
+//.zip-code-search-user-select-town {}
 .zip-code-search-user-select-wrap {
-  margin-bottom: 10px;
   margin: 0;
   margin-bottom: 10px;
   padding: 0;
   list-style: none;
   width: 100%;
-  overflow: hidden; }
-
+  overflow: hidden;
+}
 .zip-code-search-user-select-li {
   width: 50%;
   overflow: hidden;
-  float: left; }
-
+  float: left;
+}
 .zip-code-search-user-select-city,
 .zip-code-search-user-select-town {
   display: block;
@@ -67,35 +88,38 @@
   -webkit-appearance: none;
   -moz-appearance: none;
   outline: none;
-  padding: 0 15px 0 9px;
-  border: 1px solid #e0e0e0;
+  padding: 0;
+  text-indent: 10px;
+  //padding: 0 15px 0 9px;
+  border: 1px solid #ccc;
   border-radius: 5px;
   font-size: 12px;
   background-color: #fff;
-  background-image: url("/components/zipcode/v.1.0.0/mobile/_zipcode.png");
+  background-image: url($zipcodeSprite);
   background-repeat: no-repeat;
   background-position: right center;
-  background-size: 14px auto; }
+  background-size: 14px auto;
+}
 
 .zip-code-search-user-input-wrap {
   position: relative;
-  padding-right: 60px;
-  margin-bottom: 10px; }
-
+  padding-right: 70px;
+  margin-bottom: $space;
+}
 .zip-code-search-user-input {
   display: block;
   width: 100%;
   line-height: 30px;
   padding: 0;
-  border: 1px solid #e0e0e0;
+  border: 1px solid #cccccc;
   text-indent: 10px;
   border-radius: 5px;
-  font-size: 12px; }
-
+  font-size: 12px;
+}
 .zip-code-search-user-input-gide {
-  margin: 0;
-  color: #555; }
-
+  margin:  0 0 $space 0;
+  color: #333;
+}
 .zip-code-search-user-choice-submit {
   position: absolute;
   top: 0;
@@ -108,251 +132,196 @@
   background-color: #ff5073;
   color: #fff;
   font-size: 13px;
-  font-family: 나눔고딕볼드, NanumGothicBold, 나눔고딕, NanumGothic, 돋움, Dotum, AppleSDGothic, AppleGothic, 굴림, Gulim, sans-serif; }
+  font-family: 나눔고딕볼드, NanumGothicBold, 나눔고딕, NanumGothic, 돋움, Dotum, AppleSDGothic, AppleGothic, 굴림, Gulim, sans-serif;
+}
 
+// 검색 팁 : 검색 결과와 대치 ////////////////
 .zip-code-search-user-choice-gide {
   border-top: 1px solid #e0e0e0;
-  background-color: #f2f2f2; }
-
+  background-color: #f2f2f2;
+}
 .zip-code-search-user-choice-gide-title {
   display: block;
   margin: 10px 20px 10px;
   padding-top: 10px;
-  color: #555555; }
-
+  color: #555555;
+}
 .zip-code-search-user-choice-gide-title em {
   font-style: normal;
-  color: #ff5073; }
-
+  color: #ff5073;
+}
 .zip-code-search-user-choice-gide-ol {
-  margin: 0;
   margin: 10px 20px 10px;
-  padding-left: 1em; }
-
+  padding-left: 1em;
+}
 .zip-code-search-user-choice-gide-li {
-  color: #8a8a8a; }
-
+  color: #8a8a8a;
+}
+//검색 결과 화면 (가이드, 필터, 내용, 결과 없음)/////////////////////////
 .zip-code-search-result-wrap {
   display: none;
-  position: relative; }
-
+  position: relative;
+}
+//검색 결과 화면 - 가이드/////////////////////////
 .zip-code-search-result-info-wrap {
+  margin: $space 0 0;
   border-top: 1px solid #e0e0e0;
   border-bottom: 2px solid #e0e0e0;
   background-color: #f9f9fa;
-  color: #555; }
-
+  color: #555;
+}
 .zip-code-search-result-info {
-  padding: 0 20px; }
-
+  margin: $space;
+  font-weight: bold;
+}
 .zip-code-search-result-info-count {
-  color: #ff5073; }
-
+  color: #ff5073;
+}
 .zip-code-search-result-gide {
   display: block;
-  padding-top: 5px;
-  color: #8a8a8a; }
+  margin-top: 5px;
+  font-weight: normal;
+}
+
+
+//검색 결과 화면 - 필터/////////////////////////
 
 .zip-code-search-result-filter-wrap {
-  display: none;
-  margin: 0;
+  margin: 10px;
   padding: 0;
-  background-color: #fff;
-  border-top: 1px solid #e0e0e0;
-  line-height: 20px;
-  text-align: center;
   list-style: none;
   width: 100%;
-  overflow: hidden; }
-
+  overflow: hidden;
+}
 .zip-code-search-result-filter {
-  width: 49%;
+  width: 50%;
   overflow: hidden;
   float: left;
-  text-align: center; }
-
+}
 .zip-code-search-result-filter-select-city,
 .zip-code-search-result-filter-select-town {
-  display: inline-block;
+  display: block;
   width: 90%;
   height: 30px;
   -webkit-appearance: none;
   -moz-appearance: none;
   outline: none;
   padding: 0;
-  text-indent: 20px;
-  border: none;
+  text-indent: 10px;
+  //padding: 0 15px 0 9px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
   font-size: 12px;
   background-color: #fff;
-  background-image: url("/components/zipcode/v.1.0.0/mobile/_zipcode.png");
+  background-image: url($zipcodeSprite);
   background-repeat: no-repeat;
   background-position: right center;
-  background-size: 14px auto; }
+  background-size: 14px auto;
+}
 
+//검색 결과 화면 - 내용/////////////////////////
 .zip-code-search-result-contents-wrap {
-  margin: 0;
+  //margin: $space $space 0;
   position: relative;
-  background-color: #e6e6e6; }
-
+  background-color: #e6e6e6;
+}
 .zip-code-search-result-contents-ul {
   list-style: none;
   margin: 0;
   padding: 5px 0 0 0;
-  background-color: #fff; }
-
+  border-top: 1px solid #eee;
+  background-color: #fff;
+}
 .zip-code-search-result-contents-li {
   position: relative;
   border-bottom: 1px solid #eee;
   padding-bottom: 5px;
-  margin-bottom: 5px; }
-
+  margin-bottom: 5px;
+}
 .zip-code-search-result-key {
   position: absolute;
   top: 50%;
-  right: 20px;
-  line-height: 20px;
+  right: 5px;
+  //width: 50px;
+  line-height: $line-height;
   margin-top: -10px;
-  color: #555; }
-
+  color: #555;
+}
 .zip-code-search-result-trigger {
-  display: block; }
-
+  display: block;
+}
 .zip-code-search-result-trigger:hover {
-  background-color: #f2f2f2; }
-
+  background-color: #f2f2f2;
+}
 .zip-code-search-result-road,
 .zip-code-search-result-jibun {
   position: relative;
   display: block;
-  padding: 5px 2px;
-  margin: 0 60px 0 70px;
-  font-style: normal; }
-
+  padding: 2px;
+  margin: 0 40px 0 55px;
+  font-style: normal;
+}
 .zip-code-search-result-type {
   position: absolute;
   top: 50%;
   left: -50px;
-  margin-top: -1em;
+  margin-top: -0.7em;
   display: inline-block;
-  width: 44px;
+  width: 45px;
+  line-height: 16px;
   text-align: center;
   background-color: #c6c6c6;
-  border-radius: 1em;
-  border-style: solid;
-  border-width: 1px;
-  border-color: #aaa;
   color: #fff;
-  line-height: 1.7em;
-  font-size: 8px;
-  font-family: 나눔고딕, NanumGothic, 돋움, Dotum, AppleSDGothic, AppleGothic, 굴림, Gulim, sans-serif; }
-
+  font-size: 11px;
+  font-family: 나눔고딕볼드, NanumGothicBold, 나눔고딕, NanumGothic, 돋움, Dotum, AppleSDGothic, AppleGothic, 굴림, Gulim, sans-serif;
+}
 .zip-code-search-result-road .zip-code-search-result-type {
-  color: #fff;
-  background-color: #aaa; }
-
+  background-color: #a2a2a2;
+}
 .zip-code-search-result-jibun .zip-code-search-result-type {
-  color: #aaa;
-  background-color: #fff; }
-
+  background-color: #c6c6c6;
+}
 .zip-code-search-result-address {
   color: #555;
-  line-height: 1.5em; }
+}
 
+//검색 결과 화면 - 결과 없음/////////////////////////
 .zip-code-search-result-noting-wrap {
   position: relative;
   width: 100%;
   padding: 10px 0;
   margin-top: -5px;
-  background-color: #e6e6e6; }
-
+  background-color: #e6e6e6;
+}
 .zip-code-search-result-noting-title {
   display: block;
   line-height: 20px;
-  margin-left: 20px;
-  color: #8a8a8a; }
-
+  margin-left: 10px;
+  color: #8a8a8a;
+}
 .zip-code-search-result-noting_ul {
   list-style: none;
-  margin: 5px 0 0 20px;
+  margin: 5px 0 0 10px;
   padding: 0;
   color: #8a8a8a;
-  list-style: none; }
-
+  list-style: none;
+}
 .zip-code-search-result-noting_ul li {
   margin: 0;
-  padding: 0; }
+  padding: 0;
 
+}
 .zip-code-search-result-noting-trigger {
   display: inline-block;
   padding: 2px 6px 0;
-  margin: 10px 10px 0 20px;
+  margin: 10px 10px 0 10px;
   line-height: 18px;
   text-decoration: none;
   background-color: #fff;
   border: 1px solid #ccc;
   border-radius: 4px;
   color: #555;
-  font-size: 11px; }
-@charset "UTF-8";
-/* 모달설정 - body */
-html.modal-open,
-html.modal-open body {
-  overflow: hidden !important; }
+  font-size: 11px;
+}
 
-/* 모달설정 - 배경색 투명레이어 */
-.modal-backdrop {
-  display: none;
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: black;
-  opacity: 0.6;
-  filter: alpha(opacity=60);
-  z-index: 9000; }
 
-/* 모달설정 - 스크롤영역 */
-.modal-scrollArea {
-  overflow: auto;
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 9001;
-  -webkit-overflow-scrolling: touch; }
-
-@media print {
-  .modal-backdrop {
-    display: none; }
-  .modal-scrollArea > div {
-    margin-top: 0 !important;
-    margin-bottom: 0 !important; } }
-
-.module-modal-layer {
-  margin: 10px;
-  display: none;
-  background-color: #fff; }
-
-.module-modal-layer-title {
-  margin: 5px;
-  line-height: 30px; }
-
-.module-modal-layer__contents {
-  margin: 0 5px; }
-
-.module-modal-layer-controller {
-  position: absolute;
-  top: 0;
-  width: 100%;
-  height: 30px; }
-
-.module-modal-layer-closing {
-  position: absolute;
-  top: 50%;
-  right: 5px;
-  margin-top: -10px;
-  line-height: 15px; }
-.components-wrap {
-  display: none; }

@@ -100,9 +100,9 @@ define(["jquery"], function(__WEBPACK_EXTERNAL_MODULE_5__) { return /******/ (fu
 /***/ function(module, exports, __webpack_require__) {
 
 	__webpack_require__(35);
-	__webpack_require__(49);
+	__webpack_require__(50);
 	__webpack_require__(6);
-	module.exports = __webpack_require__(50);
+	module.exports = __webpack_require__(37);
 
 
 /***/ },
@@ -321,21 +321,7 @@ define(["jquery"], function(__WEBPACK_EXTERNAL_MODULE_5__) { return /******/ (fu
 
 /***/ },
 
-/***/ 49:
-/***/ function(module, exports) {
-
-	'use strict';
-
-	module.exports = function (value) {
-	    if (!value) {
-	        return '0';
-	    }
-	    return String(value).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
-	};
-
-/***/ },
-
-/***/ 50:
+/***/ 37:
 /***/ function(module, exports) {
 
 	'use strict';
@@ -467,6 +453,20 @@ define(["jquery"], function(__WEBPACK_EXTERNAL_MODULE_5__) { return /******/ (fu
 	};
 
 	module.exports = validate;
+
+/***/ },
+
+/***/ 50:
+/***/ function(module, exports) {
+
+	'use strict';
+
+	module.exports = function (value) {
+	    if (!value) {
+	        return '0';
+	    }
+	    return String(value).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+	};
 
 /***/ }
 

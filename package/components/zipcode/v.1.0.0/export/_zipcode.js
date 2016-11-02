@@ -7,8 +7,8 @@ var templates = {
     // gide: require('./_gide.hbs'),
     gide: function(data){
         var template = '';
-            template += '<string class="zip-code-search-user-choice-gide-title">';
-            template += '</string>';
+            template += '<strong class="zip-code-search-user-choice-gide-title">';
+            template += '</strong>';
             template += '<ol class="zip-code-search-user-choice-gide-ol">';
             for(var index in data){
                 template += '<li class="zip-code-search-user-choice-gide-li">';
