@@ -21,7 +21,7 @@ $zipcodeSprite: $assetHost+"/components/zipcode/v.1.0.0/pc/_zipcode.png";
   padding: 0;
   width: 100%;
   overflow: hidden;
-  border-top: 1px solid #d2d2d2;
+
 }
 .zip-code-search-type-selector-road,
 .zip-code-search-type-selector-jibun {
@@ -35,22 +35,23 @@ $zipcodeSprite: $assetHost+"/components/zipcode/v.1.0.0/pc/_zipcode.png";
   color: #8a8a8a;
   background-color: #f9f9fa;
   font-size: 15px;
-  line-height: 40px;
+  line-height: 50px;
   font-family: 나눔고딕볼드, NanumGothicBold, 나눔고딕, NanumGothic, 돋움, Dotum, AppleSDGothic, AppleGothic, 굴림, Gulim, sans-serif;
 }
 .zip-code-search-type-selector-trigger span {
   display: block;
   background-color: #e6e6e6;
+  border-top: 1px solid #d2d2d2;
 }
 .zip-code-search-type-selector-trigger.selected {
   color: #fff;
   background-image: url($zipcodeSprite);
   background-repeat: no-repeat;
-  //background-size: ;
-  background-position: 50% 40px;
+  background-position: 50% 50px;
 }
 .zip-code-search-type-selector-trigger.selected span {
-  background-color: #ff5073;
+  background-color: #ff839c;
+  border-top: 1px solid #ff839c;
   display: block;
 }
 //사용자 검색 입력 (select, input, submit)/////////////////////////
@@ -59,20 +60,13 @@ $zipcodeSprite: $assetHost+"/components/zipcode/v.1.0.0/pc/_zipcode.png";
   background-color: #f2f2f2;
 }
 .zip-code-search-user-choice-wrap {
-  padding: 0 10px;
+  padding: 20px;
   background-color: #f9f9fa;
 }
-//.zip-code-search-user-select-wrap {
-//  margin-bottom: $space;
-//}
-//.zip-code-search-user-select-city {}
-//.zip-code-search-user-select-town {}
 .zip-code-search-user-select-wrap {
-  margin: 0;
-  margin-bottom: 10px;
+  margin: 0 70px 10px 0;
   padding: 0;
   list-style: none;
-  width: 100%;
   overflow: hidden;
 }
 .zip-code-search-user-select-li {
@@ -80,27 +74,24 @@ $zipcodeSprite: $assetHost+"/components/zipcode/v.1.0.0/pc/_zipcode.png";
   overflow: hidden;
   float: left;
 }
+.zip-code-search-user-select-city-wrap {
+  display: block;
+  padding-right: 5px;
+}
+.zip-code-search-user-select-town-wrap {
+  display: block;
+  padding-left: 5px;
+}
 .zip-code-search-user-select-city,
 .zip-code-search-user-select-town {
   display: block;
-  width: 90%;
+  width: 100%;
   height: 30px;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  outline: none;
-  padding: 0;
-  text-indent: 10px;
-  //padding: 0 15px 0 9px;
   border: 1px solid #ccc;
-  border-radius: 5px;
+  background: #fff;
+  color: #333333;
   font-size: 12px;
-  background-color: #fff;
-  background-image: url($zipcodeSprite);
-  background-repeat: no-repeat;
-  background-position: right center;
-  background-size: 14px auto;
 }
-
 .zip-code-search-user-input-wrap {
   position: relative;
   padding-right: 70px;
@@ -119,6 +110,7 @@ $zipcodeSprite: $assetHost+"/components/zipcode/v.1.0.0/pc/_zipcode.png";
 .zip-code-search-user-input-gide {
   margin:  0 0 $space 0;
   color: #333;
+  font-weight: bold;
 }
 .zip-code-search-user-choice-submit {
   position: absolute;
@@ -160,18 +152,18 @@ $zipcodeSprite: $assetHost+"/components/zipcode/v.1.0.0/pc/_zipcode.png";
 //검색 결과 화면 (가이드, 필터, 내용, 결과 없음)/////////////////////////
 .zip-code-search-result-wrap {
   display: none;
+  padding-bottom: 20px;
   position: relative;
+  background-color: #f9f9fa;
 }
 //검색 결과 화면 - 가이드/////////////////////////
 .zip-code-search-result-info-wrap {
-  margin: $space 0 0;
-  border-top: 1px solid #e0e0e0;
-  border-bottom: 2px solid #e0e0e0;
+  margin: 0 0 10px 0;
   background-color: #f9f9fa;
   color: #555;
 }
 .zip-code-search-result-info {
-  margin: $space;
+  margin: 0 20px;
   font-weight: bold;
 }
 .zip-code-search-result-info-count {
@@ -187,10 +179,9 @@ $zipcodeSprite: $assetHost+"/components/zipcode/v.1.0.0/pc/_zipcode.png";
 //검색 결과 화면 - 필터/////////////////////////
 
 .zip-code-search-result-filter-wrap {
-  margin: 10px;
+  margin: 10px 20px 0 ;
   padding: 0;
   list-style: none;
-  width: 100%;
   overflow: hidden;
 }
 .zip-code-search-result-filter {
@@ -198,32 +189,30 @@ $zipcodeSprite: $assetHost+"/components/zipcode/v.1.0.0/pc/_zipcode.png";
   overflow: hidden;
   float: left;
 }
+.zip-code-search-result-filter-select-city-wrap {
+  display: block;
+  margin-right: 5px;
+}
+.zip-code-search-result-filter-select-town-wrap {
+  display: block;
+  margin-left: 5px;
+}
+
 .zip-code-search-result-filter-select-city,
 .zip-code-search-result-filter-select-town {
-  display: block;
-  width: 90%;
+  width: 100%;
   height: 30px;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  outline: none;
-  padding: 0;
-  text-indent: 10px;
-  //padding: 0 15px 0 9px;
   border: 1px solid #ccc;
-  border-radius: 5px;
+  background: #fff;
+  color: #333333;
   font-size: 12px;
-  background-color: #fff;
-  background-image: url($zipcodeSprite);
-  background-repeat: no-repeat;
-  background-position: right center;
-  background-size: 14px auto;
 }
 
 //검색 결과 화면 - 내용/////////////////////////
 .zip-code-search-result-contents-wrap {
-  //margin: $space $space 0;
+  padding: 0 20px;
   position: relative;
-  background-color: #e6e6e6;
+  background-color: #f9f9fa;
 }
 .zip-code-search-result-contents-ul {
   list-style: none;

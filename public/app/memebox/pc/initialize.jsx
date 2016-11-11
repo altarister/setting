@@ -1,5 +1,5 @@
 require('modernizr');
-var $ = require('jquery');
+//var $ = require('jquery');
 //var Common = require('pcCommon');
 
 const memeboxWrapSelector = '#memebox-service';
@@ -16,7 +16,7 @@ function globalSubscribePublishEvent(){
 
 function pageControllerInitialize(){
     var controller = $(memeboxWrapSelector).data('controller');
-    console.log('controller = ',controller);
+    console.log('controller === ',controller);
     if (controller) {
         memeboxRequire(['dist/' + controller], function (controller) {
             if (controller && controller instanceof Function) {
@@ -39,6 +39,7 @@ function widgetControllerInitialize(){
 }
 
 module.exports = function () {
+
     // payment subscribe/publish 패턴
     globalSubscribePublishEvent();
 

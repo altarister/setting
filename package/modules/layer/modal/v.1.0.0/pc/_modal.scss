@@ -1,3 +1,6 @@
+$assetHost: '';
+$layerModalSprite: $assetHost+"/modules/layer/modal/v.1.0.0/pc/_modal.png";
+
 /* 모달설정 - body */
 html.modal-open,
 html.modal-open body {
@@ -40,28 +43,39 @@ html.modal-open body {
     }
 }
 
-.module-modal-layer {
-    margin: 10px;
+.module-layer-modal {
     display: none;
     background-color: #fff;
+    padding: 40px 0 ;
+    border: 2px solid #ff5073;
 }
-.module-modal-layer-title {
-    margin: 5px;
+.module-layer-modal-title {
+    padding: 0 40px 40px;
     line-height: 30px;
+    display: block;
+    font-size: 27px;
+    font-family: 나눔고딕볼드, NanumGothicBold, 나눔고딕, NanumGothic, 돋움, Dotum, AppleSDGothic, AppleGothic, 굴림, Gulim, sans-serif;
 }
-.module-modal-layer__contents {
-    margin: 0 5px;
+.module-layer-modal__contents {
+    margin: 0 40px;
 }
-.module-modal-layer-controller {
+.module-layer-modal-controller {
     position: absolute;
-    top: 0;
+    top: 30px;
     width: 100%;
     height: 30px;
 }
-.module-modal-layer-closing {
+.module-layer-modal-closing {
+    display: block;
+    text-indent: -99999px;
     position: absolute;
     top: 50%;
-    right: 5px;
-    margin-top: -10px;
+    right: 40px;
+    width: 28px;
+    height: 28px;
+    margin-top: -14px;
     line-height: 15px;
+    background-image: url($layerModalSprite);
+    background-repeat: no-repeat;
+    background-position: center;
 }

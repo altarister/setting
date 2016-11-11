@@ -1,39 +1,44 @@
-
 <div class="zip-code-search-result-info-wrap">
+
     {{!--검색 결과 건수 & 설명--}}
     <p class="zip-code-search-result-info">
         검색결과 총 <span class="zip-code-search-result-info-count">{{totalCount}}건</span> 입니다.
         <span class="zip-code-search-result-gide">정확한 검색을 위해 지번 / 건물명을 함께 검색해주세요.</span>
     </p>
 
-
     {{!--검색 결과 필터--}}
     <ul class="zip-code-search-result-filter-wrap">
         <li class="zip-code-search-result-filter">
-            <select class="zip-code-search-result-filter-select-city">
-                <option value="">시/도 선택</option>
-                {{#each aggregations.sido}}
-                    <option value="{{this.key}}">{{this.key}}({{this.count}}건)</option>
-                {{/each}}
-            </select>
+            <span class="zip-code-search-result-filter-select-city-wrap">
+                <select class="zip-code-search-result-filter-select-city">
+                    <option value="">시/도 선택</option>
+                    {{#each aggregations.sido}}
+                        <option value="{{this.key}}">{{this.key}}({{this.count}}건)</option>
+                    {{/each}}
+                </select>
+            </span>
         </li>
         <li class="zip-code-search-result-filter">
-            <select class="zip-code-search-result-filter-select-town" disabled>
-                <option value="">시/군/구 선택</option>
-                {{#each aggregations.sigungu}}
-                    <option value="{{this.key}}">{{this.key}}({{this.count}}건)</option>
-                {{/each}}
-            </select>
+            <span class="zip-code-search-result-filter-select-town-wrap">
+                <select class="zip-code-search-result-filter-select-town" disabled>
+                    <option value="">시/군/구 선택</option>
+                    {{#each aggregations.sigungu}}
+                        <option value="{{this.key}}">{{this.key}}({{this.count}}건)</option>
+                    {{/each}}
+                </select>
+            </span>
         </li>
     </ul>
+
 </div>
 
 {{!-- start 검색 결과 내용--}}
 <div class="zip-code-search-result-contents-wrap">
+
+    {{!-- 결과 내용 --}}
     <ul class="zip-code-search-result-contents-ul">
         {{!> components/zipcode/v.1.0.0/_address}}
     </ul>
-
 
     {{!-- 결과 없음--}}
     <div class="zip-code-search-result-noting-wrap">
@@ -44,7 +49,6 @@
         </ul>
         <a href="#" class="zip-code-search-result-noting-trigger">1:1 문의하기</a>
     </div>
-    {{!-- end 모든 검색 결과--}}
 </div>
 {{!-- end 검색 결과 내용--}}
 

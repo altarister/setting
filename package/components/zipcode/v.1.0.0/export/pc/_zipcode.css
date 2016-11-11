@@ -1,0 +1,289 @@
+@charset "UTF-8";
+.zip-code-search {
+    background-color: #fff;
+    font-size: 12px;
+    height: 100%; }
+
+.zip-code-search a {
+    cursor: auto;
+    text-decoration: none; }
+
+.zip-code-search-type-selector-ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    overflow: hidden; }
+
+.zip-code-search-type-selector-road,
+.zip-code-search-type-selector-jibun {
+    float: left;
+    width: 50%; }
+
+.zip-code-search-type-selector-trigger {
+    display: block;
+    text-align: center;
+    padding-bottom: 10px;
+    color: #8a8a8a;
+    background-color: #f9f9fa;
+    font-size: 15px;
+    line-height: 50px;
+    font-family: 나눔고딕볼드, NanumGothicBold, 나눔고딕, NanumGothic, 돋움, Dotum, AppleSDGothic, AppleGothic, 굴림, Gulim, sans-serif; }
+
+.zip-code-search-type-selector-trigger span {
+    display: block;
+    background-color: #e6e6e6;
+    border-top: 1px solid #d2d2d2; }
+
+.zip-code-search-type-selector-trigger.selected {
+    color: #fff;
+    background-image: url("/components/zipcode/v.1.0.0/pc/_zipcode.png");
+    background-repeat: no-repeat;
+    background-position: 50% 50px; }
+
+.zip-code-search-type-selector-trigger.selected span {
+    background-color: #ff839c;
+    border-top: 1px solid #ff839c;
+    display: block; }
+
+.zip-code-search-contents {
+    display: block;
+    background-color: #f2f2f2; }
+
+.zip-code-search-user-choice-wrap {
+    padding: 20px;
+    background-color: #f9f9fa; }
+
+.zip-code-search-user-select-wrap {
+    margin: 0 70px 10px 0;
+    padding: 0;
+    list-style: none;
+    overflow: hidden; }
+
+.zip-code-search-user-select-li {
+    width: 50%;
+    overflow: hidden;
+    float: left; }
+
+.zip-code-search-user-select-city-wrap {
+    display: block;
+    padding-right: 5px; }
+
+.zip-code-search-user-select-town-wrap {
+    display: block;
+    padding-left: 5px; }
+
+.zip-code-search-user-select-city,
+.zip-code-search-user-select-town {
+    display: block;
+    width: 100%;
+    height: 30px;
+    border: 1px solid #ccc;
+    background: #fff;
+    color: #333333;
+    font-size: 12px; }
+
+.zip-code-search-user-input-wrap {
+    position: relative;
+    padding-right: 70px;
+    margin-bottom: 10px; }
+
+.zip-code-search-user-input {
+    display: block;
+    width: 100%;
+    line-height: 30px;
+    padding: 0;
+    border: 1px solid #cccccc;
+    text-indent: 10px;
+    border-radius: 5px;
+    font-size: 12px; }
+
+.zip-code-search-user-input-gide {
+    margin: 0 0 10px 0;
+    color: #333;
+    font-weight: bold; }
+
+.zip-code-search-user-choice-submit {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50px;
+    line-height: 30px;
+    padding: 0;
+    border: 1px solid #ff5073;
+    border-radius: 5px;
+    background-color: #ff5073;
+    color: #fff;
+    font-size: 13px;
+    font-family: 나눔고딕볼드, NanumGothicBold, 나눔고딕, NanumGothic, 돋움, Dotum, AppleSDGothic, AppleGothic, 굴림, Gulim, sans-serif; }
+
+.zip-code-search-user-choice-gide {
+    border-top: 1px solid #e0e0e0;
+    background-color: #f2f2f2; }
+
+.zip-code-search-user-choice-gide-title {
+    display: block;
+    margin: 10px 20px 10px;
+    padding-top: 10px;
+    color: #555555; }
+
+.zip-code-search-user-choice-gide-title em {
+    font-style: normal;
+    color: #ff5073; }
+
+.zip-code-search-user-choice-gide-ol {
+    margin: 10px 20px 10px;
+    padding-left: 1em; }
+
+.zip-code-search-user-choice-gide-li {
+    color: #8a8a8a; }
+
+.zip-code-search-result-wrap {
+    display: none;
+    padding-bottom: 20px;
+    position: relative;
+    background-color: #f9f9fa; }
+
+.zip-code-search-result-info-wrap {
+    margin: 0 0 10px 0;
+    background-color: #f9f9fa;
+    color: #555; }
+
+.zip-code-search-result-info {
+    margin: 0 20px;
+    font-weight: bold; }
+
+.zip-code-search-result-info-count {
+    color: #ff5073; }
+
+.zip-code-search-result-gide {
+    display: block;
+    margin-top: 5px;
+    font-weight: normal; }
+
+.zip-code-search-result-filter-wrap {
+    margin: 10px 20px 0;
+    padding: 0;
+    list-style: none;
+    overflow: hidden; }
+
+.zip-code-search-result-filter {
+    width: 50%;
+    overflow: hidden;
+    float: left; }
+
+.zip-code-search-result-filter-select-city-wrap {
+    display: block;
+    margin-right: 5px; }
+
+.zip-code-search-result-filter-select-town-wrap {
+    display: block;
+    margin-left: 5px; }
+
+.zip-code-search-result-filter-select-city,
+.zip-code-search-result-filter-select-town {
+    width: 100%;
+    height: 30px;
+    border: 1px solid #ccc;
+    background: #fff;
+    color: #333333;
+    font-size: 12px; }
+
+.zip-code-search-result-contents-wrap {
+    padding: 0 20px;
+    position: relative;
+    background-color: #f9f9fa; }
+
+.zip-code-search-result-contents-ul {
+    list-style: none;
+    margin: 0;
+    padding: 5px 0 0 0;
+    border-top: 1px solid #eee;
+    background-color: #fff; }
+
+.zip-code-search-result-contents-li {
+    position: relative;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 5px;
+    margin-bottom: 5px; }
+
+.zip-code-search-result-key {
+    position: absolute;
+    top: 50%;
+    right: 5px;
+    line-height: 20px;
+    margin-top: -10px;
+    color: #555; }
+
+.zip-code-search-result-trigger {
+    display: block; }
+
+.zip-code-search-result-trigger:hover {
+    background-color: #f2f2f2; }
+
+.zip-code-search-result-road,
+.zip-code-search-result-jibun {
+    position: relative;
+    display: block;
+    padding: 2px;
+    margin: 0 40px 0 55px;
+    font-style: normal; }
+
+.zip-code-search-result-type {
+    position: absolute;
+    top: 50%;
+    left: -50px;
+    margin-top: -0.7em;
+    display: inline-block;
+    width: 45px;
+    line-height: 16px;
+    text-align: center;
+    background-color: #c6c6c6;
+    color: #fff;
+    font-size: 11px;
+    font-family: 나눔고딕볼드, NanumGothicBold, 나눔고딕, NanumGothic, 돋움, Dotum, AppleSDGothic, AppleGothic, 굴림, Gulim, sans-serif; }
+
+.zip-code-search-result-road .zip-code-search-result-type {
+    background-color: #a2a2a2; }
+
+.zip-code-search-result-jibun .zip-code-search-result-type {
+    background-color: #c6c6c6; }
+
+.zip-code-search-result-address {
+    color: #555; }
+
+.zip-code-search-result-noting-wrap {
+    position: relative;
+    width: 100%;
+    padding: 10px 0;
+    margin-top: -5px;
+    background-color: #e6e6e6; }
+
+.zip-code-search-result-noting-title {
+    display: block;
+    line-height: 20px;
+    margin-left: 10px;
+    color: #8a8a8a; }
+
+.zip-code-search-result-noting_ul {
+    list-style: none;
+    margin: 5px 0 0 10px;
+    padding: 0;
+    color: #8a8a8a;
+    list-style: none; }
+
+.zip-code-search-result-noting_ul li {
+    margin: 0;
+    padding: 0; }
+
+.zip-code-search-result-noting-trigger {
+    display: inline-block;
+    padding: 2px 6px 0;
+    margin: 10px 10px 0 10px;
+    line-height: 18px;
+    text-decoration: none;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    color: #555;
+    font-size: 11px; }

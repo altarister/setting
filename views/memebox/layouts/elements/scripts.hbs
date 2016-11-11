@@ -4,11 +4,13 @@
 </script>
 
 <!--[if IE 7 ]> <script src="/vendor/json2/json2.js"></script> <![endif]-->
+<script src="/vendor/jquery/1.11.3/jquery.min.js" type="text/javascript"></script>
+<script src="/vendor/jqueryUi/jquery-ui-position.js" type="text/javascript"></script>
+
 
 <script src="//s2cdn.memebox.com/cdnjs/vendor/require.js/2.3.2/require.js"></script>
 <script>window.requirejs || document.write(unescape("%3Cscript src='{{config.domain.current}}vendor/requirejs/2.3.2/require.js' type='text/javascript'%3E%3C/script%3E"));</script>
 <script src="/vendor/requirejs-config.js"></script>
-
 <script type="text/javascript">
     var memeboxRequire = require.config({
         context: 'memebox',
@@ -21,6 +23,7 @@
 
     memeboxRequire(['es5-shim', 'vendor/pc.commons.chunk'], function () {
         memeboxRequire(['path_pc/initialize'], function (initialize) {
+
             initialize();
         });
     });

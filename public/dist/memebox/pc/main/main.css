@@ -1,7 +1,4 @@
 @charset "UTF-8";
-.module-modal-layer {
-  background-color: black !important; }
-
 .zip-code-search {
   background-color: #fff;
   font-size: 12px;
@@ -46,12 +43,9 @@
   background-color: #fff; }
 
 .zip-code-search-user-select-wrap {
-  margin-bottom: 10px;
-  margin: 0;
-  margin-bottom: 10px;
+  margin: 0 60px 10px 0;
   padding: 0;
   list-style: none;
-  width: 100%;
   overflow: hidden; }
 
 .zip-code-search-user-select-li {
@@ -59,10 +53,18 @@
   overflow: hidden;
   float: left; }
 
+.zip-code-search-user-select-city-wrap {
+  display: block;
+  padding-right: 5px; }
+
+.zip-code-search-user-select-town-wrap {
+  display: block;
+  padding-left: 5px; }
+
 .zip-code-search-user-select-city,
 .zip-code-search-user-select-town {
   display: block;
-  width: 90%;
+  width: 100%;
   height: 30px;
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -93,8 +95,9 @@
   font-size: 12px; }
 
 .zip-code-search-user-input-gide {
-  margin: 0;
-  color: #555; }
+  margin: 0 0 10px 0;
+  color: #333;
+  font-weight: bold; }
 
 .zip-code-search-user-choice-submit {
   position: absolute;
@@ -330,29 +333,40 @@ html.modal-open body {
     margin-top: 0 !important;
     margin-bottom: 0 !important; } }
 
-.module-modal-layer {
-  margin: 10px;
+.module-layer-modal {
   display: none;
-  background-color: #fff; }
+  background-color: #fff;
+  padding: 40px 0;
+  border: 2px solid #ff5073; }
 
-.module-modal-layer-title {
-  margin: 5px;
-  line-height: 30px; }
+.module-layer-modal-title {
+  padding: 0 40px 40px;
+  line-height: 30px;
+  display: block;
+  font-size: 27px;
+  font-family: 나눔고딕볼드, NanumGothicBold, 나눔고딕, NanumGothic, 돋움, Dotum, AppleSDGothic, AppleGothic, 굴림, Gulim, sans-serif; }
 
-.module-modal-layer__contents {
-  margin: 0 5px; }
+.module-layer-modal__contents {
+  margin: 0 40px; }
 
-.module-modal-layer-controller {
+.module-layer-modal-controller {
   position: absolute;
-  top: 0;
+  top: 30px;
   width: 100%;
   height: 30px; }
 
-.module-modal-layer-closing {
+.module-layer-modal-closing {
+  display: block;
+  text-indent: -99999px;
   position: absolute;
   top: 50%;
-  right: 5px;
-  margin-top: -10px;
-  line-height: 15px; }
+  right: 40px;
+  width: 28px;
+  height: 28px;
+  margin-top: -14px;
+  line-height: 15px;
+  background-image: url("/modules/layer/modal/v.1.0.0/pc/_modal.png");
+  background-repeat: no-repeat;
+  background-position: center; }
 .components-wrap {
   display: none; }

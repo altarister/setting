@@ -1,12 +1,12 @@
-define(["modernizr"], function(__WEBPACK_EXTERNAL_MODULE_12__) { return webpackJsonp([2],{
+define(["modernizr"], function(__WEBPACK_EXTERNAL_MODULE_10__) { return webpackJsonp([2],{
 
 /***/ 0:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	__webpack_require__(12);
-	var $ = __webpack_require__(5);
+	__webpack_require__(10);
+	//var $ = require('jquery');
 	//var Common = require('pcCommon');
 
 	var memeboxWrapSelector = '#memebox-service';
@@ -29,7 +29,7 @@ define(["modernizr"], function(__WEBPACK_EXTERNAL_MODULE_12__) { return webpackJ
 
 	function pageControllerInitialize() {
 	    var controller = $(memeboxWrapSelector).data('controller');
-	    console.log('controller = ', controller);
+	    console.log('controller === ', controller);
 	    if (controller) {
 	        memeboxRequire(['dist/' + controller], function (controller) {
 	            if (controller && controller instanceof Function) {
@@ -52,6 +52,7 @@ define(["modernizr"], function(__WEBPACK_EXTERNAL_MODULE_12__) { return webpackJ
 	}
 
 	module.exports = function () {
+
 	    // payment subscribe/publish 패턴
 	    globalSubscribePublishEvent();
 
@@ -67,10 +68,10 @@ define(["modernizr"], function(__WEBPACK_EXTERNAL_MODULE_12__) { return webpackJ
 
 /***/ },
 
-/***/ 12:
+/***/ 10:
 /***/ function(module, exports) {
 
-	module.exports = __WEBPACK_EXTERNAL_MODULE_12__;
+	module.exports = __WEBPACK_EXTERNAL_MODULE_10__;
 
 /***/ }
 

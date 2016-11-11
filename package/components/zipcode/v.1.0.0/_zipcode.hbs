@@ -15,36 +15,42 @@
     <div class="zip-code-search-contents">
         {{!--검색 사용자 입력 혹은 선택--}}
         <div class="zip-code-search-user-choice-wrap">
+
+            <p class="zip-code-search-user-input-gide">
+                시/도 , 시/군/구 선택 후 주소명을 입력해주세요.
+            </p>
+
             <ul class="zip-code-search-user-select-wrap">
                 <li class="zip-code-search-user-select-li">
-                    <select class="zip-code-search-user-select-city"
-                            name="zip-code-search-user-select-city">
-                        <option value="">시/도 선택</option>
-                        <option value="강원도">강원도</option>
-                    </select>
+                    <span class="zip-code-search-user-select-city-wrap">
+                        <select class="zip-code-search-user-select-city"
+                                name="zip-code-search-user-select-city">
+                            <option value="">시/도 선택</option>
+                            <option value="강원도">강원도</option>
+                        </select>
+                    </span>
                 </li>
                 <li class="zip-code-search-user-select-li">
-                    <select class="zip-code-search-user-select-town"
-                            name="zip-code-search-user-select-town"
-                            disabled>
-                        <option value="">시/군/구 선택</option>
-                    </select>
+                    <span class="zip-code-search-user-select-town-wrap">
+                        <select class="zip-code-search-user-select-town"
+                                name="zip-code-search-user-select-town"
+                                disabled>
+                            <option value="">시/군/구 선택</option>
+                        </select>
+                    </span>
                 </li>
             </ul>
             <div class="zip-code-search-user-input-wrap">
                 <input type="text"
                        class="zip-code-search-user-input"
                        name="searchKey"
-                       value="판교"
-                       placeholder="(예: 판교역로 146번길)">
+                       value=""
+                       placeholder="(예: 백현동 541)">
                 <button type="submit"
                         class="zip-code-search-user-choice-submit">
                     검색
                 </button>
             </div>
-            <p class="zip-code-search-user-input-gide">
-                시/도 , 시/군/구 선택 후 주소명을 입력해주세요.
-            </p>
         </div>
 
         {{!--검색 팁 : 검색 결과와 대치--}}

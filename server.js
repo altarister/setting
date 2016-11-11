@@ -17,7 +17,7 @@ hbs.registerPartials(__dirname + '/views/common/');
 hbs.registerPartials(__dirname + '/package');
 
 hbs.registerHelper('extend', function(name, context) {
-    var block = blocks[name];
+    var block = blocks[name];//aalsdkfj
 
     if (!block) {
         block = blocks[name] = [];

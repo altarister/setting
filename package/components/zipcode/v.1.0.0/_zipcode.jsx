@@ -6,10 +6,11 @@
 //시도 시군구 선택
 //ajax 요청 전 정합성 확인.
 //필터 검색
-
+//enter key 입력
+//범위검색
+//검색결과 사서함 리스트.
 // todo
 //ajax 요청중 스피너 .
-//검색결과 사서함 리스트.
 
 
 
@@ -19,7 +20,7 @@ var validate = require('validate');
 //require('./pc/_zipcode.scss');
 require('./mobile/_zipcode.scss');
 
-var templates = {
+var zipcode_templates = {
     gide: require('./_gide.hbs'),
     result: require('./_result.hbs'),
     address: require('./_address.hbs'),
@@ -27,7 +28,7 @@ var templates = {
     selectOption: require('./_selectOption.hbs')
 };
 
-var zipcode = function(collBackFunction, $wraper){
+var zipcode = function(collBackFunction, $wraper, zipcode_params){
     var controller = {
 
         element: '.zip-code-search',
@@ -59,152 +60,140 @@ var zipcode = function(collBackFunction, $wraper){
         beforeSearchStatus: {
             type: 'road',
             isNewZipCodeSearch: false,
+            hasResult: true,
             keyword: '',
             isSearchPossible: true
         },
 
-        requestUrl: {
-            zipcodeViewData: '/zipCodeAPI',
-
-            develop: {
-                sido: 'https://internal.memeboxlabs.com:8012/api/zipcode/sido',
-                sigungu: 'https://internal.memeboxlabs.com:8012/api/zipcode/sigungu',
-                jibun: 'https://internal.memeboxlabs.com:8012/api/zipcode/jibuns',
-                range: 'https://internal.memeboxlabs.com:8012/api/zipcode/ranges',
-                road: 'https://internal.memeboxlabs.com:8012/api/zipcode/roads'
-            },
-            production: {
-                sido: 'http://contents-api.memeboxlabs.com/api/zipcode/sido',
-                sigungu: 'http://contents-api.memeboxlabs.com/api/zipcode/sigungu',
-                jibun: 'http://contents-api.memeboxlabs.com/api/zipcode/jibuns',
-                range: 'http://contents-api.memeboxlabs.com/api/zipcode/ranges',
-                road: 'http://contents-api.memeboxlabs.com/api/zipcode/roads'
-            },
-            stage: {
-                sido: 'http://contents-api-stage.memeboxlabs.com/api/zipcode/sido',
-                sigungu: 'http://contents-api-stage.memeboxlabs.com/api/zipcode/sigungu',
-                jibun: 'http://contents-api-stage.memeboxlabs.com/api/zipcode/jibuns',
-                range: 'http://contents-api-stage.memeboxlabs.com/api/zipcode/ranges',
-                road: 'http://contents-api-stage.memeboxlabs.com/api/zipcode/roads'
+        viewData: {
+            "selectType": "rode",
+            "sido": [
+                {"key":"강원도","count":537239},
+                {"key":"경기도","count":1478492},
+                {"key":"경상남도","count":1246432},
+                {"key":"경상북도","count":1372858},
+                {"key":"광주광역시","count":173804},
+                {"key":"대구광역시","count":265627},
+                {"key":"대전광역시","count":138804},
+                {"key":"부산광역시","count":395254},
+                {"key":"서울특별시","count":604469},
+                {"key":"세종특별자치시","count":53718},
+                {"key":"울산광역시","count":145410},
+                {"key":"인천광역시","count":233704},
+                {"key":"전라남도","count":1096096},
+                {"key":"전라북도","count":768924},
+                {"key":"제주특별자치도","count":236677},
+                {"key":"충청남도","count":796271},
+                {"key":"충청북도","count":564859}
+            ],
+            "information": {
+                "jibun":{
+                    "title": "지번 주소",
+                    "gide": {
+                        "input":"찾고자 하는 주소명을 입력하신 후 검색 버튼을 누르세요.",
+                        "placeholder": "(예: 백현동 541)",
+                        "choice": [
+                            "지역명 (동/읍/면/리) + 번지 ( 예 : 백현동 541 )",
+                            "지역명 (동/읍/면/리) + 건물명 ( 예 : 백현동 현백화점 )",
+                            "사서함 + 번호 (예 : 서대문우체국사서함 1)"
+                        ]
+                    }
+                },
+                "road":{
+                    "title": "도로명 주소",
+                    "gide": {
+                        "input":"시/도 , 시/군/구 선택 후 주소명을 입력해주세요.",
+                        "placeholder": "(예: 판교역로14번길 20)",
+                        "choice": [
+                            "도로명 입력 (예 : 반포대로)",
+                            "도로명 + 건물번호 입력 (예 : 반포대로 58)",
+                            "건물명 입력 (예: 국립중앙박물관)"
+                        ]
+                    }
+                }
             }
         },
 
-        viewData: null,
-
         message : {
-            SYSTEM_ERROR: '전송에 실패했습니다. 잠시 후 다시 시도해 주세요.',
-            CHECK_SEARCH_REQUIRE_CITY : '시도 선택해',
-            CHECK_SEARCH_REQUIRE_TOWN : '시군구 선택해',
-            INPUT_ADDRESS: '주소를 입력해 주세요 '
+            SYSTEM_ERROR: '우편번호 전송이 실패했습니다. 잠시 후 다시 시도해 주세요.',
+            CHECK_SEARCH_REQUIRE_CITY : '시/도를 선택해주세요.',
+            CHECK_SEARCH_REQUIRE_TOWN : '시/군/구를 선택해주세요.',
+            INPUT_ADDRESS: '주소명을 입력해주세요.'
         },
 
         initialize: function(){
-            // console.log('this.requestUrl.zipcodeViewData = ',this.requestUrl.zipcodeViewData);
-            $.ajax({
-                type : 'GET',
-                url: this.requestUrl.zipcodeViewData
-            })
-            .done(function(result){
-                var zipcodeHtml = templates.zipcode(result.data);
-                $wraper.html(zipcodeHtml);
-                controller.resetZipCodeTemplate(result.data);
-            })
-            .fail(function () {
-                alert(this.message.SYSTEM_ERROR);
-            });
-        },
-
-        resetZipCodeTemplate: function(data){
+            var zipcodeHtml = zipcode_templates.zipcode(this.viewData);
+            $wraper.html(zipcodeHtml);
             utility.uiEnhancements.call(this);
-            this.setViewData();
+            var $city = this.element.find('select[name=zip-code-search-user-select-city]');
 
-            var $city = $('select[name=zip-code-search-user-select-city]')
-            this.makeSelectOption($city, data.sido, '시/도 선택');
+            this.makeSelectOption($city, this.viewData.sido, '시/도 선택');//
             this.displaySelector(this.beforeSearchStatus.type);
             this.displayUserSelectWrap(this.beforeSearchStatus.type);
-            this.displayGide(this.beforeSearchStatus.type, true);
+            this.displaySearchGide(this.beforeSearchStatus.type, true);
+            this.displayInputGide(this.beforeSearchStatus.type);
             this.displayFilter(this.beforeSearchStatus.type);
             this.setDisplayZipcodeBox();
             this.addEventListener();
         },
 
         setDisplayZipcodeBox: function(){
-            var contentsWrap = this.ui.zipcodeSearchContents.outerHeight() - this.ui.zipcodeSearchContents.innerHeight();
+            var contentsWrap = this.ui.zipcodeSearchContents.outerHeight(true) - this.ui.zipcodeSearchContents.innerHeight();
             this.ui.zipcodeSearchContents.height($wraper.outerHeight() - this.ui.typeSelector.outerHeight() - contentsWrap);
-            //todo border size 2
-        },
-
-        setViewData: function(){
-            this.viewData = this.element.data('component-data')
         },
 
         addEventListener: function(){
+            this.ui.searchKeyword.focus();
             this.element.off()
                 .on('click', this.ui.__uiString.typeSelectorTrigger, $.proxy(this.selectTypeEvent, this))
                 .on('change', this.ui.__uiString.userSelectCity, $.proxy(this.selectUserSelectCityEvent, this))
-                .on('change', this.ui.__uiString.userSelectTown, $.proxy(this.selectUserSelectTownEvent, this))
-                .on('click', this.ui.__uiString.searchRequest, $.proxy(this.searchRequestEvent, this));
-                //enter key 를 넣어도 같은 검색 되어야 한다
+                .on('click', this.ui.__uiString.searchRequest, $.proxy(this.searchRequestEvent, this))
+                .on('keydown', this.ui.__uiString.searchKeyword, function (event){
+                    var code = event.keyCode || event.which;
+                    if(code == 13) {
+                        controller.searchRequestEvent(event)
+                    }
+                });
         },
 
         searchRequestEvent: function(event){
-            // console.log('+++++++searchRequestEvent');
             event.preventDefault();
-            this.resetRequestParameterForAPI();
-            if(this.beforeSearchStatus.type === 'road'){
-                var cityValue = $('select[name=zip-code-search-user-select-city]').val();
-                var townValue = $('select[name=zip-code-search-user-select-town]').val();
-                //console.log('cityValue',cityValue,'townValue',townValue)
-                this.requestParameterForAPI.sido = cityValue;
-                this.requestParameterForAPI.sigungu = townValue;
-            }
-            this.requestParameterForAPI.keyword = this.ui.searchKeyword.val();
-            this.beforeSearchStatus.isNewZipCodeSearch = true;
-            console.log('this.requestParameterForAPI =======================',this.requestParameterForAPI)
-            this.decideSearchRequestType();
-        },
+            var cityValue = this.element.find('select[name=zip-code-search-user-select-city]').val();
+            var townValue = this.element.find('select[name=zip-code-search-user-select-town]').val();
+            var keyword = this.ui.searchKeyword.val();
 
-        resetRequestParameterForAPI: function(){
-            // console.log('------------resetRequestParameterForAPI')
             this.requestParameterForAPI.page = 1;
             this.requestParameterForAPI.sido = '';
             this.requestParameterForAPI.sigungu = '';
+            if(this.beforeSearchStatus.type === 'road'){
+                this.requestParameterForAPI.sido = cityValue;
+                this.requestParameterForAPI.sigungu = townValue;
+            }
+            this.requestParameterForAPI.page = 1;
+            this.requestParameterForAPI.keyword = keyword;
+            this.beforeSearchStatus.isNewZipCodeSearch = true;
+            this.decideSearchRequestType();
         },
 
         decideSearchRequestType: function(){
-            var isSameType = this.beforeSearchStatus.type === this.requestParameterForAPI.type;
-            var isSameKeyword = this.beforeSearchStatus.keyword === this.requestParameterForAPI.keyword;
-            var isNewZipCodeSearch = this.beforeSearchStatus.isNewZipCodeSearch;
-
-            //지번값이 있으면 필터
-            console.log('--------------checkValid------------------')
             if(!this.checkValid()){return;}
-            console.log('gggg')
-            if(isSameKeyword && isSameType && !isNewZipCodeSearch){
-                //키워드가 같고 텝도 같고 type변한 없으면 기존 검색
+
+            var isPostOfficeBox = /사서함/.test(this.requestParameterForAPI.keyword);
+            if(!this.beforeSearchStatus.isNewZipCodeSearch){
                 if(this.beforeSearchStatus.isSearchPossible){
-                    // console.log('더보기 기능 작동 ')
-                    //키워드가 같고 텝도 같으면 기존 검색 이고 앞으로도 검색 가능 하면 검색해
-                    //검색이 가능 하다면 more
-                    this.requestParameterForAPI.type = this.beforeSearchStatus.type;
+                    if(isPostOfficeBox){
+                        this.requestParameterForAPI.type = 'range';
+                    }
                     this.requestParameterForAPI.page++;
                     this.ajaxSearchRequest(this.requestParameterForAPI, true);
-                }else{
-                    console.log('결과 다 보았음. ')
-                    //키워드가 같고 텝도 같으면 기존 검색이고 내용이 더이상 없으면 호출 하지 말아야 한다
-                    //페이지가 1이상이고. 결과가 없으면.
-                    //  ajax 보내지 말아
                 }
             }else{
-                //키워드가 같고 텝도 같고 type변한 있으면 새로운 검색
-                //키워드가 다르면 텝이 달라  새로운 검색
-                //키워드가 다르면 텝이 달라  새로운 검색
-                //키워드가 다르고 텝이 같아 새로운 검색
-                //키워드가 같고 텝이 달라 새로운 검색
-
-                this.ui.result.html('');
+                if(!this.beforeSearchStatus.hasResult || isPostOfficeBox){
+                    this.requestParameterForAPI.type = 'range';
+                }else{
+                    this.requestParameterForAPI.type = this.beforeSearchStatus.type;
+                }
                 this.beforeSearchStatus.isNewZipCodeSearch = false;
-                this.requestParameterForAPI.type = this.beforeSearchStatus.type;
                 this.requestParameterForAPI.page = 1;
                 this.ajaxSearchRequest(this.requestParameterForAPI, false);
             }
@@ -212,69 +201,55 @@ var zipcode = function(collBackFunction, $wraper){
 
         selectUserSelectCityEvent: function(event){
             var selectedCityValue = $(event.currentTarget).val();
-            console.log('selectedCityValue = ',selectedCityValue);
+            var $town = this.element.find('select[name=zip-code-search-user-select-town]');
+
             if(validate.isSelected(selectedCityValue)){
-
-                var $town = $('select[name=zip-code-search-user-select-town]')
-
-                //시도 선택 확인
                 $.ajax({
-                    url: this.requestUrl.stage.sigungu,
+                    url: zipcode_params.requestUrl.sigungu,
                     data: {
                         type: 'type',
                         sido: selectedCityValue
                     },
                     dataType: 'jsonp'
                 }).done(function(result){
-                    console.log(result)
                     if(result.status === 'success'){
                         controller.makeSelectOption($town, result.data, '시/군/구 선택');
-                        $('select[name=zip-code-search-user-select-town]').prop('disabled', false);
+                        controller.element.find('select[name=zip-code-search-user-select-town]').prop('disabled', false);
                     }else{
                         alert(controller.message.SYSTEM_ERROR);
                     }
                 });
             }else{
                 console.log('시/군/구 선택 불가')
-                $('select[name=zip-code-search-user-select-town]').prop('disabled', true);
+                controller.element.find('select[name=zip-code-search-user-select-town]').prop('disabled', true);
             }
         },
 
         makeSelectOption: function($select, optionArray, defaultText){
+            var selectOptionHtml = '';
+
             if(defaultText){
                 optionArray.splice(0, 0, {
                     key: defaultText,
                     count: 0
                 });
             }
-
-            //var option = '<option value="">시/군/구 선택</option>';
-            var selectOptionHtml = '';
-            var $electOption = null;
             for(var index in optionArray){
-                selectOptionHtml += templates.selectOption(optionArray[index])
+                selectOptionHtml += zipcode_templates.selectOption(optionArray[index])
             }
-            $electOption = $(selectOptionHtml);
-
-            console.log('$electOption = ',)
-
-            $select.empty().append($electOption);
+            $select.empty().append( $(selectOptionHtml) );
             if(defaultText){
                 $select.find('option:first').val('');
             }
         },
 
-        selectUserSelectTownEvent: function(){
-
-        },
-
         checkValid: function(){
             var isValid = true;
-             console.log('this.beforeSearchStatus.type = ',this.beforeSearchStatus.type)
+
             if(this.beforeSearchStatus.type === 'road'){
                 //도로명일때
-                var userSelectCityValue = $('select[name=zip-code-search-user-select-city]').val();
-                var userSelectTownValue = $('select[name=zip-code-search-user-select-town]').val();
+                var userSelectCityValue = this.element.find('select[name=zip-code-search-user-select-city]').val();
+                var userSelectTownValue = this.element.find('select[name=zip-code-search-user-select-town]').val();
                 //select에 선택 값이 들어가 있음.
                 if(!validate.isSelected(userSelectCityValue)){
                     //시도 선택 확인
@@ -284,13 +259,11 @@ var zipcode = function(collBackFunction, $wraper){
                 }
                 if(!validate.isSelected(userSelectTownValue)){
                     //시군 선택 확인
-
                     alert(this.message.CHECK_SEARCH_REQUIRE_TOWN);
                     isValid = false;
                     return
                 }
             }
-            console.log('this.requestParameterForAPI.keyword ++++++++++++++',this.requestParameterForAPI.keyword)
             if(validate.isEmpty(this.requestParameterForAPI.keyword)){
                 //빈 입력인지 확인
                 alert(this.message.INPUT_ADDRESS);
@@ -300,75 +273,107 @@ var zipcode = function(collBackFunction, $wraper){
         },
 
         ajaxSearchRequest: function(requestData, isMoreRequest){
-            //console.log('requestData = ',requestData)
-            //console.log('isMoreRequest = ',isMoreRequest)
-            //console.log('url = ',this.requestUrl.stage[this.beforeSearchStatus.type])
+            console.log('ajax 진행 requestData.type = ',requestData.type)
+            var url = zipcode_params.requestUrl[requestData.type]
             $.ajax({
-                url: this.requestUrl.stage[this.beforeSearchStatus.type],
+                url: url,
                 data: requestData,
                 dataType: 'jsonp'
             }).done(function(result){
                 if(result.status === 'success'){
-                    // console.log('result.data = ',result.data)
                     controller.beforeSearchStatus.keyword = requestData.keyword;
-                    controller.beforeSearchStatus.type = requestData.type;
+
+                    if(requestData.type !== 'range'){
+                        controller.beforeSearchStatus.type = requestData.type;
+                    }
+
                     if(isMoreRequest){
-                        //console.log('address')
                         controller.makeResultAddress(result.data);
                     }else{
-                        // console.log('result.data',result.data)
                         controller.makeResultContentsWrap(result.data, requestData);
                     }
+                    controller.setSearchPossible(result.data)
                 }else{
                     alert(controller.message.SYSTEM_ERROR);
                 }
             });
         },
 
+        setSearchPossible: function(data){
+            this.beforeSearchStatus.isSearchPossible = true;
+            if(data.address.length < this.requestParameterForAPI.limit){
+                console.log(data.address.length,'건 발견되어 더 이상 로드할 필요 없다')
+                this.beforeSearchStatus.isSearchPossible = false;
+            }else{
+                console.log(data.address.length,'건 발견 더 찾아 봐야 한다 ')
+            }
+        },
+
         makeResultContentsWrap: function(data, requestData){
-            //범위검색
-            var resultHtml = templates.result(data);
+            this.ui.result.html('');
+            var resultHtml = zipcode_templates.result(data);
             this.ui.result.append(resultHtml).show();
-            if(data.address.length <= 0){
-                console.log('검색결과 없음----');
-                //$('.zip-code-search-result-contents-wrap').empty();
-                $('.zip-code-search-result-noting-wrap').show();
+
+            if(data.address.length <= 0) {
+
+                // 주소가 없는 경우
+                if (this.beforeSearchStatus.hasResult) {//주소가 없어서 범위검색으로 다시 보내야 한다.
+                    console.log('검색결과 없음---- 범위검색으로 다시 ');
+                    this.requestParameterForAPI.type = 'range'
+                    this.beforeSearchStatus.hasResult = false;
+                    this.beforeSearchStatus.isNewZipCodeSearch = true;
+                    this.decideSearchRequestType();
+                } else {//범위검색 도 없는 경우.
+                    this.beforeSearchStatus.hasResult = true;
+                    this.beforeSearchStatus.isSearchPossible = false;
+                    console.log('범위 검색도 없는 경우 그냥 끝 ');
+                }
+                // 주소가 없어서 범위까지 없는 경우
+                //this.element.find('.zip-code-search-result-contents-wrap').empty();
+                this.setResultNotingTrigger(zipcode_params.device)
+                this.element.find('.zip-code-search-result-noting-wrap').show();
+            //}else if(){
 
             }else{
 
-                $('.zip-code-search-result-noting-wrap').hide();
+                //this.beforeSearchStatus.hasResult = true;
+                this.element.find('.zip-code-search-result-noting-wrap').hide();
                 this.makeResultAddress(data);
                 this.resultEventListener();
             }
-            this.displayGide(this.beforeSearchStatus.type, false);
+            this.displaySearchGide(this.beforeSearchStatus.type, false);
+            this.displayInputGide(this.beforeSearchStatus.type);
             this.displayFilter(this.beforeSearchStatus.type, requestData);
-            this.setDisplayResultBox();
+            this.setDisplayResultBox(zipcode_params.device);
         },
 
-        setDisplayResultBox: function(){
-            //노출되는 모든것을 체크하고 높이값을 가지고 와서.
-            //todo : 처음 한번만.
-            var $resultContentsWrap = $('.zip-code-search-result-contents-wrap')
+        setDisplayResultBox: function(device){
+            var $resultContentsWrap = this.element.find('.zip-code-search-result-contents-wrap');
             var SearchContents = this.ui.zipcodeSearchContents.innerHeight();
-            var inputWrap = $('.zip-code-search-user-input-wrap').outerHeight(true);
-            var inputGide = $('.zip-code-search-user-input-gide').outerHeight(true);
-            var resultInfo = $('.zip-code-search-result-info').outerHeight(true);
-            // console.log('resultInfo = ',resultInfo)
-            // console.log('contentsWrap = ',$('.zip-code-search-result-contents-wrap'))
-            var contentsWrap = $('.zip-code-search-result-contents-wrap').css('margin-top').replace(/px/g, '');
-            // console.log('contentsWrap = ',contentsWrap)
-            var height = SearchContents - inputWrap - inputGide - resultInfo - contentsWrap;
+            var height = 0;
 
-            switch(this.beforeSearchStatus.type) {
-                case 'road':
-                    height -= $('.zip-code-search-user-select-wrap').outerHeight(true);
-                    break;
-                case 'jibun':
-                    height -= $('.zip-code-search-result-filter-wrap').outerHeight(true);
-                    break;
+            if(device === 'pc'){
+                var userChoiceWrap = this.ui.userChoiceWrap.outerHeight(true);
+                var resultInfoWrap = this.element.find('.zip-code-search-result-info-wrap').outerHeight(true);
+
+                height = SearchContents - userChoiceWrap - resultInfoWrap;
+            }else{
+                var inputWrap = this.element.find('.zip-code-search-user-input-wrap').outerHeight(true);
+                var inputGide = this.element.find('.zip-code-search-user-input-gide').outerHeight(true);
+                var resultInfo = this.element.find('.zip-code-search-result-info').outerHeight(true);
+                var contentsWrap = Number(this.element.find('.zip-code-search-result-contents-wrap').css('margin-top').replace(/px/g, ''));
+
+                height = SearchContents - inputWrap - inputGide - resultInfo - contentsWrap;
+                switch(this.beforeSearchStatus.type) {
+                    case 'road':
+                        height -= this.element.find('.zip-code-search-user-select-wrap').outerHeight(true);
+                        break;
+                    case 'jibun':
+                        height -= this.element.find('.zip-code-search-result-filter-wrap').outerHeight(true);
+                        break;
+                }
             }
             $resultContentsWrap.height(height);
-            // console.log('height',height)
         },
 
         setResultScroll: function($wrap, $contents){
@@ -378,6 +383,7 @@ var zipcode = function(collBackFunction, $wraper){
 
                 if (maxHeight <= currentScroll + 100) {
                     $wrap.off();
+                    controller.beforeSearchStatus.isNewZipCodeSearch = false;
                     controller.decideSearchRequestType();
                     return
                 }
@@ -385,9 +391,10 @@ var zipcode = function(collBackFunction, $wraper){
         },
 
         makeResultAddress: function(data){
-            var addressHtml = templates.address(data);
-            var $resultContentswrap = $('.zip-code-search-result-contents-wrap');
-            var $resultContentsUl = $('.zip-code-search-result-contents-ul').append(addressHtml);
+            var addressHtml = zipcode_templates.address(data);
+            var $resultContentswrap = this.element.find('.zip-code-search-result-contents-wrap');
+            var $resultContentsUl = this.element.find('.zip-code-search-result-contents-ul').append(addressHtml);
+
             this.setResultScroll($resultContentswrap, $resultContentsUl)
         },
 
@@ -400,8 +407,8 @@ var zipcode = function(collBackFunction, $wraper){
         },
 
         selectFilterEvent: function(){
-            this.requestParameterForAPI.sido = $('.zip-code-search-result-filter-select-city').val();
-            this.requestParameterForAPI.sigungu = $('.zip-code-search-result-filter-select-town').val();
+            this.requestParameterForAPI.sido = this.element.find('.zip-code-search-result-filter-select-city').val();
+            this.requestParameterForAPI.sigungu = this.element.find('.zip-code-search-result-filter-select-town').val();
             this.beforeSearchStatus.isNewZipCodeSearch = true;
             this.decideSearchRequestType()
         },
@@ -416,11 +423,11 @@ var zipcode = function(collBackFunction, $wraper){
             event.preventDefault();
             var $current = $(event.currentTarget);
             var typeChangeHistory = this.beforeSearchStatus.type;
-            this.beforeSearchStatus.type = $current.attr('href').replace(/\#/g, '');
+            var placeholder = this.viewData.information[typeChangeHistory].gide.placeholder;
 
-            if(typeChangeHistory === this.beforeSearchStatus.type){
-                console.log('이전꺼랑 같아')
-            }else{
+            this.ui.searchKeyword.focus().attr('placeholder', placeholder);
+            this.beforeSearchStatus.type = $current.attr('href').replace(/\#/g, '');
+            if(typeChangeHistory !== this.beforeSearchStatus.type){
                 this.beforeSearchStatus.isNewZipCodeSearch = true;
                 this.displaySearchType();
             }
@@ -429,13 +436,13 @@ var zipcode = function(collBackFunction, $wraper){
         displaySearchType: function(){
             this.displaySelector(this.beforeSearchStatus.type);
             this.displayUserSelectWrap(this.beforeSearchStatus.type);
-            this.displayGide(this.beforeSearchStatus.type, true);
+            this.displaySearchGide(this.beforeSearchStatus.type, true);
+            this.displayInputGide(this.beforeSearchStatus.type);
             this.ui.result.empty();
         },
 
         displayFilter: function(selectorType, requestData){
-            console.log('selectorType = +++++++',requestData)
-            var $resultFilter = $('.zip-code-search-result-filter-wrap');
+            var $resultFilter = this.element.find('.zip-code-search-result-filter-wrap');
 
             switch(selectorType) {
                 case 'road':
@@ -443,9 +450,8 @@ var zipcode = function(collBackFunction, $wraper){
                     break;
                 case 'jibun':
                     if(requestData){
-                        //
-                        var $sido = $('.zip-code-search-result-filter-select-city');
-                        var $sigungu = $('.zip-code-search-result-filter-select-town');
+                        var $sido = this.element.find('.zip-code-search-result-filter-select-city');
+                        var $sigungu = this.element.find('.zip-code-search-result-filter-select-town');
                         $sido.val(requestData.sido).prop('selected', true);
                         if(requestData.sido !== ''){
                             $sigungu.val(requestData.sigungu).prop('selected', true).prop('disabled', false);
@@ -459,7 +465,8 @@ var zipcode = function(collBackFunction, $wraper){
         displaySelector: function(selectorType){
             this.ui.typeSelectorTrigger.each(function(index, element){
                 var $element = $(element);
-                var currentType = $element.attr('href').replace(/\#/g, '')
+                var currentType = $element.attr('href').replace(/\#/g, '');
+
                 if(currentType === selectorType){
                     $element.addClass('selected')
                 }else{
@@ -469,7 +476,6 @@ var zipcode = function(collBackFunction, $wraper){
         },
 
         displayUserSelectWrap: function(selectorType){
-            console.log('displayUserSelectWrap = ',selectorType);
             switch(selectorType) {
                 case 'road':
                     this.ui.searchSelectorWrap.show();
@@ -480,16 +486,22 @@ var zipcode = function(collBackFunction, $wraper){
             }
         },
 
-        displayGide: function(selectorType, isShow){
-            console.log('isShow = ',isShow)
+        displaySearchGide: function(selectorType, isShow){
             if(isShow){
                 var gideData = this.viewData.information[selectorType];
-                var html = templates.gide(gideData);
+                var html = zipcode_templates.gide(gideData);
                 this.ui.choiceGide.show().html(html);
             }else{
                 this.ui.choiceGide.hide();
             }
+        },
 
+        setResultNotingTrigger: function(device){
+            this.element.find('.zip-code-search-result-noting-trigger').attr('href', zipcode_params.contactUsUrl[device]);
+        },
+
+        displayInputGide: function(selectorType){
+            this.ui.inputGide.html(this.viewData.information[selectorType].gide.input);
         }
 
     };
