@@ -17,11 +17,15 @@ define(function() { return webpackJsonp([0],[
 	var cart = function cart() {
 	    var controller = {
 
-	        element: '#memebox-service',
+	        element: '.memebox-web-address-wrap',
 	        ui: {
-	            components: '[data-component]',
-	            zipcodeTrigger: '.memebox-altari-zipcode-trigger'
+	            zipcodeTrigger: '.memebox-web-zipcode-trigger',
+	            zipcodeValue: '.memebox-web-zipcode-value',
+	            addressValue: '.memebox-web-address-value'
 	        },
+
+	        zipcode: null,
+	        layerModal: null,
 
 	        server: {
 	            development: 'https://internal.memeboxlabs.com:8012',
@@ -59,26 +63,20 @@ define(function() { return webpackJsonp([0],[
 	            };
 
 	            var zipcode_params = {
-	                requestUrl: {
+	                zipcodeAPI: {
 	                    sido: this.server.stage + '/api/zipcode/sido',
 	                    sigungu: this.server.stage + '/api/zipcode/sigungu',
 	                    jibun: this.server.stage + '/api/zipcode/jibuns',
 	                    range: this.server.stage + '/api/zipcode/ranges',
 	                    road: this.server.stage + '/api/zipcode/roads'
 	                },
-	                contactUsUrl: {
-	                    mobile: '//m.memebox.com/mypage/inquiry/write',
-	                    pc: '//www.memebox.com/my/inquiry'
-	                },
-	                device: 'pc'
+	                device: 'mobile'
 	            };
+
 	            this.layerModal = new layer_modal(layer_params);
 	            this.layerModal.show();
 	            this.zipcode = new zipcode(this.collBackZipcode, this.layerModal.getContentWrap(), zipcode_params);
 	        },
-
-	        zipcode: null,
-	        layerModal: null,
 
 	        collBackZipcode: function collBackZipcode(data) {
 	            console.log('data ++++++++++ ', data, ' ++++++++');

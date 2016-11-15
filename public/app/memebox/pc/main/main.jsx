@@ -54,19 +54,16 @@ var main = function(){
             };
 
             var zipcode_params = {
-                requestUrl: {
+                zipcodeAPI: {
                     sido: this.server.stage+'/api/zipcode/sido',
                     sigungu: this.server.stage+'/api/zipcode/sigungu',
                     jibun: this.server.stage+'/api/zipcode/jibuns',
                     range: this.server.stage+'/api/zipcode/ranges',
                     road: this.server.stage+'/api/zipcode/roads'
                 },
-                contactUsUrl: {
-                    mobile: '//m.memebox.com/mypage/inquiry/write',
-                    pc: '//www.memebox.com/my/inquiry'
-                },
                 device: 'pc'
             };
+
             this.layerModal = new layer_modal(layer_params);
             this.layerModal.show();
             this.zipcode = new zipcode(this.collBackZipcode, this.layerModal.getContentWrap(), zipcode_params);

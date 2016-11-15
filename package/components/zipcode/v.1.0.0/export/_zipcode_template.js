@@ -65,7 +65,7 @@ var zipcode_templates = {
         template += '       </li>';
         template += '       <li class="zip-code-search-result-filter">';
         template += '           <span class="zip-code-search-result-filter-select-town-wrap">';
-        template += '               <select class="zip-code-search-result-filter-select-town">';
+        template += '               <select class="zip-code-search-result-filter-select-town" disabled>';
         template += '                   <option value="">시/군/구 선택</option>';
         for(var index in data.aggregations.sigungu) {//'{{#each aggregations.sigungu}}'
             template += '               <option value="'+data.aggregations.sigungu[index].key+'">'+data.aggregations.sigungu[index].key+'('+data.aggregations.sigungu[index].count+'건)</option>';
@@ -83,11 +83,25 @@ var zipcode_templates = {
         template += '       <strong class="zip-code-search-result-noting-title">주소가 없으신가요?</strong>';
         template += '       <ul class="zip-code-search-result-noting_ul">';
         template += '           <li>주소가 올바르게 입력되었는지 다시 한번 확인해주세요.</li>';
-        template += '           <li>찾으시려는 주소가 없는 경우 1:1문의하기로 문의해주세요.</li>';
+        template += '           <li>찾으시려는 주소가 없는 경우 고객센터로 문의해주세요.</li>';
         template += '       </ul>';
         template += '       <a href="#" class="zip-code-search-result-noting-trigger">1:1 문의하기</a>';
         template += '   </div>';
         template += '</div>';
+        return template
+    }
+    ,
+    // selectOption: require('./selectOption.hbs')
+    selectOption: function(data) {
+        var template = '';
+        template += '<strong class="zip-code-search-result-noting-title">주소가 없으신가요?</strong>';
+        template += '<ul class="zip-code-search-result-noting_ul">';
+        for(var index in data.aggregations.sigungu) {
+            template += '   <li>주소가 올바르게 입력되었는지 다시 한번 확인해주세요.</li>';
+            template += '   <li>찾으시려는 주소가 없는 경우 1:1문의하기로 문의해주세요.</li>';
+        }
+        template += '</ul>';
+        template += '<a href="#" class="zip-code-search-result-noting-trigger">1:1 문의하기</a>';
         return template
     }
     ,
@@ -135,7 +149,7 @@ var zipcode_templates = {
         template += '              </li>';
         template += '          </ul>';
         template += '          <div class="zip-code-search-user-input-wrap">';
-        template += '              <input type="text" class="zip-code-search-user-input" name="searchKey" value="" placeholder="(예: 백현동 541)">';
+        template += '              <input type="text" class="zip-code-search-user-input" name="searchKey" value="" placeholder="(예: 판교역로14번길 20)">';
         template += '              <button type="submit" class="zip-code-search-user-choice-submit">검색</button>';
         template += '          </div>';
         template += '      </div>';

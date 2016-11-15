@@ -101,7 +101,7 @@ app.get('/', function(req, res) {
 app.get('/cart', function(req, res) {
     data.config.controller = 'memebox/pc/cart/cart';
     data.config.title = 'cart';
-    data.config.info.device = 'pc';
+    data.config.info.device = 'mobile';
     data.config.info.service = 'memebox';
     data.component.menu = menuData;
 

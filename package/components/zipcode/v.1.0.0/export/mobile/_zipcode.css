@@ -82,7 +82,7 @@
 .zip-code-search-user-input-wrap {
     position: relative;
     padding-right: 60px;
-    margin-bottom: 10px; }
+    margin-bottom: 5px; }
 
 .zip-code-search-user-input {
     display: block;
@@ -95,9 +95,8 @@
     font-size: 12px; }
 
 .zip-code-search-user-input-gide {
-    margin: 0 0 10px 0;
-    color: #333;
-    font-weight: bold; }
+    margin: 0 0 7px 0;
+    color: #555; }
 
 .zip-code-search-user-choice-submit {
     position: absolute;
@@ -133,7 +132,8 @@
     padding-left: 1em; }
 
 .zip-code-search-user-choice-gide-li {
-    color: #8a8a8a; }
+    color: #8a8a8a;
+    padding-bottom: 3px; }
 
 .zip-code-search-result-wrap {
     display: none;
@@ -183,7 +183,7 @@
     -moz-appearance: none;
     outline: none;
     padding: 0;
-    text-indent: 20px;
+    text-indent: 12px;
     border: none;
     font-size: 12px;
     background-color: #fff;
@@ -195,7 +195,7 @@
 .zip-code-search-result-contents-wrap {
     margin: 0;
     position: relative;
-    background-color: #e6e6e6; }
+    background-color: #f2f2f2; }
 
 .zip-code-search-result-contents-ul {
     list-style: none;
@@ -227,17 +227,17 @@
 .zip-code-search-result-jibun {
     position: relative;
     display: block;
-    padding: 5px 2px;
-    margin: 0 60px 0 70px;
+    padding: 3px 2px;
+    margin: 0 60px 0 65px;
     font-style: normal; }
 
 .zip-code-search-result-type {
     position: absolute;
     top: 50%;
-    left: -50px;
+    left: -45px;
     margin-top: -1em;
     display: inline-block;
-    width: 44px;
+    width: 38px;
     text-align: center;
     background-color: #c6c6c6;
     border-radius: 1em;
@@ -245,7 +245,7 @@
     border-width: 1px;
     border-color: #aaa;
     color: #fff;
-    line-height: 1.7em;
+    line-height: 1.6em;
     font-size: 8px;
     font-family: 나눔고딕, NanumGothic, 돋움, Dotum, AppleSDGothic, AppleGothic, 굴림, Gulim, sans-serif; }
 
@@ -266,7 +266,7 @@
     width: 100%;
     padding: 10px 0;
     margin-top: -5px;
-    background-color: #e6e6e6; }
+    background-color: #f2f2f2; }
 
 .zip-code-search-result-noting-title {
     display: block;
@@ -296,3 +296,9 @@
     border-radius: 4px;
     color: #555;
     font-size: 11px; }
+
+
+/* memebox garbage */
+.zip-code-search-user-input-wrap input.zip-code-search-user-input {
+    padding: 0;
+}
