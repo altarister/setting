@@ -57,7 +57,7 @@ var zipcode_templates = {
         template += '           <span class="zip-code-search-result-filter-select-city-wrap">';
         template += '               <select class="zip-code-search-result-filter-select-city">';
         template += '                   <option value="">시/도 선택</option>';
-        for(var index in data.aggregations.sido) {//'{{#each aggregations.sido}}'
+        for(var index = 0; index < data.aggregations.sido.length; index++){
             template += '               <option value="'+data.aggregations.sido[index].key+'">'+data.aggregations.sido[index].key+'('+data.aggregations.sido[index].count+'건)</option>';
         }
         template += '               </select>';
@@ -67,7 +67,7 @@ var zipcode_templates = {
         template += '           <span class="zip-code-search-result-filter-select-town-wrap">';
         template += '               <select class="zip-code-search-result-filter-select-town" disabled>';
         template += '                   <option value="">시/군/구 선택</option>';
-        for(var index in data.aggregations.sigungu) {//'{{#each aggregations.sigungu}}'
+        for(var index = 0; index < data.aggregations.sigungu.length; index++){
             template += '               <option value="'+data.aggregations.sigungu[index].key+'">'+data.aggregations.sigungu[index].key+'('+data.aggregations.sigungu[index].count+'건)</option>';
         }
         template += '               </select>';
