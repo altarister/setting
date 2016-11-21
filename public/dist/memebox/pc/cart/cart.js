@@ -1,11 +1,11 @@
 define(function() { return webpackJsonp([0],[
 /* 0 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ function(module, exports) {
 
 	'use strict';
 
 	//var $ = require('jquery');
-	var utility = __webpack_require__(1);
+	//var utility = require('utility');
 	//var dealView = require('components/dealView/v.1.0.0/_dealView.jsx');
 	//var menu = require('components/menu/v.1.0.0/_menu.jsx');
 	// webpack 이면 풀어야 한다.
@@ -23,9 +23,6 @@ define(function() { return webpackJsonp([0],[
 	            zipcodeValue: '.memebox-web-zipcode-value',
 	            addressValue: '.memebox-web-address-value'
 	        },
-
-	        zipcode: null,
-	        layerModal: null,
 
 	        server: {
 	            development: 'https://internal.memeboxlabs.com:8012',
@@ -45,11 +42,6 @@ define(function() { return webpackJsonp([0],[
 
 	        zipcodeEvent: function zipcodeEvent() {
 	            var layer_params = {
-	                selector: {
-	                    opener: '.memebox-altari-zipcode-trigger',
-	                    wrapper: 'window',
-	                    appendTarget: 'body'
-	                },
 	                style: {
 	                    width: 520,
 	                    height: 600,
@@ -59,7 +51,8 @@ define(function() { return webpackJsonp([0],[
 	                content: {
 	                    title: '우편번호',
 	                    hasCloseButton: true
-	                }
+	                },
+	                enableClickBackdrop: true
 	            };
 
 	            var zipcode_params = {
@@ -70,13 +63,18 @@ define(function() { return webpackJsonp([0],[
 	                    range: this.server.stage + '/api/zipcode/ranges',
 	                    road: this.server.stage + '/api/zipcode/roads'
 	                },
-	                device: 'mobile'
+	                device: 'pc'
 	            };
 
-	            this.layerModal = new layer_modal(layer_params);
+	            if (!this.layerModal) {
+	                this.layerModal = new layer_modal(layer_params);
+	            }
 	            this.layerModal.show();
 	            this.zipcode = new zipcode(this.collBackZipcode, this.layerModal.getContentWrap(), zipcode_params);
 	        },
+
+	        zipcode: null,
+	        layerModal: null,
 
 	        collBackZipcode: function collBackZipcode(data) {
 	            console.log('data ++++++++++ ', data, ' ++++++++');
@@ -84,7 +82,6 @@ define(function() { return webpackJsonp([0],[
 	            controller.ui.zipcodeValue.text(data.zipcode);
 	            controller.ui.addressValue.text(data.roads);
 	            controller.layerModal.hide();
-	            controller.layerModal = null;
 	            controller.zipcode = null;
 	            console.log('%%%%%%%%%%%%%%%%%%%%%%%', data);
 	        },

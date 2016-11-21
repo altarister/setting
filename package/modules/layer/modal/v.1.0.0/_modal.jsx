@@ -31,7 +31,7 @@ var functions = {
     }
 };
 
-var layer = function(_options){
+var layer_modal = function(_options){
     var controller = {
 
         element: null,
@@ -43,26 +43,15 @@ var layer = function(_options){
             moduleModalLayer__controller: '.module-layer-modal-controller'
         },
 
-        targetElement: {
-            opener: _options.selector.opener ? _options.selector.opener : '.dialogue-modal-trigger',
-            wrapper: _options.selector.wrapper ? _options.selector.wrapper : 'window',
-            append: _options.selector.appendTarget ? _options.selector.appendTarget : 'body',
-        },
-
         isShown: false,
         options: _options,
         $backdrop: null,
         $element: null,
         $layout: null,
-        DEFAULTS: {
-            enableModalFocus: false,
-            enableClickBackdrop: false
-        },
 
         initialize: function(){
             this.element = $(layer_templates.modal(_options.content));
             utility.uiEnhancements.call(this);
-            $(this.targetElement.append).append(this.element);
             this.addEventListener();
         },
 
@@ -94,7 +83,8 @@ var layer = function(_options){
             }).trigger('resize.ui.modal');
         },
 
-        show: function(params){
+        show: function(){
+            this.initialize();
             this.element.css(_options.style);
 
             var breforeEvt = $.Event('show.ui.modal', this.element),
@@ -118,19 +108,18 @@ var layer = function(_options){
             }
 
             $("html").addClass("modal-open");
-
             this.$backdrop.show();
             this.$layout.show();
             this.element.show().scrollTop(0).focus();
 
             $body.data("ui.Modal", this);
-            if (params && params.escape) this.element.data("ui.modal.escape", params.escape);
+            //if (params && params.escape) this.element.data("ui.modal.escape", params.escape);  //문자를 %16진수의 ASCII 아스키코드값으로 변환
             this.element.trigger(afterEvt);
 
             this.options.enableClickBackdrop && this.clickBackdrop();
         },
 
-        hide : function (params) {
+        hide : function () {
             var breforeEvt = $.Event('hide.ui.modal', this.element),
                 afterEvt = $.Event('hidden.ui.modal', this.element);
 
@@ -143,11 +132,8 @@ var layer = function(_options){
 
             $("html").removeClass("modal-open");
             this.$backdrop.remove();
-            this.$layout.hide();
-            this.element.empty();
-
             this.element.trigger(afterEvt);
-            $(params && params.escape || this.element.data("ui.modal.escape") || {}).trigger('focus');
+            this.$layout.remove();
         },
 
 
@@ -205,8 +191,7 @@ var layer = function(_options){
         }
     };
 
-    controller.initialize();
     return controller;
 };
 
-module.exports = layer;
+module.exports = layer_modal;

@@ -6,7 +6,7 @@ var zipcode_templates = {
         template += '   <em>* '+data.title+'</em> 검색방법';
         template += '</string>';
         template += '<ol class="zip-code-search-user-choice-gide-ol">';
-        for(var index in data.gide.choice) {
+        for(var index = 0; index < data.gide.choice.length; index++){
             template += '<li class="zip-code-search-user-choice-gide-li">';
             template +=     data.gide.choice[index];
             template += '</li>';
@@ -18,7 +18,7 @@ var zipcode_templates = {
     // address: require('./address.hbs')
     address: function(data) {
         var template = '';
-        for(var index in data.address) {
+        for(var index = 0; index < data.address.length; index++){
             template += '<li class="zip-code-search-result-contents-li">';
             template += '   <a href="#" class="zip-code-search-result-trigger" data-zipcode=\''+JSON.stringify(data.address[index])+'\'>';
             template += '       <strong class="zip-code-search-result-key">'+data.address[index].zipcode+'</strong>';
@@ -94,20 +94,6 @@ var zipcode_templates = {
     // selectOption: require('./selectOption.hbs')
     selectOption: function(data) {
         var template = '';
-        template += '<strong class="zip-code-search-result-noting-title">주소가 없으신가요?</strong>';
-        template += '<ul class="zip-code-search-result-noting_ul">';
-        for(var index in data.aggregations.sigungu) {
-            template += '   <li>주소가 올바르게 입력되었는지 다시 한번 확인해주세요.</li>';
-            template += '   <li>찾으시려는 주소가 없는 경우 1:1문의하기로 문의해주세요.</li>';
-        }
-        template += '</ul>';
-        template += '<a href="#" class="zip-code-search-result-noting-trigger">1:1 문의하기</a>';
-        return template
-    }
-    ,
-    // selectOption: require('./selectOption.hbs')
-    selectOption: function(data) {
-        var template = '';
         template += '<option value="'+data.key+'">'+data.key+'</option>';
         return template
     }
@@ -120,10 +106,10 @@ var zipcode_templates = {
         //{{!--검색 방밥 선택--}}
         template += '   <ul class="zip-code-search-type-selector-ul">';
         template += '       <li class="zip-code-search-type-selector-road">';
-        template += '           <a class="zip-code-search-type-selector-trigger selected" href="#road"><span>도로명 주소</span></a>';
+        template += '           <a class="zip-code-search-type-selector-trigger selected" href="#road" data-search-type="road"><span>도로명 주소</span></a>';
         template += '       </li>';
         template += '       <li class="zip-code-search-type-selector-jibun">';
-        template += '           <a class="zip-code-search-type-selector-trigger" href="#jibun"><span>지번 주소</span></a>';
+        template += '           <a class="zip-code-search-type-selector-trigger" href="#jibun" data-search-type="jibun"><span>지번 주소</span></a>';
         template += '       </li>';
         template += '   </ul>';
 

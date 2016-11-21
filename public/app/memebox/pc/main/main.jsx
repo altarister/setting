@@ -36,11 +36,6 @@ var main = function(){
 
         zipcodeEvent: function(){
             var layer_params = {
-                selector: {
-                    opener: '.memebox-altari-zipcode-trigger',
-                    wrapper: 'window',
-                    appendTarget: 'body'
-                },
                 style: {
                     width: 520,
                     height: 600,
@@ -50,7 +45,8 @@ var main = function(){
                 content: {
                     title: '우편번호',
                     hasCloseButton: true
-                }
+                },
+                enableClickBackdrop : true
             };
 
             var zipcode_params = {
@@ -64,7 +60,11 @@ var main = function(){
                 device: 'pc'
             };
 
-            this.layerModal = new layer_modal(layer_params);
+            if(!this.layerModal){
+                this.layerModal = new layer_modal(layer_params);
+                //this.layerModal.initialize();
+            }
+
             this.layerModal.show();
             this.zipcode = new zipcode(this.collBackZipcode, this.layerModal.getContentWrap(), zipcode_params);
         },
@@ -77,7 +77,6 @@ var main = function(){
             controller.ui.zipcodeValue.text(data.zipcode);
             controller.ui.addressValue.text(data.roads);
             controller.layerModal.hide();
-            controller.layerModal = null;
             controller.zipcode = null;
         }
     };

@@ -253,7 +253,7 @@ var zipcode = function (collBackFunction, $wraper, zipcode_params) {
                     }
                 });
             } else {
-                console.log('시/군/구 선택 불가')
+                console.log('시/군/구 선택 불가');
                 controller.element.find('select[name=zip-code-search-user-select-town]').prop('disabled', true);
             }
         },
@@ -267,7 +267,7 @@ var zipcode = function (collBackFunction, $wraper, zipcode_params) {
                     count: 0
                 });
             }
-            for (var index in optionArray) {
+            for(var index=0; index < optionArray.length; index++){
                 selectOptionHtml += zipcode_templates.selectOption(optionArray[index])
             }
             $select.empty().append($(selectOptionHtml));
@@ -459,7 +459,8 @@ var zipcode = function (collBackFunction, $wraper, zipcode_params) {
             var $current = $(event.currentTarget);
             var typeChangeHistory = this.beforeSearchStatus.type;
 
-            this.beforeSearchStatus.type = $current.attr('href').replace(/\#/g, '');
+            this.beforeSearchStatus.type = $current.data('search-type');
+            //this.beforeSearchStatus.type = $current.attr('href').replace(/\#/g, '');
             if (typeChangeHistory !== this.beforeSearchStatus.type) {
                 this.beforeSearchStatus.isNewZipCodeSearch = true;
                 this.displaySearchType(this.beforeSearchStatus.type);
@@ -502,7 +503,7 @@ var zipcode = function (collBackFunction, $wraper, zipcode_params) {
             console.log('displaySelector = ', selectorType)
             this.ui.typeSelectorTrigger.each(function (index, element) {
                 var $element = $(element);
-                var currentType = $element.attr('href').replace(/\#/g, '');
+                var currentType = $element.data('search-type');
 
                 if (currentType === selectorType) {
                     $element.addClass('selected')

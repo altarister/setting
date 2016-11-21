@@ -235,7 +235,7 @@ var zipcode = function(collBackFunction, $wraper, zipcode_params){
                     count: 0
                 });
             }
-            for(var index in optionArray){
+            for(var index=0; index < optionArray.length; index++){
                 selectOptionHtml += zipcode_templates.selectOption(optionArray[index])
             }
             $select.empty().append( $(selectOptionHtml) );
@@ -414,7 +414,7 @@ var zipcode = function(collBackFunction, $wraper, zipcode_params){
             var $current = $(event.currentTarget);
             var typeChangeHistory = this.beforeSearchStatus.type;
 
-            this.beforeSearchStatus.type = $current.attr('href').replace(/\#/g, '');
+            this.beforeSearchStatus.type = $current.data('search-type');
             if(typeChangeHistory !== this.beforeSearchStatus.type){
                 this.beforeSearchStatus.isNewZipCodeSearch = true;
                 this.displaySearchType(this.beforeSearchStatus.type);
@@ -456,7 +456,7 @@ var zipcode = function(collBackFunction, $wraper, zipcode_params){
         displaySelector: function(selectorType){
             this.ui.typeSelectorTrigger.each(function(index, element){
                 var $element = $(element);
-                var currentType = $element.attr('href').replace(/\#/g, '');
+                var currentType = $element.data('search-type');
 
                 if(currentType === selectorType){
                     $element.addClass('selected')

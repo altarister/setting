@@ -4,8 +4,8 @@ define(["jquery.ui.position"], function(__WEBPACK_EXTERNAL_MODULE_40__) { return
 
 	'use strict';
 
-	var $ = __webpack_require__(2);
-	var utility = __webpack_require__(1);
+	var $ = __webpack_require__(3);
+	var utility = __webpack_require__(4);
 	var zipcode = __webpack_require__(11);
 	var layer_modal = __webpack_require__(39);
 
@@ -41,11 +41,6 @@ define(["jquery.ui.position"], function(__WEBPACK_EXTERNAL_MODULE_40__) { return
 
 	        zipcodeEvent: function zipcodeEvent() {
 	            var layer_params = {
-	                selector: {
-	                    opener: '.memebox-altari-zipcode-trigger',
-	                    wrapper: 'window',
-	                    appendTarget: 'body'
-	                },
 	                style: {
 	                    width: 520,
 	                    height: 600,
@@ -55,7 +50,8 @@ define(["jquery.ui.position"], function(__WEBPACK_EXTERNAL_MODULE_40__) { return
 	                content: {
 	                    title: '우편번호',
 	                    hasCloseButton: true
-	                }
+	                },
+	                enableClickBackdrop: true
 	            };
 
 	            var zipcode_params = {
@@ -69,7 +65,11 @@ define(["jquery.ui.position"], function(__WEBPACK_EXTERNAL_MODULE_40__) { return
 	                device: 'pc'
 	            };
 
-	            this.layerModal = new layer_modal(layer_params);
+	            if (!this.layerModal) {
+	                this.layerModal = new layer_modal(layer_params);
+	                //this.layerModal.initialize();
+	            }
+
 	            this.layerModal.show();
 	            this.zipcode = new zipcode(this.collBackZipcode, this.layerModal.getContentWrap(), zipcode_params);
 	        },
@@ -82,7 +82,6 @@ define(["jquery.ui.position"], function(__WEBPACK_EXTERNAL_MODULE_40__) { return
 	            controller.ui.zipcodeValue.text(data.zipcode);
 	            controller.ui.addressValue.text(data.roads);
 	            controller.layerModal.hide();
-	            controller.layerModal = null;
 	            controller.zipcode = null;
 	        }
 	    };
@@ -122,8 +121,8 @@ define(["jquery.ui.position"], function(__WEBPACK_EXTERNAL_MODULE_40__) { return
 	//ajax 요청중 스피너 .
 
 
-	var $ = __webpack_require__(2);
-	var utility = __webpack_require__(1);
+	var $ = __webpack_require__(3);
+	var utility = __webpack_require__(4);
 	var validate = __webpack_require__(12);
 	//require('./pc/_zipcode.scss');
 	__webpack_require__(13);
@@ -347,7 +346,7 @@ define(["jquery.ui.position"], function(__WEBPACK_EXTERNAL_MODULE_40__) { return
 	                    count: 0
 	                });
 	            }
-	            for (var index in optionArray) {
+	            for (var index = 0; index < optionArray.length; index++) {
 	                selectOptionHtml += zipcode_templates.selectOption(optionArray[index]);
 	            }
 	            $select.empty().append($(selectOptionHtml));
@@ -534,7 +533,8 @@ define(["jquery.ui.position"], function(__WEBPACK_EXTERNAL_MODULE_40__) { return
 	            var $current = $(event.currentTarget);
 	            var typeChangeHistory = this.beforeSearchStatus.type;
 
-	            this.beforeSearchStatus.type = $current.attr('href').replace(/\#/g, '');
+	            this.beforeSearchStatus.type = $current.data('search-type');
+	            //this.beforeSearchStatus.type = $current.attr('href').replace(/\#/g, '');
 	            if (typeChangeHistory !== this.beforeSearchStatus.type) {
 	                this.beforeSearchStatus.isNewZipCodeSearch = true;
 	                this.displaySearchType(this.beforeSearchStatus.type);
@@ -575,7 +575,7 @@ define(["jquery.ui.position"], function(__WEBPACK_EXTERNAL_MODULE_40__) { return
 	            console.log('displaySelector = ', selectorType);
 	            this.ui.typeSelectorTrigger.each(function (index, element) {
 	                var $element = $(element);
-	                var currentType = $element.attr('href').replace(/\#/g, '');
+	                var currentType = $element.data('search-type');
 
 	                if (currentType === selectorType) {
 	                    $element.addClass('selected');
@@ -1885,7 +1885,7 @@ define(["jquery.ui.position"], function(__WEBPACK_EXTERNAL_MODULE_40__) { return
 	module.exports = (Handlebars["default"] || Handlebars).template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
 	    return "<div class=\"zip-code-search\"\n     data-component=\"zipcode\"\n     data-component-data='"
 	    + container.escapeExpression(__default(__webpack_require__(36)).call(depth0 != null ? depth0 : {},depth0,{"name":"json","hash":{},"data":data}))
-	    + "'>\n\n    <ul class=\"zip-code-search-type-selector-ul\">\n        <li class=\"zip-code-search-type-selector-road\">\n            <a class=\"zip-code-search-type-selector-trigger selected\" href=\"#road\"><span>도로명 주소</span></a>\n        </li>\n        <li class=\"zip-code-search-type-selector-jibun\">\n            <a class=\"zip-code-search-type-selector-trigger\" href=\"#jibun\"><span>지번 주소</span></a>\n        </li>\n    </ul>\n\n    <div class=\"zip-code-search-contents\">\n        <div class=\"zip-code-search-user-choice-wrap\">\n\n            <p class=\"zip-code-search-user-input-gide\">\n                시/도 , 시/군/구 선택 후 주소명을 입력해주세요.\n            </p>\n\n            <ul class=\"zip-code-search-user-select-wrap\">\n                <li class=\"zip-code-search-user-select-li\">\n                    <span class=\"zip-code-search-user-select-city-wrap\">\n                        <select class=\"zip-code-search-user-select-city\"\n                                name=\"zip-code-search-user-select-city\">\n                            <option value=\"\">시/도 선택</option>\n                            <option value=\"강원도\">강원도</option>\n                        </select>\n                    </span>\n                </li>\n                <li class=\"zip-code-search-user-select-li\">\n                    <span class=\"zip-code-search-user-select-town-wrap\">\n                        <select class=\"zip-code-search-user-select-town\"\n                                name=\"zip-code-search-user-select-town\"\n                                disabled>\n                            <option value=\"\">시/군/구 선택</option>\n                        </select>\n                    </span>\n                </li>\n            </ul>\n            <div class=\"zip-code-search-user-input-wrap\">\n                <input type=\"text\"\n                       class=\"zip-code-search-user-input\"\n                       name=\"searchKey\"\n                       value=\"\"\n                       placeholder=\"(예: 판교역로14번길 20)\">\n                <button type=\"submit\"\n                        class=\"zip-code-search-user-choice-submit\">\n                    검색\n                </button>\n            </div>\n        </div>\n\n        <div class=\"zip-code-search-user-choice-gide\">\n        </div>\n        <div class=\"zip-code-search-result-wrap\">\n        </div>\n\n    </div>\n</div>";
+	    + "'>\n\n    <ul class=\"zip-code-search-type-selector-ul\">\n        <li class=\"zip-code-search-type-selector-road\">\n            <a class=\"zip-code-search-type-selector-trigger selected\" href=\"#road\" data-search-type=\"road\"><span>도로명 주소</span></a>\n        </li>\n        <li class=\"zip-code-search-type-selector-jibun\">\n            <a class=\"zip-code-search-type-selector-trigger\" href=\"#jibun\" data-search-type=\"jibun\"><span>지번 주소</span></a>\n        </li>\n    </ul>\n\n    <div class=\"zip-code-search-contents\">\n        <div class=\"zip-code-search-user-choice-wrap\">\n\n            <p class=\"zip-code-search-user-input-gide\">\n                시/도 , 시/군/구 선택 후 주소명을 입력해주세요.\n            </p>\n\n            <ul class=\"zip-code-search-user-select-wrap\">\n                <li class=\"zip-code-search-user-select-li\">\n                    <span class=\"zip-code-search-user-select-city-wrap\">\n                        <select class=\"zip-code-search-user-select-city\"\n                                name=\"zip-code-search-user-select-city\">\n                            <option value=\"\">시/도 선택</option>\n                            <option value=\"강원도\">강원도</option>\n                        </select>\n                    </span>\n                </li>\n                <li class=\"zip-code-search-user-select-li\">\n                    <span class=\"zip-code-search-user-select-town-wrap\">\n                        <select class=\"zip-code-search-user-select-town\"\n                                name=\"zip-code-search-user-select-town\"\n                                disabled>\n                            <option value=\"\">시/군/구 선택</option>\n                        </select>\n                    </span>\n                </li>\n            </ul>\n            <div class=\"zip-code-search-user-input-wrap\">\n                <input type=\"text\"\n                       class=\"zip-code-search-user-input\"\n                       name=\"searchKey\"\n                       value=\"\"\n                       placeholder=\"(예: 판교역로14번길 20)\">\n                <button type=\"submit\"\n                        class=\"zip-code-search-user-choice-submit\">\n                    검색\n                </button>\n            </div>\n        </div>\n\n        <div class=\"zip-code-search-user-choice-gide\">\n        </div>\n        <div class=\"zip-code-search-result-wrap\">\n        </div>\n\n    </div>\n</div>";
 	},"useData":true});
 
 /***/ },
@@ -1910,8 +1910,8 @@ define(["jquery.ui.position"], function(__WEBPACK_EXTERNAL_MODULE_40__) { return
 
 	'use strict';
 
-	var $ = __webpack_require__(2);
-	var utility = __webpack_require__(1);
+	var $ = __webpack_require__(3);
+	var utility = __webpack_require__(4);
 	__webpack_require__(40);
 	__webpack_require__(41);
 
@@ -1943,7 +1943,7 @@ define(["jquery.ui.position"], function(__WEBPACK_EXTERNAL_MODULE_40__) { return
 	    }
 	};
 
-	var layer = function layer(_options) {
+	var layer_modal = function layer_modal(_options) {
 	    var controller = {
 
 	        element: null,
@@ -1955,26 +1955,15 @@ define(["jquery.ui.position"], function(__WEBPACK_EXTERNAL_MODULE_40__) { return
 	            moduleModalLayer__controller: '.module-layer-modal-controller'
 	        },
 
-	        targetElement: {
-	            opener: _options.selector.opener ? _options.selector.opener : '.dialogue-modal-trigger',
-	            wrapper: _options.selector.wrapper ? _options.selector.wrapper : 'window',
-	            append: _options.selector.appendTarget ? _options.selector.appendTarget : 'body'
-	        },
-
 	        isShown: false,
 	        options: _options,
 	        $backdrop: null,
 	        $element: null,
 	        $layout: null,
-	        DEFAULTS: {
-	            enableModalFocus: false,
-	            enableClickBackdrop: false
-	        },
 
 	        initialize: function initialize() {
 	            this.element = $(layer_templates.modal(_options.content));
 	            utility.uiEnhancements.call(this);
-	            $(this.targetElement.append).append(this.element);
 	            this.addEventListener();
 	        },
 
@@ -2006,7 +1995,8 @@ define(["jquery.ui.position"], function(__WEBPACK_EXTERNAL_MODULE_40__) { return
 	            }).trigger('resize.ui.modal');
 	        },
 
-	        show: function show(params) {
+	        show: function show() {
+	            this.initialize();
 	            this.element.css(_options.style);
 
 	            var breforeEvt = $.Event('show.ui.modal', this.element),
@@ -2030,19 +2020,18 @@ define(["jquery.ui.position"], function(__WEBPACK_EXTERNAL_MODULE_40__) { return
 	            }
 
 	            $("html").addClass("modal-open");
-
 	            this.$backdrop.show();
 	            this.$layout.show();
 	            this.element.show().scrollTop(0).focus();
 
 	            $body.data("ui.Modal", this);
-	            if (params && params.escape) this.element.data("ui.modal.escape", params.escape);
+	            //if (params && params.escape) this.element.data("ui.modal.escape", params.escape);  //문자를 %16진수의 ASCII 아스키코드값으로 변환
 	            this.element.trigger(afterEvt);
 
 	            this.options.enableClickBackdrop && this.clickBackdrop();
 	        },
 
-	        hide: function hide(params) {
+	        hide: function hide() {
 	            var breforeEvt = $.Event('hide.ui.modal', this.element),
 	                afterEvt = $.Event('hidden.ui.modal', this.element);
 
@@ -2055,11 +2044,8 @@ define(["jquery.ui.position"], function(__WEBPACK_EXTERNAL_MODULE_40__) { return
 
 	            $("html").removeClass("modal-open");
 	            this.$backdrop.remove();
-	            this.$layout.hide();
-	            this.element.empty();
-
 	            this.element.trigger(afterEvt);
-	            $(params && params.escape || this.element.data("ui.modal.escape") || {}).trigger('focus');
+	            this.$layout.remove();
 	        },
 
 	        getLayerContentHeight: function getLayerContentHeight() {
@@ -2113,11 +2099,10 @@ define(["jquery.ui.position"], function(__WEBPACK_EXTERNAL_MODULE_40__) { return
 	        }
 	    };
 
-	    controller.initialize();
 	    return controller;
 	};
 
-	module.exports = layer;
+	module.exports = layer_modal;
 
 /***/ },
 /* 40 */
