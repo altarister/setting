@@ -3,13 +3,15 @@
 {{/extend}}
 
 {{#extend "memebox-content"}}
-    주문서
-{{/extend}}
-
-{{#extend "scripts"}}
-    <script>
-        document.write('order!');
-    </script>
+    <div class="wrap">
+        <p class="text">order page</p>
+    </div>
+    <br>
+    <div class="memebox-altari-address-wrap">
+        <a href="#" class="memebox-altari-zipcode-trigger">우편번호찾기</a>
+        <span class="memebox-altari-zipcode-value">000-000</span>
+        <span class="memebox-altari-address-value">우편번호 찾기를 클릭 하여 내용을 넣으세요.</span>
+    </div>
 {{/extend}}
 
 {{> layout_pc}}

@@ -1,0 +1,14 @@
+<div class="memebox-deal-current-status">
+    <span class="memebox-deal-review-star">
+        <span class="memebox-deal-review-star-value" style="width:{{review.average}}%;"></span>
+    </span>
+    <strong class="memebox-deal-review-average">
+        <span class="memebox-deal-review-average-value">{{review.average}}</span>점
+    </strong>
+    <em class="memebox-deal-review-count">
+        리뷰 <span class="memebox-deal-review-count-value">{{review.count}}</span>
+    </em>
+    {{#if sold.soon}}
+    <span class="memebox-deal-sold-out">{{sold.soon}}</span>
+    {{/if}}
+</div>

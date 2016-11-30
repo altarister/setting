@@ -1,0 +1,12 @@
+<a class="memebox-deal-link"
+   href="{{link}}"
+    {{#if tracking}}
+        {{#if tracking.ga}}
+            data-ga='{{json tracking.ga}}'
+        {{/if}}
+        {{#if tracking.analytics}}
+            data-analytics='{{json tracking.analytics}}'
+        {{/if}}
+    {{/if}}>
+   바로가기
+</a>

@@ -1,0 +1,99 @@
+.memebox-deal-sticker {
+    position: absolute;
+    top: 9px;
+    right: 11px;
+    display: block;
+    width: 46px;
+    height: 46px;
+    background-color: #fff;
+    background-image: url(./_sticker.png);
+    background-repeat: no-repeat;
+    background-position: 0 0;
+}
+.memebox-deal-sticker.sticker-z {
+
+}
+.memebox-deal-sticker.sticker-none {
+    display: none;
+    background: #000;
+}
+.memebox-deal-sticker.sticker-hot {
+    background-position: 0px 0px;
+}
+.memebox-deal-sticker.sticker-md {
+    background-position: -70px 0px;
+}
+/*//한정특가*/
+.memebox-deal-sticker.sticker-memebox {
+    background-position: -140px 0px;
+}
+.memebox-deal-sticker.sticker-best {
+    background-position: -210px 0px;
+}
+.memebox-deal-sticker.sticker-new {
+    background-position: -280px 0px;
+}
+/*//.memebox-deal-sticker.sticker-delivery {*/
+/*//  background-position: -630px 0px;*/
+/*//}*/
+/*//.memebox-deal-sticker.sticker-boxpb {*/
+/*//  background-position: -720px 0px;*/
+/*//}*/
+/*//.memebox-deal-sticker.sticker-time_price {*/
+/*//  background-position: -810px 0px;*/
+/*//}*/
+/*//.memebox-deal-sticker.sticker-time_super_price {*/
+/*//  background-position: -900px 0px;*/
+/*//}*/
+/*//.memebox-deal-sticker.sticker-week_price {*/
+/*//  background-position: -990px 0px;*/
+/*//}*/
+/*//.memebox-deal-sticker.sticker-point_50 {*/
+/*//  background-position: -1080px 0px;*/
+/*//}*/
+/*//.memebox-deal-sticker.sticker-point_100 {*/
+/*//  background-position: -1170px 0px;*/
+/*//}*/
+/*//3시간 특가 (한정특가와 이미지 공유)*/
+.memebox-deal-sticker.sticker-threeTime {
+    background-position: -140px 0px;
+}
+/*//.memebox-deal-sticker.sticker-thanSocial {*/
+/*//  background-position: -1080px -90px;*/
+/*//}*/
+/*//.memebox-deal-sticker.sticker-refund {*/
+/*//  background-position: -1260px -90px;*/
+/*//}*/
+.memebox-deal-sticker.sticker-lowest {
+    background-position: -350px 0px;
+}
+.memebox-deal-sticker.sticker-freebie {
+    background-position: -420px 0px;
+}
+/*//.memebox-deal-sticker.sticker-lowest30 {*/
+/*//  background-position: -1260px -180px;*/
+/*//}*/
+.memebox-deal-sticker.sticker-refund90 {
+    background-position: -490px 0px;
+}
+.memebox-deal-sticker.sticker-lowest90 {
+    background-position: -560px 0px;
+}
+.memebox-deal-sticker.sticker-sale369 {
+    background-position: -630px 0px;
+}
+.memebox-deal-sticker.sticker-promotion {
+    background-position: -700px 0px;
+}
+.memebox-deal-sticker.sticker-soldOutSoon {
+    background-position: -770px 0px;
+}
+.memebox-deal-sticker.sticker-deal_0 {
+    background-position: -840px 0px;
+}
+.memebox-deal-sticker.sticker-deal_100 {
+    background-position: -910px 0px;
+}
+.memebox-deal-sticker.sticker-reservation {
+    background-position: -980px 0px;
+}

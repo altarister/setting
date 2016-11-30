@@ -70,17 +70,37 @@ app.use(express.static(__dirname +'/public'));
 app.use(express.static(__dirname +'/views'));
 app.use(express.static(__dirname +'/package'));
 
-//deal page/////////////////////////
-app.get('/deal', function(req, res) {
-    data.config.controller = 'memebox/pc/deal/deal';
-    data.config.title = 'deal';
+//상품 상세 page/////////////////////////
+app.get('/product', function(req, res) {
+    data.config.controller = 'memebox/pc/product/product';
+    data.config.title = '상품 상세';
     data.config.info.device = 'pc';
     data.config.info.service = 'memebox';
     data.component.menu = menuData;
-    data.dealViewData = dealView_menuData;
-    data.dealview_API = dealview_API();
 
-    res.render('memebox/pc/deal/deal',data);
+    res.render('memebox/pc/product/product',data);
+});
+
+//검색 홈 page/////////////////////////
+app.get('/search/index', function(req, res) {
+    data.config.controller = 'memebox/pc/search/index';
+    data.config.title = '검색 홈';
+    data.config.info.device = 'pc';
+    data.config.info.service = 'memebox';
+    data.component.menu = menuData;
+
+    res.render('memebox/pc/search/index',data);
+});
+
+//검색 결과 page/////////////////////////
+app.get('/search/result', function(req, res) {
+    data.config.controller = 'memebox/pc/search/result';
+    data.config.title = '검색 결과';
+    data.config.info.device = 'pc';
+    data.config.info.service = 'memebox';
+    data.component.menu = menuData;
+
+    res.render('memebox/pc/search/result',data);
 });
 
 //main page/////////////////////////

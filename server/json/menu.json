@@ -5,10 +5,22 @@
 	},
 	{
 		"url" : "/cart",
-		"text" : "cart"
+		"text" : "장바구니"
 	},
 	{
-		"url" : "/deal",
-		"text" : "deal"
+		"url" : "/order",
+		"text" : "주문서"
+	},
+	{
+		"url" : "/product",
+		"text" : "상품 상세"
+	},
+	{
+		"url" : "/search/index",
+		"text" : "검색 홈"
+	},
+	{
+		"url" : "/search/result",
+		"text" : "검색 결과"
 	}
 ]

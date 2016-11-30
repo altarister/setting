@@ -1,0 +1,363 @@
+/* ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ 상품 바로 구매 내용 ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ */
+.deal-simple-choice-wrap {
+    position: relative;
+}
+/*지정된 상품 소개*/
+.deal-simple-choice-target-info {
+    margin-right: 240px;
+    margin-bottom: 20px;
+}
+.deal-simple-choice-target-title {
+    font-weight: normal;
+    font-size: 20px;
+    color: #555555;
+    font-family: 나눔고딕볼드, NanumGothicBold, 나눔고딕, NanumGothic, 돋움, Dotum, AppleSDGothic, AppleGothic, 굴림, Gulim, sans-serif;
+}
+.deal-simple-choice-target-title-sub {
+    display: block;
+    margin-bottom: 15px;
+    font-style: normal;
+    font-size: 12px;
+    color: #555555;
+    font-family: 나눔고딕, NanumGothic, 돋움, Dotum, AppleSDGothic, AppleGothic, 굴림, Gulim, sans-serif;
+}
+/*상품옵션선택*/
+.deal-simple-choice-select-wrap {
+    margin-right: 240px;
+    margin-bottom: 20px;
+}
+/* ---------------- select-design-viewer ---------------- */
+.select-design-viewer {
+    position: relative;
+    line-height: 30px;
+    background-color: #fff;
+    margin-bottom: 5px;
+}
+.select-design-viewer-option-selector {
+    border: 1px solid #ccc;
+    border-right: none;
+    font-size: 12px;
+    line-height: 29px;
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+    overflow: hidden;
+}
+.select-design-viewer-option-selector .value {
+    display: block;
+    border: none;
+    text-indent: 10px;
+    line-height: 28px;
+    color: #555;
+}
+.select-design-viewer-option-selector .trigger {
+    display: block;
+    width: 30px;
+    height: 30px;
+    background-image: url(./dealSimpleChoice.png);
+    background-repeat: no-repeat;
+    background-position: 100% 0;
+    position: absolute;
+    right: -1px;
+    top: 0;
+    text-indent: -99999px;
+}
+.select-design-viewer-list-box {
+    position: relative;
+    margin-right: 30px;
+}
+.select-design-viewer-list {
+    display: none;
+    overflow: hidden;
+    width: 100%;
+    position: absolute;
+    top: -1px;
+    left: 0;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    z-index: 1;
+}
+.select-design-viewer-option {
+    /*border: 1px solid #ccc;*/
+    /*border-top: none;*/
+    /*border-bottom: none;*/
+}
+
+
+/* ---------------- start 아코디언 마크업 템플릿  ---------------- */
+.design-template-accordion-wrap {
+}
+.design-template-accordion-info {
+    position: relative;
+    border-bottom: 1px solid #eee;
+    height: 30px;
+    padding-left: 10px;
+    font-family: 나눔고딕, NanumGothic, 돋움, Dotum, AppleSDGothic, AppleGothic, 굴림, Gulim, sans-serif;
+    font-size: 13px;
+    color: #555555;
+    background-color: #f8f8f9;
+    cursor: pointer;
+}
+.design-template-accordion-title {
+    display: block;
+    line-height: 30px;
+}
+.design-template-accordion-selected {
+    position: absolute;
+    top: 50%;
+    right: 60px;
+    margin-top: -13px;
+    line-height: 30px;
+}
+.design-template-accordion-controller {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    display: block;
+    width: 30px;
+    height: 30px;
+    margin-top: -15px;
+    text-indent: -99999px;
+    background-image: url(./dealSimpleChoice.png);
+    background-repeat: no-repeat;
+    background-position: 7px -186px;
+}
+.design-template-accordion-list {
+    display: none;
+}
+.accordion-open .design-template-accordion-controller {
+    background-position: 7px -156px;
+}
+.accordion-open .design-template-accordion-list {
+    display: block;
+    height: 200px;
+    overflow-y: auto;
+}
+.design-template-accordion-content {}
+/* ---------------- start 아코디언 마크업 템플릿  ---------------- */
+
+/* ---------------- start 판매 상품의 옵션 보여주기 ---------------- */
+.deal-item-option-viewer {
+    color: #555;
+    padding: 2px 0 0 10px;
+    cursor: pointer;
+    overflow: hidden;
+    font-size: 12px;
+}
+.deal-item-option-viewer:hover {
+     background-color: #ffedf1;
+ }
+.deal-item-option-viewer-title {
+    font-style: normal;
+    float: left;
+}
+.deal-item-option-viewer-location {
+    font-weight: normal;
+    float: right;
+    padding-right: 10px;
+}
+.deal-item-option-viewer-price,
+.deal-item-option-viewer-unit {
+
+}
+/* ---------------- select-design-viewer ---------------- */
+/*
+.deal-simple-choice-select {
+
+}
+.deal-simple-choice-select option {
+
+}
+*/
+
+
+
+
+/*선택한 상품 내용*/
+.deal-simple-choice-result-wrap {
+    margin-right: 240px;
+}
+/* 구매 수량 제한 표시 */
+.deal-simple-choice-result-value-info {
+    text-align: right;
+    font-size: 12px;
+    line-height: 1.3;
+    color: #555555;
+    margin-bottom: 5px;
+}
+
+
+
+
+
+
+/* 선택 상품 리스트*/
+.deal-simple-choice-result-list {
+    max-height: 200px;
+    overflow-y: auto;
+    background-color: #fff;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+}
+.deal-simple-choice-result-item {
+
+}
+/* 선택 상품 리스트 의 하위 리스트sub */
+.deal-simple-choice-result-sub-list {
+    max-height: 200px;
+    background-color: #f9f9fa;
+    padding: 5px 0 5px 5px;
+    border-top: 1px solid #eee;
+}
+.deal-simple-choice-result-sub-item {
+    padding-left: 20px;
+    background-image: url(./dealSimpleChoice.png);
+    background-repeat: no-repeat;
+    background-position: 10px -120px;
+    background-color: #fff;
+    border-bottom: 1px solid #f9f9fa;
+}
+
+.deal-simple-choice-result-list .deal-item-selected-option-wrap {
+
+}
+
+
+
+
+.deal-item-selected-option-wrap {
+    position: relative;
+    padding: 13px 250px 13px 15px;
+}
+.deal-item-selected-option-title {
+    font-size: 12px;
+    color: #555555;
+}
+.deal-item-selected-option-amount-wrap {
+    position: absolute;
+    top: 50%;
+    right: 145px;
+    margin-top: -10px;
+}
+.deal-item-selected-option-amount-value {
+    display: block;
+    height: 18px;
+    border: none;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    padding: 0;
+    text-align: center;
+    color: #555;
+    font-size: 12px;
+    width: 80px;
+}
+.deal-item-selected-option-amount-up,
+.deal-item-selected-option-amount-down {
+    position: absolute;
+    top: 0;
+    display: block;
+    width: 20px;
+    height: 20px;
+    overflow: hidden;
+    text-indent: -99999px;
+    background-image: url(./dealSimpleChoice.png);
+    background-repeat: no-repeat;
+    background-position: 0 -80px;
+}
+.deal-item-selected-option-amount-up {
+    right: 0;
+    background-position: 0 -100px;
+}
+.deal-item-selected-option-amount-down {
+    left: 0;
+    background-position: 0 -80px;
+}
+.deal-item-selected-option-value {
+    position: absolute;
+    top: 50%;
+    right: 45px;
+    margin-top: -10px;
+    font-size: 12px;
+    text-align: right;
+    color: #555555;
+    font-family: 나눔고딕볼드, NanumGothicBold, 나눔고딕, NanumGothic, 돋움, Dotum, AppleSDGothic, AppleGothic, 굴림, Gulim, sans-serif;
+}
+.deal-item-selected-option-price {
+
+}
+.deal-item-selected-option-unit {
+
+}
+.deal-item-selected-option-delete {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    width: 20px;
+    height: 20px;
+    margin-top: -10px;
+    background-image: url(./dealSimpleChoice.png);
+    background-repeat: no-repeat;
+    background-position: 0 -60px;
+    border: none;
+    text-indent: -9999em;
+    overflow: hidden;
+}
+/* 선택 상품의 총 가격 표시*/
+.deal-simple-choice-result-price-wrap {
+    position: absolute;
+    right: 0;
+    top: 200px;
+    width: 200px;
+    text-align: right;
+}
+.deal-simple-choice-result-price-title {
+    display: block;
+    font-size: 12px;
+    line-height: 1.8;
+    color: #555555;
+}
+.deal-simple-choice-result-price-total-value {
+    width: 175px;
+    height: 26px;
+    font-family: Tahoma 나눔고딕볼드, NanumGothicBold, 나눔고딕, NanumGothic, 돋움, Dotum, AppleSDGothic, AppleGothic, 굴림, Gulim, sans-serif;;
+    font-size: 28px;
+    font-weight: bold;
+    text-align: right;
+    color: #ff2e58;
+}
+.deal-simple-choice-result-price-unit {
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 1.4;
+    text-align: right;
+    color: #ff2e58;
+}
+/*선택한 상품 전송*/
+.deal-simple-choice-submit {
+    position: absolute;
+    right: 0;
+    top: 60px;
+    width: 190px;
+}
+.deal-simple-choice-submit-cart,
+.deal-simple-choice-submit-order,
+.deal-simple-choice-submit-wishList {
+    display: block;
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 15px 0;
+    border: 1px solid;
+    text-align: center;
+    font-size: 23px;
+    font-family: 나눔고딕볼드, NanumGothicBold, 나눔고딕, NanumGothic, 돋움, Dotum, AppleSDGothic, AppleGothic, 굴림, Gulim, sans-serif;
+    cursor: pointer;
+}
+.deal-simple-choice-submit-cart {
+    color: #ff5073;
+    background-color: #fff;
+}
+.deal-simple-choice-submit-order {
+    color: #fff;
+    background-color: #ff5073;
+}
+.deal-simple-choice-submit-wishList {}
+/* ↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑ 상품 바로 구매 내용 ↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑ */

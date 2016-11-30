@@ -1,0 +1,87 @@
+<div class="deal-simple-choice-wrap">
+    <div class="deal-simple-choice-target-info">
+        <strong class="deal-simple-choice-target-title">{{name.main}}</strong>
+    </div>
+
+    <div class="deal-simple-choice-select-wrap">
+        <em class="deal-simple-choice-target-title-sub">
+            '기본상품 : {{option.basicProduct}}'
+        </em>
+
+        <div class="select-design-viewer">
+            <p class="select-design-viewer-option-selector">
+                <span class="value">상품을 선택해주세요.</span>
+                <span class="trigger">검색</span>
+            </p>
+            <div class="select-design-viewer-list-box">
+                <ul class="select-design-viewer-list">
+                    {{!#each option.dealOptionCategory}}
+                    <!--<li class="select-design-viewer-option">-->
+                        <!--<div  class="design-template-accordion-wrap  {{!#if option.type}}accordion-open{{!/if}}">-->
+
+                            <!--<ul class="design-template-accordion-list">-->
+
+                            <!--</ul>-->
+                        <!--</div>-->
+                    <!--</li>-->
+                    {{!/each}}
+                </ul>
+            </div>
+        </div>
+
+        <!--this.selectDesignViewer()-->
+    </div>
+
+    <div class="deal-simple-choice-result-wrap">
+        <p class="deal-simple-choice-result-value-info">
+            (최대 구매 수량 {{option.MaximumPurchaseQuantity}}개)
+        </p>
+
+        <ul class="deal-simple-choice-result-list">
+            {{!#each option.type}}
+            <li class="deal-simple-choice-result-item" data-id="{{!this.id}}" data-additional="false">
+                this.dealItemSelectedOption()
+                <ul class="deal-simple-choice-result-sub-list">
+                    <li class="deal-simple-choice-result-sub-item" data-id="1095927" data-additional="false">
+                        this.dealItemSelectedOption()
+                    </li>
+                    <li class="deal-simple-choice-result-sub-item" data-id="1095927" data-additional="false">
+                        this.dealItemSelectedOption()
+                    </li>
+                </ul>
+            </li>
+            {{!/each}}
+            <li class="deal-simple-choice-result-item" data-id="1095927" data-additional="false">
+                this.dealItemSelectedOption()
+                <ul class="deal-simple-choice-result-sub-list">
+                    <li class="deal-simple-choice-result-sub-item" data-id="1095927" data-additional="false">
+                        this.dealItemSelectedOption()
+                    </li>
+                    <li class="deal-simple-choice-result-sub-item" data-id="1095927" data-additional="false">
+                        this.dealItemSelectedOption()
+                    </li>
+                    <li class="deal-simple-choice-result-sub-item" data-id="1095927" data-additional="false">
+                        this.dealItemSelectedOption()
+                    </li>
+                    <li class="deal-simple-choice-result-sub-item" data-id="1095927" data-additional="false">
+                        this.dealItemSelectedOption()
+                    </li>
+                    <li class="deal-simple-choice-result-sub-item" data-id="1095927" data-additional="false">
+                        this.dealItemSelectedOption()
+                    </li>
+                </ul>
+            </li>
+        </ul>
+
+        <p class="deal-simple-choice-result-price-wrap">
+            <span class="deal-simple-choice-result-price-title">총 상품금액</span>
+            <strong class="deal-simple-choice-result-price-total-value">0</strong>
+            <span class="deal-simple-choice-result-price-unit">원</span>
+        </p>
+    </div>
+
+    <div class="deal-simple-choice-submit">
+        <button type="submit" class="deal-simple-choice-submit-cart">장바구니</button>
+        <button type="submit" class="deal-simple-choice-submit-order">즉시구매</button>
+    </div>
+</div>

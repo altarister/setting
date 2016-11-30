@@ -1,0 +1,22 @@
+body {color: gray}
+
+.product-recommendation-deal-container {
+  overflow: hidden;
+  margin-top: 80px;
+}
+
+.module-half-cut-viewer {
+  overflow: hidden;
+}
+.module-half-cut-viewer-left-wrap,
+.module-half-cut-viewer-right-wrap {
+  width: 50%;
+  float: left;
+  overflow: hidden;
+}
+.module-half-cut-viewer-left-content {
+  margin-right: 10px;
+}
+.module-half-cut-viewer-right-content {
+  margin-left: 10px;
+}

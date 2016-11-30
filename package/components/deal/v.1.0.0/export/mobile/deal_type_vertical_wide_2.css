@@ -1,0 +1,249 @@
+/* ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ 상품 ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ */
+.deal_type_vertical_wide_2 {
+}
+
+.memebox-deal {
+    margin: 10px;
+    /*border: 1px solid #f0f0f0;*/
+}
+
+/*.memebox-deal:hover {*/
+/*border: 1px solid #ff5073;*/
+/*}*/
+
+.deal .dealThumb img {
+    width: 100%;
+    height: auto;
+}
+/*
+div.newDealContents .dealList .deal .dealThumb img {
+    width: 100%;
+    height: auto;
+}
+
+div.newDealContents .deal .dealhead .title {
+    width: auto;
+    overflow: hidden;
+    font-size: 14px;
+    font-weight: bold;
+    color: #555;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    letter-spacing: -0.1em;
+}
+
+ ↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑ 상품 ↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑ */
+.deal_type_vertical_wide_2 {
+    position: relative;
+}
+/* 상품 이미지, 벳지 */
+.deal_type_vertical_wide_2 .memebox-deal-image-wrap {
+    position: relative;
+    margin-bottom: 8px;
+}
+.deal_type_vertical_wide_2 .memebox-deal-timer {
+    display: none;
+ }
+.deal_type_vertical_wide_2 .memebox-deal-timer::after {
+    display: none;
+}
+.deal_type_vertical_wide_2 .memebox-deal-timer-value {
+    display: none;
+}
+.deal_type_vertical_wide_2 .memebox-deal-ranking {
+    display: none;
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    background-image: url(./_ranking/polygon@2x.png);
+    background-repeat: no-repeat;
+    background-position: 0 0;
+    background-size: 22px 24px;
+    width: 21px;
+    height: 24px;
+    font-family: HelveticaNeue;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 24px;
+    text-align: center;
+    color: #ffffff;
+}
+.deal_type_vertical_wide_2 .memebox-deal-image {
+    width: 100%;
+    height: auto;
+}
+.deal_type_vertical_wide_2 .memebox-deal-sticker {
+    display: none;
+}
+/* 상품이름 */
+.deal_type_vertical_wide_2 .memebox-deal-name {
+    text-align: center;
+    padding: 10px 0 6px 0;
+}
+.deal_type_vertical_wide_2 .memebox-deal-name-main {
+    display: block;
+    width: 100%;
+    font-size: 13px;
+    text-align: center;
+    color: #323232;
+}
+.deal_type_vertical_wide_2 .memebox-deal-name-sub {
+    display: none;
+}
+
+/* 상품 현재 상태 표시 */
+.deal_type_vertical_wide_2 .memebox-deal-current-status {
+    display: none;
+    position: relative;
+    padding: 0 20px;
+}
+.deal_type_vertical_wide_2 .memebox-deal-review-star {
+    display: inline-block;
+    overflow: hidden;
+    height: 14px;
+    width: 83px;
+    background-color: #fff;
+    background-image: url(./_star_review/_star_review.png);
+    background-repeat: no-repeat;
+    background-position: 0 -14px;
+}
+.deal_type_vertical_wide_2 .memebox-deal-review-star-value {
+    display: inline-block;
+    overflow: hidden;
+    height: 14px;
+    width: 100%;
+    background-color: #fff;
+    background-image: url(./_star_review/_star_review.png);
+    background-repeat: no-repeat;
+    background-position: 0 0;
+}
+.deal_type_vertical_wide_2 .memebox-deal-review-average {
+    font-family: 'tahoma';
+    font-weight: bold;
+    color: #555;
+}
+.deal_type_vertical_wide_2 .memebox-deal-review-count {
+    font-style: normal;
+    margin-top: 1px;
+    text-align: right;
+    font-size: 12px;
+    color: #555;
+}
+.deal_type_vertical_wide_2 .memebox-deal-sold-out {
+    display: none;
+}
+
+
+/* 상품 가격 관련 내용 */
+.deal_type_vertical_wide_2 .memebox-deal-price-wrap {
+    display: none;
+}
+.deal_type_vertical_wide_2 .memebox-deal-price-origin {
+    display: none;
+}
+.deal_type_vertical_wide_2 .memebox-deal-price-origin .memebox-deal-price-unit {
+    font-style: normal;
+}
+.deal_type_vertical_wide_2 .memebox-deal-price-origin .memebox-deal-price-info {
+    display: none;
+}
+.deal_type_vertical_wide_2 .memebox-deal-price-discount {
+    display: none;
+}
+.deal_type_vertical_wide_2 .memebox-deal-price-discount .memebox-deal-price-info {
+    display: none;
+}
+.deal_type_vertical_wide_2 .memebox-deal-price-discount .memebox-deal-price-value {
+    display: none;
+}
+.deal_type_vertical_wide_2 .memebox-deal-price-discount .memebox-deal-price-unit {
+    display: none;
+}
+.deal_type_vertical_wide_2 .memebox-deal-price-result {
+    display: none;
+}
+.deal_type_vertical_wide_2 .memebox-deal-price-result .memebox-deal-price-info {
+    display: none;
+}
+.deal_type_vertical_wide_2 .memebox-deal-price-result .memebox-deal-price-value {
+    display: none;
+}
+.deal_type_vertical_wide_2 .memebox-deal-price-result .memebox-deal-price-unit {
+    display: none;
+}
+.deal_type_vertical_wide_2 .memebox-deal-price-result {
+}
+.deal_type_vertical_wide_2 .memebox-deal-price-info {}
+.deal_type_vertical_wide_2 .memebox-deal-price-value {}
+.deal_type_vertical_wide_2 .memebox-deal-price-unit {}
+
+
+/* 상품 배송내용 */
+.deal_type_vertical_wide_2 .memebox-deal-delivery {
+    display: none;
+    position: relative;
+    padding-left: 8px;
+    height: 33px;
+    background: #f0f0f0;
+}
+.deal_type_vertical_wide_2 .memebox-deal-delivery-shipping {
+    display: inline-block;
+    background: #71a6e2;
+    color: #fff;
+    font-size: 11px;
+    letter-spacing: -0.1em;
+    text-align: center;
+    padding: 0 3px;
+}
+.deal_type_vertical_wide_2 .memebox-deal-delivery-type {
+
+}
+
+.deal_type_vertical_wide_2 .memebox-deal-info {
+    position: relative;
+}
+/* 상품 링크 와 action */
+.deal_type_vertical_wide_2 .memebox-deal-link {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    text-indent: -9999px;
+    display: block;
+    margin: -1px;
+    border: none;
+}
+.deal_type_vertical_wide_2:hover .memebox-deal-link {
+    border: none;
+    /*background-color: #fff;*/
+    /*opacity: .1;*/
+}
+.deal_type_vertical_wide_2:hover .memebox-deal-image {
+    opacity: 1;
+}
+
+/* 찜하기 */
+.deal_type_vertical_wide_2 .memebox-deal-poke-wrap {
+    display: none;
+}
+.deal_type_vertical_wide_2 .memebox-deal-poke {
+    position: absolute;
+    bottom: 40px;
+    right: 10px;
+    display: block;
+    overflow: hidden;
+    height: 50px;
+    width: 38px;
+    border: none;
+    text-indent: -99999px;
+    background-color: #fff;
+    background-image: url(./_poke/_poke.png);
+    background-repeat: no-repeat;
+}
+.deal_type_vertical_wide_2 .memebox-deal-poke:hover {
+    background-position: 0 -50px;
+}
+.deal_type_vertical_wide_2 .memebox-deal-poke-checked {
+    display: none;
+}

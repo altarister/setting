@@ -1,0 +1,40 @@
+{{#extend "memebox-header"}}
+    {{> components/menu/v.1.0.0/_menu}}
+{{/extend}}
+
+{{#extend "memebox-content"}}
+    <div class="wrap">
+        <p class="text">상품 상세</p>
+    </div>
+
+<!--추천 상품 -->
+    <div class="product-recommendation-deal-container">
+        <div class="module-half-cut-viewer">
+            <div class="module-half-cut-viewer-left-wrap">
+                <div class="module-half-cut-viewer-left-content">
+                    <div class="deal-container" data-deal-function='{"dealInlineGallery":{"className":"deal-inline-gallery", "title":"다른 고객님이 함께 보신 상품", "lineAmount":"3"}}'>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="module-half-cut-viewer-right-wrap">
+                <div class="module-half-cut-viewer-right-content">
+                    <div class="deal-container" data-deal-function='{"dealInlineGallery":{"className":"deal-inline-gallery", "title":"객님이 함께 보신 상품", "lineAmount":"2"}}'>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="product-recommendation-deal-container">
+        <div class="deal-container" data-deal-function='{"dealInlineGallery":{"className":"deal-inline-gallery", "title":"객님이 함께 보신 상품", "lineAmount":"6"}}'>
+
+        </div>
+    </div>
+
+
+{{/extend}}
+
+{{> layout_pc}}
