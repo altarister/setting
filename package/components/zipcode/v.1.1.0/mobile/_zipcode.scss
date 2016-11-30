@@ -1,0 +1,330 @@
+$line-height: 20px;
+$space: 10px;
+$assetHost: '';
+$zipcodeSprite: $assetHost+"/components/zipcode/v.1.0.0/mobile/_zipcode.png";
+
+.zip-code-search {
+  background-color: #fff;
+  font-size: 12px;
+  height: 100%;
+}
+.zip-code-search a {
+  cursor: auto;
+  text-decoration: none;
+}
+//검색 조건 선택 (road와 jibun중 선택)/////////////////////////
+.zip-code-search-type-selector-ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow: hidden;
+}
+.zip-code-search-type-selector-road,
+.zip-code-search-type-selector-jibun {
+  float: left;
+  width: 50%;
+}
+.zip-code-search-type-selector-trigger {
+  display: block;
+  text-align: center;
+  color: #8a8a8a;
+  background-color: #fff;
+  font-size: 15px;
+  line-height: 40px;
+
+  font-family: 나눔고딕볼드, NanumGothicBold, 나눔고딕, NanumGothic, 돋움, Dotum, AppleSDGothic, AppleGothic, 굴림, Gulim, sans-serif;
+}
+.zip-code-search-type-selector-trigger.selected {
+  color: #ff5073;
+  border-bottom: 3px solid #ff5073;
+}
+
+//사용자 검색 입력 (select, input, submit)/////////////////////////
+.zip-code-search-contents {
+  display: block;
+  border-top: 1px solid #e0e0e0;
+  background-color: #f2f2f2;
+}
+.zip-code-search-user-choice-wrap {
+  padding: 10px 20px;
+  background-color: #fff;
+}
+
+.zip-code-search-user-select-wrap {
+  margin: 0 60px 10px 0;
+  padding: 0;
+  list-style: none;
+  overflow: hidden;
+}
+.zip-code-search-user-select-li {
+  width: 50%;
+  overflow: hidden;
+  float: left;
+}
+.zip-code-search-user-select-city-wrap {
+  display: block;
+  padding-right: 5px;
+}
+.zip-code-search-user-select-town-wrap {
+  display: block;
+  padding-left: 5px;
+}
+.zip-code-search-user-select-city,
+.zip-code-search-user-select-town {
+  display: block;
+  width: 100%;
+  height: 30px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  outline: none;
+  padding: 0 15px 0 9px;
+  border: 1px solid #e0e0e0;
+  border-radius: 5px;
+  font-size: 12px;
+  background-color: #fff;
+  background-image: url($zipcodeSprite);
+  background-repeat: no-repeat;
+  background-position: right center;
+  background-size: 14px auto;
+}
+.zip-code-search-user-input-wrap {
+  position: relative;
+  padding-right: 60px;
+  margin-bottom: 5px;
+}
+.zip-code-search-user-input {
+  display: block;
+  width: 100%;
+  height: 30px;
+  line-height: 30px;
+  padding: 0;
+  border: 1px solid #e0e0e0;
+  text-indent: 10px;
+  border-radius: 5px;
+  font-size: 12px;
+}
+.zip-code-search-user-input-gide {
+  margin:  0 0 7px 0;
+  color: #555;
+}
+.zip-code-search-user-choice-submit {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 50px;
+  line-height: 30px;
+  padding: 0;
+  border: 1px solid #ff5073;
+  border-radius: 5px;
+  background-color: #ff5073;
+  color: #fff;
+  font-size: 13px;
+  font-family: 나눔고딕볼드, NanumGothicBold, 나눔고딕, NanumGothic, 돋움, Dotum, AppleSDGothic, AppleGothic, 굴림, Gulim, sans-serif;
+}
+
+// 검색 팁 : 검색 결과와 대치 ////////////////
+.zip-code-search-user-choice-gide {
+  border-top: 1px solid #e0e0e0;
+  background-color: #f2f2f2;
+}
+.zip-code-search-user-choice-gide-title {
+  display: block;
+  margin: 10px 20px 10px;
+  padding-top: 10px;
+  color: #555555;
+}
+.zip-code-search-user-choice-gide-title em {
+  font-style: normal;
+  color: #ff5073;
+}
+.zip-code-search-user-choice-gide-ol {
+  margin: 0;
+  margin: 10px 20px 10px;
+  padding-left: 1em;
+}
+.zip-code-search-user-choice-gide-li {
+  color: #8a8a8a;
+  padding-bottom: 3px;
+}
+
+//검색 결과 화면 (가이드, 필터, 내용, 결과 없음)/////////////////////////
+.zip-code-search-result-wrap {
+  display: none;
+  position: relative;
+}
+//검색 결과 화면 - 가이드/////////////////////////
+.zip-code-search-result-info-wrap {
+  border-top: 1px solid #e0e0e0;
+  border-bottom: 2px solid #e0e0e0;
+  background-color: #f9f9fa;
+  color: #555;
+}
+.zip-code-search-result-info {
+  //background-color: #fff;
+  //border-top: 1px solid #e0e0e0;
+  //margin: $space 0 0;
+  padding: 0 20px;
+  //border-top: 1px solid #e0e0e0;
+  //border-bottom: 2px solid #e0e0e0;
+  //background-color: #f9f9fa;
+  //color: #555;
+}
+.zip-code-search-result-info-count {
+  color: #ff5073;
+}
+.zip-code-search-result-gide {
+  display: block;
+  padding-top: 5px;
+  color: #8a8a8a;
+}
+//검색 결과 화면 - 필터/////////////////////////
+.zip-code-search-result-filter-wrap {
+  display: none;
+  margin: 0;
+  padding: 0;
+  background-color: #fff;
+  border-top: 1px solid #e0e0e0;
+  line-height: 20px;
+  text-align: center;
+  list-style: none;
+  width: 100%;
+  overflow: hidden;
+}
+.zip-code-search-result-filter {
+  width: 49%;
+  overflow: hidden;
+  float: left;
+  text-align: center;
+}
+.zip-code-search-result-filter:first-child {
+  //border-right: 1px solid #2c2c2c;
+}
+.zip-code-search-result-filter-select-city,
+.zip-code-search-result-filter-select-town {
+  display: inline-block;
+  width: 90%;
+  height: 30px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  outline: none;
+  padding: 0;
+  text-indent: 12px;
+  border: none;
+  font-size: 12px;
+  background-color: #fff;
+  background-image: url($zipcodeSprite);
+  background-repeat: no-repeat;
+  background-position: right center;
+  background-size: 14px auto;
+}
+//검색 결과 화면 - 내용/////////////////////////
+.zip-code-search-result-contents-wrap {
+  margin: 0;
+  position: relative;
+  background-color: #f2f2f2;
+}
+.zip-code-search-result-contents-ul {
+  list-style: none;
+  margin: 0;
+  padding: 5px 0 0 0;
+  background-color: #fff;
+}
+.zip-code-search-result-contents-li {
+  position: relative;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 5px;
+  margin-bottom: 5px;
+}
+.zip-code-search-result-key {
+  position: absolute;
+  top: 50%;
+  right: 20px;
+  //width: 50px;
+  line-height: $line-height;
+  margin-top: -10px;
+  color: #555;
+}
+.zip-code-search-result-trigger {
+  display: block;
+}
+.zip-code-search-result-trigger:hover {
+  background-color: #f2f2f2;
+}
+.zip-code-search-result-road,
+.zip-code-search-result-jibun {
+  position: relative;
+  display: block;
+  padding: 3px 2px;
+  margin: 0 60px 0 65px;
+  font-style: normal;
+}
+.zip-code-search-result-type {
+  position: absolute;
+  top: 50%;
+  left: -45px;
+  margin-top: -1em;
+  display: inline-block;
+  width: 38px;
+  text-align: center;
+  background-color: #c6c6c6;
+  border-radius: 1em;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #aaa;
+  color: #fff;
+  line-height: 1.6em;
+  font-size: 8px;
+  font-family: 나눔고딕, NanumGothic, 돋움, Dotum, AppleSDGothic, AppleGothic, 굴림, Gulim, sans-serif;
+}
+.zip-code-search-result-road .zip-code-search-result-type {
+  color: #fff;
+  background-color: #aaa;
+}
+.zip-code-search-result-jibun .zip-code-search-result-type {
+  color: #aaa;
+  background-color: #fff;
+}
+.zip-code-search-result-address {
+  color: #555;
+  line-height: 1.5em;
+}
+
+//검색 결과 화면 - 결과 없음/////////////////////////
+.zip-code-search-result-noting-wrap {
+  position: relative;
+  width: 100%;
+  padding: 10px 0;
+  margin-top: -5px;
+  background-color: #f2f2f2;
+}
+.zip-code-search-result-noting-title {
+  display: block;
+  line-height: 20px;
+  margin-left: 20px;
+  color: #8a8a8a;
+}
+.zip-code-search-result-noting_ul {
+  list-style: none;
+  margin: 5px 0 0 20px;
+  padding: 0;
+  color: #8a8a8a;
+  list-style: none;
+}
+.zip-code-search-result-noting_ul li {
+  margin: 0;
+  padding: 0;
+
+}
+.zip-code-search-result-noting-trigger {
+  display: inline-block;
+  padding: 2px 6px 0;
+  margin: 10px 10px 0 20px;
+  line-height: 18px;
+  text-decoration: none;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  color: #555;
+  font-size: 11px;
+}

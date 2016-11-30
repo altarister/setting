@@ -28,7 +28,7 @@ define(["jquery.ui.position"], function(__WEBPACK_EXTERNAL_MODULE_34__) { return
 	        },
 
 	        initialize: function initialize() {
-
+	            console.log('v.1.1.0');
 	            utility.uiEnhancements.call(this);
 	            this.addEventListener();
 	        },
@@ -190,7 +190,7 @@ define(["jquery.ui.position"], function(__WEBPACK_EXTERNAL_MODULE_34__) { return
 	                    gide: {
 	                        input: "시/도 , 시/군/구 선택 후 주소명을 입력해주세요.",
 	                        placeholder: "(예: 판교역로14번길 20)",
-	                        choice: ["도로명 입력 (예 : 반포대로)", "도로명 + 건물번호 입력 (예 : 반포대로 58)", "건물명 입력 (예: 국립중앙박물관)"]
+	                        choice: ["도로명 입력 (예 : 반포대로)", "도로명 + 건물번호 입력 (예 : 반포대로 58)", "건물명 입력 (예: 국립중앙박물관)", "시/군/구가 존재하지 않는 경우 지번 주소 찾기를 이용해주세요."]
 	                    }
 	                },
 	                resultNoting: {
@@ -338,7 +338,7 @@ define(["jquery.ui.position"], function(__WEBPACK_EXTERNAL_MODULE_34__) { return
 	                    count: 0
 	                });
 	            }
-	            for (var index = 0; index < optionArray.length; index++) {
+	            for (var index in optionArray) {
 	                selectOptionHtml += zipcode_templates.selectOption(optionArray[index]);
 	            }
 	            $select.empty().append($(selectOptionHtml));
@@ -526,7 +526,6 @@ define(["jquery.ui.position"], function(__WEBPACK_EXTERNAL_MODULE_34__) { return
 	            var typeChangeHistory = this.beforeSearchStatus.type;
 
 	            this.beforeSearchStatus.type = $current.data('search-type');
-	            //this.beforeSearchStatus.type = $current.attr('href').replace(/\#/g, '');
 	            if (typeChangeHistory !== this.beforeSearchStatus.type) {
 	                this.beforeSearchStatus.isNewZipCodeSearch = true;
 	                this.displaySearchType(this.beforeSearchStatus.type);
@@ -633,9 +632,9 @@ define(["jquery.ui.position"], function(__WEBPACK_EXTERNAL_MODULE_34__) { return
 	},"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
 	    var stack1, helper, alias1=depth0 != null ? depth0 : {};
 
-	  return "<string class=\"zip-code-search-user-choice-gide-title\">\n    <em>* "
+	  return "<strong class=\"zip-code-search-user-choice-gide-title\">\n    <em>* "
 	    + container.escapeExpression(((helper = (helper = helpers.title || (depth0 != null ? depth0.title : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(alias1,{"name":"title","hash":{},"data":data}) : helper)))
-	    + "</em> 검색방법\n</string>\n\n<ol class=\"zip-code-search-user-choice-gide-ol\">\n"
+	    + "</em> 검색방법\n</strong>\n\n<ol class=\"zip-code-search-user-choice-gide-ol\">\n"
 	    + ((stack1 = helpers.each.call(alias1,((stack1 = (depth0 != null ? depth0.gide : depth0)) != null ? stack1.choice : stack1),{"name":"each","hash":{},"fn":container.program(1, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
 	    + "</ol>\n";
 	},"useData":true});

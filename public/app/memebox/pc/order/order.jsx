@@ -1,6 +1,6 @@
 var $ = require('jquery');
 var utility = require('utility');
-var zipcode = require('components/zipcode/v.1.0.0/_zipcode.jsx');
+var zipcode = require('components/zipcode/v.1.1.0/_zipcode.jsx');
 var layer_modal = require('modules/layer/modal/v.1.0.0/_modal.jsx');
 
 require('./order.scss');
@@ -22,7 +22,7 @@ var Order = function(){
         },
 
         initialize: function(){
-
+            console.log('v.1.1.0')
             utility.uiEnhancements.call(this);
             this.addEventListener();
         },
