@@ -1,8 +1,8 @@
 var $ = require('jquery');
 var utility = require('utility');
 var Deal = require('components/deal/v.1.0.0/deal.jsx');
-var DealInlineGallery = require('modules/dealViews/_deal_inline_gallery/v.1.0.0/pc/_deal_inline_gallery.jsx');
-var DealTooltipFloating = require('modules/dealViews/_deal_tooltip_floating/v.1.0.0/pc/_deal_tooltip_floating.jsx');
+var DealInlineGallery = require('deal_inline_gallery/_deal_inline_gallery.jsx');
+var DealTooltipFloating = require('deal_tooltip_floating/_deal_tooltip_floating.jsx');
 
 require('./dealContainer.scss');
 

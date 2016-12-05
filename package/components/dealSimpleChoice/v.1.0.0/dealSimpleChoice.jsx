@@ -2,15 +2,13 @@ var $ = require('jquery');
 var utility = require('utility');
 
 require('./dealSimpleChoice.scss');
+require('modules/_designViewer/_select/v.1.0.0/box/_select.scss');
 
 var dealEasyChoiceOption_templates = {
-    // dealItemOptionViewer: require('./pc/_templates/_dealItemOptionViewer.hbs'),
     dealItemSelectedOption: require('./pc/_templates/_dealItemSelectedOption.hbs'),
-    // designTemplateAccordion: require('./pc/_templates/_designTemplateAccordion.hbs'),
     option: require('./pc/_templates/_option.hbs'),
     accordionInfo: require('./pc/_templates/_accordionInfo.hbs'),
     accordionContent: require('./pc/_templates/_accordionContent.hbs')
-    // selectDesignViewer: require('./pc/_templates/_selectDesignViewer.hbs')
 };
 
 var DealEasyChoiceOption = function () {

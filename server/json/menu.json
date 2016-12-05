@@ -22,5 +22,13 @@
 	{
 		"url" : "/search/result",
 		"text" : "검색 결과"
+	},
+	{
+		"url" : "/member/signUp/signUpSNS",
+		"text" : "회원 가입 SNS"
+	},
+	{
+		"url" : "/member/signUp/signUp",
+		"text" : "회원 가입"
 	}
 ]

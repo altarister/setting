@@ -1,10 +1,11 @@
-define(["modernizr"], function(__WEBPACK_EXTERNAL_MODULE_1__) { return webpackJsonp([1],[
-/* 0 */
+define(["modernizr"], function(__WEBPACK_EXTERNAL_MODULE_26__) { return webpackJsonp([1],{
+
+/***/ 0:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	__webpack_require__(1);
+	__webpack_require__(26);
 	//var $ = require('jquery');
 	//var Common = require('pcCommon');
 
@@ -66,10 +67,12 @@ define(["modernizr"], function(__WEBPACK_EXTERNAL_MODULE_1__) { return webpackJs
 	};
 
 /***/ },
-/* 1 */
+
+/***/ 26:
 /***/ function(module, exports) {
 
-	module.exports = __WEBPACK_EXTERNAL_MODULE_1__;
+	module.exports = __WEBPACK_EXTERNAL_MODULE_26__;
 
 /***/ }
-])});;
+
+})});;

@@ -21,9 +21,8 @@
         map : REQUIRE_JS_MAP
     });
 
-    memeboxRequire(['es5-shim', 'vendor/pc.commons.chunk'], function () {
-        memeboxRequire(['path_pc/initialize'], function (initialize) {
-
+    memeboxRequire(['es5-shim', 'vendor/{{config.info.device}}.commons.chunk'], function () {
+        memeboxRequire(['path_{{config.info.device}}/initialize'], function (initialize) {
             initialize();
         });
     });

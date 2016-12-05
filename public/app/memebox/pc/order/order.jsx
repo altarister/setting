@@ -1,6 +1,7 @@
 var $ = require('jquery');
 var utility = require('utility');
-var zipcode = require('components/zipcode/v.1.1.0/_zipcode.jsx');
+var Menu = require('components/menu/v.1.0.0/_menu.jsx');
+var zipcode = require('components/zipcode/v.1.0.0/_zipcode.jsx');
 var layer_modal = require('modules/layer/modal/v.1.0.0/_modal.jsx');
 
 require('./order.scss');
@@ -8,11 +9,11 @@ require('./order.scss');
 var Order = function(){
     var controller = {
 
-        element: '#memebox-service',
+        element: '.memebox-web-address-wrap',
         ui: {
-            zipcodeTrigger: '.memebox-altari-zipcode-trigger',
-            zipcodeValue: '.memebox-altari-zipcode-value',
-            addressValue: '.memebox-altari-address-value'
+            zipcodeTrigger: '.memebox-web-zipcode-trigger',
+            zipcodeValue: '.memebox-web-zipcode-value',
+            addressValue: '.memebox-web-address-value'
         },
 
         server: {
@@ -22,7 +23,8 @@ var Order = function(){
         },
 
         initialize: function(){
-            console.log('v.1.1.0')
+            new Menu();
+            console.log('v.1.0.0')
             utility.uiEnhancements.call(this);
             this.addEventListener();
         },

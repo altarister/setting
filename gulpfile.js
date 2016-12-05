@@ -50,8 +50,21 @@ gulp.task('nodemon', function (cb) {
 });
 
 gulp.task('local_build_pc', webpackBuild(webpackConfig('memebox', 'production', 'pc')));
+gulp.task('local_build_mobile', webpackBuild(webpackConfig('memebox', 'production', 'mobile')));
 
-gulp.task('front-browser-sync', ['local_build_pc'], function() {
+gulp.task('front-browser-mobile-sync', ['local_build_mobile'], function() {//'local_build_pc',
+    browserSync_front.init({
+        proxy: "http://localhost:5000",
+        browser: "google chrome",
+        port: 7000
+    });
+
+    gulp.watch(files.view).on("change", browserSync_front.reload);
+    gulp.watch(files.app).on("change", webpackBuild(webpackConfig('memebox', 'production', 'mobile')));
+    gulp.watch(files.dist).on("change", browserSync_front.reload);
+});
+
+gulp.task('front-browser-pc-sync', ['local_build_pc'], function() {//'local_build_pc',
     browserSync_front.init({
         proxy: "http://localhost:5000",
         browser: "google chrome",

@@ -1,26 +1,26 @@
-var home = require('homework/v.1.0.0/home.jsx');
-var work = require('homework/v.1.0.0/work.jsx');
-var dealView = require('dealView/v.1.0.0/dealView.jsx');
-var Menu = require('menu/v.1.0.0/_menu.jsx');
-
 var $ = require('jquery');
 var utility = require('utility');
+var Menu = require('components/menu/v.1.0.0/_menu.jsx');
 
-require('./main.css');
+require('./main.scss');
 
 var main = function(){
     var controller = {
 
         element: '#memebox-service',
+        ui: {},
 
         initialize: function(){
-            this.makeMenu();
-            console.log(home + ',' + work + ', ' + dealView + '!!');
+            utility.uiEnhancements.call(this);
+            new Menu();
+            this.addEventListener();
         },
 
-        makeMenu: function(){
-            new Menu();
-        }
+        addEventListener: function(){
+            // this.element.off()
+            //     .on('click', this.ui.__uiString.zipcodeTrigger, $.proxy(this.zipcodeEvent, this))
+        },
+
     };
     controller.initialize();
 };

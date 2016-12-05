@@ -1,5 +1,6 @@
 var $ = require('jquery');
 var utility = require('utility');
+var Menu = require('components/menu/v.1.0.0/_menu.jsx');
 var DealContainer = require('components/dealContainer/v.1.0.0/dealContainer.jsx');
 var DealSimpleChoice = require('components/dealSimpleChoice/v.1.0.0/dealSimpleChoice.jsx');
 
@@ -12,13 +13,13 @@ var SearchResult = function(){
         ui: {
             dealContainer: '.deal-container'
         },
-        lineAmount: 3,
+        lineAmount: 4,
         deals: [],
         deal: {
             id: 'tempID4',
             view: {
                 type: 'vertical',//horizontal, vertical
-                expression: 4
+                expression: 10
             },
             name: {
                 main: '[없었던일로] 마음껏 먹고 없었던일로!',
@@ -330,6 +331,7 @@ var SearchResult = function(){
         ],
 
         initialize: function(){
+            new Menu();
             utility.uiEnhancements.call(this);
             this.setDeals();
 

@@ -1,0 +1,20 @@
+{{#extend "memebox-header"}}
+    {{> components/menu/v.1.0.0/_templates/_menu}}
+{{/extend}}
+
+{{#extend "memebox-content"}}
+    <div class="wrap">
+        <p class="text">order page</p>
+    </div>
+    <br>
+    <div class="memebox-web-address-wrap">
+        <a href="#" class="memebox-web-zipcode-trigger">우편번호찾기</a>
+        <span class="memebox-web-zipcode-value">000-000</span>
+        <span class="memebox-web-address-value">우편번호 찾기를 클릭 하여 내용을 넣으세요.</span>
+
+        <div class="order-zipcode-wrap"></div>
+    </div>
+
+{{/extend}}
+
+{{> layout_mobile}}

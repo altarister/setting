@@ -4,6 +4,7 @@ var fs = require('fs');
 var express = require('express');
 var hbs = require('hbs');
 var app = express();
+var useragent = require('express-useragent');
 var dealAPI = require('./server/routes/dealAPI');
 var zipCodeAPI = require('./server/routes/zipCodeAPI');
 var service = 'memebox';
@@ -11,13 +12,15 @@ var service = 'memebox';
 //hbs.register/////////////////////////
 var blocks = {};
 
+
+
 hbs.registerPartials(__dirname + '/views/'+service+'/layouts');
 hbs.registerPartials(__dirname + '/views/'+service+'/pc');
 hbs.registerPartials(__dirname + '/views/common/');
 hbs.registerPartials(__dirname + '/package');
 
 hbs.registerHelper('extend', function(name, context) {
-    var block = blocks[name];//aalsdkfj
+    var block = blocks[name];
 
     if (!block) {
         block = blocks[name] = [];
@@ -66,77 +69,116 @@ app.set('views', 'views');
 app.set('view engine', 'hbs');
 app.use('/dealAPI', dealAPI);
 app.use('/zipCodeAPI', zipCodeAPI);
+app.use(useragent.express());
 app.use(express.static(__dirname +'/public'));
 app.use(express.static(__dirname +'/views'));
 app.use(express.static(__dirname +'/package'));
 
-//상품 상세 page/////////////////////////
-app.get('/product', function(req, res) {
-    data.config.controller = 'memebox/pc/product/product';
-    data.config.title = '상품 상세';
-    data.config.info.device = 'pc';
-    data.config.info.service = 'memebox';
-    data.component.menu = menuData;
 
-    res.render('memebox/pc/product/product',data);
-});
-
-//검색 홈 page/////////////////////////
-app.get('/search/index', function(req, res) {
-    data.config.controller = 'memebox/pc/search/index';
-    data.config.title = '검색 홈';
-    data.config.info.device = 'pc';
-    data.config.info.service = 'memebox';
-    data.component.menu = menuData;
-
-    res.render('memebox/pc/search/index',data);
-});
-
-//검색 결과 page/////////////////////////
-app.get('/search/result', function(req, res) {
-    data.config.controller = 'memebox/pc/search/result';
-    data.config.title = '검색 결과';
-    data.config.info.device = 'pc';
-    data.config.info.service = 'memebox';
-    data.component.menu = menuData;
-
-    res.render('memebox/pc/search/result',data);
-});
 
 //main page/////////////////////////
 app.get('/', function(req, res) {
-    data.config.controller = 'memebox/pc/main/main';
-    data.config.title = 'main';
-    data.config.info.device = 'pc';
+    var device = req.useragent.isMobile? 'mobile' : 'pc';
+
+    data.config.controller = 'memebox/'+device+'/main/main';
+    data.config.title = '홈';
+    data.config.info.device = device;
     data.config.info.service = 'memebox';
     data.component.menu = menuData;
-    data.component.zipcode = zipcodeData;
-    data.dealViewData = dealView_menuData;
-    data.dealview_API = dealview_API();
-
-    res.render('memebox/pc/main/main',data);
+    res.render('memebox/'+device+'/main/main',data);
 });
 
 //cart page/////////////////////////
 app.get('/cart', function(req, res) {
-    data.config.controller = 'memebox/pc/cart/cart';
-    data.config.title = 'cart';
-    data.config.info.device = 'pc';
+    var device = req.useragent.isMobile? 'mobile' : 'pc';
+
+    data.config.controller = 'memebox/'+device+'/cart/cart';
+    data.config.title = '장바구니';
+    data.config.info.device = device;
     data.config.info.service = 'memebox';
     data.component.menu = menuData;
 
-    res.render('memebox/pc/cart/cart',data);
+    res.render('memebox/'+device+'/cart/cart',data);
 });
 
 //order page/////////////////////////
 app.get('/order', function(req, res) {
-    data.config.controller = 'memebox/pc/order/order';
-    data.config.title = 'order';
-    data.config.info.device = 'pc';
+    var device = req.useragent.isMobile? 'mobile' : 'pc';
+
+    data.config.controller = 'memebox/'+device+'/order/order';
+    data.config.title = '주문서';
+    data.config.info.device = device;
     data.config.info.service = 'memebox';
     data.component.menu = menuData;
 
-    res.render('memebox/pc/order/order',data);
+    res.render('memebox/'+device+'/order/order',data);
 });
+
+//상품 상세 page/////////////////////////
+app.get('/product', function(req, res) {
+    var device = req.useragent.isMobile? 'mobile' : 'pc';
+
+    data.config.controller = 'memebox/'+device+'/product/product';
+    data.config.title = '상품 상세';
+    data.config.info.device = device;
+    data.config.info.service = 'memebox';
+    data.component.menu = menuData;
+
+    res.render('memebox/'+device+'/product/product',data);
+});
+
+
+//검색 /////////////////////////
+//검색 홈 page
+app.get('/search/index', function(req, res) {
+    var device = req.useragent.isMobile? 'mobile' : 'pc';
+
+    data.config.controller = 'memebox/'+device+'/search/index';
+    data.config.title = '검색 홈';
+    data.config.info.device = device;
+    data.config.info.service = 'memebox';
+    data.component.menu = menuData;
+
+    res.render('memebox/'+device+'/search/index',data);
+});
+
+//검색 결과 page
+app.get('/search/result', function(req, res) {
+    var device = req.useragent.isMobile? 'mobile' : 'pc';
+
+    data.config.controller = 'memebox/'+device+'/search/result';
+    data.config.title = '검색 결과';
+    data.config.info.device = device;
+    data.config.info.service = 'memebox';
+    data.component.menu = menuData;
+
+    res.render('memebox/'+device+'/search/result',data);
+});
+
+//member 회원 가입 page/////////////////////////
+// sns 회원 가입
+app.get('/member/signUp/signUpSNS', function(req, res) {
+    var device = req.useragent.isMobile? 'mobile' : 'pc';
+
+    data.config.controller = 'memebox/'+device+'/member/signUp/signUpSNS';
+    data.config.title = '회원가입 SNS';
+    data.config.info.device = device;
+    data.config.info.service = 'memebox';
+    data.component.menu = menuData;
+    res.render('memebox/'+device+'/member/signUp/signUpSNS',data);
+});
+// 회원 가입
+app.get('/member/signUp/signUp', function(req, res) {
+    var device = req.useragent.isMobile? 'mobile' : 'pc';
+
+    data.config.controller = 'memebox/'+device+'/member/signUp/signUp';
+    data.config.title = '회원가입';
+    data.config.info.device = device;
+    data.config.info.service = 'memebox';
+    data.component.menu = menuData;
+
+    res.render('memebox/'+device+'/member/signUp/signUp',data);
+});
+
 
 app.listen(5000);

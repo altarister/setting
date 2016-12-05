@@ -16,8 +16,8 @@
 var $ = require('jquery');
 var utility = require('utility');
 var validate = require('validate');
-//require('./pc/_zipcode.scss');
-require('./mobile/_zipcode.scss');
+
+require('device/_zipcode.scss');
 
 var zipcode_templates = {
     gide: require('./_gide.hbs'),
@@ -28,6 +28,7 @@ var zipcode_templates = {
 };
 
 var zipcode = function (collBackFunction, $wraper, zipcode_params) {
+    console.log('new--')
     var controller = {
         //UI selecter
         element: '.zip-code-search',
@@ -155,6 +156,7 @@ var zipcode = function (collBackFunction, $wraper, zipcode_params) {
             }
 
             var zipcodeHtml = zipcode_templates.zipcode(this.viewData);
+            console.log('zipcodeHtml = ',zipcodeHtml)
             $wraper.html(zipcodeHtml);
             utility.uiEnhancements.call(this);
             var $city = this.element.find('select[name=zip-code-search-user-select-city]');

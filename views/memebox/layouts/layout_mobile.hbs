@@ -5,26 +5,28 @@
 <!--[if IE 9 ]>    <html lang="ko-KR" class="browser-ie9 browser-modern"> <![endif]-->
 <!--[if (gt IE 9)|!(IE)]><!--> <html lang="ko-KR" class="browser-modern"> <!--<![endif]-->
 <head>
-    {{!> pc/layouts/common/meta}}
+    {{> elements/meta}}
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>{{title}}</title>
-    {{> common/css}}
-    {{{block "stylesheets"}}}
+    <title>{{config.title}}</title>
+    {{> elements/css}}
+    {{{block "css"}}}
 </head>
 
 <body id="memebox-service"
-      class=""
-      {{> common/config}}>
+    {{> elements/config}}>
 
-    {{> memebox/header}}
-
+    {{> header}}
+    {{{block "memebox-header"}}}
 
     {{{block "memebox-content"}}}
 
-    {{> memebox/footer}}
+    {{{block "memebox-footer"}}}
+    {{> footer}}
 
-    {{> common/scripts}}
+    {{{block "memebox-components"}}}
+
+    {{> elements/scripts}}
     {{{block "scripts"}}}
 </body>
 

@@ -43,6 +43,7 @@ var DEFAULT_COMMON_CHUNK = {
     // util
     "utility": requirejsConfig.PROVIDER.common + "/util/_utility",
     "validate": requirejsConfig.PROVIDER.common + "/util/_validate"
+    //"placeholder": requirejsConfig.PROVIDER.common + "/util/placeholder/_placeholder"
 };
 
 var PC_COMMON_CHUNK = {
@@ -91,13 +92,14 @@ module.exports = function (serviceString, envString, deviceString) {
                 for(var key in COMMON_CHUNK){
                     HELPER_CHUNK.push(COMMON_CHUNK[key]);
                 }
-                console.log('HELPER_CHUNK = ',HELPER_CHUNK)
+                // console.log('HELPER_CHUNK = ',HELPER_CHUNK)
 
                 return HELPER_CHUNK;
             })()},
             ENTRY_POINTS
         ),
         output: {
+            textFunction: (function(){console.log('PUBLIC_DIR ===== ',PUBLIC_DIR)})(),
             path: PUBLIC_DIR,
             filename: '[name].js',
             publicPath: '/static/',
@@ -135,26 +137,33 @@ module.exports = function (serviceString, envString, deviceString) {
             root: [ROOT_DIR, PUBLIC_DIR, path.resolve('./package')],
             extensions: ['', '.js', '.jsx'],
             modulesDirectories: ['node_modules'],
-            alias: COMMON_CHUNK
+            //alias: COMMON_CHUNK
+            alias: (function(){
+                COMMON_CHUNK['device'] = './'+deviceString;
+                COMMON_CHUNK['deal_inline_gallery'] = 'modules/dealViews/_deal_inline_gallery/v.1.0.0/'+deviceString;
+                COMMON_CHUNK['deal_tooltip_floating'] = 'modules/dealViews/_deal_tooltip_floating/v.1.0.0/'+deviceString;
+
+                return COMMON_CHUNK;
+            })()
         },plugins: (function () {
             var plugins = [];
 
             if (!environment.test) {
                 plugins = [
                     new webpack.NoErrorsPlugin(),
-                    new SpritesmithPlugin({
-                        src: {
-                            cwd: path.resolve(__dirname, 'src/ico'),
-                            glob: '*.png'
-                        },
-                        target: {
-                            image: path.resolve(__dirname, 'src/spritesmith-generated/sprite.png'),
-                            css: path.resolve(__dirname, 'src/spritesmith-generated/sprite.styl')
-                        },
-                        apiOptions: {
-                            cssImageRef: "~sprite.png"
-                        }
-                    }),
+                    // new SpritesmithPlugin({
+                    //     src: {
+                    //         cwd: path.resolve(__dirname, 'src/ico'),
+                    //         glob: '*.png'
+                    //     },
+                    //     target: {
+                    //         image: path.resolve(__dirname, 'src/spritesmith-generated/sprite.png'),
+                    //         css: path.resolve(__dirname, 'src/spritesmith-generated/sprite.styl')
+                    //     },
+                    //     apiOptions: {
+                    //         cssImageRef: "~sprite.png"
+                    //     }
+                    // }),
 
                     new CommonsChunkPlugin({
                         name: "common",
@@ -175,15 +184,15 @@ module.exports = function (serviceString, envString, deviceString) {
                 ]
             }
 
-            if (environment.production && device.isMobile) {
-                plugins.push(
-                    new webpack.optimize.UglifyJsPlugin({
-                        compress: {
-                            warnings: false
-                        }
-                    })
-                );
-            }
+            // if (environment.production && device.isMobile) {
+            //     plugins.push(
+            //         new webpack.optimize.UglifyJsPlugin({
+            //             compress: {
+            //                 warnings: false
+            //             }
+            //         })
+            //     );
+            // }
             return plugins;
         })()
     };

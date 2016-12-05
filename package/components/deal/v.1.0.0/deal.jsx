@@ -1,9 +1,9 @@
 var $ = require('jquery');
 var utility = require('utility');
 
-require('./pc/deal_type_vertical_square_4.scss');
-require('./pc/deal_type_vertical_square_10.scss');
-require('./pc/_sticker.scss');
+require('device/deal_type_vertical_square_4.scss');
+require('device/deal_type_vertical_square_10.scss');
+require('device/_sticker.scss');
 
 var deal_templates = {
     layout: require('./_templates/_layout.hbs'),

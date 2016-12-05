@@ -8,6 +8,8 @@
 //require('modules/modal/v.1.0.0/_modal.jsx');
 //require('./cart.scss');
 
+var Menu = require('components/menu/v.1.0.0/_menu.jsx');
+
 var cart = function(){
     var controller = {
 
@@ -25,6 +27,7 @@ var cart = function(){
         },
 
         initialize: function(){
+            new Menu();
             utility.uiEnhancements.call(this);
             this.addEventListener();
             this.ui.zipcodeTrigger.trigger('click')

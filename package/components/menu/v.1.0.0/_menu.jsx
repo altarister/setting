@@ -1,13 +1,11 @@
-/**
- * Created by 160727-b on 2016. 9. 28..
- */
-require('./_menu.scss');
 var $ = require('jquery');
 var utility = require('utility');
 
+require('device/_menu.scss');
+
 var templates = {
-    menu: require('./_menu.hbs')
-}
+    menu: require('./_templates/_menu.hbs')
+};
 
 var menu = function(){
     var component = {

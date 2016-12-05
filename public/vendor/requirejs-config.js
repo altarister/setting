@@ -31,6 +31,7 @@ var REQUIRE_JS_PATHS_CDN = {
     "es5-shim" : PROVIDER.cdn("/es5-shim/4.3.1/es5-shim.min"),
     "jquery": PROVIDER.cdn("/jquery/1.11.3/jquery.min"),
     "handlebars": PROVIDER.cdn("/handlebars.js/1.3.0/handlebars.min"),
+    "slick"  : PROVIDER.vendor + "/slick/1.6.0/slick",
     //"jquery.ui.position" : PROVIDER.vendor + "/jqueryUi/jquery-ui-position.min"
     "jquery.ui.position" : PROVIDER.vendor + "/jqueryUi/jquery-ui-position"
 };
