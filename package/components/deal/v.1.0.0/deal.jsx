@@ -1,8 +1,12 @@
 var $ = require('jquery');
 var utility = require('utility');
 
+require('device/deal_type_horizontal_square_10.scss');
+require('device/deal_type_vertical_circle_4.scss');
 require('device/deal_type_vertical_square_4.scss');
 require('device/deal_type_vertical_square_10.scss');
+require('device/deal_type_vertical_wide_2.scss');
+
 require('device/_sticker.scss');
 
 var deal_templates = {
