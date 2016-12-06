@@ -1,45 +1,12 @@
 $assetHost: '';
 $_poke: $assetHost+"/components/deal/v.1.0.0/mobile/_image/_poke.png";
-$_polygon: $assetHost+"/components/deal/v.1.0.0/mobile/_image/_polygon.png";
-$_star_review: $assetHost+"/components/deal/v.1.0.0/mobile/_image/_star_review.png";
+$_polygon: $assetHost+"/components/deal/v.1.0.0/mobile/_image/_polygon@2x.png";
+$_star_review: $assetHost+"/components/deal/v.1.0.0/mobile/_image/_star_review_mobile.png";
 
 /* ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ 상품 ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ */
 .deal_type_vertical_square_4 {
-}
-
-.memebox-deal {
-    margin: 10px;
-    /*border: 1px solid #f0f0f0;*/
-}
-
-/*.memebox-deal:hover {*/
-/*border: 1px solid #ff5073;*/
-/*}*/
-
-.deal .dealThumb img {
-    width: 100%;
-    height: auto;
-}
-/*
-div.newDealContents .dealList .deal .dealThumb img {
-    width: 100%;
-    height: auto;
-}
-
-div.newDealContents .deal .dealhead .title {
-    width: auto;
-    overflow: hidden;
-    font-size: 14px;
-    font-weight: bold;
-    color: #555;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    letter-spacing: -0.1em;
-}
-
- ↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑ 상품 ↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑ */
-.deal_type_vertical_square_4 {
     position: relative;
+    margin: 10px;
 }
 /* 상품 이미지, 벳지 */
 .deal_type_vertical_square_4 .memebox-deal-image-wrap {
@@ -97,6 +64,7 @@ div.newDealContents .deal .dealhead .title {
     color: #ffffff;
 }
 .deal_type_vertical_square_4 .memebox-deal-image {
+    display: block;
     width: 100%;
     height: auto;
 }

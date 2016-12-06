@@ -1,9 +1,15 @@
 <p class="memebox-deal-price-wrap">
-   <strong class="memebox-deal-price-discount">
-       <strong class="memebox-deal-price-value">{{discount.value}}</strong><!--
-       --><em class="memebox-deal-price-unit">{{discount.unit}}</em>
-       <span class="memebox-deal-price-info">{{discount.info}}</span>
-   </strong>
+    {{#if discount.value}}
+        <strong class="memebox-deal-price-discount">
+            <strong class="memebox-deal-price-value">{{discount.value}}</strong><!--
+            --><em class="memebox-deal-price-unit">{{discount.unit}}</em>
+            <span class="memebox-deal-price-info">{{discount.info}}</span>
+        </strong>
+    {{else}}
+        <strong class="memebox-deal-price-discount">
+            <strong class="memebox-deal-price-value">미미가격</strong>
+        </strong>
+    {{/if}}
    <strong class="memebox-deal-price-origin">
        <strong class="memebox-deal-price-value">{{origin.value}}</strong><!--
        --><em class="memebox-deal-price-unit">{{origin.unit}}</em>

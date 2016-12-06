@@ -15,7 +15,8 @@ var blocks = {};
 
 
 hbs.registerPartials(__dirname + '/views/'+service+'/layouts');
-hbs.registerPartials(__dirname + '/views/'+service+'/pc');
+hbs.registerPartials(__dirname + '/views/'+service);
+
 hbs.registerPartials(__dirname + '/views/common/');
 hbs.registerPartials(__dirname + '/package');
 
@@ -178,6 +179,19 @@ app.get('/member/signUp/signUp', function(req, res) {
     data.component.menu = menuData;
 
     res.render('memebox/'+device+'/member/signUp/signUp',data);
+});
+
+//view Test
+app.get('/dealAll/dealAll', function(req, res) {
+    var device = req.useragent.isMobile? 'mobile' : 'pc';
+
+    data.config.controller = 'memebox/'+device+'/dealAll/dealAll';
+    data.config.title = '딜 모두 보기';
+    data.config.info.device = device;
+    data.config.info.service = 'memebox';
+    data.component.menu = menuData;
+
+    res.render('memebox/'+device+'/dealAll/dealAll',data);
 });
 
 

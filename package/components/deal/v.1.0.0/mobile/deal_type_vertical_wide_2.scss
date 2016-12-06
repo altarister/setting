@@ -1,50 +1,18 @@
 $assetHost: '';
 $_poke: $assetHost+"/components/deal/v.1.0.0/mobile/_image/_poke.png";
-$_polygon: $assetHost+"/components/deal/v.1.0.0/mobile/_image/_polygon.png";
-$_star_review: $assetHost+"/components/deal/v.1.0.0/mobile/_image/_star_review.png";
+$_polygon: $assetHost+"/components/deal/v.1.0.0/mobile/_image/_polygon@2x.png";
+$_star_review: $assetHost+"/components/deal/v.1.0.0/mobile/_image/_star_review_mobile.png";
 
 /* ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ 상품 ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ */
-.deal_type_vertical_wide_2 {
-}
-
-.memebox-deal {
-    margin: 10px;
-    /*border: 1px solid #f0f0f0;*/
-}
-
-/*.memebox-deal:hover {*/
-/*border: 1px solid #ff5073;*/
-/*}*/
-
-.deal .dealThumb img {
-    width: 100%;
-    height: auto;
-}
-/*
-div.newDealContents .dealList .deal .dealThumb img {
-    width: 100%;
-    height: auto;
-}
-
-div.newDealContents .deal .dealhead .title {
-    width: auto;
-    overflow: hidden;
-    font-size: 14px;
-    font-weight: bold;
-    color: #555;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    letter-spacing: -0.1em;
-}
-
- ↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑ 상품 ↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑ */
-.deal_type_vertical_wide_2 {
+.deal_type_vertical_wide_2{
     position: relative;
+    margin: 5px;
 }
 /* 상품 이미지, 벳지 */
 .deal_type_vertical_wide_2 .memebox-deal-image-wrap {
     position: relative;
     margin-bottom: 8px;
+    border: 1px solid #dcdcdc;
 }
 .deal_type_vertical_wide_2 .memebox-deal-timer {
     display: none;
@@ -74,6 +42,7 @@ div.newDealContents .deal .dealhead .title {
     color: #ffffff;
 }
 .deal_type_vertical_wide_2 .memebox-deal-image {
+    display: block;
     width: 100%;
     height: auto;
 }
@@ -82,15 +51,19 @@ div.newDealContents .deal .dealhead .title {
 }
 /* 상품이름 */
 .deal_type_vertical_wide_2 .memebox-deal-name {
-    text-align: center;
-    padding: 10px 0 6px 0;
+    padding-bottom: 10px;
 }
 .deal_type_vertical_wide_2 .memebox-deal-name-main {
     display: block;
     width: 100%;
     font-size: 13px;
-    text-align: center;
     color: #323232;
+    padding: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
 }
 .deal_type_vertical_wide_2 .memebox-deal-name-sub {
     display: none;

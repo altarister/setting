@@ -347,6 +347,11 @@ var SearchResult = function(){
                 forDeal.id = 'dealId' + index;
                 forDeal.ranking = Number(index) + 1;
                 forDeal.image = $.extend({}, forDeal.image, {src : this.images[index] });
+                if(index > 1){
+                    forDeal.price = $.extend({}, forDeal.price, {discount: {info: '', value: index, unit: '%'}});
+                }else{
+                    forDeal.price = $.extend({}, forDeal.price, {discount: {info: '', value: null, unit: '%'}});
+                }
                 forDeal.remainingTime = $.extend({}, forDeal.remainingTime, {seconds : Math.floor(Math.random() * 20) + 1 });
                 this.deals.push( forDeal );
             }

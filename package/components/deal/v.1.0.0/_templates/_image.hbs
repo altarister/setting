@@ -1,7 +1,9 @@
 <div class="memebox-deal-image-wrap">
+    {{#if remainingTime.seconds}}
     <span class="memebox-deal-timer">
         <span class="memebox-deal-timer-value" data-remainingTime="{{remainingTime.seconds}}"></span>
     </span>
+    {{/if}}
     <span class="memebox-deal-sticker sticker-{{sticker}}"></span>
     <span class="memebox-deal-badge badge-{{badge}}"></span>
     {{#if ranking}}

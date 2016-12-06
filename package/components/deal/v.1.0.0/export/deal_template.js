@@ -23,9 +23,11 @@ var deal_templates = {
     image: function (data) {
         var template = '';
         template += '<div class="memebox-deal-image-wrap">';
-        template += '   <span class="memebox-deal-timer">';
-        template += '       <span class="memebox-deal-timer-value" data-remainingTime="'+data.remainingTime.seconds+'"></span>';
-        template += '   </span>';
+        if(data.remainingTime.seconds) {
+            template += '   <span class="memebox-deal-timer">';
+            template += '       <span class="memebox-deal-timer-value" data-remainingTime="' + data.remainingTime.seconds + '"></span>';
+            template += '   </span>';
+        }
         template += '   <span class="memebox-deal-sticker sticker-'+data.sticker+'"></span>';
         template += '   <span class="memebox-deal-badge badge-'+data.badge+'"></span>';
         if(data.ranking){
@@ -48,11 +50,18 @@ var deal_templates = {
     price: function (data) {
         var template = '';
         template += '<p class="memebox-deal-price-wrap">';
-        template += '   <strong class="memebox-deal-price-discount">';
-        template += '       <strong class="memebox-deal-price-value">'+data.discount.value+'</strong><!--';
-        template += '       --><em class="memebox-deal-price-unit">'+data.discount.unit+'</em>';
-        template += '       <span class="memebox-deal-price-info">'+data.discount.info+'</span>';
-        template += '   </strong>';
+        console.log('data.discount.value',data.discount.value);
+        if(data.discount.value <= 0){
+            template += '   <strong class="memebox-deal-price-discount">';
+            template += '       <strong class="memebox-deal-price-value">'+data.discount.value+'</strong><!--';
+            template += '       --><em class="memebox-deal-price-unit">'+data.discount.unit+'</em>';
+            template += '       <span class="memebox-deal-price-info">'+data.discount.info+'</span>';
+            template += '   </strong>';
+        }else{
+            template += '   <strong class="memebox-deal-price-discount">';
+            template += '       <strong class="memebox-deal-price-value">미미가격</strong><!--';
+            template += '   </strong>';
+        }
         template += '   <strong class="memebox-deal-price-origin">';
         template += '       <strong class="memebox-deal-price-value">'+data.origin.value+'</strong><!--';
         template += '       --><em class="memebox-deal-price-unit">'+data.origin.unit+'</em>';

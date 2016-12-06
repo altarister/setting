@@ -1,11 +1,11 @@
-define(["modernizr"], function(__WEBPACK_EXTERNAL_MODULE_26__) { return webpackJsonp([1],{
+define(["modernizr"], function(__WEBPACK_EXTERNAL_MODULE_55__) { return webpackJsonp([2],{
 
 /***/ 0:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	__webpack_require__(26);
+	__webpack_require__(55);
 	//var $ = require('jquery');
 	//var Common = require('pcCommon');
 
@@ -68,10 +68,10 @@ define(["modernizr"], function(__WEBPACK_EXTERNAL_MODULE_26__) { return webpackJ
 
 /***/ },
 
-/***/ 26:
+/***/ 55:
 /***/ function(module, exports) {
 
-	module.exports = __WEBPACK_EXTERNAL_MODULE_26__;
+	module.exports = __WEBPACK_EXTERNAL_MODULE_55__;
 
 /***/ }
 

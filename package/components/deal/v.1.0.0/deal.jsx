@@ -35,7 +35,6 @@ var Deal = function (deal, trackFunction) {
         currentRemainingTime: deal.remainingTime.seconds,
 
         initialize: function(){
-            console.log('Deal')
             this.makeDealElement(deal);
             utility.uiEnhancements.call(this);
             this.eventListener();
@@ -65,7 +64,6 @@ var Deal = function (deal, trackFunction) {
 
             this.element = $(deal_templates.layout(deal));
             this.element.find(this.ui.info).append(template);
-            console.log('this.element',this.element)
         },
 
         eventListener: function(){

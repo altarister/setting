@@ -1,0 +1,37 @@
+{{#extend "memebox-header"}}
+    {{> components/menu/v.1.0.0/_templates/_menu}}
+{{/extend}}
+
+{{#extend "memebox-content"}}
+    <div class="wrap">
+        <p class="text">main page</p>
+    </div>
+    <br>
+
+    <div class="memebox-web-address-wrap">
+        <a href="#" class="memebox-web-zipcode-trigger">우편번호찾기</a>
+        <span class="memebox-web-zipcode-value">000-000</span>
+        <span class="memebox-web-address-value">우편번호 찾기를 클릭 하여 내용을 넣으세요.</span>
+    </div>
+    <br>
+{{/extend}}
+
+{{#extend "memebox-components"}}
+    <script src="/modules/layer/modal/v.1.0.0/export/_modal_template.js" type="text/javascript"></script>
+    <script src="/modules/layer/modal/v.1.0.0/export/_modal.js" type="text/javascript"></script>
+    <script src="/components/zipcode/v.1.0.0/export/_zipcode_template.js" type="text/javascript"></script>
+    <script src="/components/zipcode/v.1.0.0/export/_zipcode.js" type="text/javascript"></script>
+{{/extend}}
+
+{{#extend "css"}}
+    <link  href="/modules/layer/modal/v.1.0.0/export/{{config.info.device}}/_modal.css" type="text/css" rel="stylesheet"/>
+    <link  href="/components/zipcode/v.1.0.0/export/{{config.info.device}}/_zipcode.css" type="text/css" rel="stylesheet"/>
+
+    <!--<script src="/vendor/jquery/1.11.3/jquery.min.js" type="text/javascript"></script>-->
+    <!--<script src="/vendor/jqueryUi/jquery-ui-position.js" type="text/javascript"></script>-->
+
+    <script src="/modules/util/utility/v.1.0.0/_utility.js" type="text/javascript"></script>
+    <script src="/modules/util/validate/v.1.0.0/_validate.js" type="text/javascript"></script>
+{{/extend}}
+
+{{> mobile/layout/layout}}

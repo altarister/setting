@@ -466,6 +466,7 @@ div.newDealContents .deal .dealhead .title {
 .deal_type_vertical_square_10 .memebox-deal-price-discount {
   font-family: Verdana;
   font-size: 20px;
+  letter-spacing: -1px;
   font-weight: bold;
   color: #ff5073;
   line-height: 29px; }

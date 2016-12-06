@@ -61,6 +61,11 @@ var SearchResult = function(){
                 origin: {info: '', value: '32,000', unit: '원'},
                 result: {info: '', value: '16,000', unit: '원'}
             },
+            한정특가price: {
+                discount: {info: '', value: '50', unit: '%'},
+                origin: {info: '', value: '32,000', unit: '원'},
+                result: {info: '', value: '16,000', unit: '원'}
+            },
             option: {
                 MaximumPurchaseQuantity: 10,
                 basicProduct: '#EX400 문라이즈',
@@ -69,7 +74,9 @@ var SearchResult = function(){
                         id: 'i1',
                         name:'나이키 ',
                         category: {
-                            type: {title: '상품명', value: '에어', price: '11,000'}
+                            type: {title: '상품명', value: '에어', price: '11,000'},
+                            color: {title: '색상', value: 'red'},
+                            size: {title: '사이즈', value: '220'}
                         },
                         stock: 30
                     },
@@ -77,14 +84,18 @@ var SearchResult = function(){
                         id: 'i2',
                         name:'나이키 ',
                         category: {
-                            type: {title: '상품명', value: '에어', price: '11,000'}
+                            type: {title: '상품명', value: '에어', price: '11,000'},
+                            color: {title: '색상', value: 'black'},
+                            size: {title: '사이즈', value: '230'}
                         },
                         stock: 30
                     },{
                         id: 'i3',
                         name:'나이키 ',
                         category: {
-                            type: {title: '상품명', value: '에어', price: '11,000'}
+                            type: {title: '상품명', value: '에어', price: '11,000'},
+                            color: {title: '색상', value: 'blue'},
+                            size: {title: '사이즈', value: '220'}
                         },
                         stock: 30
                     },
@@ -92,14 +103,18 @@ var SearchResult = function(){
                         id: 'i4',
                         name:'나이키 ',
                         category: {
-                            type: {title: '상품명', value: '에어', price: '11,000'}
+                            type: {title: '상품명', value: '에어', price: '11,000'},
+                            color: {title: '색상', value: 'blue'},
+                            size: {title: '사이즈', value: '230'}
                         },
                         stock: 30
                     },{
                         id: 'i5',
                         name:'나이키 ',
                         category: {
-                            type: {title: '상품명', value: '조던', price: '12,000'}
+                            type: {title: '상품명', value: '조던', price: '12,000'},
+                            color: {title: '색상', value: 'red'},
+                            size: {title: '사이즈', value: '220'}
                         },
                         stock: 30
                     },
@@ -107,14 +122,18 @@ var SearchResult = function(){
                         id: 'i6',
                         name:'나이키 ',
                         category: {
-                            type: {title: '상품명', value: '조던', price: '12,000'}
+                            type: {title: '상품명', value: '조던', price: '12,000'},
+                            color: {title: '색상', value: 'red'},
+                            size: {title: '사이즈', value: '230'}
                         },
                         stock: 30
                     },{
                         id: 'i7',
                         name:'나이키 ',
                         category: {
-                            type: {title: '상품명', value: '조던', price: '12,000'}
+                            type: {title: '상품명', value: '조던', price: '12,000'},
+                            color: {title: '색상', value: 'blue'},
+                            size: {title: '사이즈', value: '220'}
                         },
                         stock: 30
                     },
@@ -122,171 +141,11 @@ var SearchResult = function(){
                         id: 'i8',
                         name:'나이키 ',
                         category: {
-                            type: {title: '상품명', value: '조던', price: '12,000'}
+                            type: {title: '상품명', value: '조던', price: '12,000'},
+                            color: {title: '색상', value: 'blue'},
+                            size: {title: '사이즈', value: '230'}
                         },
                         stock: 30
-                    }
-                ],
-                // products: [
-                //     {
-                //         id: 'i1',
-                //         name:'나이키 ',
-                //         category: {
-                //             type: {title: '상품명', value: '에어', price: '11,000'},
-                //             color: {title: '색상', value: 'red'},
-                //             size: {title: '사이즈', value: '220'}
-                //         },
-                //         stock: 30
-                //     },
-                //     {
-                //         id: 'i2',
-                //         name:'나이키 ',
-                //         category: {
-                //             type: {title: '상품명', value: '에어', price: '11,000'},
-                //             color: {title: '색상', value: 'black'},
-                //             size: {title: '사이즈', value: '230'}
-                //         },
-                //         stock: 30
-                //     },{
-                //         id: 'i3',
-                //         name:'나이키 ',
-                //         category: {
-                //             type: {title: '상품명', value: '에어', price: '11,000'},
-                //             color: {title: '색상', value: 'blue'},
-                //             size: {title: '사이즈', value: '220'}
-                //         },
-                //         stock: 30
-                //     },
-                //     {
-                //         id: 'i4',
-                //         name:'나이키 ',
-                //         category: {
-                //             type: {title: '상품명', value: '에어', price: '11,000'},
-                //             color: {title: '색상', value: 'blue'},
-                //             size: {title: '사이즈', value: '230'}
-                //         },
-                //         stock: 30
-                //     },{
-                //         id: 'i5',
-                //         name:'나이키 ',
-                //         category: {
-                //             type: {title: '상품명', value: '조던', price: '12,000'},
-                //             color: {title: '색상', value: 'red'},
-                //             size: {title: '사이즈', value: '220'}
-                //         },
-                //         stock: 30
-                //     },
-                //     {
-                //         id: 'i6',
-                //         name:'나이키 ',
-                //         category: {
-                //             type: {title: '상품명', value: '조던', price: '12,000'},
-                //             color: {title: '색상', value: 'red'},
-                //             size: {title: '사이즈', value: '230'}
-                //         },
-                //         stock: 30
-                //     },{
-                //         id: 'i7',
-                //         name:'나이키 ',
-                //         category: {
-                //             type: {title: '상품명', value: '조던', price: '12,000'},
-                //             color: {title: '색상', value: 'blue'},
-                //             size: {title: '사이즈', value: '220'}
-                //         },
-                //         stock: 30
-                //     },
-                //     {
-                //         id: 'i8',
-                //         name:'나이키 ',
-                //         category: {
-                //             type: {title: '상품명', value: '조던', price: '12,000'},
-                //             color: {title: '색상', value: 'blue'},
-                //             size: {title: '사이즈', value: '230'}
-                //         },
-                //         stock: 30
-                //     }
-                // ],
-                items: [
-                    {
-                        id: 'i1',
-                        name:'나이키 에어',
-                        category: {
-                            color:'red',
-                            size: '220'
-                        },
-                        stock: 30,
-                        price: '11,000',
-                        unit: '원'
-                    },{
-                        id: 'i2',
-                        name:'나이키 에어',
-                        category: {
-                            color:'red',
-                            size: '230'
-                        },
-                        stock: 1,
-                        price: '11,000',
-                        unit: '원'
-                    },{
-                        id: 'i3',
-                        name:'나이키 에어',
-                        category: {
-                            color:'blue',
-                            size: '220'
-                        },
-                        stock: 1,
-                        price: '11,000',
-                        unit: '원'
-                    },{
-                        id: 'i4',
-                        name:'나이키 에어',
-                        category: {
-                            color:'blue',
-                            size: '230'
-                        },
-                        stock: 30,
-                        price: '11,000',
-                        unit: '원'
-                    },{
-                        id: 'i5',
-                        name:'나이키 조던',
-                        category: {
-                            color:'red',
-                            size: '220'
-                        },
-                        stock: 30,
-                        price: '12,000',
-                        unit: '원'
-                    },{
-                        id: 'i6',
-                        name:'나이키 조던',
-                        category: {
-                            color:'red',
-                            size: '230'
-                        },
-                        stock: 1,
-                        price: '12,000',
-                        unit: '원'
-                    },{
-                        id: 'i7',
-                        name:'나이키 조던',
-                        category: {
-                            color:'blue',
-                            size: '220'
-                        },
-                        stock: 1,
-                        price: '12,000',
-                        unit: '원'
-                    },{
-                        id: 'i8',
-                        name:'나이키 조던',
-                        category: {
-                            color:'blue',
-                            size: '230'
-                        },
-                        stock: 30,
-                        price: '12,000',
-                        unit: '원'
                     }
                 ],
                 additionItem: [
@@ -347,7 +206,12 @@ var SearchResult = function(){
                 forDeal.id = 'dealId' + index;
                 forDeal.ranking = Number(index) + 1;
                 forDeal.image = $.extend({}, forDeal.image, {src : this.images[index] });
-                forDeal.remainingTime = $.extend({}, forDeal.remainingTime, {seconds : Math.floor(Math.random() * 20) + 1 });
+                forDeal.remainingTime = $.extend({}, forDeal.remainingTime, {seconds : Math.floor(Math.random() * 50) + 1 });
+                if(index > 1){
+                    forDeal.price = $.extend({}, forDeal.price, {discount: {info: '', value: index, unit: '%'}});
+                }else{
+                    forDeal.price = $.extend({}, forDeal.price, {discount: {info: '', value: null, unit: '%'}});
+                }
                 this.deals.push( forDeal );
             }
         }
