@@ -2,11 +2,12 @@ var DealContainer = function ($element, lineAmount, deals) {
     var controller = {
 
         initialize: function () {
+            console.log('DealContainer');
             this.makeDealList()
         },
 
         makeDealList: function(){
-            var $ul = $(delContainer_template.dealList(lineAmount));
+            var $ul = $(dealContainer_template.dealList(lineAmount));
 
             $element.append($ul);
             this.addDealListItem($ul);

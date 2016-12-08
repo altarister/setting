@@ -4,24 +4,22 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>{{config.title}}</title>
-    {{> elements/css}}
+    {{!> elements/css}}
     {{{block "css"}}}
 </head>
 
 <body id="memebox-service"
       {{> elements/config}}>
 
-    {{> mobile/layout/header}}
+    {{!> mobile/layout/header}}
     {{{block "memebox-header"}}}
 
     {{{block "memebox-content"}}}
 
     {{{block "memebox-footer"}}}
-    {{> mobile/layout/footer}}
+    {{!> mobile/layout/footer}}
 
-    {{{block "memebox-components"}}}
-
-    {{> elements/scripts}}
+    {{!> elements/scripts}}
     {{{block "scripts"}}}
 </body>
 

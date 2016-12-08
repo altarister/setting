@@ -193,6 +193,17 @@ app.get('/dealAll/dealAll', function(req, res) {
 
     res.render('memebox/'+device+'/dealAll/dealAll',data);
 });
+app.get('/dealAll/dealAll_export', function(req, res) {
+    var device = req.useragent.isMobile? 'mobile' : 'pc';
+
+    data.config.controller = 'memebox/'+device+'/dealAll/dealAll';
+    data.config.title = 'js 딜 모두 보기';
+    data.config.info.device = device;
+    data.config.info.service = 'memebox';
+
+    res.render('memebox/'+device+'/dealAll/dealAll_export',data);
+});
+
 
 
 app.listen(5000);

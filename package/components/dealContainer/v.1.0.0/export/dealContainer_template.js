@@ -1,4 +1,4 @@
-var delContainer_template = {
+var dealContainer_template = {
     dealList: function (lineAmount) {
         var template = '';
         template += '<ul class="memebox-deal-list memebox-deal-list-line-amount-'+lineAmount+'">';
