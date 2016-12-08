@@ -107,7 +107,7 @@ module.exports = function (serviceString, envString, deviceString) {
         },
         watch: true,
         debug: environment.develop,
-        devtool: environment.production && device.isMobile ? 'source-map' : '',
+        devtool: environment.production && device.isMobile ? '' : '',//source-map
         module: {
             loaders: [
                 {

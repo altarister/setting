@@ -38,10 +38,12 @@ var Deal = function (deal, trackFunction) {
         initialize: function(){
             this.makeDealElement(deal);
             utility.uiEnhancements.call(this);
+            //this.setImage();
             this.eventListener();
         },
 
         makeDealElement: function(deal){
+            console.log('deal.image = ',deal.image)
             var template = '';
 
             template += deal_templates.image(deal);
@@ -61,9 +63,9 @@ var Deal = function (deal, trackFunction) {
         },
 
         eventListener: function(){
-            var dealImage = new Image();
-            $(dealImage).on('load', $.proxy(this.imageEvent, this));
-            dealImage.src = deal.image.src;
+
+            this.ui.dealImage
+                .on('load', $.proxy(this.defaultImageLoadEvent, this))
 
             if(this.currentRemainingTime){
                 if(window.deal_RemainingTimeInterval){
@@ -75,7 +77,24 @@ var Deal = function (deal, trackFunction) {
 
             this.element.off()
                 .on('click', this.ui.__uiString.link, $.proxy(this.linkEvent, this));
+        },
 
+        defaultImageLoadEvent: function(){
+            var imageHeight = this.ui.dealImage.height();
+            this.ui.dealImage
+                .off()
+                .on('error', $.proxy(this.errorImageLoadEvent, this))
+                .attr('src', deal.image.src)
+                .css({
+                    width: 'auto',
+                    height: imageHeight
+                });
+        },
+
+        errorImageLoadEvent: function(event) {
+            this.ui.dealImage
+                .off()
+                .attr('src', deal.image.error);
         },
 
         //클릭전에 tracking 코드 실행
@@ -88,19 +107,6 @@ var Deal = function (deal, trackFunction) {
                 }
             }
             return true
-        },
-
-        imageEvent : function(event){
-            if(deal.image.type != 'wide') return;
-
-            var imageWidth = this.ui.dealImage.width();
-            var imageHeight = this.ui.dealImage.height();
-            if(imageWidth === imageHeight){
-                this.ui.dealImage.css({
-                    width: 'auto',
-                    height: imageWidth / 2
-                });
-            }
         },
 
         remainingTimeEvent: function(){

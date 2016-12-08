@@ -50,6 +50,8 @@ var DealView_type_all = function(){
             link: 'http://www.coupang.com/deal.pang?coupang=61130860',
             image: {
                 type: 'square', //circle, wide, square
+                basic: '/components/deal/v.1.0.0/mobile/_image/image_square_basic.png',
+                error: '/components/deal/v.1.0.0/mobile/_image/image_square_error.gif',
                 src: 'http://img2.memebox.com/static/contents/img/upload/image_20150706134341_2m0D5I3Z7M.jpg',
                 size: {
                     width: 200,
@@ -185,7 +187,8 @@ var DealView_type_all = function(){
             // "https://img1.memebox.com/72gfsdk0/contents/img/memeboxProductItem/20161020043220_930526a3bd0a25d11ca0f2a1a499dd4f.jpg",
             'https://img1.memebox.com/a70vqlis/contents/img/memeboxProductItem/20161114043824_52a43af20a8ad9190b7aef3793608d79.jpg',
             "https://img1.memebox.com/z0uovgml/contents/img/memeboxProductItem/20161011020338_ee3dcef775880ff08c8e5a0a6cd198f5.jpg",
-            "https://img1.memebox.com/uphu35f8/contents/img/memeboxProductItem/20161108055135_1a2ed3ce8ccd02052ce6d7db53571689.jpg",
+            //"https://img1.memebox.com/uphu35f8/contents/img/memeboxProductItem/20161108055135_1a2ed3ce8ccd02052ce6d7db53571689.jpg",
+            "https://img1.memebox.com/72gfsdk0/contents/img/memeboxProductItem/error.jpg",
             "https://img1.memebox.com/lahnslxd/contents/img/memeboxProductItem/20161114101656_4f39cb7f88f79f1f8cd22cac23e2d4a3.jpg"
         ],
 
@@ -283,10 +286,20 @@ var DealView_type_all = function(){
                     forDeal.remainingTime = $.extend({}, forDeal.remainingTime, {seconds: Math.floor(Math.random() * 5) + 1});
                 }
                 if(imageType === 'wide'){
-                    forDeal.image = $.extend({}, forDeal.image, { type: imageType, src: this.wideImg[index]});
+                    forDeal.image = $.extend({}, forDeal.image, {
+                        type: imageType,
+                        src: this.wideImg[index],
+                        basic: '/components/deal/v.1.0.0/mobile/_image/image_wide_basic.png',
+                        error: '/components/deal/v.1.0.0/mobile/_image/image_wide_error.gif'
+                    });
                     //forDeal.image = $.extend({}, forDeal.image, { type: imageType, src: this.images[index]});
                 }else{
-                    forDeal.image = $.extend({}, forDeal.image, { type: imageType, src: this.images[index]});
+                    forDeal.image = $.extend({}, forDeal.image, {
+                        type: imageType,
+                        src: this.images[index],
+                        basic: '/components/deal/v.1.0.0/mobile/_image/image_square_basic.png',
+                        error: '/components/deal/v.1.0.0/mobile/_image/image_square_error.gif'
+                    });
                 }
 
                 this.deals.push(forDeal);

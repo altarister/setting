@@ -1002,8 +1002,8 @@
 .deal_type_vertical_wide_2 .memebox-deal-image {
   display: block;
   width: 100%;
-  margin: 0 auto;
-  height: auto; }
+  height: auto;
+  margin: 0 auto; }
 
 .deal_type_vertical_wide_2 .memebox-deal-sticker {
   display: none; }
@@ -1350,5 +1350,3 @@ body {
 
 .module-half-cut-viewer-right-content {
   margin-left: 10px; }
-
-/*# sourceMappingURL=product.css.map*/

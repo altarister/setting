@@ -28,3 +28,4 @@ sonar-project.*
 target/
 tmp
 node_modules
+public/dist

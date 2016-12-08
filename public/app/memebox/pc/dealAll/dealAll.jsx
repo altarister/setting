@@ -1,6 +1,6 @@
 var $ = require('jquery');
 var utility = require('utility');
-var Menu = require('components/menu/v.1.0.0/_menu.jsx');
+//var Menu = require('components/menu/v.1.0.0/_menu.jsx');
 var DealContainer = require('components/dealContainer/v.1.0.0/dealContainer.jsx');
 
 require('./dealAll.scss');
@@ -184,7 +184,8 @@ var DealView_type_all = function(){
         wideImg: [
             "https://img2.memebox.com/static/contents/img/upload/image_20160518211225_b3VcRp7GzN.jpg",
             "https://img1.memebox.com/72gfsdk0/contents/img/memeboxProductItem/20161020043220_930526a3bd0a25d11ca0f2a1a499dd4f.jpg",
-            "https://img1.memebox.com/z0uovgml/contents/img/memeboxProductItem/20161011020338_ee3dcef775880ff08c8e5a0a6cd198f5.jpg",
+            //"https://img1.memebox.com/z0uovgml/contents/img/memeboxProductItem/20161011020338_ee3dcef775880ff08c8e5a0a6cd198f5.jpg",
+            "https://img1.memebox.com/72gfsdk0/contents/img/memeboxProductItem/error.jpg",
             "https://img1.memebox.com/uphu35f8/contents/img/memeboxProductItem/20161108055135_1a2ed3ce8ccd02052ce6d7db53571689.jpg",
             "https://img1.memebox.com/lahnslxd/contents/img/memeboxProductItem/20161114101656_4f39cb7f88f79f1f8cd22cac23e2d4a3.jpg"
         ],
@@ -211,7 +212,7 @@ var DealView_type_all = function(){
         ],
 
         initialize: function(){
-            new Menu();
+            //new Menu();
             utility.uiEnhancements.call(this);
             this.setDeals();
 

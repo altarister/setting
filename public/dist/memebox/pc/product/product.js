@@ -1407,6 +1407,7 @@ define(function() { return webpackJsonp([7],[
 	        },
 
 	        initialize: function initialize() {
+	            this.remainingTimeController();
 	            this.makeDealList();
 	        },
 
@@ -1415,7 +1416,6 @@ define(function() { return webpackJsonp([7],[
 
 	            $element.append($ul);
 	            this.addDealListItem($ul);
-	            this.remainingTimeController();
 	            this.addFunction();
 	        },
 
@@ -1499,23 +1499,14 @@ define(function() { return webpackJsonp([7],[
 	        currentRemainingTime: deal.remainingTime.seconds,
 
 	        initialize: function initialize() {
-	            console.log(deal.sold);
-
 	            this.makeDealElement(deal);
 	            utility.uiEnhancements.call(this);
+	            //this.setImage();
 	            this.eventListener();
-
-	            // if(this.currentRemainingTime){
-	            //     if(window.deal_RemainingTimeInterval){
-	            //         $.subscribe('deal.remainingTime', $.proxy(this.remainingTimeEvent, this));
-	            //     }else{
-	            //         this.setTimer(deal.remainingTime.seconds);
-	            //     }
-	            // }
-	            this.setTimer(deal.remainingTime.seconds);
 	        },
 
 	        makeDealElement: function makeDealElement(deal) {
+	            console.log('deal.image = ', deal.image);
 	            var template = '';
 
 	            template += deal_templates.image(deal);
@@ -1534,30 +1525,35 @@ define(function() { return webpackJsonp([7],[
 	            this.element.find(this.ui.info).append(template);
 	        },
 
-	        imageEvent: function imageEvent(event) {
-	            if (deal.image.type != 'wide') return;
+	        eventListener: function eventListener() {
 
-	            var imageWidth = this.ui.dealImage.width();
-	            var imageHeight = this.ui.dealImage.height();
-	            if (imageWidth === imageHeight) {
-	                this.ui.dealImage.css({
-	                    width: 'auto',
-	                    height: imageWidth / 2
-	                });
+	            this.ui.dealImage.on('load', $.proxy(this.defaultImageLoadEvent, this));
+
+	            if (this.currentRemainingTime) {
+	                if (window.deal_RemainingTimeInterval) {
+	                    $.subscribe('deal.remainingTime', $.proxy(this.remainingTimeEvent, this));
+	                } else {
+	                    this.setTimer(deal.remainingTime.seconds);
+	                }
 	            }
+
+	            this.element.off().on('click', this.ui.__uiString.link, $.proxy(this.linkEvent, this));
 	        },
 
-	        eventListener: function eventListener() {
-	            this.element.off().on('click', this.ui.__uiString.link, $.proxy(this.linkEvent, this));
+	        defaultImageLoadEvent: function defaultImageLoadEvent() {
+	            var imageHeight = this.ui.dealImage.height();
+	            this.ui.dealImage.off().on('error', $.proxy(this.errorImageLoadEvent, this)).attr('src', deal.image.src).css({
+	                width: 'auto',
+	                height: imageHeight
+	            });
+	        },
 
-	            var dealImage = new Image();
-	            $(dealImage).on('load', $.proxy(this.imageEvent, this));
-	            dealImage.src = deal.image.src;
+	        errorImageLoadEvent: function errorImageLoadEvent(event) {
+	            this.ui.dealImage.off().attr('src', deal.image.error);
 	        },
 
 	        //클릭전에 tracking 코드 실행
 	        linkEvent: function linkEvent(event) {
-	            //event.preventDefault();
 	            if (event.isDefaultPrevented()) {
 	                tracking.analytics.track(deal.tracking.analytics);
 	            } else {
@@ -1569,24 +1565,17 @@ define(function() { return webpackJsonp([7],[
 	        },
 
 	        remainingTimeEvent: function remainingTimeEvent() {
-	            if (this.currentRemainingTime < 0) {
-	                return;
-	            } else if (--this.currentRemainingTime < 0) {
-	                this.ui.link.remove();
-	                this.element.append(deal_templates.out());
-	            } else {
-	                this.displayTimer(this.currentRemainingTime);
+	            if (this.currentRemainingTime >= 0) {
+	                this.displayTimer(this.currentRemainingTime--);
 	            }
 	        },
 
 	        setTimer: function setTimer(remainingTime) {
 	            var timer = setInterval(function () {
-	                controller.displayTimer(remainingTime);
+	                controller.displayTimer(remainingTime--);
 
-	                if (--remainingTime < 0) {
+	                if (remainingTime < 0) {
 	                    clearInterval(timer);
-	                    //controller.ui.link.remove();
-	                    //controller.element.append(deal_templates.out());
 	                }
 	            }, 1000);
 	            this.displayTimer(remainingTime);
@@ -1684,9 +1673,9 @@ define(function() { return webpackJsonp([7],[
 	module.exports = (Handlebars["default"] || Handlebars).template({"1":function(container,depth0,helpers,partials,data) {
 	    var stack1;
 
-	  return "    <span class=\"memebox-deal-timer\">\n        <span class=\"memebox-deal-timer-value\" data-remainingTime=\""
+	  return "        <span class=\"memebox-deal-timer\">\n            <span class=\"memebox-deal-timer-value\" data-remainingTime=\""
 	    + container.escapeExpression(container.lambda(((stack1 = (depth0 != null ? depth0.remainingTime : depth0)) != null ? stack1.seconds : stack1), depth0))
-	    + "\"></span>\n    </span>\n";
+	    + "\"></span>\n        </span>\n";
 	},"3":function(container,depth0,helpers,partials,data) {
 	    var helper;
 
@@ -1705,7 +1694,7 @@ define(function() { return webpackJsonp([7],[
 	    + "\"></span>\n"
 	    + ((stack1 = helpers["if"].call(alias1,(depth0 != null ? depth0.ranking : depth0),{"name":"if","hash":{},"fn":container.program(3, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
 	    + "    <img class=\"memebox-deal-image\" src=\""
-	    + alias4(alias5(((stack1 = (depth0 != null ? depth0.image : depth0)) != null ? stack1.src : stack1), depth0))
+	    + alias4(alias5(((stack1 = (depth0 != null ? depth0.image : depth0)) != null ? stack1.basic : stack1), depth0))
 	    + "\" alt=\""
 	    + alias4(alias5(((stack1 = (depth0 != null ? depth0.name : depth0)) != null ? stack1.main : stack1), depth0))
 	    + "\"/>\n</div>";
@@ -1733,28 +1722,44 @@ define(function() { return webpackJsonp([7],[
 
 	var Handlebars = __webpack_require__(6);
 	function __default(obj) { return obj && (obj.__esModule ? obj["default"] : obj); }
-	module.exports = (Handlebars["default"] || Handlebars).template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
+	module.exports = (Handlebars["default"] || Handlebars).template({"1":function(container,depth0,helpers,partials,data) {
 	    var stack1, alias1=container.lambda, alias2=container.escapeExpression;
 
-	  return "<p class=\"memebox-deal-price-wrap\">\n    <strong class=\"memebox-deal-price-discount\">\n        <span class=\"memebox-deal-price-info\">"
+	  return "        <strong class=\"memebox-deal-price-discount\">\n            <span class=\"memebox-deal-price-info\">"
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.discount : depth0)) != null ? stack1.info : stack1), depth0))
-	    + "</span>\n        <strong class=\"memebox-deal-price-value\">"
+	    + "</span>\n            <strong class=\"memebox-deal-price-value\">"
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.discount : depth0)) != null ? stack1.value : stack1), depth0))
-	    + "</strong><!--\n        --><em class=\"memebox-deal-price-unit\">"
+	    + "</strong><!--\n            --><em class=\"memebox-deal-price-unit\">"
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.discount : depth0)) != null ? stack1.unit : stack1), depth0))
-	    + "</em>\n    </strong>\n   <strong class=\"memebox-deal-price-origin\">\n       <strong class=\"memebox-deal-price-value\">"
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.origin : depth0)) != null ? stack1.value : stack1), depth0))
-	    + "</strong><!--\n       --><em class=\"memebox-deal-price-unit\">"
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.origin : depth0)) != null ? stack1.unit : stack1), depth0))
-	    + "</em>\n       <span class=\"memebox-deal-price-info\">"
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.origin : depth0)) != null ? stack1.info : stack1), depth0))
-	    + "</span>\n   </strong>\n   <strong class=\"memebox-deal-price-result\">\n       <strong class=\"memebox-deal-price-value\">"
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.result : depth0)) != null ? stack1.value : stack1), depth0))
-	    + "</strong><!--\n       --><em class=\"memebox-deal-price-unit\">"
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.result : depth0)) != null ? stack1.unit : stack1), depth0))
-	    + "</em>\n       <span class=\"memebox-deal-price-info\">"
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.result : depth0)) != null ? stack1.info : stack1), depth0))
-	    + "</span>\n   </strong>\n</p>";
+	    + "</em>\n        </strong>\n";
+	},"3":function(container,depth0,helpers,partials,data) {
+	    return "";
+	},"5":function(container,depth0,helpers,partials,data) {
+	    var stack1;
+
+	  return "            <span class=\"memebox-deal-price-info\">"
+	    + container.escapeExpression(container.lambda(((stack1 = (depth0 != null ? depth0.result : depth0)) != null ? stack1.info : stack1), depth0))
+	    + "</span>\n";
+	},"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
+	    var stack1, alias1=depth0 != null ? depth0 : {}, alias2=container.lambda, alias3=container.escapeExpression;
+
+	  return "<p class=\"memebox-deal-price-wrap\">\n"
+	    + ((stack1 = helpers["if"].call(alias1,((stack1 = (depth0 != null ? depth0.discount : depth0)) != null ? stack1.value : stack1),{"name":"if","hash":{},"fn":container.program(1, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+	    + "    <strong class=\"memebox-deal-price-origin\">\n        <span class=\"memebox-deal-price-info\">"
+	    + alias3(alias2(((stack1 = (depth0 != null ? depth0.origin : depth0)) != null ? stack1.info : stack1), depth0))
+	    + "</span>\n        <strong class=\"memebox-deal-price-value\">"
+	    + alias3(alias2(((stack1 = (depth0 != null ? depth0.origin : depth0)) != null ? stack1.value : stack1), depth0))
+	    + "</strong><!--\n        --><em class=\"memebox-deal-price-unit\">"
+	    + alias3(alias2(((stack1 = (depth0 != null ? depth0.origin : depth0)) != null ? stack1.unit : stack1), depth0))
+	    + "</em>\n    </strong>\n    <strong class=\"memebox-deal-price-result\">\n"
+	    + ((stack1 = helpers["if"].call(alias1,((stack1 = (depth0 != null ? depth0.discount : depth0)) != null ? stack1.value : stack1),{"name":"if","hash":{},"fn":container.program(3, data, 0),"inverse":container.program(5, data, 0),"data":data})) != null ? stack1 : "")
+	    + "        <strong class=\"memebox-deal-price-value\">"
+	    + alias3(alias2(((stack1 = (depth0 != null ? depth0.result : depth0)) != null ? stack1.value : stack1), depth0))
+	    + "</strong><!--\n        --><em class=\"memebox-deal-price-unit\">"
+	    + alias3(alias2(((stack1 = (depth0 != null ? depth0.result : depth0)) != null ? stack1.unit : stack1), depth0))
+	    + "</em><!--\n        --><span class=\"memebox-deal-price-from\">"
+	    + alias3(alias2(((stack1 = (depth0 != null ? depth0.result : depth0)) != null ? stack1.from : stack1), depth0))
+	    + "</span>\n    </strong>\n</p>";
 	},"useData":true});
 
 /***/ },
