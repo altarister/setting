@@ -36,20 +36,9 @@ var Deal = function (deal, trackFunction) {
         currentRemainingTime: deal.remainingTime.seconds,
 
         initialize: function(){
-            console.log(deal.sold)
-
             this.makeDealElement(deal);
             utility.uiEnhancements.call(this);
             this.eventListener();
-
-            if(this.currentRemainingTime){
-                if(window.deal_RemainingTimeInterval){
-                    $.subscribe('deal.remainingTime', $.proxy(this.remainingTimeEvent, this));
-                }else{
-                    this.setTimer(deal.remainingTime.seconds);
-                }
-            }
-
         },
 
         makeDealElement: function(deal){
@@ -71,6 +60,36 @@ var Deal = function (deal, trackFunction) {
             this.element.find(this.ui.info).append(template);
         },
 
+        eventListener: function(){
+            var dealImage = new Image();
+            $(dealImage).on('load', $.proxy(this.imageEvent, this));
+            dealImage.src = deal.image.src;
+
+            if(this.currentRemainingTime){
+                if(window.deal_RemainingTimeInterval){
+                    $.subscribe('deal.remainingTime', $.proxy(this.remainingTimeEvent, this));
+                }else{
+                    this.setTimer(deal.remainingTime.seconds);
+                }
+            }
+
+            this.element.off()
+                .on('click', this.ui.__uiString.link, $.proxy(this.linkEvent, this));
+
+        },
+
+        //클릭전에 tracking 코드 실행
+        linkEvent: function(event){
+            if(event.isDefaultPrevented()){
+                tracking.analytics.track(deal.tracking.analytics);
+            }else{
+                if(typeof trackFunction === 'function'){
+                    trackFunction(deal.tracking.analytics)
+                }
+            }
+            return true
+        },
+
         imageEvent : function(event){
             if(deal.image.type != 'wide') return;
 
@@ -84,41 +103,17 @@ var Deal = function (deal, trackFunction) {
             }
         },
 
-        eventListener: function(){
-            this.element.off()
-                .on('click', this.ui.__uiString.link, $.proxy(this.linkEvent, this));
-
-            var dealImage = new Image();
-            $(dealImage).on('load', $.proxy(this.imageEvent, this));
-            dealImage.src = deal.image.src;
-        },
-
-        //클릭전에 tracking 코드 실행
-        linkEvent: function(event){
-            //event.preventDefault();
-            if(event.isDefaultPrevented()){
-                tracking.analytics.track(deal.tracking.analytics);
-            }else{
-                if(typeof trackFunction === 'function'){
-                    trackFunction(deal.tracking.analytics)
-                }
-            }
-            return true
-        },
-
         remainingTimeEvent: function(){
-            if (this.currentRemainingTime < 0) {
-                return;
-            }else{
-                this.displayTimer(this.currentRemainingTime);
+            if (this.currentRemainingTime >= 0) {
+                this.displayTimer(this.currentRemainingTime--);
             }
         },
 
         setTimer: function(remainingTime){
             var timer = setInterval(function () {
-                controller.displayTimer(remainingTime);
+                controller.displayTimer(remainingTime--);
 
-                if (--remainingTime < 0) {
+                if (remainingTime < 0) {
                     clearInterval(timer);
                 }
             }, 1000);

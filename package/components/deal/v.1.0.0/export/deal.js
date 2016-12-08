@@ -16,14 +16,6 @@ var Deal = function (deal, trackFunction) {
             this.makeDealElement(deal);
             utility.uiEnhancements.call(this);
             this.eventListener();
-
-            if(this.currentRemainingTime){
-                if(window.deal_RemainingTimeInterval){
-                    $.subscribe('deal.remainingTime', $.proxy(this.remainingTimeEvent, this));
-                }else{
-                    this.setTimer(deal.remainingTime.seconds);
-                }
-            }
         },
 
         makeDealElement: function(deal){
@@ -46,12 +38,21 @@ var Deal = function (deal, trackFunction) {
         },
 
         eventListener: function(){
-            this.element.off()
-                .on('click', this.ui.__uiString.link, $.proxy(this.linkEvent, this));
-
             var dealImage = new Image();
             $(dealImage).on('load', $.proxy(this.imageEvent, this));
             dealImage.src = deal.image.src;
+
+            if(this.currentRemainingTime){
+                if(window.deal_RemainingTimeInterval){
+                    $.subscribe('deal.remainingTime', $.proxy(this.remainingTimeEvent, this));
+                }else{
+                    this.setTimer(deal.remainingTime.seconds);
+                }
+            }
+
+            this.element.off()
+                .on('click', this.ui.__uiString.link, $.proxy(this.linkEvent, this));
+
         },
 
         //클릭전에 tracking 코드 실행
@@ -66,7 +67,7 @@ var Deal = function (deal, trackFunction) {
             return true
         },
 
-        imageEvent : function(){
+        imageEvent : function(event){
             if(deal.image.type != 'wide') return;
 
             var imageWidth = this.ui.dealImage.width();
@@ -80,18 +81,16 @@ var Deal = function (deal, trackFunction) {
         },
 
         remainingTimeEvent: function(){
-            if (this.currentRemainingTime < 0) {
-                return;
-            }else{
-                this.displayTimer(this.currentRemainingTime);
+            if (this.currentRemainingTime >= 0) {
+                this.displayTimer(this.currentRemainingTime--);
             }
         },
 
         setTimer: function(remainingTime){
             var timer = setInterval(function () {
-                controller.displayTimer(remainingTime);
+                controller.displayTimer(remainingTime--);
 
-                if (--remainingTime < 0) {
+                if (remainingTime < 0) {
                     clearInterval(timer);
                 }
             }, 1000);

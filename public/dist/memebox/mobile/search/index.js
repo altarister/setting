@@ -1407,6 +1407,7 @@ define(["slick"], function(__WEBPACK_EXTERNAL_MODULE_44__) { return webpackJsonp
 	        },
 	
 	        initialize: function initialize() {
+	            this.remainingTimeController();
 	            this.makeDealList();
 	        },
 	
@@ -1415,7 +1416,6 @@ define(["slick"], function(__WEBPACK_EXTERNAL_MODULE_44__) { return webpackJsonp
 	
 	            $element.append($ul);
 	            this.addDealListItem($ul);
-	            this.remainingTimeController();
 	            this.addFunction();
 	        },
 	
@@ -1499,19 +1499,9 @@ define(["slick"], function(__WEBPACK_EXTERNAL_MODULE_44__) { return webpackJsonp
 	        currentRemainingTime: deal.remainingTime.seconds,
 	
 	        initialize: function initialize() {
-	            console.log(deal.sold);
-	
 	            this.makeDealElement(deal);
 	            utility.uiEnhancements.call(this);
 	            this.eventListener();
-	
-	            if (this.currentRemainingTime) {
-	                if (window.deal_RemainingTimeInterval) {
-	                    $.subscribe('deal.remainingTime', $.proxy(this.remainingTimeEvent, this));
-	                } else {
-	                    this.setTimer(deal.remainingTime.seconds);
-	                }
-	            }
 	        },
 	
 	        makeDealElement: function makeDealElement(deal) {
@@ -1533,6 +1523,34 @@ define(["slick"], function(__WEBPACK_EXTERNAL_MODULE_44__) { return webpackJsonp
 	            this.element.find(this.ui.info).append(template);
 	        },
 	
+	        eventListener: function eventListener() {
+	            var dealImage = new Image();
+	            $(dealImage).on('load', $.proxy(this.imageEvent, this));
+	            dealImage.src = deal.image.src;
+	
+	            if (this.currentRemainingTime) {
+	                if (window.deal_RemainingTimeInterval) {
+	                    $.subscribe('deal.remainingTime', $.proxy(this.remainingTimeEvent, this));
+	                } else {
+	                    this.setTimer(deal.remainingTime.seconds);
+	                }
+	            }
+	
+	            this.element.off().on('click', this.ui.__uiString.link, $.proxy(this.linkEvent, this));
+	        },
+	
+	        //클릭전에 tracking 코드 실행
+	        linkEvent: function linkEvent(event) {
+	            if (event.isDefaultPrevented()) {
+	                tracking.analytics.track(deal.tracking.analytics);
+	            } else {
+	                if (typeof trackFunction === 'function') {
+	                    trackFunction(deal.tracking.analytics);
+	                }
+	            }
+	            return true;
+	        },
+	
 	        imageEvent: function imageEvent(event) {
 	            if (deal.image.type != 'wide') return;
 	
@@ -1546,40 +1564,17 @@ define(["slick"], function(__WEBPACK_EXTERNAL_MODULE_44__) { return webpackJsonp
 	            }
 	        },
 	
-	        eventListener: function eventListener() {
-	            this.element.off().on('click', this.ui.__uiString.link, $.proxy(this.linkEvent, this));
-	
-	            var dealImage = new Image();
-	            $(dealImage).on('load', $.proxy(this.imageEvent, this));
-	            dealImage.src = deal.image.src;
-	        },
-	
-	        //클릭전에 tracking 코드 실행
-	        linkEvent: function linkEvent(event) {
-	            //event.preventDefault();
-	            if (event.isDefaultPrevented()) {
-	                tracking.analytics.track(deal.tracking.analytics);
-	            } else {
-	                if (typeof trackFunction === 'function') {
-	                    trackFunction(deal.tracking.analytics);
-	                }
-	            }
-	            return true;
-	        },
-	
 	        remainingTimeEvent: function remainingTimeEvent() {
-	            if (this.currentRemainingTime < 0) {
-	                return;
-	            } else {
-	                this.displayTimer(this.currentRemainingTime);
+	            if (this.currentRemainingTime >= 0) {
+	                this.displayTimer(this.currentRemainingTime--);
 	            }
 	        },
 	
 	        setTimer: function setTimer(remainingTime) {
 	            var timer = setInterval(function () {
-	                controller.displayTimer(remainingTime);
+	                controller.displayTimer(remainingTime--);
 	
-	                if (--remainingTime < 0) {
+	                if (remainingTime < 0) {
 	                    clearInterval(timer);
 	                }
 	            }, 1000);

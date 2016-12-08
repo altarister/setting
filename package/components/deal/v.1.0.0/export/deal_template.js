@@ -4,18 +4,7 @@ var deal_templates = {
         var template = '';
         template += '<div id="'+data.id+'" class="memebox-deal deal_type_'+data.view.type+'_'+data.image.type+'_'+data.view.expression+'">';
         template += '   <div class="memebox-deal-info">';
-        template +=         this.image(data);
-        template +=         this.name(data);
-        template +=         this.price(data.price);
-        template +=         this.status(data);
-        template +=         this.delivery(data);
         template += '   </div>';
-        if(data.sold.out){
-            template += this.out(data);
-        }else{
-            template += this.link(data);
-        }
-        template +=     this.poke(data);
         template += '</div>';
         return template;
     },

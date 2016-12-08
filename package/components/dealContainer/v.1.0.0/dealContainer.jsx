@@ -19,6 +19,7 @@ var DealContainer = function ($element, lineAmount, deals) {
         },
 
         initialize: function () {
+            this.remainingTimeController();
             this.makeDealList()
         },
 
@@ -27,7 +28,6 @@ var DealContainer = function ($element, lineAmount, deals) {
 
             $element.append($ul);
             this.addDealListItem($ul);
-            this.remainingTimeController();
             this.addFunction();
         },
 
