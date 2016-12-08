@@ -115,51 +115,31 @@ $_star_review: $assetHost+"/components/deal/v.1.0.0/mobile/_image/_star_review_m
 }
 
 
-/* 상품 가격 관련 내용 */
+/* ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ 상품 가격 관련 내용 ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ */
 .deal_type_vertical_wide_2 .memebox-deal-price-wrap {
     display: none;
 }
-.deal_type_vertical_wide_2 .memebox-deal-price-origin {
-    display: none;
-}
-.deal_type_vertical_wide_2 .memebox-deal-price-origin .memebox-deal-price-unit {
-    font-style: normal;
-}
-.deal_type_vertical_wide_2 .memebox-deal-price-origin .memebox-deal-price-info {
-    display: none;
-}
-.deal_type_vertical_wide_2 .memebox-deal-price-discount {
-    display: none;
-}
-.deal_type_vertical_wide_2 .memebox-deal-price-discount .memebox-deal-price-info {
-    display: none;
-}
-.deal_type_vertical_wide_2 .memebox-deal-price-discount .memebox-deal-price-value {
-    display: none;
-}
-.deal_type_vertical_wide_2 .memebox-deal-price-discount .memebox-deal-price-unit {
-    display: none;
-}
-.deal_type_vertical_wide_2 .memebox-deal-price-result {
-    display: none;
-}
-.deal_type_vertical_wide_2 .memebox-deal-price-result .memebox-deal-price-info {
-    display: none;
-}
-.deal_type_vertical_wide_2 .memebox-deal-price-result .memebox-deal-price-value {
-    display: none;
-}
-.deal_type_vertical_wide_2 .memebox-deal-price-result .memebox-deal-price-unit {
-    display: none;
-}
-.deal_type_vertical_wide_2 .memebox-deal-price-result {
-}
-.deal_type_vertical_wide_2 .memebox-deal-price-info {}
-.deal_type_vertical_wide_2 .memebox-deal-price-value {}
-.deal_type_vertical_wide_2 .memebox-deal-price-unit {}
+/* 상품 할인 */
+.deal_type_vertical_wide_2 .memebox-deal-price-discount {}
+.deal_type_vertical_wide_2 .memebox-deal-price-discount .memebox-deal-price-info {}
+.deal_type_vertical_wide_2 .memebox-deal-price-discount .memebox-deal-price-value {}
+.deal_type_vertical_wide_2 .memebox-deal-price-discount .memebox-deal-price-unit {}
+
+/* 상품 초기 가격 */
+.deal_type_vertical_wide_2 .memebox-deal-price-origin {}
+.deal_type_vertical_wide_2 .memebox-deal-price-origin .memebox-deal-price-info {}
+.deal_type_vertical_wide_2 .memebox-deal-price-origin .memebox-deal-price-value {}
+.deal_type_vertical_wide_2 .memebox-deal-price-origin .memebox-deal-price-unit {}
+
+/* 상품 청구 가격 */
+.deal_type_vertical_wide_2 .memebox-deal-price-result {}
+.deal_type_vertical_wide_2 .memebox-deal-price-result .memebox-deal-price-info {}
+.deal_type_vertical_wide_2 .memebox-deal-price-result .memebox-deal-price-value {}
+.deal_type_vertical_wide_2 .memebox-deal-price-result .memebox-deal-price-unit {}
+.deal_type_vertical_wide_2 .memebox-deal-price-result .memebox-deal-price-from {}
 
 
-/* 상품 배송내용 */
+/* ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ 상품 배송내용  ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ */
 .deal_type_vertical_wide_2 .memebox-deal-delivery {
     display: none;
     position: relative;

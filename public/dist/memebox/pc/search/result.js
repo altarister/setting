@@ -70,71 +70,12 @@ define(function() { return webpackJsonp([9],[
 	            option: {
 	                MaximumPurchaseQuantity: 10,
 	                basicProduct: '#EX400 문라이즈',
-	                products: [{
-	                    id: 'i1',
-	                    name: '나이키 ',
-	                    category: {
-	                        type: { title: '상품명', value: '에어', price: '11,000' }
-	                    },
-	                    stock: 30
-	                }, {
-	                    id: 'i2',
-	                    name: '나이키 ',
-	                    category: {
-	                        type: { title: '상품명', value: '에어', price: '11,000' }
-	                    },
-	                    stock: 30
-	                }, {
-	                    id: 'i3',
-	                    name: '나이키 ',
-	                    category: {
-	                        type: { title: '상품명', value: '에어', price: '11,000' }
-	                    },
-	                    stock: 30
-	                }, {
-	                    id: 'i4',
-	                    name: '나이키 ',
-	                    category: {
-	                        type: { title: '상품명', value: '에어', price: '11,000' }
-	                    },
-	                    stock: 30
-	                }, {
-	                    id: 'i5',
-	                    name: '나이키 ',
-	                    category: {
-	                        type: { title: '상품명', value: '조던', price: '12,000' }
-	                    },
-	                    stock: 30
-	                }, {
-	                    id: 'i6',
-	                    name: '나이키 ',
-	                    category: {
-	                        type: { title: '상품명', value: '조던', price: '12,000' }
-	                    },
-	                    stock: 30
-	                }, {
-	                    id: 'i7',
-	                    name: '나이키 ',
-	                    category: {
-	                        type: { title: '상품명', value: '조던', price: '12,000' }
-	                    },
-	                    stock: 30
-	                }, {
-	                    id: 'i8',
-	                    name: '나이키 ',
-	                    category: {
-	                        type: { title: '상품명', value: '조던', price: '12,000' }
-	                    },
-	                    stock: 30
-	                }],
 	                // products: [
 	                //     {
 	                //         id: 'i1',
 	                //         name:'나이키 ',
 	                //         category: {
-	                //             type: {title: '상품명', value: '에어', price: '11,000'},
-	                //             color: {title: '색상', value: 'red'},
-	                //             size: {title: '사이즈', value: '220'}
+	                //             type: {title: '상품명', value: '에어', price: '11,000'}
 	                //         },
 	                //         stock: 30
 	                //     },
@@ -142,18 +83,14 @@ define(function() { return webpackJsonp([9],[
 	                //         id: 'i2',
 	                //         name:'나이키 ',
 	                //         category: {
-	                //             type: {title: '상품명', value: '에어', price: '11,000'},
-	                //             color: {title: '색상', value: 'black'},
-	                //             size: {title: '사이즈', value: '230'}
+	                //             type: {title: '상품명', value: '에어', price: '11,000'}
 	                //         },
 	                //         stock: 30
 	                //     },{
 	                //         id: 'i3',
 	                //         name:'나이키 ',
 	                //         category: {
-	                //             type: {title: '상품명', value: '에어', price: '11,000'},
-	                //             color: {title: '색상', value: 'blue'},
-	                //             size: {title: '사이즈', value: '220'}
+	                //             type: {title: '상품명', value: '에어', price: '11,000'}
 	                //         },
 	                //         stock: 30
 	                //     },
@@ -161,18 +98,14 @@ define(function() { return webpackJsonp([9],[
 	                //         id: 'i4',
 	                //         name:'나이키 ',
 	                //         category: {
-	                //             type: {title: '상품명', value: '에어', price: '11,000'},
-	                //             color: {title: '색상', value: 'blue'},
-	                //             size: {title: '사이즈', value: '230'}
+	                //             type: {title: '상품명', value: '에어', price: '11,000'}
 	                //         },
 	                //         stock: 30
 	                //     },{
 	                //         id: 'i5',
 	                //         name:'나이키 ',
 	                //         category: {
-	                //             type: {title: '상품명', value: '조던', price: '12,000'},
-	                //             color: {title: '색상', value: 'red'},
-	                //             size: {title: '사이즈', value: '220'}
+	                //             type: {title: '상품명', value: '조던', price: '12,000'}
 	                //         },
 	                //         stock: 30
 	                //     },
@@ -180,18 +113,14 @@ define(function() { return webpackJsonp([9],[
 	                //         id: 'i6',
 	                //         name:'나이키 ',
 	                //         category: {
-	                //             type: {title: '상품명', value: '조던', price: '12,000'},
-	                //             color: {title: '색상', value: 'red'},
-	                //             size: {title: '사이즈', value: '230'}
+	                //             type: {title: '상품명', value: '조던', price: '12,000'}
 	                //         },
 	                //         stock: 30
 	                //     },{
 	                //         id: 'i7',
 	                //         name:'나이키 ',
 	                //         category: {
-	                //             type: {title: '상품명', value: '조던', price: '12,000'},
-	                //             color: {title: '색상', value: 'blue'},
-	                //             size: {title: '사이즈', value: '220'}
+	                //             type: {title: '상품명', value: '조던', price: '12,000'}
 	                //         },
 	                //         stock: 30
 	                //     },
@@ -199,13 +128,84 @@ define(function() { return webpackJsonp([9],[
 	                //         id: 'i8',
 	                //         name:'나이키 ',
 	                //         category: {
-	                //             type: {title: '상품명', value: '조던', price: '12,000'},
-	                //             color: {title: '색상', value: 'blue'},
-	                //             size: {title: '사이즈', value: '230'}
+	                //             type: {title: '상품명', value: '조던', price: '12,000'}
 	                //         },
 	                //         stock: 30
 	                //     }
 	                // ],
+	                products: [{
+	                    id: 'i1',
+	                    name: '나이키 ',
+	                    category: {
+	                        type: { title: '상품명', value: '에어', price: '11,000' },
+	                        color: { title: '색상', value: 'red' },
+	                        size: { title: '사이즈', value: '220' }
+	                    },
+	                    stock: 30
+	                }, {
+	                    id: 'i2',
+	                    name: '나이키 ',
+	                    category: {
+	                        type: { title: '상품명', value: '에어', price: '11,000' },
+	                        color: { title: '색상', value: 'black' },
+	                        size: { title: '사이즈', value: '230' }
+	                    },
+	                    stock: 30
+	                }, {
+	                    id: 'i3',
+	                    name: '나이키 ',
+	                    category: {
+	                        type: { title: '상품명', value: '에어', price: '11,000' },
+	                        color: { title: '색상', value: 'blue' },
+	                        size: { title: '사이즈', value: '220' }
+	                    },
+	                    stock: 30
+	                }, {
+	                    id: 'i4',
+	                    name: '나이키 ',
+	                    category: {
+	                        type: { title: '상품명', value: '에어', price: '11,000' },
+	                        color: { title: '색상', value: 'blue' },
+	                        size: { title: '사이즈', value: '230' }
+	                    },
+	                    stock: 30
+	                }, {
+	                    id: 'i5',
+	                    name: '나이키 ',
+	                    category: {
+	                        type: { title: '상품명', value: '조던', price: '12,000' },
+	                        color: { title: '색상', value: 'red' },
+	                        size: { title: '사이즈', value: '220' }
+	                    },
+	                    stock: 30
+	                }, {
+	                    id: 'i6',
+	                    name: '나이키 ',
+	                    category: {
+	                        type: { title: '상품명', value: '조던', price: '12,000' },
+	                        color: { title: '색상', value: 'red' },
+	                        size: { title: '사이즈', value: '230' }
+	                    },
+	                    stock: 30
+	                }, {
+	                    id: 'i7',
+	                    name: '나이키 ',
+	                    category: {
+	                        type: { title: '상품명', value: '조던', price: '12,000' },
+	                        color: { title: '색상', value: 'blue' },
+	                        size: { title: '사이즈', value: '220' }
+	                    },
+	                    stock: 30
+	                }, {
+	                    id: 'i8',
+	                    name: '나이키 ',
+	                    category: {
+	                        type: { title: '상품명', value: '조던', price: '12,000' },
+	                        color: { title: '색상', value: 'blue' },
+	                        size: { title: '사이즈', value: '230' }
+	                    },
+	                    stock: 30
+	                }],
 	                items: [{
 	                    id: 'i1',
 	                    name: '나이키 에어',
@@ -1724,22 +1724,27 @@ define(function() { return webpackJsonp([9],[
 	            info: '.memebox-deal-info',
 	            timer: '.memebox-deal-timer-value',
 	            poke: '.memebox-deal-poke',
-	            link: '.memebox-deal-link'
+	            link: '.memebox-deal-link',
+	            dealImage: '.memebox-deal-image'
 	        },
 
 	        currentRemainingTime: deal.remainingTime.seconds,
 
 	        initialize: function initialize() {
+	            console.log(deal.sold);
+
 	            this.makeDealElement(deal);
 	            utility.uiEnhancements.call(this);
 	            this.eventListener();
-	            if (this.currentRemainingTime) {
-	                if (window.deal_RemainingTimeInterval) {
-	                    $.subscribe('deal.remainingTime', $.proxy(this.remainingTimeEvent, this));
-	                } else {
-	                    this.setTimer(deal.remainingTime.seconds);
-	                }
-	            }
+
+	            // if(this.currentRemainingTime){
+	            //     if(window.deal_RemainingTimeInterval){
+	            //         $.subscribe('deal.remainingTime', $.proxy(this.remainingTimeEvent, this));
+	            //     }else{
+	            //         this.setTimer(deal.remainingTime.seconds);
+	            //     }
+	            // }
+	            this.setTimer(deal.remainingTime.seconds);
 	        },
 
 	        makeDealElement: function makeDealElement(deal) {
@@ -1761,9 +1766,27 @@ define(function() { return webpackJsonp([9],[
 	            this.element.find(this.ui.info).append(template);
 	        },
 
+	        imageEvent: function imageEvent(event) {
+	            if (deal.image.type != 'wide') return;
+
+	            var imageWidth = this.ui.dealImage.width();
+	            var imageHeight = this.ui.dealImage.height();
+	            if (imageWidth === imageHeight) {
+	                this.ui.dealImage.css({
+	                    width: 'auto',
+	                    height: imageWidth / 2
+	                });
+	            }
+	        },
+
 	        eventListener: function eventListener() {
 	            this.element.off().on('click', this.ui.__uiString.link, $.proxy(this.linkEvent, this));
+
+	            var dealImage = new Image();
+	            $(dealImage).on('load', $.proxy(this.imageEvent, this));
+	            dealImage.src = deal.image.src;
 	        },
+
 	        //클릭전에 tracking 코드 실행
 	        linkEvent: function linkEvent(event) {
 	            //event.preventDefault();
@@ -1794,8 +1817,8 @@ define(function() { return webpackJsonp([9],[
 
 	                if (--remainingTime < 0) {
 	                    clearInterval(timer);
-	                    controller.ui.link.remove();
-	                    controller.element.append(deal_templates.out());
+	                    //controller.ui.link.remove();
+	                    //controller.element.append(deal_templates.out());
 	                }
 	            }, 1000);
 	            this.displayTimer(remainingTime);
@@ -1942,24 +1965,16 @@ define(function() { return webpackJsonp([9],[
 
 	var Handlebars = __webpack_require__(6);
 	function __default(obj) { return obj && (obj.__esModule ? obj["default"] : obj); }
-	module.exports = (Handlebars["default"] || Handlebars).template({"1":function(container,depth0,helpers,partials,data) {
+	module.exports = (Handlebars["default"] || Handlebars).template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
 	    var stack1, alias1=container.lambda, alias2=container.escapeExpression;
 
-	  return "        <strong class=\"memebox-deal-price-discount\">\n            <strong class=\"memebox-deal-price-value\">"
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.discount : depth0)) != null ? stack1.value : stack1), depth0))
-	    + "</strong><!--\n            --><em class=\"memebox-deal-price-unit\">"
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.discount : depth0)) != null ? stack1.unit : stack1), depth0))
-	    + "</em>\n            <span class=\"memebox-deal-price-info\">"
+	  return "<p class=\"memebox-deal-price-wrap\">\n    <strong class=\"memebox-deal-price-discount\">\n        <span class=\"memebox-deal-price-info\">"
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.discount : depth0)) != null ? stack1.info : stack1), depth0))
-	    + "</span>\n        </strong>\n";
-	},"3":function(container,depth0,helpers,partials,data) {
-	    return "        <strong class=\"memebox-deal-price-discount\">\n            <strong class=\"memebox-deal-price-value\">미미가격</strong>\n        </strong>\n";
-	},"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
-	    var stack1, alias1=container.lambda, alias2=container.escapeExpression;
-
-	  return "<p class=\"memebox-deal-price-wrap\">\n"
-	    + ((stack1 = helpers["if"].call(depth0 != null ? depth0 : {},((stack1 = (depth0 != null ? depth0.discount : depth0)) != null ? stack1.value : stack1),{"name":"if","hash":{},"fn":container.program(1, data, 0),"inverse":container.program(3, data, 0),"data":data})) != null ? stack1 : "")
-	    + "   <strong class=\"memebox-deal-price-origin\">\n       <strong class=\"memebox-deal-price-value\">"
+	    + "</span>\n        <strong class=\"memebox-deal-price-value\">"
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.discount : depth0)) != null ? stack1.value : stack1), depth0))
+	    + "</strong><!--\n        --><em class=\"memebox-deal-price-unit\">"
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.discount : depth0)) != null ? stack1.unit : stack1), depth0))
+	    + "</em>\n    </strong>\n   <strong class=\"memebox-deal-price-origin\">\n       <strong class=\"memebox-deal-price-value\">"
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.origin : depth0)) != null ? stack1.value : stack1), depth0))
 	    + "</strong><!--\n       --><em class=\"memebox-deal-price-unit\">"
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.origin : depth0)) != null ? stack1.unit : stack1), depth0))

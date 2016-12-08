@@ -109,9 +109,6 @@ var Deal = function (deal, trackFunction) {
         remainingTimeEvent: function(){
             if (this.currentRemainingTime < 0) {
                 return;
-            }else if (--this.currentRemainingTime < 0) {
-                this.ui.link.remove();
-                this.element.append(deal_templates.out());
             }else{
                 this.displayTimer(this.currentRemainingTime);
             }
@@ -123,8 +120,6 @@ var Deal = function (deal, trackFunction) {
 
                 if (--remainingTime < 0) {
                     clearInterval(timer);
-                    //controller.ui.link.remove();
-                    //controller.element.append(deal_templates.out());
                 }
             }, 1000);
             this.displayTimer(remainingTime);

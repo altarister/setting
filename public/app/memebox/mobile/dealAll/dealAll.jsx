@@ -24,24 +24,25 @@ var DealView_type_all = function(){
                 main: '[없었던일로] 마음껏 먹고 없었던일로! 체지방, 이제 없었던 일로 하세요!',
                 sub: '체지방, 이제 없었던 일로 하세요!'
             },
-            badge: 'badge',
+            badge: 'badge',// 같은거. sticker
             sticker: 'freebie',
             remainingTime: {
                 seconds: 3610
             },
             review: {
-                average: 50,
+                average: 50,// 별점
                 count: 50
             },
             ranking: 1,
             sold: {
                 out: false,
-                soon: null
+                soon: null //품절임박
             },
-            delivery: {
+            delivery: {// 테그
                 isFree: true,
                 condition: '조건부무료배송',
-                method: '미미배송'
+                method: '미미배송',
+                price: {info: '', value: '25,000', unit: '원'}
             },
             poke: {
                 id: 'zzimCheck506935'
@@ -56,9 +57,9 @@ var DealView_type_all = function(){
                 }
             },
             price: {
-                discount: {info: '', value: '50', unit: '%'},
+                discount: {info: '최대', value: '50', unit: '%' }, //최대 미미가격
                 origin: {info: '', value: '32,000', unit: '원'},
-                result: {info: '', value: '16,000', unit: '원'}
+                result: {info: '미미가격', value: '16,000', unit: '원', from: '~'}
             },
             option: {
                 MaximumPurchaseQuantity: 10,
@@ -272,9 +273,9 @@ var DealView_type_all = function(){
                     forDeal.sold = $.extend({}, forDeal.sold, {out: false, soon: '품절임박입니다.'});
                 }
                 if(index > 2){
-                    forDeal.price = $.extend({}, forDeal.price, {discount: {info: '', value: null, unit: '%'}});
+                    forDeal.price = $.extend({}, forDeal.price, {discount: {info: null, value: null, unit: null}});
                 }else{
-                    forDeal.price = $.extend({}, forDeal.price, {discount: {info: '', value: index, unit: '%'}});
+                    forDeal.price = $.extend({}, forDeal.price, {discount: {info: '최대', value: index, unit: '%'}});
                 }
                 if(index > 1){
                     forDeal.remainingTime = $.extend({}, forDeal.remainingTime, {seconds: null});
@@ -287,8 +288,6 @@ var DealView_type_all = function(){
                 }else{
                     forDeal.image = $.extend({}, forDeal.image, { type: imageType, src: this.images[index]});
                 }
-
-
 
                 this.deals.push(forDeal);
             }

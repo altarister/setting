@@ -149,65 +149,67 @@ $_star_review: $assetHost+"/components/deal/v.1.0.0/mobile/_image/_star_review_m
 }
 
 
-/* 상품 가격 관련 내용 */
+/* ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ 상품 가격 관련 내용 ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ */
 .deal_type_vertical_square_10 .memebox-deal-price-wrap {
     margin: 0 0 2px 0;
     padding: 0 8px;
+    font-family: 나눔고딕, NanumGothic, 돋움, Dotum, AppleSDGothic, AppleGothic, 굴림, Gulim, sans-serif;
+    font-size: 13px;
+    letter-spacing: -1px;
 }
 /* 상품 할인 */
 .deal_type_vertical_square_10 .memebox-deal-price-discount {
-    font-family: 나눔고딕, NanumGothic, 돋움, Dotum, AppleSDGothic, AppleGothic, 굴림, Gulim, sans-serif;
-    //font-family: HelveticaNeue-Light, AppleSDGothicNeo-Light, 'Malgun Gothic', '맑은 고딕', sans-serif;
-    letter-spacing: -1px;
     font-weight: bold;
     color: #ff5073;
 }
-.deal_type_vertical_square_10 .memebox-deal-price-discount .memebox-deal-price-value {
-    font-size: 13px;
-}
+.deal_type_vertical_square_10 .memebox-deal-price-discount .memebox-deal-price-info {}
+.deal_type_vertical_square_10 .memebox-deal-price-discount .memebox-deal-price-value {}
 .deal_type_vertical_square_10 .memebox-deal-price-discount .memebox-deal-price-unit {
     font-style: normal;
-    font-size: 10px;
 }
-.deal_type_vertical_square_10 .memebox-deal-price-discount .memebox-deal-price-info {
-    display: none;
-}
+
 /* 상품 초기 가격 */
 .deal_type_vertical_square_10 .memebox-deal-price-origin {
     display: none;
 }
-.deal_type_vertical_square_10 .memebox-deal-price-origin .memebox-deal-price-unit {}
 .deal_type_vertical_square_10 .memebox-deal-price-origin .memebox-deal-price-info {}
+.deal_type_vertical_square_10 .memebox-deal-price-origin .memebox-deal-price-value {}
+.deal_type_vertical_square_10 .memebox-deal-price-origin .memebox-deal-price-unit {}
+
 /* 상품 청구 가격 */
 .deal_type_vertical_square_10 .memebox-deal-price-result {
-    margin-top: -3px;
+    //margin-top: -3px;
     font-family: 나눔고딕, NanumGothic, 돋움, Dotum, AppleSDGothic, AppleGothic, 굴림, Gulim, sans-serif;;
     font-size: 13px;
     letter-spacing: -1px;
-    font-weight: bold;
     color: #555;
 }
 .deal_type_vertical_square_10 .memebox-deal-price-result .memebox-deal-price-info {
-    display: none;
+    font-weight: bold;
+    color: #ff5073;
 }
+.deal_type_vertical_square_10 .memebox-deal-price-result .memebox-deal-price-value {}
 .deal_type_vertical_square_10 .memebox-deal-price-result .memebox-deal-price-unit {
-    display: none;
+    font-style: normal;
 }
+.deal_type_vertical_square_10 .memebox-deal-price-result .memebox-deal-price-from {}
 
 
-/* 상품 배송내용 */
+/* ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ 상품 배송내용  ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ */
 .deal_type_vertical_square_10 .memebox-deal-delivery {
     position: relative;
     text-align: right;
     line-height: 12px;
     font-size: 10px;
 }
+/* ~~무료배송 */
 .deal_type_vertical_square_10 .memebox-deal-delivery-shipping {
     display: inline-block;
     padding: 1px 3px 0;
     color: #5895da;
     background-color: #f1f6fc;
 }
+/* 배송방법 */
 .deal_type_vertical_square_10 .memebox-deal-delivery-type {
     display: inline-block;
     padding: 1px 3px 0;

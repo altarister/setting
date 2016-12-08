@@ -1492,22 +1492,27 @@ define(function() { return webpackJsonp([8],[
 	            info: '.memebox-deal-info',
 	            timer: '.memebox-deal-timer-value',
 	            poke: '.memebox-deal-poke',
-	            link: '.memebox-deal-link'
+	            link: '.memebox-deal-link',
+	            dealImage: '.memebox-deal-image'
 	        },
 
 	        currentRemainingTime: deal.remainingTime.seconds,
 
 	        initialize: function initialize() {
+	            console.log(deal.sold);
+
 	            this.makeDealElement(deal);
 	            utility.uiEnhancements.call(this);
 	            this.eventListener();
-	            if (this.currentRemainingTime) {
-	                if (window.deal_RemainingTimeInterval) {
-	                    $.subscribe('deal.remainingTime', $.proxy(this.remainingTimeEvent, this));
-	                } else {
-	                    this.setTimer(deal.remainingTime.seconds);
-	                }
-	            }
+
+	            // if(this.currentRemainingTime){
+	            //     if(window.deal_RemainingTimeInterval){
+	            //         $.subscribe('deal.remainingTime', $.proxy(this.remainingTimeEvent, this));
+	            //     }else{
+	            //         this.setTimer(deal.remainingTime.seconds);
+	            //     }
+	            // }
+	            this.setTimer(deal.remainingTime.seconds);
 	        },
 
 	        makeDealElement: function makeDealElement(deal) {
@@ -1529,9 +1534,27 @@ define(function() { return webpackJsonp([8],[
 	            this.element.find(this.ui.info).append(template);
 	        },
 
+	        imageEvent: function imageEvent(event) {
+	            if (deal.image.type != 'wide') return;
+
+	            var imageWidth = this.ui.dealImage.width();
+	            var imageHeight = this.ui.dealImage.height();
+	            if (imageWidth === imageHeight) {
+	                this.ui.dealImage.css({
+	                    width: 'auto',
+	                    height: imageWidth / 2
+	                });
+	            }
+	        },
+
 	        eventListener: function eventListener() {
 	            this.element.off().on('click', this.ui.__uiString.link, $.proxy(this.linkEvent, this));
+
+	            var dealImage = new Image();
+	            $(dealImage).on('load', $.proxy(this.imageEvent, this));
+	            dealImage.src = deal.image.src;
 	        },
+
 	        //클릭전에 tracking 코드 실행
 	        linkEvent: function linkEvent(event) {
 	            //event.preventDefault();
@@ -1562,8 +1585,8 @@ define(function() { return webpackJsonp([8],[
 
 	                if (--remainingTime < 0) {
 	                    clearInterval(timer);
-	                    controller.ui.link.remove();
-	                    controller.element.append(deal_templates.out());
+	                    //controller.ui.link.remove();
+	                    //controller.element.append(deal_templates.out());
 	                }
 	            }, 1000);
 	            this.displayTimer(remainingTime);
@@ -1710,24 +1733,16 @@ define(function() { return webpackJsonp([8],[
 
 	var Handlebars = __webpack_require__(6);
 	function __default(obj) { return obj && (obj.__esModule ? obj["default"] : obj); }
-	module.exports = (Handlebars["default"] || Handlebars).template({"1":function(container,depth0,helpers,partials,data) {
+	module.exports = (Handlebars["default"] || Handlebars).template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
 	    var stack1, alias1=container.lambda, alias2=container.escapeExpression;
 
-	  return "        <strong class=\"memebox-deal-price-discount\">\n            <strong class=\"memebox-deal-price-value\">"
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.discount : depth0)) != null ? stack1.value : stack1), depth0))
-	    + "</strong><!--\n            --><em class=\"memebox-deal-price-unit\">"
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.discount : depth0)) != null ? stack1.unit : stack1), depth0))
-	    + "</em>\n            <span class=\"memebox-deal-price-info\">"
+	  return "<p class=\"memebox-deal-price-wrap\">\n    <strong class=\"memebox-deal-price-discount\">\n        <span class=\"memebox-deal-price-info\">"
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.discount : depth0)) != null ? stack1.info : stack1), depth0))
-	    + "</span>\n        </strong>\n";
-	},"3":function(container,depth0,helpers,partials,data) {
-	    return "        <strong class=\"memebox-deal-price-discount\">\n            <strong class=\"memebox-deal-price-value\">미미가격</strong>\n        </strong>\n";
-	},"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
-	    var stack1, alias1=container.lambda, alias2=container.escapeExpression;
-
-	  return "<p class=\"memebox-deal-price-wrap\">\n"
-	    + ((stack1 = helpers["if"].call(depth0 != null ? depth0 : {},((stack1 = (depth0 != null ? depth0.discount : depth0)) != null ? stack1.value : stack1),{"name":"if","hash":{},"fn":container.program(1, data, 0),"inverse":container.program(3, data, 0),"data":data})) != null ? stack1 : "")
-	    + "   <strong class=\"memebox-deal-price-origin\">\n       <strong class=\"memebox-deal-price-value\">"
+	    + "</span>\n        <strong class=\"memebox-deal-price-value\">"
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.discount : depth0)) != null ? stack1.value : stack1), depth0))
+	    + "</strong><!--\n        --><em class=\"memebox-deal-price-unit\">"
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.discount : depth0)) != null ? stack1.unit : stack1), depth0))
+	    + "</em>\n    </strong>\n   <strong class=\"memebox-deal-price-origin\">\n       <strong class=\"memebox-deal-price-value\">"
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.origin : depth0)) != null ? stack1.value : stack1), depth0))
 	    + "</strong><!--\n       --><em class=\"memebox-deal-price-unit\">"
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.origin : depth0)) != null ? stack1.unit : stack1), depth0))

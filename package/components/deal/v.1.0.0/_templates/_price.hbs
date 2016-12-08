@@ -1,23 +1,23 @@
 <p class="memebox-deal-price-wrap">
     {{#if discount.value}}
         <strong class="memebox-deal-price-discount">
+            <span class="memebox-deal-price-info">{{discount.info}}</span>
             <strong class="memebox-deal-price-value">{{discount.value}}</strong><!--
             --><em class="memebox-deal-price-unit">{{discount.unit}}</em>
-            <span class="memebox-deal-price-info">{{discount.info}}</span>
-        </strong>
-    {{else}}
-        <strong class="memebox-deal-price-discount">
-            <strong class="memebox-deal-price-value">미미가격</strong>
         </strong>
     {{/if}}
-   <strong class="memebox-deal-price-origin">
-       <strong class="memebox-deal-price-value">{{origin.value}}</strong><!--
-       --><em class="memebox-deal-price-unit">{{origin.unit}}</em>
-       <span class="memebox-deal-price-info">{{origin.info}}</span>
-   </strong>
-   <strong class="memebox-deal-price-result">
-       <strong class="memebox-deal-price-value">{{result.value}}</strong><!--
-       --><em class="memebox-deal-price-unit">{{result.unit}}</em>
-       <span class="memebox-deal-price-info">{{result.info}}</span>
-   </strong>
+    <strong class="memebox-deal-price-origin">
+        <span class="memebox-deal-price-info">{{origin.info}}</span>
+        <strong class="memebox-deal-price-value">{{origin.value}}</strong><!--
+        --><em class="memebox-deal-price-unit">{{origin.unit}}</em>
+    </strong>
+    <strong class="memebox-deal-price-result">
+        {{#if discount.value}}
+        {{else}}
+            <span class="memebox-deal-price-info">{{result.info}}</span>
+        {{/if}}
+        <strong class="memebox-deal-price-value">{{result.value}}</strong><!--
+        --><em class="memebox-deal-price-unit">{{result.unit}}</em><!--
+        --><span class="memebox-deal-price-from">{{result.from}}</span>
+    </strong>
 </p>
