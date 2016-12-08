@@ -42,14 +42,14 @@ var Deal = function (deal, trackFunction) {
             utility.uiEnhancements.call(this);
             this.eventListener();
 
-            // if(this.currentRemainingTime){
-            //     if(window.deal_RemainingTimeInterval){
-            //         $.subscribe('deal.remainingTime', $.proxy(this.remainingTimeEvent, this));
-            //     }else{
-            //         this.setTimer(deal.remainingTime.seconds);
-            //     }
-            // }
-            this.setTimer(deal.remainingTime.seconds);
+            if(this.currentRemainingTime){
+                if(window.deal_RemainingTimeInterval){
+                    $.subscribe('deal.remainingTime', $.proxy(this.remainingTimeEvent, this));
+                }else{
+                    this.setTimer(deal.remainingTime.seconds);
+                }
+            }
+
         },
 
         makeDealElement: function(deal){

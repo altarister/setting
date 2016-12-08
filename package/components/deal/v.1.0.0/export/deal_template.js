@@ -50,25 +50,26 @@ var deal_templates = {
     price: function (data) {
         var template = '';
         template += '<p class="memebox-deal-price-wrap">';
-        console.log('data.discount.value',data.discount.value);
         if(data.discount.value){
             template += '   <strong class="memebox-deal-price-discount">';
-            template += '       <strong class="memebox-deal-price-value">'+data.discount.value+'</strong><!--';
-            template += '       --><em class="memebox-deal-price-unit">'+data.discount.unit+'</em>';
             template += '       <span class="memebox-deal-price-info">'+data.discount.info+'</span>';
+            template += '       <strong class="memebox-deal-price-value">'+data.discount.value+'</strong>';
+            template += '       <em class="memebox-deal-price-unit">'+data.discount.unit+'</em>';
             template += '   </strong>';
         }
         template += '   <strong class="memebox-deal-price-origin">';
-        template += '       <strong class="memebox-deal-price-value">'+data.origin.value+'</strong><!--';
-        template += '       --><em class="memebox-deal-price-unit">'+data.origin.unit+'</em>';
         template += '       <span class="memebox-deal-price-info">'+data.origin.info+'</span>';
+        template += '       <strong class="memebox-deal-price-value">'+data.origin.value+'</strong>';
+        template += '       <em class="memebox-deal-price-unit">'+data.origin.unit+'</em>';
         template += '   </strong>';
         template += '   <strong class="memebox-deal-price-result">';
+        template += '       ';
         if(!data.discount.value) {
-            template += '       <strong class="memebox-deal-price-value">' + data.result.value + '</strong><!--';
+            template += '   <span class="memebox-deal-price-info">'+data.result.info+'</span>';
         }
-        template += '       --><em class="memebox-deal-price-unit">'+data.result.unit+'</em>';
-        template += '       <span class="memebox-deal-price-info">'+data.result.info+'</span>';
+        template += '       <strong class="memebox-deal-price-value">'+data.result.value+'</strong>';
+        template += '       <em class="memebox-deal-price-unit">'+data.result.unit+'</em>';
+        template += '       <span class="memebox-deal-price-from">'+data.result.from+'</span>';
         template += '   </strong>';
         template += '</p>';
         return template;

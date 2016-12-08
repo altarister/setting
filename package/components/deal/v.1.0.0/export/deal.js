@@ -3,9 +3,11 @@ var Deal = function (deal, trackFunction) {
 
         element: null,
         ui: {
-            timer: '.memebox-deal-timer-value'
+            info: '.memebox-deal-info'
+            , timer: '.memebox-deal-timer-value'
             , poke: '.memebox-deal-poke'
             , link: '.memebox-deal-link'
+            , dealImage: '.memebox-deal-image'
         },
 
         currentRemainingTime: deal.remainingTime.seconds,
@@ -14,6 +16,7 @@ var Deal = function (deal, trackFunction) {
             this.makeDealElement(deal);
             utility.uiEnhancements.call(this);
             this.eventListener();
+
             if(this.currentRemainingTime){
                 if(window.deal_RemainingTimeInterval){
                     $.subscribe('deal.remainingTime', $.proxy(this.remainingTimeEvent, this));
@@ -24,17 +27,35 @@ var Deal = function (deal, trackFunction) {
         },
 
         makeDealElement: function(deal){
-            this.element = deal_templates.layout(deal);
+            var template = '';
+
+            template += deal_templates.image(deal);
+            template += deal_templates.name(deal);
+            template += deal_templates.price(deal.price);
+            template += deal_templates.status(deal);
+            template += deal_templates.delivery(deal);
+            if(deal.sold.out){
+                template += deal_templates.out(deal);
+            }else{
+                template += deal_templates.link(deal);
+            }
+            template += deal_templates.poke(deal);
+
+            this.element = $(deal_templates.layout(deal));
+            this.element.find(this.ui.info).append(template);
         },
 
         eventListener: function(){
-
             this.element.off()
-                .on('click', this.ui.__uiString.link, $.proxy(this.linkEvent, this))
+                .on('click', this.ui.__uiString.link, $.proxy(this.linkEvent, this));
+
+            var dealImage = new Image();
+            $(dealImage).on('load', $.proxy(this.imageEvent, this));
+            dealImage.src = deal.image.src;
         },
+
         //클릭전에 tracking 코드 실행
         linkEvent: function(event){
-            //event.preventDefault();
             if(event.isDefaultPrevented()){
                 tracking.analytics.track(deal.tracking.analytics);
             }else{
@@ -45,12 +66,22 @@ var Deal = function (deal, trackFunction) {
             return true
         },
 
+        imageEvent : function(){
+            if(deal.image.type != 'wide') return;
+
+            var imageWidth = this.ui.dealImage.width();
+            var imageHeight = this.ui.dealImage.height();
+            if(imageWidth === imageHeight){
+                this.ui.dealImage.css({
+                    width: 'auto',
+                    height: imageWidth / 2
+                });
+            }
+        },
+
         remainingTimeEvent: function(){
             if (this.currentRemainingTime < 0) {
                 return;
-            }else if (--this.currentRemainingTime < 0) {
-                this.ui.link.remove();
-                this.element.append(deal_templates.out());
             }else{
                 this.displayTimer(this.currentRemainingTime);
             }
@@ -62,8 +93,6 @@ var Deal = function (deal, trackFunction) {
 
                 if (--remainingTime < 0) {
                     clearInterval(timer);
-                    controller.ui.link.remove();
-                    controller.element.append(deal_templates.out());
                 }
             }, 1000);
             this.displayTimer(remainingTime);
