@@ -51,15 +51,11 @@ var deal_templates = {
         var template = '';
         template += '<p class="memebox-deal-price-wrap">';
         console.log('data.discount.value',data.discount.value);
-        if(data.discount.value <= 0){
+        if(data.discount.value){
             template += '   <strong class="memebox-deal-price-discount">';
             template += '       <strong class="memebox-deal-price-value">'+data.discount.value+'</strong><!--';
             template += '       --><em class="memebox-deal-price-unit">'+data.discount.unit+'</em>';
             template += '       <span class="memebox-deal-price-info">'+data.discount.info+'</span>';
-            template += '   </strong>';
-        }else{
-            template += '   <strong class="memebox-deal-price-discount">';
-            template += '       <strong class="memebox-deal-price-value">미미가격</strong><!--';
             template += '   </strong>';
         }
         template += '   <strong class="memebox-deal-price-origin">';
@@ -68,7 +64,9 @@ var deal_templates = {
         template += '       <span class="memebox-deal-price-info">'+data.origin.info+'</span>';
         template += '   </strong>';
         template += '   <strong class="memebox-deal-price-result">';
-        template += '       <strong class="memebox-deal-price-value">'+data.result.value+'</strong><!--';
+        if(!data.discount.value) {
+            template += '       <strong class="memebox-deal-price-value">' + data.result.value + '</strong><!--';
+        }
         template += '       --><em class="memebox-deal-price-unit">'+data.result.unit+'</em>';
         template += '       <span class="memebox-deal-price-info">'+data.result.info+'</span>';
         template += '   </strong>';
