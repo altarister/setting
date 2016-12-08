@@ -11,7 +11,9 @@ $_star_review: $assetHost+"/components/deal/v.1.0.0/mobile/_image/_star_review_m
 /* 상품 이미지, 벳지 */
 .deal_type_vertical_wide_2 .memebox-deal-image-wrap {
     position: relative;
+    overflow: hidden;
     margin-bottom: 8px;
+    background-color: #fff;
     border: 1px solid #dcdcdc;
 }
 .deal_type_vertical_wide_2 .memebox-deal-timer {
@@ -44,6 +46,7 @@ $_star_review: $assetHost+"/components/deal/v.1.0.0/mobile/_image/_star_review_m
 .deal_type_vertical_wide_2 .memebox-deal-image {
     display: block;
     width: 100%;
+    margin: 0 auto;
     height: auto;
 }
 .deal_type_vertical_wide_2 .memebox-deal-sticker {

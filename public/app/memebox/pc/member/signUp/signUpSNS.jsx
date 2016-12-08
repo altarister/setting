@@ -1,6 +1,7 @@
 var $ = require('jquery');
 var utility = require('utility');
 var Menu = require('components/menu/v.1.0.0/_menu.jsx');
+var Header = require('components/layout/header/v.1.1.0/pc/header.jsx');
 
 require('./signUpSNS.scss');
 
@@ -12,6 +13,7 @@ var SignUpSNS = function(){
 
         initialize: function(){
             new Menu();
+            new Header();
             utility.uiEnhancements.call(this);
         },
 

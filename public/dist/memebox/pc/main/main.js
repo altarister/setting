@@ -7,6 +7,7 @@ define(function() { return webpackJsonp([3],[
 	var $ = __webpack_require__(2);
 	var utility = __webpack_require__(3);
 	var Menu = __webpack_require__(1);
+	var Menu = __webpack_require__(1);
 
 	__webpack_require__(56);
 

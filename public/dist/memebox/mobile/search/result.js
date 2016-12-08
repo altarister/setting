@@ -1585,22 +1585,27 @@ define(["slick"], function(__WEBPACK_EXTERNAL_MODULE_44__) { return webpackJsonp
 	            info: '.memebox-deal-info',
 	            timer: '.memebox-deal-timer-value',
 	            poke: '.memebox-deal-poke',
-	            link: '.memebox-deal-link'
+	            link: '.memebox-deal-link',
+	            dealImage: '.memebox-deal-image'
 	        },
 	
 	        currentRemainingTime: deal.remainingTime.seconds,
 	
 	        initialize: function initialize() {
+	            console.log(deal.sold);
+	
 	            this.makeDealElement(deal);
 	            utility.uiEnhancements.call(this);
 	            this.eventListener();
-	            if (this.currentRemainingTime) {
-	                if (window.deal_RemainingTimeInterval) {
-	                    $.subscribe('deal.remainingTime', $.proxy(this.remainingTimeEvent, this));
-	                } else {
-	                    this.setTimer(deal.remainingTime.seconds);
-	                }
-	            }
+	
+	            // if(this.currentRemainingTime){
+	            //     if(window.deal_RemainingTimeInterval){
+	            //         $.subscribe('deal.remainingTime', $.proxy(this.remainingTimeEvent, this));
+	            //     }else{
+	            //         this.setTimer(deal.remainingTime.seconds);
+	            //     }
+	            // }
+	            this.setTimer(deal.remainingTime.seconds);
 	        },
 	
 	        makeDealElement: function makeDealElement(deal) {
@@ -1622,9 +1627,27 @@ define(["slick"], function(__WEBPACK_EXTERNAL_MODULE_44__) { return webpackJsonp
 	            this.element.find(this.ui.info).append(template);
 	        },
 	
+	        imageEvent: function imageEvent(event) {
+	            if (deal.image.type != 'wide') return;
+	
+	            var imageWidth = this.ui.dealImage.width();
+	            var imageHeight = this.ui.dealImage.height();
+	            if (imageWidth === imageHeight) {
+	                this.ui.dealImage.css({
+	                    width: 'auto',
+	                    height: imageWidth / 2
+	                });
+	            }
+	        },
+	
 	        eventListener: function eventListener() {
 	            this.element.off().on('click', this.ui.__uiString.link, $.proxy(this.linkEvent, this));
+	
+	            var dealImage = new Image();
+	            $(dealImage).on('load', $.proxy(this.imageEvent, this));
+	            dealImage.src = deal.image.src;
 	        },
+	
 	        //클릭전에 tracking 코드 실행
 	        linkEvent: function linkEvent(event) {
 	            //event.preventDefault();
@@ -1655,8 +1678,8 @@ define(["slick"], function(__WEBPACK_EXTERNAL_MODULE_44__) { return webpackJsonp
 	
 	                if (--remainingTime < 0) {
 	                    clearInterval(timer);
-	                    controller.ui.link.remove();
-	                    controller.element.append(deal_templates.out());
+	                    //controller.ui.link.remove();
+	                    //controller.element.append(deal_templates.out());
 	                }
 	            }, 1000);
 	            this.displayTimer(remainingTime);

@@ -36,7 +36,7 @@ var DealView_type_all = function(){
             ranking: 1,
             sold: {
                 out: false,
-                soon: '품절임박입니다.'
+                soon: null
             },
             delivery: {
                 isFree: true,
@@ -181,7 +181,8 @@ var DealView_type_all = function(){
 
         wideImg: [
             "https://img2.memebox.com/static/contents/img/upload/image_20160518211225_b3VcRp7GzN.jpg",
-            "https://img1.memebox.com/72gfsdk0/contents/img/memeboxProductItem/20161020043220_930526a3bd0a25d11ca0f2a1a499dd4f.jpg",
+            // "https://img1.memebox.com/72gfsdk0/contents/img/memeboxProductItem/20161020043220_930526a3bd0a25d11ca0f2a1a499dd4f.jpg",
+            'https://img1.memebox.com/a70vqlis/contents/img/memeboxProductItem/20161114043824_52a43af20a8ad9190b7aef3793608d79.jpg',
             "https://img1.memebox.com/z0uovgml/contents/img/memeboxProductItem/20161011020338_ee3dcef775880ff08c8e5a0a6cd198f5.jpg",
             "https://img1.memebox.com/uphu35f8/contents/img/memeboxProductItem/20161108055135_1a2ed3ce8ccd02052ce6d7db53571689.jpg",
             "https://img1.memebox.com/lahnslxd/contents/img/memeboxProductItem/20161114101656_4f39cb7f88f79f1f8cd22cac23e2d4a3.jpg"
@@ -258,23 +259,31 @@ var DealView_type_all = function(){
                 var forDeal = $.extend({}, this.deal);
                 forDeal.id = 'dealId' + index;
                 forDeal.view = view;
+
                 if(index < 4){
                     forDeal.ranking = Number(index) + 1;
                 }else{
                     forDeal.ranking = null;
                 }
-                if(index > 1){
-                    forDeal.price = $.extend({}, forDeal.price, {discount: {info: '', value: index, unit: '%'}});
-                }else{
+                if(index == 3){
+                    forDeal.sold = $.extend({}, forDeal.sold, {out: true, soon: null});
+                }
+                if(index == 4){
+                    forDeal.sold = $.extend({}, forDeal.sold, {out: false, soon: '품절임박입니다.'});
+                }
+                if(index > 2){
                     forDeal.price = $.extend({}, forDeal.price, {discount: {info: '', value: null, unit: '%'}});
+                }else{
+                    forDeal.price = $.extend({}, forDeal.price, {discount: {info: '', value: index, unit: '%'}});
                 }
                 if(index > 1){
                     forDeal.remainingTime = $.extend({}, forDeal.remainingTime, {seconds: null});
                 }else{
-                    forDeal.remainingTime = $.extend({}, forDeal.remainingTime, {seconds: Math.floor(Math.random() * 50) + 1});
+                    forDeal.remainingTime = $.extend({}, forDeal.remainingTime, {seconds: Math.floor(Math.random() * 5) + 1});
                 }
                 if(imageType === 'wide'){
                     forDeal.image = $.extend({}, forDeal.image, { type: imageType, src: this.wideImg[index]});
+                    //forDeal.image = $.extend({}, forDeal.image, { type: imageType, src: this.images[index]});
                 }else{
                     forDeal.image = $.extend({}, forDeal.image, { type: imageType, src: this.images[index]});
                 }

@@ -8,9 +8,9 @@ define(function() { return webpackJsonp([9],[
 	var utility = __webpack_require__(3);
 	var Menu = __webpack_require__(1);
 	var DealContainer = __webpack_require__(26);
-	var DealSimpleChoice = __webpack_require__(75);
+	var DealSimpleChoice = __webpack_require__(77);
 
-	__webpack_require__(82);
+	__webpack_require__(84);
 
 	var SearchResult = function SearchResult() {
 	    var controller = {
@@ -2441,7 +2441,9 @@ define(function() { return webpackJsonp([9],[
 /* 72 */,
 /* 73 */,
 /* 74 */,
-/* 75 */
+/* 75 */,
+/* 76 */,
+/* 77 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -2449,14 +2451,14 @@ define(function() { return webpackJsonp([9],[
 	var $ = __webpack_require__(2);
 	var utility = __webpack_require__(3);
 
-	__webpack_require__(76);
-	__webpack_require__(77);
+	__webpack_require__(78);
+	__webpack_require__(79);
 
 	var dealEasyChoiceOption_templates = {
-	    dealItemSelectedOption: __webpack_require__(78),
-	    option: __webpack_require__(79),
-	    accordionInfo: __webpack_require__(80),
-	    accordionContent: __webpack_require__(81)
+	    dealItemSelectedOption: __webpack_require__(80),
+	    option: __webpack_require__(81),
+	    accordionInfo: __webpack_require__(82),
+	    accordionContent: __webpack_require__(83)
 	};
 
 	var DealEasyChoiceOption = function DealEasyChoiceOption() {
@@ -2696,21 +2698,21 @@ define(function() { return webpackJsonp([9],[
 	module.exports = DealEasyChoiceOption;
 
 /***/ },
-/* 76 */
+/* 78 */
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
 	module.exports = {"deal-simple-choice-wrap":"deal-simple-choice-wrap","deal-simple-choice-target-info":"deal-simple-choice-target-info","deal-simple-choice-target-title":"deal-simple-choice-target-title","deal-simple-choice-target-title-sub":"deal-simple-choice-target-title-sub","deal-simple-choice-select-wrap":"deal-simple-choice-select-wrap","design-template-accordion-info":"design-template-accordion-info","design-template-accordion-title":"design-template-accordion-title","design-template-accordion-selected":"design-template-accordion-selected","design-template-accordion-controller":"design-template-accordion-controller","design-template-accordion-list":"design-template-accordion-list","accordion-open":"accordion-open","deal-item-option-viewer":"deal-item-option-viewer","deal-item-option-viewer-title":"deal-item-option-viewer-title","deal-item-option-viewer-location":"deal-item-option-viewer-location","deal-simple-choice-result-wrap":"deal-simple-choice-result-wrap","deal-simple-choice-result-value-info":"deal-simple-choice-result-value-info","deal-simple-choice-result-list":"deal-simple-choice-result-list","deal-simple-choice-result-sub-list":"deal-simple-choice-result-sub-list","deal-simple-choice-result-sub-item":"deal-simple-choice-result-sub-item","deal-item-selected-option-wrap":"deal-item-selected-option-wrap","deal-item-selected-option-title":"deal-item-selected-option-title","deal-item-selected-option-amount-wrap":"deal-item-selected-option-amount-wrap","deal-item-selected-option-amount-value":"deal-item-selected-option-amount-value","deal-item-selected-option-amount-up":"deal-item-selected-option-amount-up","deal-item-selected-option-amount-down":"deal-item-selected-option-amount-down","deal-item-selected-option-value":"deal-item-selected-option-value","deal-item-selected-option-delete":"deal-item-selected-option-delete","deal-simple-choice-result-price-wrap":"deal-simple-choice-result-price-wrap","deal-simple-choice-result-price-title":"deal-simple-choice-result-price-title","deal-simple-choice-result-price-total-value":"deal-simple-choice-result-price-total-value","deal-simple-choice-result-price-unit":"deal-simple-choice-result-price-unit","deal-simple-choice-submit":"deal-simple-choice-submit","deal-simple-choice-submit-cart":"deal-simple-choice-submit-cart","deal-simple-choice-submit-order":"deal-simple-choice-submit-order","deal-simple-choice-submit-wishList":"deal-simple-choice-submit-wishList"};
 
 /***/ },
-/* 77 */
+/* 79 */
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
 	module.exports = {"select-design-viewer":"select-design-viewer","select-design-viewer-option-selector":"select-design-viewer-option-selector","value":"value","trigger":"trigger","select-design-viewer-list-box":"select-design-viewer-list-box","select-design-viewer-list":"select-design-viewer-list","select-design-viewer-option":"select-design-viewer-option"};
 
 /***/ },
-/* 78 */
+/* 80 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var Handlebars = __webpack_require__(6);
@@ -2720,7 +2722,7 @@ define(function() { return webpackJsonp([9],[
 	},"useData":true});
 
 /***/ },
-/* 79 */
+/* 81 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var Handlebars = __webpack_require__(6);
@@ -2738,7 +2740,7 @@ define(function() { return webpackJsonp([9],[
 	},"useData":true});
 
 /***/ },
-/* 80 */
+/* 82 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var Handlebars = __webpack_require__(6);
@@ -2750,7 +2752,7 @@ define(function() { return webpackJsonp([9],[
 	},"useData":true});
 
 /***/ },
-/* 81 */
+/* 83 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var Handlebars = __webpack_require__(6);
@@ -2772,7 +2774,7 @@ define(function() { return webpackJsonp([9],[
 	},"useData":true});
 
 /***/ },
-/* 82 */
+/* 84 */
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin

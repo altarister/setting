@@ -2,15 +2,12 @@
     {{> components/menu/v.1.0.0/_templates/_menu}}
 {{/extend}}
 
-{{#extend "memebox-content"}}
-    <div class="wrap">
-        <p class="text">회원 가입 SNS</p>
-    </div>
-    <br>
 
-    <div>
-        MEMEBOX
-    </div>
+
+{{#extend "memebox-content"}}
+
+    {{> pc/member/signUp/_element/header}}
+
     <div class="easy-signUp-method">
         이메일 주소 혹은 SNS 계정으로 간편하게 회원가입 가능합니다.
         <ul class="easy-signUp-SNS">

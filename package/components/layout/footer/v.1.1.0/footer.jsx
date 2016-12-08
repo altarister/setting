@@ -1,11 +1,10 @@
 var $ = require('jquery');
 var utility = require('utility');
 var Menu = require('components/menu/v.1.0.0/_menu.jsx');
-var Menu = require('components/menu/v.1.0.0/_menu.jsx');
 
 require('./main.scss');
 
-var main = function(){
+var footer = function(){
     var controller = {
 
         element: '#memebox-service',
@@ -26,4 +25,4 @@ var main = function(){
     controller.initialize();
 };
 
-module.exports = main;
+module.exports = footer;

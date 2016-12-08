@@ -1,16 +1,16 @@
 {{#extend "memebox-header"}}
+
+
+
+
     {{> components/menu/v.1.0.0/_templates/_menu}}
 {{/extend}}
 
-{{#extend "memebox-content"}}
-    <div class="wrap">
-        <p class="text">회원 가입</p>
-    </div>
-    <br>
 
-    <div class="signUp-header">
-        MEMEBOX
-    </div>
+
+{{#extend "memebox-content"}}
+
+    {{> pc/member/signUp/_element/header}}
 
     <div class="signUp-SNS-wrap">
         <div class="signUp-SNS-confirmation">
@@ -33,7 +33,6 @@
             </div>
         </div>
     </div>
-
 
     <form class="signUp-form" action="/signup/action" method="post">
         <fieldset>
