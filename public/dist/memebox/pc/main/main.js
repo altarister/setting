@@ -9,7 +9,7 @@ define(function() { return webpackJsonp([3],[
 	var Menu = __webpack_require__(1);
 	var Menu = __webpack_require__(1);
 
-	__webpack_require__(56);
+	__webpack_require__(57);
 
 	var main = function main() {
 	    var controller = {
@@ -1326,7 +1326,8 @@ define(function() { return webpackJsonp([3],[
 /* 53 */,
 /* 54 */,
 /* 55 */,
-/* 56 */
+/* 56 */,
+/* 57 */
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin

@@ -1,4 +1,4 @@
-define(["slick"], function(__WEBPACK_EXTERNAL_MODULE_44__) { return webpackJsonp([6],[
+define(["slick"], function(__WEBPACK_EXTERNAL_MODULE_45__) { return webpackJsonp([6],[
 /* 0 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -7,9 +7,10 @@ define(["slick"], function(__WEBPACK_EXTERNAL_MODULE_44__) { return webpackJsonp
 	var $ = __webpack_require__(1);
 	var utility = __webpack_require__(2);
 	var Menu = __webpack_require__(3);
-	var DealContainer = __webpack_require__(26);
+	var SampleDealAPI = __webpack_require__(26);
+	var DealContainer = __webpack_require__(27);
 
-	__webpack_require__(67);
+	__webpack_require__(68);
 
 	var Product = function Product() {
 	    var controller = {
@@ -19,100 +20,24 @@ define(["slick"], function(__WEBPACK_EXTERNAL_MODULE_44__) { return webpackJsonp
 	            dealContainer: '.deal-container'
 	        },
 
-	        lineAmount: 2,
-	        deals: [],
-	        deal: {
-	            id: 'tempID4',
-	            view: {
-	                type: 'vertical', //horizontal, vertical
-	                expression: 4
-	            },
-	            name: {
-	                main: '[없었던일로] 마음껏 먹고 없었던일로!',
-	                sub: '체지방, 이제 없었던 일로 하세요!'
-	            },
-	            badge: 'badge',
-	            sticker: 'freebie',
-	            remainingTime: {
-	                seconds: 3610
-	            },
-	            review: {
-	                average: 50,
-	                count: 50
-	            },
-	            ranking: 1,
-	            sold: {
-	                out: false,
-	                soon: '품절임박입니다.'
-	            },
-	            delivery: {
-	                isFree: true,
-	                condition: '조건부무료배송',
-	                method: '미미배송'
-	            },
-	            poke: {
-	                id: 'zzimCheck506935'
-	            },
-	            link: 'http://www.coupang.com/deal.pang?coupang=61130860',
-	            image: {
-	                type: 'square', //circle, wide, square
-	                src: 'http://img2.memebox.com/static/contents/img/upload/image_20150706134341_2m0D5I3Z7M.jpg',
-	                size: {
-	                    width: 200,
-	                    height: 200
-	                }
-	            },
-	            price: {
-	                discount: { info: '', value: '50', unit: '%' },
-	                origin: { info: '', value: '32,000', unit: '원' },
-	                result: { info: '', value: '16,000', unit: '원' }
-	            },
-	            option: {
-	                type: ''
-	            },
-	            tracking: {
-	                analytics: {
-	                    //page: {},
-	                    target: 'track',
-	                    name: 'Product Clicked',
-	                    data: {
-	                        id: 'product_id', // Product ID
-	                        name: 'product_name', // Product Name
-	                        brand: 'product_brand', // Product Brand
-	                        position: 'product_position', // Product Position
-	                        list: 'product_list', // Product List
-	                        currency: 'KRW', // Currency: Korean Won
-	                        price: 'product_price', // Product Price
-	                        label: 'product_name' // Product Name
-	                    }
-	                },
-	                ga: { dealId: 'tempID4' }
-	            }
-	        },
-	        images: ['https://img2.memebox.com/static/contents/img/upload/image_20160419192124_EXJFkvGhdU.jpg', 'https://img2.memebox.com/static/contents/img/upload/image_20160520122432_oa15HNiTTF.jpg', 'https://img1.memebox.com/cwxhija3/contents/img/memeboxProductItem/20161007044103_d9a89db2f80151988b380a3af833c706.jpg', 'https://img1.memebox.com/3uqvc4to/contents/img/memeboxProductItem/20161115103443_eae03a379a2daeb8e71be12e7ec67dba.jpg', 'https://img1.memebox.com/c2jq97q2/contents/img/memeboxProductItem/20161111052448_a60d63f5a0ade3646d6aa950cc132e3e.jpg', 'https://img1.memebox.com/v6uciugt/contents/img/memeboxProductItem/20161114081753_c47132518d9a1eaf6f7c15eb7bbf7ba2.jpg', 'https://img1.memebox.com/a70vqlis/contents/img/memeboxProductItem/20161114043824_52a43af20a8ad9190b7aef3793608d79.jpg'],
+	        deals: null,
 
 	        initialize: function initialize() {
 	            new Menu();
 	            utility.uiEnhancements.call(this);
-	            this.setDeals();
 
 	            this.ui.dealContainer.each(function (index, element) {
-	                new DealContainer($(element), controller.lineAmount, controller.deals);
+	                var $element = $(element);
+	                var viewData = $element.data('container-view-type');
+	                var lineAmount = Number($element.data('container-lineAmount'));
+	                if (viewData) {
+	                    var API = new SampleDealAPI(viewData);
+
+	                    console.log('lineAmount', lineAmount);
+	                    new DealContainer($element, lineAmount, API.get());
+	                }
 	            });
-	        },
-
-	        setDeals: function setDeals() {
-	            for (var index in this.images) {
-	                var forDeal = $.extend({}, this.deal);
-	                forDeal.id = 'dealId' + index;
-	                forDeal.ranking = Number(index) + 1;
-	                forDeal.image = $.extend({}, forDeal.image, { src: this.images[index] });
-	                forDeal.remainingTime = $.extend({}, forDeal.remainingTime, { seconds: Math.floor(Math.random() * 10) + 1 });
-	                this.deals.push(forDeal);
-	            }
-	            console.log('this.deals = ', this.deals);
 	        }
-
 	    };
 	    controller.initialize();
 	};
@@ -1387,16 +1312,312 @@ define(["slick"], function(__WEBPACK_EXTERNAL_MODULE_44__) { return webpackJsonp
 	'use strict';
 
 	var $ = __webpack_require__(1);
-	var utility = __webpack_require__(2);
-	var Deal = __webpack_require__(27);
-	var DealInlineGallery = __webpack_require__(43);
-	var DealTooltipFloating = __webpack_require__(47);
 
-	__webpack_require__(49);
+	var SampleDealAPI = function SampleDealAPI(viewData) {
+	    var controller = {
+
+	        // element: '#memebox-service',
+	        // ui: {
+	        //     dealContainer: '.deal-container'
+	        // },
+	        // lineAmount: 2,
+	        deals: null,
+	        deal: {
+	            id: 'tempID4',
+	            view: {
+	                type: 'vertical', //horizontal, vertical
+	                expression: 10
+	            },
+	            name: {
+	                main: '[없었던일로] 마음껏 먹고 없었던일로! 체지방, 이제 없었던 일로 하세요!',
+	                sub: '체지방, 이제 없었던 일로 하세요!'
+	            },
+	            badge: 'badge', // 같은거. sticker
+	            sticker: 'freebie',
+	            remainingTime: {
+	                seconds: 3610
+	            },
+	            review: {
+	                average: 50, // 별점
+	                count: 50
+	            },
+	            ranking: 1,
+	            sold: {
+	                out: false,
+	                soon: null //품절임박
+	            },
+	            delivery: { // 테그
+	                isFree: true,
+	                condition: '조건부무료배송',
+	                method: '미미배송',
+	                price: { info: '', value: '25,000', unit: '원' }
+	            },
+	            poke: {
+	                id: 'zzimCheck506935'
+	            },
+	            link: 'http://www.coupang.com/deal.pang?coupang=61130860',
+	            image: {
+	                type: 'square', //circle, wide, square
+	                basic: '/components/deal/v.1.0.0/mobile/_image/_image_square_basic.png',
+	                error: '/components/deal/v.1.0.0/mobile/_image/_image_square_error.gif',
+	                src: 'http://img2.memebox.com/static/contents/img/upload/image_20150706134341_2m0D5I3Z7M.jpg',
+	                size: {
+	                    width: 200,
+	                    height: 200
+	                }
+	            },
+	            price: {
+	                discount: { info: '최대', value: '50', unit: '%' }, //최대 미미가격
+	                origin: { info: '', value: '32,000', unit: '원' },
+	                result: { info: '미미가격', value: '16,000', unit: '원', from: '~' }
+	            },
+	            option: {
+	                MaximumPurchaseQuantity: 10,
+	                basicProduct: '#EX400 문라이즈',
+	                products: [{
+	                    id: 'i1',
+	                    name: '나이키 ',
+	                    category: {
+	                        type: { title: '상품명', value: '에어', price: '11,000' },
+	                        color: { title: '색상', value: 'red' },
+	                        size: { title: '사이즈', value: '220' }
+	                    },
+	                    stock: 30
+	                }, {
+	                    id: 'i2',
+	                    name: '나이키 ',
+	                    category: {
+	                        type: { title: '상품명', value: '에어', price: '11,000' },
+	                        color: { title: '색상', value: 'black' },
+	                        size: { title: '사이즈', value: '230' }
+	                    },
+	                    stock: 30
+	                }, {
+	                    id: 'i3',
+	                    name: '나이키 ',
+	                    category: {
+	                        type: { title: '상품명', value: '에어', price: '11,000' },
+	                        color: { title: '색상', value: 'blue' },
+	                        size: { title: '사이즈', value: '220' }
+	                    },
+	                    stock: 30
+	                }, {
+	                    id: 'i4',
+	                    name: '나이키 ',
+	                    category: {
+	                        type: { title: '상품명', value: '에어', price: '11,000' },
+	                        color: { title: '색상', value: 'blue' },
+	                        size: { title: '사이즈', value: '230' }
+	                    },
+	                    stock: 30
+	                }, {
+	                    id: 'i5',
+	                    name: '나이키 ',
+	                    category: {
+	                        type: { title: '상품명', value: '조던', price: '12,000' },
+	                        color: { title: '색상', value: 'red' },
+	                        size: { title: '사이즈', value: '220' }
+	                    },
+	                    stock: 30
+	                }, {
+	                    id: 'i6',
+	                    name: '나이키 ',
+	                    category: {
+	                        type: { title: '상품명', value: '조던', price: '12,000' },
+	                        color: { title: '색상', value: 'red' },
+	                        size: { title: '사이즈', value: '230' }
+	                    },
+	                    stock: 30
+	                }, {
+	                    id: 'i7',
+	                    name: '나이키 ',
+	                    category: {
+	                        type: { title: '상품명', value: '조던', price: '12,000' },
+	                        color: { title: '색상', value: 'blue' },
+	                        size: { title: '사이즈', value: '220' }
+	                    },
+	                    stock: 30
+	                }, {
+	                    id: 'i8',
+	                    name: '나이키 ',
+	                    category: {
+	                        type: { title: '상품명', value: '조던', price: '12,000' },
+	                        color: { title: '색상', value: 'blue' },
+	                        size: { title: '사이즈', value: '230' }
+	                    },
+	                    stock: 30
+	                }],
+	                additionItem: [{
+	                    id: 'i4',
+	                    name: '나이키 신발끈',
+	                    category: {
+	                        type: { title: '상품명', value: '신발끈', price: '12,000' }
+	                    },
+	                    stock: 30
+	                }]
+	            },
+	            tracking: {
+	                analytics: {
+	                    target: 'track',
+	                    name: 'Product Clicked',
+	                    data: {
+	                        id: 'product_id', // Product ID
+	                        name: 'product_name', // Product Name
+	                        brand: 'product_brand', // Product Brand
+	                        position: 'product_position', // Product Position
+	                        list: 'product_list', // Product List
+	                        currency: 'KRW', // Currency: Korean Won
+	                        price: 'product_price', // Product Price
+	                        label: 'product_name' // Product Name
+	                    }
+	                },
+	                ga: { dealId: 'tempID4' }
+	            }
+	        },
+	        images: ['https://img1.memebox.com/cwxhija3/contents/img/memeboxProductItem/20161007044103_d9a89db2f80151988b380a3af833c706.jpg', 'https://img1.memebox.com/3uqvc4to/contents/img/memeboxProductItem/20161115103443_eae03a379a2daeb8e71be12e7ec67dba.jpg', 'https://img1.memebox.com/c2jq97q2/contents/img/memeboxProductItem/20161111052448_a60d63f5a0ade3646d6aa950cc132e3e.jpg', 'https://img1.memebox.com/v6uciugt/contents/img/memeboxProductItem/20161114081753_c47132518d9a1eaf6f7c15eb7bbf7ba2.jpg', 'https://img1.memebox.com/a70vqlis/contents/img/memeboxProductItem/20161114043824_52a43af20a8ad9190b7aef3793608d79.jpg'],
+
+	        wideImg: ["https://img2.memebox.com/static/contents/img/upload/image_20160518211225_b3VcRp7GzN.jpg",
+	        // "https://img1.memebox.com/72gfsdk0/contents/img/memeboxProductItem/20161020043220_930526a3bd0a25d11ca0f2a1a499dd4f.jpg",
+	        'https://img1.memebox.com/a70vqlis/contents/img/memeboxProductItem/20161114043824_52a43af20a8ad9190b7aef3793608d79.jpg', "https://img1.memebox.com/z0uovgml/contents/img/memeboxProductItem/20161011020338_ee3dcef775880ff08c8e5a0a6cd198f5.jpg",
+	        //"https://img1.memebox.com/uphu35f8/contents/img/memeboxProductItem/20161108055135_1a2ed3ce8ccd02052ce6d7db53571689.jpg",
+	        "https://img1.memebox.com/72gfsdk0/contents/img/memeboxProductItem/error.jpg", "https://img1.memebox.com/lahnslxd/contents/img/memeboxProductItem/20161114101656_4f39cb7f88f79f1f8cd22cac23e2d4a3.jpg"],
+
+	        viewType: [{
+	            view: {
+	                type: 'vertical', //horizontal, vertical
+	                expression: 4
+	            },
+	            image: {
+	                type: 'circle' //circle, wide, square
+	            }
+	        }, {
+	            view: {
+	                type: 'vertical', //horizontal, vertical
+	                expression: 2
+	            },
+	            image: {
+	                type: 'wide' //circle, wide, square
+	            }
+	        }, {
+	            view: {
+	                type: 'horizontal', //horizontal, vertical
+	                expression: 10
+	            },
+	            image: {
+	                type: 'square' //circle, wide, square
+	            }
+	        }, {
+	            view: {
+	                type: 'vertical', //horizontal, vertical
+	                expression: 10
+	            },
+	            image: {
+	                type: 'square' //circle, wide, square
+	            }
+	        }, {
+	            view: {
+	                type: 'vertical', //horizontal, vertical
+	                expression: 4
+	            },
+	            image: {
+	                type: 'square' //circle, wide, square
+	            }
+	        }],
+
+	        initialize: function initialize() {
+	            this.set(viewData);
+
+	            // this.ui.dealContainer.each(function (index, element) {
+	            //     controller.set(index, controller.viewType[index].view, controller.viewType[index].image.type );
+	            //     var lineAmount = controller.lineAmount;
+	            //     if(controller.viewType[index].view.type === 'horizontal'){
+	            //         lineAmount = 1
+	            //     }else if(controller.viewType[index].image.type === 'circle'){
+	            //         lineAmount = 3
+	            //     }
+	            //     new DealContainer($(element), lineAmount, controller.deals);
+	            // });
+	        },
+
+	        set: function set(viewData) {
+	            console.log('-----------------', viewData);
+	            this.deals = [];
+	            for (var index in this.images) {
+	                var forDeal = $.extend({}, this.deal);
+	                forDeal.id = 'dealId' + index;
+	                forDeal.view = viewData.view;
+
+	                if (index < 4) {
+	                    forDeal.ranking = Number(index) + 1;
+	                } else {
+	                    forDeal.ranking = null;
+	                }
+	                if (index == 3) {
+	                    forDeal.sold = $.extend({}, forDeal.sold, { out: true, soon: null });
+	                }
+	                if (index == 4) {
+	                    forDeal.sold = $.extend({}, forDeal.sold, { out: false, soon: '품절임박입니다.' });
+	                }
+	                if (index > 2) {
+	                    forDeal.price = $.extend({}, forDeal.price, { discount: { info: null, value: null, unit: null } });
+	                } else {
+	                    forDeal.price = $.extend({}, forDeal.price, { discount: { info: '최대', value: index, unit: '%' } });
+	                }
+	                if (index > 1) {
+	                    forDeal.remainingTime = $.extend({}, forDeal.remainingTime, { seconds: null });
+	                } else {
+	                    forDeal.remainingTime = $.extend({}, forDeal.remainingTime, { seconds: Math.floor(Math.random() * 5) + 1 });
+	                }
+	                if (viewData.image.type === 'wide') {
+	                    forDeal.image = $.extend({}, forDeal.image, {
+	                        type: viewData.image.type,
+	                        src: this.wideImg[index],
+	                        basic: '/components/deal/v.1.0.0/mobile/_image/_image_wide_basic.png',
+	                        error: '/components/deal/v.1.0.0/mobile/_image/_image_wide_error.gif'
+	                    });
+	                    //forDeal.image = $.extend({}, forDeal.image, { type: imageType, src: this.images[index]});
+	                } else {
+	                    forDeal.image = $.extend({}, forDeal.image, {
+	                        type: viewData.image.type,
+	                        src: this.images[index],
+	                        basic: '/components/deal/v.1.0.0/mobile/_image/_image_square_basic.png',
+	                        error: '/components/deal/v.1.0.0/mobile/_image/_image_square_error.gif'
+	                    });
+	                }
+
+	                this.deals.push(forDeal);
+	            }
+	        },
+
+	        get: function get() {
+	            return this.deals;
+	        }
+	    };
+
+	    controller.initialize();
+
+	    return controller;
+	};
+
+	module.exports = SampleDealAPI;
+
+/***/ },
+/* 27 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var $ = __webpack_require__(1);
+	var utility = __webpack_require__(2);
+	var Deal = __webpack_require__(28);
+	var DealInlineGallery = __webpack_require__(44);
+	var DealTooltipFloating = __webpack_require__(48);
+
+	__webpack_require__(50);
 
 	var dealContainer_templates = {
-	    dealList: __webpack_require__(50),
-	    dealWrapper: __webpack_require__(51)
+	    dealList: __webpack_require__(51),
+	    dealWrapper: __webpack_require__(52)
 	};
 
 	var DealContainer = function DealContainer($element, lineAmount, deals) {
@@ -1407,6 +1628,8 @@ define(["slick"], function(__WEBPACK_EXTERNAL_MODULE_44__) { return webpackJsonp
 	        },
 
 	        initialize: function initialize() {
+	            console.log($element, lineAmount, deals);
+
 	            this.remainingTimeController();
 	            this.makeDealList();
 	        },
@@ -1456,7 +1679,7 @@ define(["slick"], function(__WEBPACK_EXTERNAL_MODULE_44__) { return webpackJsonp
 	module.exports = DealContainer;
 
 /***/ },
-/* 27 */
+/* 28 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -1464,24 +1687,24 @@ define(["slick"], function(__WEBPACK_EXTERNAL_MODULE_44__) { return webpackJsonp
 	var $ = __webpack_require__(1);
 	var utility = __webpack_require__(2);
 
-	__webpack_require__(28);
 	__webpack_require__(29);
 	__webpack_require__(30);
 	__webpack_require__(31);
 	__webpack_require__(32);
-
 	__webpack_require__(33);
 
+	__webpack_require__(34);
+
 	var deal_templates = {
-	    layout: __webpack_require__(34),
-	    image: __webpack_require__(35),
-	    name: __webpack_require__(36),
-	    price: __webpack_require__(37),
-	    status: __webpack_require__(38),
-	    delivery: __webpack_require__(39),
-	    poke: __webpack_require__(40),
-	    out: __webpack_require__(41),
-	    link: __webpack_require__(42)
+	    layout: __webpack_require__(35),
+	    image: __webpack_require__(36),
+	    name: __webpack_require__(37),
+	    price: __webpack_require__(38),
+	    status: __webpack_require__(39),
+	    delivery: __webpack_require__(40),
+	    poke: __webpack_require__(41),
+	    out: __webpack_require__(42),
+	    link: __webpack_require__(43)
 	};
 
 	var Deal = function Deal(deal, trackFunction) {
@@ -1606,49 +1829,49 @@ define(["slick"], function(__WEBPACK_EXTERNAL_MODULE_44__) { return webpackJsonp
 	module.exports = Deal;
 
 /***/ },
-/* 28 */
+/* 29 */
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
 	module.exports = {"deal_type_horizontal_square_10":"deal_type_horizontal_square_10","memebox-deal-image-wrap":"memebox-deal-image-wrap","memebox-deal-timer":"memebox-deal-timer","memebox-deal-timer-value":"memebox-deal-timer-value","memebox-deal-ranking":"memebox-deal-ranking","memebox-deal-sticker":"memebox-deal-sticker","memebox-deal-image":"memebox-deal-image","memebox-deal-name":"memebox-deal-name","memebox-deal-name-main":"memebox-deal-name-main","memebox-deal-name-sub":"memebox-deal-name-sub","memebox-deal-current-status":"memebox-deal-current-status","memebox-deal-review-star":"memebox-deal-review-star","memebox-deal-review-star-value":"memebox-deal-review-star-value","memebox-deal-review-average":"memebox-deal-review-average","memebox-deal-review-count":"memebox-deal-review-count","memebox-deal-sold-out":"memebox-deal-sold-out","memebox-deal-price-wrap":"memebox-deal-price-wrap","memebox-deal-price-discount":"memebox-deal-price-discount","memebox-deal-price-unit":"memebox-deal-price-unit","memebox-deal-price-origin":"memebox-deal-price-origin","memebox-deal-price-result":"memebox-deal-price-result","memebox-deal-price-info":"memebox-deal-price-info","memebox-deal-delivery":"memebox-deal-delivery","memebox-deal-delivery-shipping":"memebox-deal-delivery-shipping","memebox-deal-delivery-type":"memebox-deal-delivery-type","memebox-deal-info":"memebox-deal-info","memebox-deal-link":"memebox-deal-link","memebox-deal-sell-stop":"memebox-deal-sell-stop","memebox-deal-poke-wrap":"memebox-deal-poke-wrap","memebox-deal-poke":"memebox-deal-poke","memebox-deal-poke-checked":"memebox-deal-poke-checked"};
 
 /***/ },
-/* 29 */
+/* 30 */
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
 	module.exports = {"deal_type_vertical_circle_4":"deal_type_vertical_circle_4","memebox-deal-image-wrap":"memebox-deal-image-wrap","memebox-deal-timer":"memebox-deal-timer","memebox-deal-timer-value":"memebox-deal-timer-value","memebox-deal-ranking":"memebox-deal-ranking","memebox-deal-image":"memebox-deal-image","memebox-deal-sticker":"memebox-deal-sticker","memebox-deal-name":"memebox-deal-name","memebox-deal-name-main":"memebox-deal-name-main","memebox-deal-name-sub":"memebox-deal-name-sub","memebox-deal-current-status":"memebox-deal-current-status","memebox-deal-review-star":"memebox-deal-review-star","memebox-deal-review-star-value":"memebox-deal-review-star-value","memebox-deal-review-average":"memebox-deal-review-average","memebox-deal-review-count":"memebox-deal-review-count","memebox-deal-sold-out":"memebox-deal-sold-out","memebox-deal-price-wrap":"memebox-deal-price-wrap","memebox-deal-price-discount":"memebox-deal-price-discount","memebox-deal-price-origin":"memebox-deal-price-origin","memebox-deal-price-result":"memebox-deal-price-result","memebox-deal-price-info":"memebox-deal-price-info","memebox-deal-price-unit":"memebox-deal-price-unit","memebox-deal-delivery":"memebox-deal-delivery","memebox-deal-delivery-shipping":"memebox-deal-delivery-shipping","memebox-deal-info":"memebox-deal-info","memebox-deal-link":"memebox-deal-link","memebox-deal-poke-wrap":"memebox-deal-poke-wrap","memebox-deal-poke":"memebox-deal-poke","memebox-deal-poke-checked":"memebox-deal-poke-checked"};
 
 /***/ },
-/* 30 */
+/* 31 */
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
 	module.exports = {"deal_type_vertical_square_4":"deal_type_vertical_square_4","memebox-deal-image-wrap":"memebox-deal-image-wrap","memebox-deal-timer":"memebox-deal-timer","memebox-deal-timer-value":"memebox-deal-timer-value","memebox-deal-ranking":"memebox-deal-ranking","memebox-deal-image":"memebox-deal-image","memebox-deal-sticker":"memebox-deal-sticker","memebox-deal-name":"memebox-deal-name","memebox-deal-name-main":"memebox-deal-name-main","memebox-deal-name-sub":"memebox-deal-name-sub","memebox-deal-current-status":"memebox-deal-current-status","memebox-deal-review-star":"memebox-deal-review-star","memebox-deal-review-star-value":"memebox-deal-review-star-value","memebox-deal-review-average":"memebox-deal-review-average","memebox-deal-review-count":"memebox-deal-review-count","memebox-deal-sold-out":"memebox-deal-sold-out","memebox-deal-price-wrap":"memebox-deal-price-wrap","memebox-deal-price-discount":"memebox-deal-price-discount","memebox-deal-price-unit":"memebox-deal-price-unit","memebox-deal-price-origin":"memebox-deal-price-origin","memebox-deal-price-result":"memebox-deal-price-result","memebox-deal-price-info":"memebox-deal-price-info","memebox-deal-delivery":"memebox-deal-delivery","memebox-deal-delivery-shipping":"memebox-deal-delivery-shipping","memebox-deal-info":"memebox-deal-info","memebox-deal-link":"memebox-deal-link","memebox-deal-poke-wrap":"memebox-deal-poke-wrap","memebox-deal-sell-stop":"memebox-deal-sell-stop","memebox-deal-poke":"memebox-deal-poke","memebox-deal-poke-checked":"memebox-deal-poke-checked"};
 
 /***/ },
-/* 31 */
+/* 32 */
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
 	module.exports = {"deal_type_vertical_square_10":"deal_type_vertical_square_10","memebox-deal-image-wrap":"memebox-deal-image-wrap","memebox-deal-timer":"memebox-deal-timer","memebox-deal-timer-value":"memebox-deal-timer-value","memebox-deal-ranking":"memebox-deal-ranking","memebox-deal-sticker":"memebox-deal-sticker","memebox-deal-image":"memebox-deal-image","memebox-deal-name":"memebox-deal-name","memebox-deal-name-main":"memebox-deal-name-main","memebox-deal-name-sub":"memebox-deal-name-sub","memebox-deal-current-status":"memebox-deal-current-status","memebox-deal-review-star":"memebox-deal-review-star","memebox-deal-review-star-value":"memebox-deal-review-star-value","memebox-deal-review-average":"memebox-deal-review-average","memebox-deal-review-count":"memebox-deal-review-count","memebox-deal-sold-out":"memebox-deal-sold-out","memebox-deal-price-wrap":"memebox-deal-price-wrap","memebox-deal-price-discount":"memebox-deal-price-discount","memebox-deal-price-unit":"memebox-deal-price-unit","memebox-deal-price-origin":"memebox-deal-price-origin","memebox-deal-price-result":"memebox-deal-price-result","memebox-deal-price-info":"memebox-deal-price-info","memebox-deal-delivery":"memebox-deal-delivery","memebox-deal-delivery-shipping":"memebox-deal-delivery-shipping","memebox-deal-delivery-type":"memebox-deal-delivery-type","memebox-deal-info":"memebox-deal-info","memebox-deal-link":"memebox-deal-link","memebox-deal-sell-stop":"memebox-deal-sell-stop","memebox-deal-poke-wrap":"memebox-deal-poke-wrap","memebox-deal-poke":"memebox-deal-poke","memebox-deal-poke-checked":"memebox-deal-poke-checked"};
 
 /***/ },
-/* 32 */
+/* 33 */
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
 	module.exports = {"deal_type_vertical_wide_2":"deal_type_vertical_wide_2","memebox-deal-image-wrap":"memebox-deal-image-wrap","memebox-deal-timer":"memebox-deal-timer","memebox-deal-timer-value":"memebox-deal-timer-value","memebox-deal-ranking":"memebox-deal-ranking","memebox-deal-image":"memebox-deal-image","memebox-deal-sticker":"memebox-deal-sticker","memebox-deal-name":"memebox-deal-name","memebox-deal-name-main":"memebox-deal-name-main","memebox-deal-name-sub":"memebox-deal-name-sub","memebox-deal-current-status":"memebox-deal-current-status","memebox-deal-review-star":"memebox-deal-review-star","memebox-deal-review-star-value":"memebox-deal-review-star-value","memebox-deal-review-average":"memebox-deal-review-average","memebox-deal-review-count":"memebox-deal-review-count","memebox-deal-sold-out":"memebox-deal-sold-out","memebox-deal-price-wrap":"memebox-deal-price-wrap","memebox-deal-delivery":"memebox-deal-delivery","memebox-deal-delivery-shipping":"memebox-deal-delivery-shipping","memebox-deal-info":"memebox-deal-info","memebox-deal-link":"memebox-deal-link","memebox-deal-poke-wrap":"memebox-deal-poke-wrap","memebox-deal-poke":"memebox-deal-poke","memebox-deal-poke-checked":"memebox-deal-poke-checked"};
 
 /***/ },
-/* 33 */
+/* 34 */
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
 	module.exports = {"memebox-deal-sticker":"memebox-deal-sticker","sticker-none":"sticker-none","sticker-hot":"sticker-hot","sticker-md":"sticker-md","sticker-memebox":"sticker-memebox","sticker-best":"sticker-best","sticker-new":"sticker-new","sticker-threeTime":"sticker-threeTime","sticker-lowest":"sticker-lowest","sticker-freebie":"sticker-freebie","sticker-refund90":"sticker-refund90","sticker-lowest90":"sticker-lowest90","sticker-sale369":"sticker-sale369","sticker-promotion":"sticker-promotion","sticker-soldOutSoon":"sticker-soldOutSoon","sticker-deal_0":"sticker-deal_0","sticker-deal_100":"sticker-deal_100","sticker-reservation":"sticker-reservation"};
 
 /***/ },
-/* 34 */
+/* 35 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var Handlebars = __webpack_require__(6);
@@ -1668,7 +1891,7 @@ define(["slick"], function(__WEBPACK_EXTERNAL_MODULE_44__) { return webpackJsonp
 	},"useData":true});
 
 /***/ },
-/* 35 */
+/* 36 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var Handlebars = __webpack_require__(6);
@@ -1704,7 +1927,7 @@ define(["slick"], function(__WEBPACK_EXTERNAL_MODULE_44__) { return webpackJsonp
 	},"useData":true});
 
 /***/ },
-/* 36 */
+/* 37 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var Handlebars = __webpack_require__(6);
@@ -1720,7 +1943,7 @@ define(["slick"], function(__WEBPACK_EXTERNAL_MODULE_44__) { return webpackJsonp
 	},"useData":true});
 
 /***/ },
-/* 37 */
+/* 38 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var Handlebars = __webpack_require__(6);
@@ -1766,7 +1989,7 @@ define(["slick"], function(__WEBPACK_EXTERNAL_MODULE_44__) { return webpackJsonp
 	},"useData":true});
 
 /***/ },
-/* 38 */
+/* 39 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var Handlebars = __webpack_require__(6);
@@ -1792,7 +2015,7 @@ define(["slick"], function(__WEBPACK_EXTERNAL_MODULE_44__) { return webpackJsonp
 	},"useData":true});
 
 /***/ },
-/* 39 */
+/* 40 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var Handlebars = __webpack_require__(6);
@@ -1808,7 +2031,7 @@ define(["slick"], function(__WEBPACK_EXTERNAL_MODULE_44__) { return webpackJsonp
 	},"useData":true});
 
 /***/ },
-/* 40 */
+/* 41 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var Handlebars = __webpack_require__(6);
@@ -1822,7 +2045,7 @@ define(["slick"], function(__WEBPACK_EXTERNAL_MODULE_44__) { return webpackJsonp
 	},"useData":true});
 
 /***/ },
-/* 41 */
+/* 42 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var Handlebars = __webpack_require__(6);
@@ -1832,7 +2055,7 @@ define(["slick"], function(__WEBPACK_EXTERNAL_MODULE_44__) { return webpackJsonp
 	},"useData":true});
 
 /***/ },
-/* 42 */
+/* 43 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var Handlebars = __webpack_require__(6);
@@ -1866,19 +2089,19 @@ define(["slick"], function(__WEBPACK_EXTERNAL_MODULE_44__) { return webpackJsonp
 	},"useData":true});
 
 /***/ },
-/* 43 */
+/* 44 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 	var $ = __webpack_require__(1);
 	var utility = __webpack_require__(2);
-	var slick = __webpack_require__(44);
+	var slick = __webpack_require__(45);
 
-	__webpack_require__(45);
+	__webpack_require__(46);
 
 	var dealInlineGallery_templates = {
-	    title: __webpack_require__(46)
+	    title: __webpack_require__(47)
 	};
 
 	var DealInlineGallery = function DealInlineGallery(element, viewData, deals) {
@@ -1942,20 +2165,20 @@ define(["slick"], function(__WEBPACK_EXTERNAL_MODULE_44__) { return webpackJsonp
 	module.exports = DealInlineGallery;
 
 /***/ },
-/* 44 */
+/* 45 */
 /***/ function(module, exports) {
 
-	module.exports = __WEBPACK_EXTERNAL_MODULE_44__;
+	module.exports = __WEBPACK_EXTERNAL_MODULE_45__;
 
 /***/ },
-/* 45 */
+/* 46 */
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
 	module.exports = {"deal-inline-gallery-wrap":"deal-inline-gallery-wrap","deal-inline-gallery-title":"deal-inline-gallery-title","deal-inline-gallery":"deal-inline-gallery","memebox-deal-wrapper":"memebox-deal-wrapper","deal-inline-gallery-navigation":"deal-inline-gallery-navigation","paging":"paging","current":"current","left":"left","right":"right","disabled":"disabled"};
 
 /***/ },
-/* 46 */
+/* 47 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var Handlebars = __webpack_require__(6);
@@ -1969,7 +2192,7 @@ define(["slick"], function(__WEBPACK_EXTERNAL_MODULE_44__) { return webpackJsonp
 	},"useData":true});
 
 /***/ },
-/* 47 */
+/* 48 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -1977,7 +2200,7 @@ define(["slick"], function(__WEBPACK_EXTERNAL_MODULE_44__) { return webpackJsonp
 	var $ = __webpack_require__(1);
 	var utility = __webpack_require__(2);
 
-	__webpack_require__(48);
+	__webpack_require__(49);
 
 	var DealTooltipFloating = function DealTooltipFloating(element, className, deals, service) {
 	    var controller = {
@@ -1996,20 +2219,20 @@ define(["slick"], function(__WEBPACK_EXTERNAL_MODULE_44__) { return webpackJsonp
 	module.exports = DealTooltipFloating;
 
 /***/ },
-/* 48 */
+/* 49 */
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
 
 /***/ },
-/* 49 */
+/* 50 */
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
 	module.exports = {"memebox-deal-list":"memebox-deal-list","memebox-deal-list-line-amount-1":"memebox-deal-list-line-amount-1","memebox-deal-wrapper":"memebox-deal-wrapper","memebox-deal-list-line-amount-2":"memebox-deal-list-line-amount-2","memebox-deal-list-line-amount-3":"memebox-deal-list-line-amount-3","memebox-deal-list-line-amount-4":"memebox-deal-list-line-amount-4"};
 
 /***/ },
-/* 50 */
+/* 51 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var Handlebars = __webpack_require__(6);
@@ -2023,7 +2246,7 @@ define(["slick"], function(__WEBPACK_EXTERNAL_MODULE_44__) { return webpackJsonp
 	},"useData":true});
 
 /***/ },
-/* 51 */
+/* 52 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var Handlebars = __webpack_require__(6);
@@ -2033,7 +2256,6 @@ define(["slick"], function(__WEBPACK_EXTERNAL_MODULE_44__) { return webpackJsonp
 	},"useData":true});
 
 /***/ },
-/* 52 */,
 /* 53 */,
 /* 54 */,
 /* 55 */,
@@ -2048,7 +2270,8 @@ define(["slick"], function(__WEBPACK_EXTERNAL_MODULE_44__) { return webpackJsonp
 /* 64 */,
 /* 65 */,
 /* 66 */,
-/* 67 */
+/* 67 */,
+/* 68 */
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin

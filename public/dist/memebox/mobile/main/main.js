@@ -8,7 +8,7 @@ define(function() { return webpackJsonp([2],[
 	var utility = __webpack_require__(2);
 	var Menu = __webpack_require__(3);
 
-	__webpack_require__(54);
+	__webpack_require__(55);
 
 	var main = function main() {
 	    var controller = {
@@ -1323,7 +1323,8 @@ define(function() { return webpackJsonp([2],[
 /* 51 */,
 /* 52 */,
 /* 53 */,
-/* 54 */
+/* 54 */,
+/* 55 */
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
