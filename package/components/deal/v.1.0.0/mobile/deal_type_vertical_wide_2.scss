@@ -1,25 +1,23 @@
-$assetHost: '';
-$_poke: $assetHost+"/components/deal/v.1.0.0/mobile/_image/_poke.png";
-$_polygon: $assetHost+"/components/deal/v.1.0.0/mobile/_image/_polygon@2x.png";
-$_star_review: $assetHost+"/components/deal/v.1.0.0/mobile/_image/_star_review_mobile.png";
+@import "./_deal";
 
 /* ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ 상품 ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ */
 .deal_type_vertical_wide_2{
     position: relative;
-    margin: 5px;
+    margin: 0 5px;
+    line-height: 16px;
 }
 /* 상품 이미지, 벳지 */
 .deal_type_vertical_wide_2 .memebox-deal-image-wrap {
     position: relative;
     overflow: hidden;
-    margin-bottom: 8px;
+    margin-bottom: 9px;
     background-color: #fff;
     border: 1px solid #dcdcdc;
 }
 .deal_type_vertical_wide_2 .memebox-deal-timer {
     display: none;
  }
-.deal_type_vertical_wide_2 .memebox-deal-timer::after {
+.deal_type_vertical_wide_2 .memebox-deal-timer:before {
     display: none;
 }
 .deal_type_vertical_wide_2 .memebox-deal-timer-value {
@@ -27,39 +25,23 @@ $_star_review: $assetHost+"/components/deal/v.1.0.0/mobile/_image/_star_review_m
 }
 .deal_type_vertical_wide_2 .memebox-deal-ranking {
     display: none;
-    position: absolute;
-    top: 5px;
-    left: 5px;
-    background-image: url($_polygon);
-    background-repeat: no-repeat;
-    background-position: 0 0;
-    background-size: 22px 24px;
-    width: 21px;
-    height: 24px;
-    font-family: HelveticaNeue;
-    font-size: 14px;
-    font-weight: 500;
-    line-height: 24px;
-    text-align: center;
-    color: #ffffff;
 }
 .deal_type_vertical_wide_2 .memebox-deal-image {
     display: block;
     width: 100%;
-    height: auto;
     margin: 0 auto;
+    height: auto;
 }
 .deal_type_vertical_wide_2 .memebox-deal-sticker {
     display: none;
 }
 /* 상품이름 */
-.deal_type_vertical_wide_2 .memebox-deal-name {
-    padding-bottom: 10px;
-}
+.deal_type_vertical_wide_2 .memebox-deal-name {}
 .deal_type_vertical_wide_2 .memebox-deal-name-main {
     display: block;
     width: 100%;
     font-size: 13px;
+    font-weight: normal;
     color: #323232;
     padding: 0;
     overflow: hidden;
@@ -99,7 +81,7 @@ $_star_review: $assetHost+"/components/deal/v.1.0.0/mobile/_image/_star_review_m
     background-position: 0 0;
 }
 .deal_type_vertical_wide_2 .memebox-deal-review-average {
-    font-family: 'tahoma';
+    font-family: $baseFontFamily;
     font-weight: bold;
     color: #555;
 }

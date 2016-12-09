@@ -22,7 +22,7 @@ var deal_templates = {
         if(data.ranking){
             template += '   <span class="memebox-deal-ranking">'+data.ranking+'</span>';
         }
-        template += '   <img class="memebox-deal-image" src="'+data.image.src+'" alt="'+data.name.main+'"/>';
+        template += '   <img class="memebox-deal-image" src="'+data.image.basic+'" alt="'+data.name.main+'"/>';
         template += '</div>';
         return template;
     },

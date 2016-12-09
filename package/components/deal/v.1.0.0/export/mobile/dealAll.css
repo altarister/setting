@@ -1,5 +1,3 @@
-
-@charset "UTF-8";
 /* ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ 상품 ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ */
 .deal_type_horizontal_square_10 {
     position: relative;
@@ -993,8 +991,8 @@
 .deal_type_vertical_wide_2 .memebox-deal-image {
     display: block;
     width: 100%;
-    margin: 0 auto;
-    height: auto; }
+    height: auto;
+    margin: 0 auto; }
 
 .deal_type_vertical_wide_2 .memebox-deal-sticker {
     display: none; }
@@ -1225,4 +1223,3 @@
 
 .memebox-deal-sticker.sticker-reservation {
     background-position: -980px 0px; }
-

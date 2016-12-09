@@ -38,12 +38,10 @@ var Deal = function (deal, trackFunction) {
         initialize: function(){
             this.makeDealElement(deal);
             utility.uiEnhancements.call(this);
-            //this.setImage();
             this.eventListener();
         },
 
         makeDealElement: function(deal){
-            console.log('deal.image = ',deal.image)
             var template = '';
 
             template += deal_templates.image(deal);
@@ -63,9 +61,8 @@ var Deal = function (deal, trackFunction) {
         },
 
         eventListener: function(){
-
             this.ui.dealImage
-                .on('load', $.proxy(this.defaultImageLoadEvent, this))
+                .on('load', $.proxy(this.defaultImageLoadEvent, this));
 
             if(this.currentRemainingTime){
                 if(window.deal_RemainingTimeInterval){
@@ -80,6 +77,7 @@ var Deal = function (deal, trackFunction) {
         },
 
         defaultImageLoadEvent: function(){
+            console.log('')
             var imageHeight = this.ui.dealImage.height();
             this.ui.dealImage
                 .off()

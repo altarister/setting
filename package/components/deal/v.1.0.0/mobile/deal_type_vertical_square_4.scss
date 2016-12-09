@@ -1,7 +1,4 @@
-$assetHost: '';
-$_poke: $assetHost+"/components/deal/v.1.0.0/mobile/_image/_poke.png";
-$_polygon: $assetHost+"/components/deal/v.1.0.0/mobile/_image/_polygon@2x.png";
-$_star_review: $assetHost+"/components/deal/v.1.0.0/mobile/_image/_star_review_mobile.png";
+@import "./_deal";
 
 /* ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ 상품 ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ */
 .deal_type_vertical_square_4 {
@@ -21,7 +18,7 @@ $_star_review: $assetHost+"/components/deal/v.1.0.0/mobile/_image/_star_review_m
     height: 100%;
     display: block;
 }
-.deal_type_vertical_square_4 .memebox-deal-timer::after {
+.deal_type_vertical_square_4 .memebox-deal-timer:before {
     position: absolute;
     top: 0;
     left: 0;
@@ -29,7 +26,7 @@ $_star_review: $assetHost+"/components/deal/v.1.0.0/mobile/_image/_star_review_m
     height: 100%;
     background-color: #000;
     content: "";
-    opacity: .1;
+    opacity: .2;
 }
 .deal_type_vertical_square_4 .memebox-deal-timer-value {
     display: block;
@@ -43,7 +40,7 @@ $_star_review: $assetHost+"/components/deal/v.1.0.0/mobile/_image/_star_review_m
     font-size: 14px;
     text-shadow: 2px 2px 2px gray;
     color: #fff;
-    font-family: 나눔고딕, NanumGothic, 돋움, Dotum, AppleSDGothic, AppleGothic, 굴림, Gulim, sans-serif;
+    font-family: $baseFontFamily;
 }
 .deal_type_vertical_square_4 .memebox-deal-ranking {
     display: block;
@@ -56,7 +53,7 @@ $_star_review: $assetHost+"/components/deal/v.1.0.0/mobile/_image/_star_review_m
     background-size: 22px 24px;
     width: 21px;
     height: 24px;
-    font-family: HelveticaNeue;
+    font-family: $baseFontFamily;
     font-size: 14px;
     font-weight: 500;
     line-height: 24px;
@@ -117,7 +114,7 @@ $_star_review: $assetHost+"/components/deal/v.1.0.0/mobile/_image/_star_review_m
     background-position: 0 0;
 }
 .deal_type_vertical_square_4 .memebox-deal-review-average {
-    font-family: 'tahoma';
+    font-family: $baseFontFamily;
     font-weight: bold;
     color: #555;
 }
@@ -137,9 +134,8 @@ $_star_review: $assetHost+"/components/deal/v.1.0.0/mobile/_image/_star_review_m
 /* ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ 상품 가격 관련 내용 ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ */
 .deal_type_vertical_square_4 .memebox-deal-price-wrap {
     margin: 0 0 10px 0;
-    font-family: 나눔고딕, NanumGothic, 돋움, Dotum, AppleSDGothic, AppleGothic, 굴림, Gulim, sans-serif;
+    font-family: $baseFontFamily;
     font-size: 13px;
-    letter-spacing: -1px;
     color: #555555;
 }
 /* 상품 할인 */
@@ -164,7 +160,7 @@ $_star_review: $assetHost+"/components/deal/v.1.0.0/mobile/_image/_star_review_m
 /* 상품 청구 가격 */
 .deal_type_vertical_square_4 .memebox-deal-price-result {
     //margin-top: -3px;
-    font-family: 나눔고딕, NanumGothic, 돋움, Dotum, AppleSDGothic, AppleGothic, 굴림, Gulim, sans-serif;;
+    font-family: $baseFontFamily;
     font-size: 13px;
     letter-spacing: -1px;
     color: #555;

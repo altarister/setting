@@ -1307,11 +1307,9 @@ define(["slick"], function(__WEBPACK_EXTERNAL_MODULE_45__) { return webpackJsonp
 /***/ },
 /* 25 */,
 /* 26 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ function(module, exports) {
 
 	'use strict';
-
-	var $ = __webpack_require__(1);
 
 	var SampleDealAPI = function SampleDealAPI(viewData) {
 	    var controller = {
@@ -1358,8 +1356,8 @@ define(["slick"], function(__WEBPACK_EXTERNAL_MODULE_45__) { return webpackJsonp
 	            link: 'http://www.coupang.com/deal.pang?coupang=61130860',
 	            image: {
 	                type: 'square', //circle, wide, square
-	                basic: '/components/deal/v.1.0.0/mobile/_image/_image_square_basic.png',
-	                error: '/components/deal/v.1.0.0/mobile/_image/_image_square_error.gif',
+	                basic: '/components/deal/v.1.0.0/mobile/_images/_image_square_basic.png',
+	                error: '/components/deal/v.1.0.0/mobile/_images/_image_square_error.gif',
 	                src: 'http://img2.memebox.com/static/contents/img/upload/image_20150706134341_2m0D5I3Z7M.jpg',
 	                size: {
 	                    width: 200,
@@ -1572,16 +1570,16 @@ define(["slick"], function(__WEBPACK_EXTERNAL_MODULE_45__) { return webpackJsonp
 	                    forDeal.image = $.extend({}, forDeal.image, {
 	                        type: viewData.image.type,
 	                        src: this.wideImg[index],
-	                        basic: '/components/deal/v.1.0.0/mobile/_image/_image_wide_basic.png',
-	                        error: '/components/deal/v.1.0.0/mobile/_image/_image_wide_error.gif'
+	                        basic: '/components/deal/v.1.0.0/mobile/_images/_image_wide_basic.png',
+	                        error: '/components/deal/v.1.0.0/mobile/_images/_image_wide_error.gif'
 	                    });
 	                    //forDeal.image = $.extend({}, forDeal.image, { type: imageType, src: this.images[index]});
 	                } else {
 	                    forDeal.image = $.extend({}, forDeal.image, {
 	                        type: viewData.image.type,
 	                        src: this.images[index],
-	                        basic: '/components/deal/v.1.0.0/mobile/_image/_image_square_basic.png',
-	                        error: '/components/deal/v.1.0.0/mobile/_image/_image_square_error.gif'
+	                        basic: '/components/deal/v.1.0.0/mobile/_images/_image_square_basic.png',
+	                        error: '/components/deal/v.1.0.0/mobile/_images/_image_square_error.gif'
 	                    });
 	                }
 
@@ -1724,12 +1722,10 @@ define(["slick"], function(__WEBPACK_EXTERNAL_MODULE_45__) { return webpackJsonp
 	        initialize: function initialize() {
 	            this.makeDealElement(deal);
 	            utility.uiEnhancements.call(this);
-	            //this.setImage();
 	            this.eventListener();
 	        },
 
 	        makeDealElement: function makeDealElement(deal) {
-	            console.log('deal.image = ', deal.image);
 	            var template = '';
 
 	            template += deal_templates.image(deal);
@@ -1749,7 +1745,6 @@ define(["slick"], function(__WEBPACK_EXTERNAL_MODULE_45__) { return webpackJsonp
 	        },
 
 	        eventListener: function eventListener() {
-
 	            this.ui.dealImage.on('load', $.proxy(this.defaultImageLoadEvent, this));
 
 	            if (this.currentRemainingTime) {
@@ -1764,6 +1759,7 @@ define(["slick"], function(__WEBPACK_EXTERNAL_MODULE_45__) { return webpackJsonp
 	        },
 
 	        defaultImageLoadEvent: function defaultImageLoadEvent() {
+	            console.log('');
 	            var imageHeight = this.ui.dealImage.height();
 	            this.ui.dealImage.off().on('error', $.proxy(this.errorImageLoadEvent, this)).attr('src', deal.image.src).css({
 	                width: 'auto',
@@ -1833,14 +1829,14 @@ define(["slick"], function(__WEBPACK_EXTERNAL_MODULE_45__) { return webpackJsonp
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
-	module.exports = {"deal_type_horizontal_square_10":"deal_type_horizontal_square_10","memebox-deal-image-wrap":"memebox-deal-image-wrap","memebox-deal-timer":"memebox-deal-timer","memebox-deal-timer-value":"memebox-deal-timer-value","memebox-deal-ranking":"memebox-deal-ranking","memebox-deal-sticker":"memebox-deal-sticker","memebox-deal-image":"memebox-deal-image","memebox-deal-name":"memebox-deal-name","memebox-deal-name-main":"memebox-deal-name-main","memebox-deal-name-sub":"memebox-deal-name-sub","memebox-deal-current-status":"memebox-deal-current-status","memebox-deal-review-star":"memebox-deal-review-star","memebox-deal-review-star-value":"memebox-deal-review-star-value","memebox-deal-review-average":"memebox-deal-review-average","memebox-deal-review-count":"memebox-deal-review-count","memebox-deal-sold-out":"memebox-deal-sold-out","memebox-deal-price-wrap":"memebox-deal-price-wrap","memebox-deal-price-discount":"memebox-deal-price-discount","memebox-deal-price-unit":"memebox-deal-price-unit","memebox-deal-price-origin":"memebox-deal-price-origin","memebox-deal-price-result":"memebox-deal-price-result","memebox-deal-price-info":"memebox-deal-price-info","memebox-deal-delivery":"memebox-deal-delivery","memebox-deal-delivery-shipping":"memebox-deal-delivery-shipping","memebox-deal-delivery-type":"memebox-deal-delivery-type","memebox-deal-info":"memebox-deal-info","memebox-deal-link":"memebox-deal-link","memebox-deal-sell-stop":"memebox-deal-sell-stop","memebox-deal-poke-wrap":"memebox-deal-poke-wrap","memebox-deal-poke":"memebox-deal-poke","memebox-deal-poke-checked":"memebox-deal-poke-checked"};
+	module.exports = {"deal_type_horizontal_square_10":"deal_type_horizontal_square_10","memebox-deal-image-wrap":"memebox-deal-image-wrap","memebox-deal-timer":"memebox-deal-timer","memebox-deal-timer-value":"memebox-deal-timer-value","memebox-deal-ranking":"memebox-deal-ranking","memebox-deal-sticker":"memebox-deal-sticker","memebox-deal-image":"memebox-deal-image","memebox-deal-name":"memebox-deal-name","memebox-deal-name-main":"memebox-deal-name-main","memebox-deal-name-sub":"memebox-deal-name-sub","memebox-deal-current-status":"memebox-deal-current-status","memebox-deal-review-star":"memebox-deal-review-star","memebox-deal-review-star-value":"memebox-deal-review-star-value","memebox-deal-review-average":"memebox-deal-review-average","memebox-deal-review-count":"memebox-deal-review-count","memebox-deal-sold-out":"memebox-deal-sold-out","memebox-deal-price-wrap":"memebox-deal-price-wrap","memebox-deal-price-discount":"memebox-deal-price-discount","memebox-deal-price-origin":"memebox-deal-price-origin","memebox-deal-price-info":"memebox-deal-price-info","memebox-deal-price-value":"memebox-deal-price-value","memebox-deal-price-unit":"memebox-deal-price-unit","memebox-deal-price-from":"memebox-deal-price-from","memebox-deal-price-result":"memebox-deal-price-result","memebox-deal-delivery":"memebox-deal-delivery","memebox-deal-delivery-shipping":"memebox-deal-delivery-shipping","memebox-deal-delivery-type":"memebox-deal-delivery-type","memebox-deal-link":"memebox-deal-link","memebox-deal-sell-stop":"memebox-deal-sell-stop","memebox-deal-poke-wrap":"memebox-deal-poke-wrap","memebox-deal-poke-checked":"memebox-deal-poke-checked"};
 
 /***/ },
 /* 30 */
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
-	module.exports = {"deal_type_vertical_circle_4":"deal_type_vertical_circle_4","memebox-deal-image-wrap":"memebox-deal-image-wrap","memebox-deal-timer":"memebox-deal-timer","memebox-deal-timer-value":"memebox-deal-timer-value","memebox-deal-ranking":"memebox-deal-ranking","memebox-deal-image":"memebox-deal-image","memebox-deal-sticker":"memebox-deal-sticker","memebox-deal-name":"memebox-deal-name","memebox-deal-name-main":"memebox-deal-name-main","memebox-deal-name-sub":"memebox-deal-name-sub","memebox-deal-current-status":"memebox-deal-current-status","memebox-deal-review-star":"memebox-deal-review-star","memebox-deal-review-star-value":"memebox-deal-review-star-value","memebox-deal-review-average":"memebox-deal-review-average","memebox-deal-review-count":"memebox-deal-review-count","memebox-deal-sold-out":"memebox-deal-sold-out","memebox-deal-price-wrap":"memebox-deal-price-wrap","memebox-deal-price-discount":"memebox-deal-price-discount","memebox-deal-price-origin":"memebox-deal-price-origin","memebox-deal-price-result":"memebox-deal-price-result","memebox-deal-price-info":"memebox-deal-price-info","memebox-deal-price-unit":"memebox-deal-price-unit","memebox-deal-delivery":"memebox-deal-delivery","memebox-deal-delivery-shipping":"memebox-deal-delivery-shipping","memebox-deal-info":"memebox-deal-info","memebox-deal-link":"memebox-deal-link","memebox-deal-poke-wrap":"memebox-deal-poke-wrap","memebox-deal-poke":"memebox-deal-poke","memebox-deal-poke-checked":"memebox-deal-poke-checked"};
+	module.exports = {"deal_type_vertical_circle_4":"deal_type_vertical_circle_4","memebox-deal-image-wrap":"memebox-deal-image-wrap","memebox-deal-timer":"memebox-deal-timer","memebox-deal-timer-value":"memebox-deal-timer-value","memebox-deal-ranking":"memebox-deal-ranking","memebox-deal-image":"memebox-deal-image","memebox-deal-sticker":"memebox-deal-sticker","memebox-deal-name":"memebox-deal-name","memebox-deal-name-main":"memebox-deal-name-main","memebox-deal-name-sub":"memebox-deal-name-sub","memebox-deal-current-status":"memebox-deal-current-status","memebox-deal-review-star":"memebox-deal-review-star","memebox-deal-review-star-value":"memebox-deal-review-star-value","memebox-deal-review-average":"memebox-deal-review-average","memebox-deal-review-count":"memebox-deal-review-count","memebox-deal-sold-out":"memebox-deal-sold-out","memebox-deal-price-wrap":"memebox-deal-price-wrap","memebox-deal-price-discount":"memebox-deal-price-discount","memebox-deal-price-origin":"memebox-deal-price-origin","memebox-deal-price-info":"memebox-deal-price-info","memebox-deal-price-value":"memebox-deal-price-value","memebox-deal-price-unit":"memebox-deal-price-unit","memebox-deal-price-from":"memebox-deal-price-from","memebox-deal-price-result":"memebox-deal-price-result","memebox-deal-delivery":"memebox-deal-delivery","memebox-deal-delivery-shipping":"memebox-deal-delivery-shipping","memebox-deal-info":"memebox-deal-info","memebox-deal-link":"memebox-deal-link","memebox-deal-poke-wrap":"memebox-deal-poke-wrap","memebox-deal-poke":"memebox-deal-poke","memebox-deal-poke-checked":"memebox-deal-poke-checked"};
 
 /***/ },
 /* 31 */
@@ -1854,14 +1850,14 @@ define(["slick"], function(__WEBPACK_EXTERNAL_MODULE_45__) { return webpackJsonp
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
-	module.exports = {"deal_type_vertical_square_10":"deal_type_vertical_square_10","memebox-deal-image-wrap":"memebox-deal-image-wrap","memebox-deal-timer":"memebox-deal-timer","memebox-deal-timer-value":"memebox-deal-timer-value","memebox-deal-ranking":"memebox-deal-ranking","memebox-deal-sticker":"memebox-deal-sticker","memebox-deal-image":"memebox-deal-image","memebox-deal-name":"memebox-deal-name","memebox-deal-name-main":"memebox-deal-name-main","memebox-deal-name-sub":"memebox-deal-name-sub","memebox-deal-current-status":"memebox-deal-current-status","memebox-deal-review-star":"memebox-deal-review-star","memebox-deal-review-star-value":"memebox-deal-review-star-value","memebox-deal-review-average":"memebox-deal-review-average","memebox-deal-review-count":"memebox-deal-review-count","memebox-deal-sold-out":"memebox-deal-sold-out","memebox-deal-price-wrap":"memebox-deal-price-wrap","memebox-deal-price-discount":"memebox-deal-price-discount","memebox-deal-price-unit":"memebox-deal-price-unit","memebox-deal-price-origin":"memebox-deal-price-origin","memebox-deal-price-result":"memebox-deal-price-result","memebox-deal-price-info":"memebox-deal-price-info","memebox-deal-delivery":"memebox-deal-delivery","memebox-deal-delivery-shipping":"memebox-deal-delivery-shipping","memebox-deal-delivery-type":"memebox-deal-delivery-type","memebox-deal-info":"memebox-deal-info","memebox-deal-link":"memebox-deal-link","memebox-deal-sell-stop":"memebox-deal-sell-stop","memebox-deal-poke-wrap":"memebox-deal-poke-wrap","memebox-deal-poke":"memebox-deal-poke","memebox-deal-poke-checked":"memebox-deal-poke-checked"};
+	module.exports = {"deal_type_vertical_square_10":"deal_type_vertical_square_10","memebox-deal-image-wrap":"memebox-deal-image-wrap","memebox-deal-timer":"memebox-deal-timer","memebox-deal-timer-value":"memebox-deal-timer-value","memebox-deal-ranking":"memebox-deal-ranking","memebox-deal-sticker":"memebox-deal-sticker","memebox-deal-image":"memebox-deal-image","memebox-deal-name-main":"memebox-deal-name-main","memebox-deal-name-sub":"memebox-deal-name-sub","memebox-deal-current-status":"memebox-deal-current-status","memebox-deal-review-star":"memebox-deal-review-star","memebox-deal-review-star-value":"memebox-deal-review-star-value","memebox-deal-review-average":"memebox-deal-review-average","memebox-deal-review-count":"memebox-deal-review-count","memebox-deal-sold-out":"memebox-deal-sold-out","memebox-deal-price-wrap":"memebox-deal-price-wrap","memebox-deal-price-discount":"memebox-deal-price-discount","memebox-deal-price-origin":"memebox-deal-price-origin","memebox-deal-price-info":"memebox-deal-price-info","memebox-deal-price-value":"memebox-deal-price-value","memebox-deal-price-unit":"memebox-deal-price-unit","memebox-deal-price-from":"memebox-deal-price-from","memebox-deal-price-result":"memebox-deal-price-result","memebox-deal-delivery":"memebox-deal-delivery","memebox-deal-delivery-shipping":"memebox-deal-delivery-shipping","memebox-deal-delivery-type":"memebox-deal-delivery-type","memebox-deal-info":"memebox-deal-info","memebox-deal-link":"memebox-deal-link","memebox-deal-sell-stop":"memebox-deal-sell-stop","memebox-deal-poke-wrap":"memebox-deal-poke-wrap","memebox-deal-poke":"memebox-deal-poke","memebox-deal-poke-checked":"memebox-deal-poke-checked"};
 
 /***/ },
 /* 33 */
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
-	module.exports = {"deal_type_vertical_wide_2":"deal_type_vertical_wide_2","memebox-deal-image-wrap":"memebox-deal-image-wrap","memebox-deal-timer":"memebox-deal-timer","memebox-deal-timer-value":"memebox-deal-timer-value","memebox-deal-ranking":"memebox-deal-ranking","memebox-deal-image":"memebox-deal-image","memebox-deal-sticker":"memebox-deal-sticker","memebox-deal-name":"memebox-deal-name","memebox-deal-name-main":"memebox-deal-name-main","memebox-deal-name-sub":"memebox-deal-name-sub","memebox-deal-current-status":"memebox-deal-current-status","memebox-deal-review-star":"memebox-deal-review-star","memebox-deal-review-star-value":"memebox-deal-review-star-value","memebox-deal-review-average":"memebox-deal-review-average","memebox-deal-review-count":"memebox-deal-review-count","memebox-deal-sold-out":"memebox-deal-sold-out","memebox-deal-price-wrap":"memebox-deal-price-wrap","memebox-deal-delivery":"memebox-deal-delivery","memebox-deal-delivery-shipping":"memebox-deal-delivery-shipping","memebox-deal-info":"memebox-deal-info","memebox-deal-link":"memebox-deal-link","memebox-deal-poke-wrap":"memebox-deal-poke-wrap","memebox-deal-poke":"memebox-deal-poke","memebox-deal-poke-checked":"memebox-deal-poke-checked"};
+	module.exports = {"deal_type_vertical_wide_2":"deal_type_vertical_wide_2","memebox-deal-image-wrap":"memebox-deal-image-wrap","memebox-deal-timer":"memebox-deal-timer","memebox-deal-timer-value":"memebox-deal-timer-value","memebox-deal-ranking":"memebox-deal-ranking","memebox-deal-image":"memebox-deal-image","memebox-deal-sticker":"memebox-deal-sticker","memebox-deal-name-main":"memebox-deal-name-main","memebox-deal-name-sub":"memebox-deal-name-sub","memebox-deal-current-status":"memebox-deal-current-status","memebox-deal-review-star":"memebox-deal-review-star","memebox-deal-review-star-value":"memebox-deal-review-star-value","memebox-deal-review-average":"memebox-deal-review-average","memebox-deal-review-count":"memebox-deal-review-count","memebox-deal-sold-out":"memebox-deal-sold-out","memebox-deal-price-wrap":"memebox-deal-price-wrap","memebox-deal-delivery":"memebox-deal-delivery","memebox-deal-delivery-shipping":"memebox-deal-delivery-shipping","memebox-deal-info":"memebox-deal-info","memebox-deal-link":"memebox-deal-link","memebox-deal-poke-wrap":"memebox-deal-poke-wrap","memebox-deal-poke":"memebox-deal-poke","memebox-deal-poke-checked":"memebox-deal-poke-checked"};
 
 /***/ },
 /* 34 */
