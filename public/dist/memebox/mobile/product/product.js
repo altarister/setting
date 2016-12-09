@@ -1714,6 +1714,7 @@ define(["slick"], function(__WEBPACK_EXTERNAL_MODULE_45__) { return webpackJsonp
 	            timer: '.memebox-deal-timer-value',
 	            poke: '.memebox-deal-poke',
 	            link: '.memebox-deal-link',
+	            dealImageWrap: '.memebox-deal-image-wrap',
 	            dealImage: '.memebox-deal-image'
 	        },
 
@@ -1755,14 +1756,29 @@ define(["slick"], function(__WEBPACK_EXTERNAL_MODULE_45__) { return webpackJsonp
 	                }
 	            }
 
+	            $(window).resize(function () {
+	                controller.setImageSize();
+	            });
+
 	            this.element.off().on('click', this.ui.__uiString.link, $.proxy(this.linkEvent, this));
 	        },
 
 	        defaultImageLoadEvent: function defaultImageLoadEvent() {
-	            console.log('');
-	            var imageHeight = this.ui.dealImage.height();
-	            this.ui.dealImage.off().on('error', $.proxy(this.errorImageLoadEvent, this)).attr('src', deal.image.src).css({
-	                width: 'auto',
+	            this.ui.dealImage.off().on('error', $.proxy(this.errorImageLoadEvent, this)).attr('src', deal.image.src);
+	            this.setImageSize();
+	        },
+
+	        setImageSize: function setImageSize() {
+	            var imageWrapWidth = this.ui.dealImageWrap.width();
+	            var imageWidth = imageWrapWidth;
+	            var imageHeight = imageWrapWidth;
+
+	            if (deal.image.type === 'wide') {
+	                imageWidth = 'auto';
+	                imageHeight = imageWrapWidth / 2;
+	            }
+	            this.ui.dealImage.css({
+	                width: imageWidth,
 	                height: imageHeight
 	            });
 	        },

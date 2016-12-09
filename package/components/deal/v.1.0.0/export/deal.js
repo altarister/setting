@@ -7,6 +7,7 @@ var Deal = function (deal, trackFunction) {
             , timer: '.memebox-deal-timer-value'
             , poke: '.memebox-deal-poke'
             , link: '.memebox-deal-link'
+            , dealImageWrap: '.memebox-deal-image-wrap'
             , dealImage: '.memebox-deal-image'
         },
 
@@ -49,19 +50,34 @@ var Deal = function (deal, trackFunction) {
                 }
             }
 
+            $(window).resize(function() {
+                controller.setImageSize();
+            });
+
             this.element.off()
                 .on('click', this.ui.__uiString.link, $.proxy(this.linkEvent, this));
         },
 
         defaultImageLoadEvent: function(){
-            console.log('')
-            var imageHeight = this.ui.dealImage.height();
             this.ui.dealImage
                 .off()
                 .on('error', $.proxy(this.errorImageLoadEvent, this))
-                .attr('src', deal.image.src)
+                .attr('src', deal.image.src);
+            this.setImageSize();
+        },
+
+        setImageSize: function(){
+            var imageWrapWidth = this.ui.dealImageWrap.width();
+            var imageWidth = imageWrapWidth;
+            var imageHeight = imageWrapWidth;
+
+            if(deal.image.type === 'wide'){
+                imageWidth = 'auto';
+                imageHeight = imageWrapWidth / 2;
+            }
+            this.ui.dealImage
                 .css({
-                    width: 'auto',
+                    width: imageWidth,
                     height: imageHeight
                 });
         },

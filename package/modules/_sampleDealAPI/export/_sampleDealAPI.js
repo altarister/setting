@@ -43,8 +43,8 @@ var SampleDealAPI = function(viewData){
             link: 'http://www.coupang.com/deal.pang?coupang=61130860',
             image: {
                 type: 'square', //circle, wide, square
-                basic: '/components/deal/v.1.0.0/mobile/_image/_image_square_basic.png',
-                error: '/components/deal/v.1.0.0/mobile/_image/_image_square_error.gif',
+                basic: '/components/deal/v.1.0.0/mobile/_images/_image_square_basic.png',
+                error: '/components/deal/v.1.0.0/mobile/_images/_image_square_error.gif',
                 src: 'http://img2.memebox.com/static/contents/img/upload/image_20150706134341_2m0D5I3Z7M.jpg',
                 size: {
                     width: 200,
@@ -282,16 +282,16 @@ var SampleDealAPI = function(viewData){
                     forDeal.image = $.extend({}, forDeal.image, {
                         type: viewData.image.type,
                         src: this.wideImg[index],
-                        basic: '/components/deal/v.1.0.0/mobile/_image/_image_wide_basic.png',
-                        error: '/components/deal/v.1.0.0/mobile/_image/_image_wide_error.gif'
+                        basic: '/components/deal/v.1.0.0/mobile/_images/_image_wide_basic.png',
+                        error: '/components/deal/v.1.0.0/mobile/_images/_image_wide_error.gif'
                     });
                     //forDeal.image = $.extend({}, forDeal.image, { type: imageType, src: this.images[index]});
                 }else{
                     forDeal.image = $.extend({}, forDeal.image, {
                         type: viewData.image.type,
                         src: this.images[index],
-                        basic: '/components/deal/v.1.0.0/mobile/_image/_image_square_basic.png',
-                        error: '/components/deal/v.1.0.0/mobile/_image/_image_square_error.gif'
+                        basic: '/components/deal/v.1.0.0/mobile/_images/_image_square_basic.png',
+                        error: '/components/deal/v.1.0.0/mobile/_images/_image_square_error.gif'
                     });
                 }
 
