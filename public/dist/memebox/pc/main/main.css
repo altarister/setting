@@ -631,11 +631,16 @@
   width: 20%;
   margin-top: 14px; }
 
+.corporation-familySite .select-design-viewer:hover .select-design-viewer-list {
+  display: block; }
+
+.corporation-familySite .select-design-viewer-option-selector {
+  border: 1px solid #ccc; }
+
 .corporation-familySite .select-design-viewer-option {
   padding: 0; }
 
 .corporation-familySite .select-design-viewer-list {
-  display: block;
   top: inherit;
   bottom: 30px; }
 
