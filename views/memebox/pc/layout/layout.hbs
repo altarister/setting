@@ -17,13 +17,12 @@
       {{> elements/config}}>
 
     {{!> pc/layout/header}}
-    {{> components/layout/header/v.1.1.0/_templates/header}}
     {{{block "memebox-header"}}}
-
-    {{{block "memebox-content"}}}
-
+    <div class="layout-structure-content">
+        {{{block "memebox-content"}}}
+    </div>
     {{{block "memebox-footer"}}}
-    {{> pc/layout/footer}}
+    {{!> pc/layout/footer}}
 
     {{{block "memebox-components"}}}
 

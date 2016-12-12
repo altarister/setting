@@ -7,9 +7,9 @@ define(function() { return webpackJsonp([5],[
 	var $ = __webpack_require__(2);
 	var utility = __webpack_require__(3);
 	var Menu = __webpack_require__(1);
-	var Header = __webpack_require__(60);
+	var Header = __webpack_require__(57);
 
-	__webpack_require__(62);
+	__webpack_require__(65);
 
 	var SignUpSNS = function SignUpSNS() {
 	    var controller = {
@@ -1325,10 +1325,7 @@ define(function() { return webpackJsonp([5],[
 /* 54 */,
 /* 55 */,
 /* 56 */,
-/* 57 */,
-/* 58 */,
-/* 59 */,
-/* 60 */
+/* 57 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -1336,7 +1333,7 @@ define(function() { return webpackJsonp([5],[
 	var $ = __webpack_require__(2);
 	var utility = __webpack_require__(3);
 
-	__webpack_require__(61);
+	__webpack_require__(58);
 
 	var header = function header() {
 	    var controller = {
@@ -1362,14 +1359,20 @@ define(function() { return webpackJsonp([5],[
 	module.exports = header;
 
 /***/ },
-/* 61 */
+/* 58 */
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
 	module.exports = {"header-top-content":"header-top-content","header-status-wrap":"header-status-wrap","app-down-trigger":"app-down-trigger","header-status-review":"header-status-review","header-status-review-li":"header-status-review-li","header-user-menus":"header-user-menus","header-user-menu-li":"header-user-menu-li","header-main-content":"header-main-content","searchBar-wrap":"searchBar-wrap","header-rolling-arrow-banner":"header-rolling-arrow-banner","header-gnb-content":"header-gnb-content","header-gnb-category":"header-gnb-category","header-gnb-content-ul":"header-gnb-content-ul","header-gnb-content-li":"header-gnb-content-li","select-layer":"select-layer","select-layer-ul":"select-layer-ul"};
 
 /***/ },
-/* 62 */
+/* 59 */,
+/* 60 */,
+/* 61 */,
+/* 62 */,
+/* 63 */,
+/* 64 */,
+/* 65 */
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin

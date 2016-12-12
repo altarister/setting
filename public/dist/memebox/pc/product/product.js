@@ -10,7 +10,7 @@ define(function() { return webpackJsonp([7],[
 	var SampleDealAPI = __webpack_require__(26);
 	var DealContainer = __webpack_require__(27);
 
-	__webpack_require__(76);
+	__webpack_require__(79);
 
 	var Product = function Product() {
 	    var controller = {
@@ -1308,11 +1308,9 @@ define(function() { return webpackJsonp([7],[
 /***/ },
 /* 25 */,
 /* 26 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ function(module, exports) {
 
 	'use strict';
-
-	var $ = __webpack_require__(2);
 
 	var SampleDealAPI = function SampleDealAPI(viewData) {
 	    var controller = {
@@ -1359,8 +1357,8 @@ define(function() { return webpackJsonp([7],[
 	            link: 'http://www.coupang.com/deal.pang?coupang=61130860',
 	            image: {
 	                type: 'square', //circle, wide, square
-	                basic: '/components/deal/v.1.0.0/mobile/_image/_image_square_basic.png',
-	                error: '/components/deal/v.1.0.0/mobile/_image/_image_square_error.gif',
+	                basic: '/components/deal/v.1.0.0/mobile/_images/_image_square_basic.png',
+	                error: '/components/deal/v.1.0.0/mobile/_images/_image_square_error.gif',
 	                src: 'http://img2.memebox.com/static/contents/img/upload/image_20150706134341_2m0D5I3Z7M.jpg',
 	                size: {
 	                    width: 200,
@@ -1573,16 +1571,16 @@ define(function() { return webpackJsonp([7],[
 	                    forDeal.image = $.extend({}, forDeal.image, {
 	                        type: viewData.image.type,
 	                        src: this.wideImg[index],
-	                        basic: '/components/deal/v.1.0.0/mobile/_image/_image_wide_basic.png',
-	                        error: '/components/deal/v.1.0.0/mobile/_image/_image_wide_error.gif'
+	                        basic: '/components/deal/v.1.0.0/mobile/_images/_image_wide_basic.png',
+	                        error: '/components/deal/v.1.0.0/mobile/_images/_image_wide_error.gif'
 	                    });
 	                    //forDeal.image = $.extend({}, forDeal.image, { type: imageType, src: this.images[index]});
 	                } else {
 	                    forDeal.image = $.extend({}, forDeal.image, {
 	                        type: viewData.image.type,
 	                        src: this.images[index],
-	                        basic: '/components/deal/v.1.0.0/mobile/_image/_image_square_basic.png',
-	                        error: '/components/deal/v.1.0.0/mobile/_image/_image_square_error.gif'
+	                        basic: '/components/deal/v.1.0.0/mobile/_images/_image_square_basic.png',
+	                        error: '/components/deal/v.1.0.0/mobile/_images/_image_square_error.gif'
 	                    });
 	                }
 
@@ -1717,6 +1715,7 @@ define(function() { return webpackJsonp([7],[
 	            timer: '.memebox-deal-timer-value',
 	            poke: '.memebox-deal-poke',
 	            link: '.memebox-deal-link',
+	            dealImageWrap: '.memebox-deal-image-wrap',
 	            dealImage: '.memebox-deal-image'
 	        },
 
@@ -1725,12 +1724,10 @@ define(function() { return webpackJsonp([7],[
 	        initialize: function initialize() {
 	            this.makeDealElement(deal);
 	            utility.uiEnhancements.call(this);
-	            //this.setImage();
 	            this.eventListener();
 	        },
 
 	        makeDealElement: function makeDealElement(deal) {
-	            console.log('deal.image = ', deal.image);
 	            var template = '';
 
 	            template += deal_templates.image(deal);
@@ -1750,7 +1747,6 @@ define(function() { return webpackJsonp([7],[
 	        },
 
 	        eventListener: function eventListener() {
-
 	            this.ui.dealImage.on('load', $.proxy(this.defaultImageLoadEvent, this));
 
 	            if (this.currentRemainingTime) {
@@ -1761,13 +1757,29 @@ define(function() { return webpackJsonp([7],[
 	                }
 	            }
 
+	            $(window).resize(function () {
+	                controller.setImageSize();
+	            });
+
 	            this.element.off().on('click', this.ui.__uiString.link, $.proxy(this.linkEvent, this));
 	        },
 
 	        defaultImageLoadEvent: function defaultImageLoadEvent() {
-	            var imageHeight = this.ui.dealImage.height();
-	            this.ui.dealImage.off().on('error', $.proxy(this.errorImageLoadEvent, this)).attr('src', deal.image.src).css({
-	                width: 'auto',
+	            this.ui.dealImage.off().on('error', $.proxy(this.errorImageLoadEvent, this)).attr('src', deal.image.src);
+	            this.setImageSize();
+	        },
+
+	        setImageSize: function setImageSize() {
+	            var imageWrapWidth = this.ui.dealImageWrap.width();
+	            var imageWidth = imageWrapWidth;
+	            var imageHeight = imageWrapWidth;
+
+	            if (deal.image.type === 'wide') {
+	                imageWidth = 'auto';
+	                imageHeight = imageWrapWidth / 2;
+	            }
+	            this.ui.dealImage.css({
+	                width: imageWidth,
 	                height: imageHeight
 	            });
 	        },
@@ -2453,7 +2465,10 @@ define(function() { return webpackJsonp([7],[
 /* 73 */,
 /* 74 */,
 /* 75 */,
-/* 76 */
+/* 76 */,
+/* 77 */,
+/* 78 */,
+/* 79 */
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin

@@ -1,4 +1,4 @@
-define(function() { return webpackJsonp([3],[
+define(["slick"], function(__WEBPACK_EXTERNAL_MODULE_60__) { return webpackJsonp([3],[
 /* 0 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -7,9 +7,10 @@ define(function() { return webpackJsonp([3],[
 	var $ = __webpack_require__(2);
 	var utility = __webpack_require__(3);
 	var Menu = __webpack_require__(1);
-	var Menu = __webpack_require__(1);
+	var header = __webpack_require__(57);
+	var footer = __webpack_require__(59);
 
-	__webpack_require__(57);
+	__webpack_require__(63);
 
 	var main = function main() {
 	    var controller = {
@@ -18,8 +19,10 @@ define(function() { return webpackJsonp([3],[
 	        ui: {},
 
 	        initialize: function initialize() {
+	            new header();
+	            new footer();
+	            //new Menu();
 	            utility.uiEnhancements.call(this);
-	            new Menu();
 	            this.addEventListener();
 	        },
 
@@ -1328,9 +1331,121 @@ define(function() { return webpackJsonp([3],[
 /* 55 */,
 /* 56 */,
 /* 57 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var $ = __webpack_require__(2);
+	var utility = __webpack_require__(3);
+
+	__webpack_require__(58);
+
+	var header = function header() {
+	    var controller = {
+
+	        element: '#memebox-service',
+	        ui: {},
+
+	        initialize: function initialize() {
+	            console.log('pc - header');
+	            utility.uiEnhancements.call(this);
+	            this.addEventListener();
+	        },
+
+	        addEventListener: function addEventListener() {
+	            // this.element.off()
+	            //     .on('click', this.ui.__uiString.zipcodeTrigger, $.proxy(this.zipcodeEvent, this))
+	        }
+
+	    };
+	    controller.initialize();
+	};
+
+	module.exports = header;
+
+/***/ },
+/* 58 */
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
+	module.exports = {"header-top-content":"header-top-content","header-status-wrap":"header-status-wrap","app-down-trigger":"app-down-trigger","header-status-review":"header-status-review","header-status-review-li":"header-status-review-li","header-user-menus":"header-user-menus","header-user-menu-li":"header-user-menu-li","header-main-content":"header-main-content","searchBar-wrap":"searchBar-wrap","header-rolling-arrow-banner":"header-rolling-arrow-banner","header-gnb-content":"header-gnb-content","header-gnb-category":"header-gnb-category","header-gnb-content-ul":"header-gnb-content-ul","header-gnb-content-li":"header-gnb-content-li","select-layer":"select-layer","select-layer-ul":"select-layer-ul"};
+
+/***/ },
+/* 59 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var $ = __webpack_require__(2);
+	var utility = __webpack_require__(3);
+	var slick = __webpack_require__(60);
+
+	__webpack_require__(61);
+	__webpack_require__(62);
+
+	var footer = function footer() {
+	    var controller = {
+
+	        element: '#memebox-service',
+	        ui: {
+	            awardsUl: '.corporation-awards-ul',
+	            awards: '.corporation-awards'
+	        },
+
+	        initialize: function initialize() {
+	            console.log('footer');
+	            utility.uiEnhancements.call(this);
+	            this.addEventListener();
+	            this.setSlick();
+	        },
+
+	        addEventListener: function addEventListener() {
+	            // this.element.off()
+	            //     .on('click', this.ui.__uiString.zipcodeTrigger, $.proxy(this.zipcodeEvent, this))
+	        },
+
+	        setSlick: function setSlick() {
+	            this.ui.awardsUl.css('width', 'auto').slick({
+	                arrows: true,
+	                dots: false,
+	                infinite: false,
+	                slidesToShow: 4,
+	                slidesToScroll: 1
+	            });
+	        }
+
+	    };
+	    controller.initialize();
+	};
+
+	module.exports = footer;
+
+/***/ },
+/* 60 */
+/***/ function(module, exports) {
+
+	module.exports = __WEBPACK_EXTERNAL_MODULE_60__;
+
+/***/ },
+/* 61 */
+/***/ function(module, exports) {
+
+	// removed by extract-text-webpack-plugin
+	module.exports = {"select-design-viewer":"select-design-viewer","select-design-viewer-option-selector":"select-design-viewer-option-selector","value":"value","trigger":"trigger","select-design-viewer-option-box":"select-design-viewer-option-box","select-design-viewer-list":"select-design-viewer-list","select-design-viewer-option":"select-design-viewer-option"};
+
+/***/ },
+/* 62 */
+/***/ function(module, exports) {
+
+	// removed by extract-text-webpack-plugin
+	module.exports = {"layout-structure-footer":"layout-structure-footer","layout-structure-footer-top":"layout-structure-footer-top","service-landing-components":"service-landing-components","service-landing-title":"service-landing-title","service-landing-trigger-ul":"service-landing-trigger-ul","service-landing-trigger-li":"service-landing-trigger-li","service-landing-trigger-recruiter":"service-landing-trigger-recruiter","service-landing-trigger-trust":"service-landing-trigger-trust","service-landing-trigger-deliver":"service-landing-trigger-deliver","service-landing-trigger-refund":"service-landing-trigger-refund","service-landing-trigger-offlinestore":"service-landing-trigger-offlinestore","layout-structure-footer-middle":"layout-structure-footer-middle","service-menus":"service-menus","service-CSCenter-wrap":"service-CSCenter-wrap","service-corporation-culture-wrap":"service-corporation-culture-wrap","service-customer-statement-wrap":"service-customer-statement-wrap","service-corporation-partner-wrap":"service-corporation-partner-wrap","service-corporation-culture":"service-corporation-culture","service-customer-statement":"service-customer-statement","service-corporation-partner":"service-corporation-partner","service-corporation-culture-content":"service-corporation-culture-content","service-customer-statement-content":"service-customer-statement-content","service-corporation-partner-content":"service-corporation-partner-content","service-CSCenter":"service-CSCenter","service-CSCenter-tel":"service-CSCenter-tel","service-CSCenter-trigger":"service-CSCenter-trigger","service-CSCenter-info":"service-CSCenter-info","service-corporation-culture-title":"service-corporation-culture-title","service-corporation-culture-trigger":"service-corporation-culture-trigger","service-customer-statement-title":"service-customer-statement-title","service-customer-statement-trigger":"service-customer-statement-trigger","service-corporation-partner-title":"service-corporation-partner-title","service-corporation-partner-ul":"service-corporation-partner-ul","service-corporation-partner-li":"service-corporation-partner-li","service-corporation-partner-entered":"service-corporation-partner-entered","service-corporation-partner-whole-sale":"service-corporation-partner-whole-sale","service-corporation-partner-promotion":"service-corporation-partner-promotion","service-corporation-partner-franchise":"service-corporation-partner-franchise","service-corporation-partner-balloon":"service-corporation-partner-balloon","corporation-information":"corporation-information","corporation-name":"corporation-name","corporation-report-policy":"corporation-report-policy","corporation-report-policy-li":"corporation-report-policy-li","corporation-aboutUs":"corporation-aboutUs","corporation-report-policy-terms-use":"corporation-report-policy-terms-use","corporation-report-policy-terms-privacy":"corporation-report-policy-terms-privacy","corporation-report-policy-terms-youth":"corporation-report-policy-terms-youth","corporation-report-policy-terms-email":"corporation-report-policy-terms-email","corporation-report-info-step":"corporation-report-info-step","corporation-report-info-step-dl":"corporation-report-info-step-dl","corporation-report-info-step-dt-hide":"corporation-report-info-step-dt-hide","layout-structure-footer-bottom":"layout-structure-footer-bottom","corporation-appeal-menus":"corporation-appeal-menus","corporation-awards":"corporation-awards","corporation-awards-navigation":"corporation-awards-navigation","corporation-awards-ul":"corporation-awards-ul","slick-arrow":"slick-arrow","slick-next":"slick-next","slick-prev":"slick-prev","slick-disabled":"slick-disabled","corporation-award-li":"corporation-award-li","corporation-award-2016-01":"corporation-award-2016-01","corporation-award-2015-07":"corporation-award-2015-07","corporation-award-2015-06":"corporation-award-2015-06","corporation-award-2015-05":"corporation-award-2015-05","corporation-award-2015-04":"corporation-award-2015-04","corporation-award-2015-03":"corporation-award-2015-03","corporation-award-2015-02":"corporation-award-2015-02","corporation-award-2015-01":"corporation-award-2015-01","corporation-award-2013-01":"corporation-award-2013-01","corporation-award-2012-01":"corporation-award-2012-01","corporation-familySite":"corporation-familySite","select-design-viewer-option":"select-design-viewer-option","select-design-viewer-list":"select-design-viewer-list","select-design-viewer":"select-design-viewer","corporation-familySite-corp":"corporation-familySite-corp","corporation-familySite-immeme":"corporation-familySite-immeme","corporation-familySite-ponyEffect":"corporation-familySite-ponyEffect","corporation-familySite-usa":"corporation-familySite-usa","corporation-familySite-china":"corporation-familySite-china","corporation-service-SNS":"corporation-service-SNS","corporation-service-SNS-insta":"corporation-service-SNS-insta","corporation-service-SNS-faceBook":"corporation-service-SNS-faceBook","corporation-service-SNS-youtube":"corporation-service-SNS-youtube"};
+
+/***/ },
+/* 63 */
+/***/ function(module, exports) {
+
+	// removed by extract-text-webpack-plugin
+	module.exports = {"layout-structure-content":"layout-structure-content"};
 
 /***/ }
 ])});;

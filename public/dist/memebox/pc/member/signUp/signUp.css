@@ -7,6 +7,63 @@
 
 .memebox-menu li {
   margin-right: 10px; }
+/* ---------------- select-design-viewer ---------------- */
+.select-design-viewer {
+  position: relative;
+  line-height: 30px;
+  background-color: #fff; }
+
+.select-design-viewer-option-selector {
+  margin: 0;
+  font-size: 12px;
+  line-height: 29px;
+  overflow: hidden;
+  border-left: 1px solid #ddd; }
+
+.select-design-viewer-option-selector .value {
+  display: block;
+  border: none;
+  text-indent: 10px;
+  line-height: 29px;
+  color: #555; }
+
+.select-design-viewer-option-selector .trigger {
+  display: block;
+  width: 30px;
+  height: 30px;
+  background-image: url("/modules/_designViewer/_select/v.1.0.0/line/_select.png");
+  background-size: 30px;
+  background-repeat: no-repeat;
+  background-position: 0 50%;
+  position: absolute;
+  right: -1px;
+  top: 0;
+  text-indent: -99999px; }
+
+.select-design-viewer-option-box {
+  position: relative;
+  margin-right: 1px; }
+
+.select-design-viewer-list {
+  display: none;
+  list-style: none;
+  margin: 0;
+  padding: 5px 0;
+  overflow: hidden;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  z-index: 1; }
+
+.select-design-viewer-option:hover {
+  background-color: #ffedf1;
+  /*border: 1px solid #ccc;*/
+  /*border-top: none;*/
+  /*border-bottom: none;*/ }
+
+/* ---------------- select-design-viewer ---------------- */
 #memebox-service {
   background-color: #f9f9f9; }
 
@@ -309,60 +366,3 @@
   overflow: auto;
   max-height: 300px;
   background-color: #fff; }
-/* ---------------- select-design-viewer ---------------- */
-.select-design-viewer {
-  position: relative;
-  line-height: 30px;
-  background-color: #fff; }
-
-.select-design-viewer-option-selector {
-  margin: 0;
-  font-size: 12px;
-  line-height: 29px;
-  overflow: hidden;
-  border-left: 1px solid #ddd; }
-
-.select-design-viewer-option-selector .value {
-  display: block;
-  border: none;
-  text-indent: 10px;
-  line-height: 29px;
-  color: #555; }
-
-.select-design-viewer-option-selector .trigger {
-  display: block;
-  width: 30px;
-  height: 30px;
-  background-image: url("/modules/_designViewer/_select/v.1.0.0/line/_select.png");
-  background-size: 30px;
-  background-repeat: no-repeat;
-  background-position: 0 50%;
-  position: absolute;
-  right: -1px;
-  top: 0;
-  text-indent: -99999px; }
-
-.select-design-viewer-option-box {
-  position: relative;
-  margin-right: 1px; }
-
-.select-design-viewer-list {
-  display: none;
-  list-style: none;
-  margin: 0;
-  padding: 5px 0;
-  overflow: hidden;
-  width: 100%;
-  position: absolute;
-  top: 0;
-  background-color: #fff;
-  border: 1px solid #ccc;
-  z-index: 1; }
-
-.select-design-viewer-option:hover {
-  background-color: #ffedf1;
-  /*border: 1px solid #ccc;*/
-  /*border-top: none;*/
-  /*border-bottom: none;*/ }
-
-/* ---------------- select-design-viewer ---------------- */

@@ -9,9 +9,9 @@ define(function() { return webpackJsonp([9],[
 	var Menu = __webpack_require__(1);
 	var SampleDealAPI = __webpack_require__(26);
 	var DealContainer = __webpack_require__(27);
-	var DealSimpleChoice = __webpack_require__(78);
+	var DealSimpleChoice = __webpack_require__(81);
 
-	__webpack_require__(85);
+	__webpack_require__(88);
 
 	var SearchResult = function SearchResult() {
 	    var controller = {
@@ -1309,11 +1309,9 @@ define(function() { return webpackJsonp([9],[
 /***/ },
 /* 25 */,
 /* 26 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ function(module, exports) {
 
 	'use strict';
-
-	var $ = __webpack_require__(2);
 
 	var SampleDealAPI = function SampleDealAPI(viewData) {
 	    var controller = {
@@ -1360,8 +1358,8 @@ define(function() { return webpackJsonp([9],[
 	            link: 'http://www.coupang.com/deal.pang?coupang=61130860',
 	            image: {
 	                type: 'square', //circle, wide, square
-	                basic: '/components/deal/v.1.0.0/mobile/_image/_image_square_basic.png',
-	                error: '/components/deal/v.1.0.0/mobile/_image/_image_square_error.gif',
+	                basic: '/components/deal/v.1.0.0/mobile/_images/_image_square_basic.png',
+	                error: '/components/deal/v.1.0.0/mobile/_images/_image_square_error.gif',
 	                src: 'http://img2.memebox.com/static/contents/img/upload/image_20150706134341_2m0D5I3Z7M.jpg',
 	                size: {
 	                    width: 200,
@@ -1574,16 +1572,16 @@ define(function() { return webpackJsonp([9],[
 	                    forDeal.image = $.extend({}, forDeal.image, {
 	                        type: viewData.image.type,
 	                        src: this.wideImg[index],
-	                        basic: '/components/deal/v.1.0.0/mobile/_image/_image_wide_basic.png',
-	                        error: '/components/deal/v.1.0.0/mobile/_image/_image_wide_error.gif'
+	                        basic: '/components/deal/v.1.0.0/mobile/_images/_image_wide_basic.png',
+	                        error: '/components/deal/v.1.0.0/mobile/_images/_image_wide_error.gif'
 	                    });
 	                    //forDeal.image = $.extend({}, forDeal.image, { type: imageType, src: this.images[index]});
 	                } else {
 	                    forDeal.image = $.extend({}, forDeal.image, {
 	                        type: viewData.image.type,
 	                        src: this.images[index],
-	                        basic: '/components/deal/v.1.0.0/mobile/_image/_image_square_basic.png',
-	                        error: '/components/deal/v.1.0.0/mobile/_image/_image_square_error.gif'
+	                        basic: '/components/deal/v.1.0.0/mobile/_images/_image_square_basic.png',
+	                        error: '/components/deal/v.1.0.0/mobile/_images/_image_square_error.gif'
 	                    });
 	                }
 
@@ -1718,6 +1716,7 @@ define(function() { return webpackJsonp([9],[
 	            timer: '.memebox-deal-timer-value',
 	            poke: '.memebox-deal-poke',
 	            link: '.memebox-deal-link',
+	            dealImageWrap: '.memebox-deal-image-wrap',
 	            dealImage: '.memebox-deal-image'
 	        },
 
@@ -1726,12 +1725,10 @@ define(function() { return webpackJsonp([9],[
 	        initialize: function initialize() {
 	            this.makeDealElement(deal);
 	            utility.uiEnhancements.call(this);
-	            //this.setImage();
 	            this.eventListener();
 	        },
 
 	        makeDealElement: function makeDealElement(deal) {
-	            console.log('deal.image = ', deal.image);
 	            var template = '';
 
 	            template += deal_templates.image(deal);
@@ -1751,7 +1748,6 @@ define(function() { return webpackJsonp([9],[
 	        },
 
 	        eventListener: function eventListener() {
-
 	            this.ui.dealImage.on('load', $.proxy(this.defaultImageLoadEvent, this));
 
 	            if (this.currentRemainingTime) {
@@ -1762,13 +1758,29 @@ define(function() { return webpackJsonp([9],[
 	                }
 	            }
 
+	            $(window).resize(function () {
+	                controller.setImageSize();
+	            });
+
 	            this.element.off().on('click', this.ui.__uiString.link, $.proxy(this.linkEvent, this));
 	        },
 
 	        defaultImageLoadEvent: function defaultImageLoadEvent() {
-	            var imageHeight = this.ui.dealImage.height();
-	            this.ui.dealImage.off().on('error', $.proxy(this.errorImageLoadEvent, this)).attr('src', deal.image.src).css({
-	                width: 'auto',
+	            this.ui.dealImage.off().on('error', $.proxy(this.errorImageLoadEvent, this)).attr('src', deal.image.src);
+	            this.setImageSize();
+	        },
+
+	        setImageSize: function setImageSize() {
+	            var imageWrapWidth = this.ui.dealImageWrap.width();
+	            var imageWidth = imageWrapWidth;
+	            var imageHeight = imageWrapWidth;
+
+	            if (deal.image.type === 'wide') {
+	                imageWidth = 'auto';
+	                imageHeight = imageWrapWidth / 2;
+	            }
+	            this.ui.dealImage.css({
+	                width: imageWidth,
 	                height: imageHeight
 	            });
 	        },
@@ -2456,7 +2468,10 @@ define(function() { return webpackJsonp([9],[
 /* 75 */,
 /* 76 */,
 /* 77 */,
-/* 78 */
+/* 78 */,
+/* 79 */,
+/* 80 */,
+/* 81 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -2464,14 +2479,14 @@ define(function() { return webpackJsonp([9],[
 	var $ = __webpack_require__(2);
 	var utility = __webpack_require__(3);
 
-	__webpack_require__(79);
-	__webpack_require__(80);
+	__webpack_require__(82);
+	__webpack_require__(83);
 
 	var dealEasyChoiceOption_templates = {
-	    dealItemSelectedOption: __webpack_require__(81),
-	    option: __webpack_require__(82),
-	    accordionInfo: __webpack_require__(83),
-	    accordionContent: __webpack_require__(84)
+	    dealItemSelectedOption: __webpack_require__(84),
+	    option: __webpack_require__(85),
+	    accordionInfo: __webpack_require__(86),
+	    accordionContent: __webpack_require__(87)
 	};
 
 	var DealEasyChoiceOption = function DealEasyChoiceOption() {
@@ -2711,21 +2726,21 @@ define(function() { return webpackJsonp([9],[
 	module.exports = DealEasyChoiceOption;
 
 /***/ },
-/* 79 */
+/* 82 */
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
 	module.exports = {"deal-simple-choice-wrap":"deal-simple-choice-wrap","deal-simple-choice-target-info":"deal-simple-choice-target-info","deal-simple-choice-target-title":"deal-simple-choice-target-title","deal-simple-choice-target-title-sub":"deal-simple-choice-target-title-sub","deal-simple-choice-select-wrap":"deal-simple-choice-select-wrap","design-template-accordion-info":"design-template-accordion-info","design-template-accordion-title":"design-template-accordion-title","design-template-accordion-selected":"design-template-accordion-selected","design-template-accordion-controller":"design-template-accordion-controller","design-template-accordion-list":"design-template-accordion-list","accordion-open":"accordion-open","deal-item-option-viewer":"deal-item-option-viewer","deal-item-option-viewer-title":"deal-item-option-viewer-title","deal-item-option-viewer-location":"deal-item-option-viewer-location","deal-simple-choice-result-wrap":"deal-simple-choice-result-wrap","deal-simple-choice-result-value-info":"deal-simple-choice-result-value-info","deal-simple-choice-result-list":"deal-simple-choice-result-list","deal-simple-choice-result-sub-list":"deal-simple-choice-result-sub-list","deal-simple-choice-result-sub-item":"deal-simple-choice-result-sub-item","deal-item-selected-option-wrap":"deal-item-selected-option-wrap","deal-item-selected-option-title":"deal-item-selected-option-title","deal-item-selected-option-amount-wrap":"deal-item-selected-option-amount-wrap","deal-item-selected-option-amount-value":"deal-item-selected-option-amount-value","deal-item-selected-option-amount-up":"deal-item-selected-option-amount-up","deal-item-selected-option-amount-down":"deal-item-selected-option-amount-down","deal-item-selected-option-value":"deal-item-selected-option-value","deal-item-selected-option-delete":"deal-item-selected-option-delete","deal-simple-choice-result-price-wrap":"deal-simple-choice-result-price-wrap","deal-simple-choice-result-price-title":"deal-simple-choice-result-price-title","deal-simple-choice-result-price-total-value":"deal-simple-choice-result-price-total-value","deal-simple-choice-result-price-unit":"deal-simple-choice-result-price-unit","deal-simple-choice-submit":"deal-simple-choice-submit","deal-simple-choice-submit-cart":"deal-simple-choice-submit-cart","deal-simple-choice-submit-order":"deal-simple-choice-submit-order","deal-simple-choice-submit-wishList":"deal-simple-choice-submit-wishList"};
 
 /***/ },
-/* 80 */
+/* 83 */
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
 	module.exports = {"select-design-viewer":"select-design-viewer","select-design-viewer-option-selector":"select-design-viewer-option-selector","value":"value","trigger":"trigger","select-design-viewer-list-box":"select-design-viewer-list-box","select-design-viewer-list":"select-design-viewer-list","select-design-viewer-option":"select-design-viewer-option"};
 
 /***/ },
-/* 81 */
+/* 84 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var Handlebars = __webpack_require__(6);
@@ -2735,7 +2750,7 @@ define(function() { return webpackJsonp([9],[
 	},"useData":true});
 
 /***/ },
-/* 82 */
+/* 85 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var Handlebars = __webpack_require__(6);
@@ -2753,7 +2768,7 @@ define(function() { return webpackJsonp([9],[
 	},"useData":true});
 
 /***/ },
-/* 83 */
+/* 86 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var Handlebars = __webpack_require__(6);
@@ -2765,7 +2780,7 @@ define(function() { return webpackJsonp([9],[
 	},"useData":true});
 
 /***/ },
-/* 84 */
+/* 87 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var Handlebars = __webpack_require__(6);
@@ -2787,7 +2802,7 @@ define(function() { return webpackJsonp([9],[
 	},"useData":true});
 
 /***/ },
-/* 85 */
+/* 88 */
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
