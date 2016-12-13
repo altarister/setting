@@ -67,15 +67,17 @@ var deal_templates = {
     status: function (data) {
         var template = '';
         template += '<div class="memebox-deal-current-status">';
-        template += '   <span class="memebox-deal-review-star">';
-        template += '       <span class="memebox-deal-review-star-value" style="width:'+data.review.average+'%;"></span>';
-        template += '   </span>';
-        template += '   <strong class="memebox-deal-review-average">';
-        template += '       <span class="memebox-deal-review-average-value">'+data.review.average+'</span>점';
-        template += '   </strong>';
-        template += '   <em class="memebox-deal-review-count">';
-        template += '       리뷰 <span class="memebox-deal-review-count-value">'+data.review.count+'</span>';
-        template += '   </em>';
+        if(data.review.count){
+            template += '   <span class="memebox-deal-review-star">';
+            template += '       <span class="memebox-deal-review-star-value" style="width:'+data.review.average+'%;"></span>';
+            template += '   </span>';
+            template += '   <strong class="memebox-deal-review-average">';
+            template += '       <span class="memebox-deal-review-average-value">'+data.review.average+'</span>점';
+            template += '   </strong>';
+            template += '   <em class="memebox-deal-review-count">';
+            template += '       리뷰 <span class="memebox-deal-review-count-value">'+data.review.count+'</span>';
+            template += '   </em>';
+        }
         if(data.sold.soon){
             template += '<span class="memebox-deal-sold-out">'+data.sold.soon+'</span>';
         }
@@ -86,8 +88,12 @@ var deal_templates = {
     delivery: function (data) {
         var template = '';
         template += '<div class="memebox-deal-delivery">';
-        template += '   <span class="memebox-deal-delivery-shipping">'+data.delivery.condition+'</span>';
-        template += '   <span class="memebox-deal-delivery-type">'+data.delivery.method+'</span>';
+        if(data.delivery.condition) {
+            template += '   <span class="memebox-deal-delivery-shipping">' + data.delivery.condition + '</span>';
+        }
+        if(data.delivery.method) {
+            template += '   <span class="memebox-deal-delivery-type">' + data.delivery.method + '</span>';
+        }
         template += '</div>';
         return template;
     },

@@ -1,5 +1,4 @@
-$assetHost: '';
-$_sticker: $assetHost+"/components/deal/v.1.0.0/mobile/_image/_sticker.png";
+@import "./_deal";
 
 .memebox-deal-sticker {
     position: absolute;

@@ -107,6 +107,7 @@
     padding: 0 8px;
     font-size: 0;
     line-height: 1.0;
+    height: 15px;
 }
 /* 별 리뷰 */
 .deal_type_vertical_square_10 .memebox-deal-review-star {
@@ -216,6 +217,7 @@
     text-align: right;
     font-size: 0;
     line-height: 1.0;
+    height: 12px;
 }
 .deal_type_vertical_square_10 .memebox-deal-delivery-shipping,
 .deal_type_vertical_square_10 .memebox-deal-delivery-type {
@@ -263,7 +265,7 @@
      /*opacity: .1;*/
  }
 .deal_type_vertical_square_10:hover .memebox-deal-image {
-    opacity: .8;
+    //opacity: .8;
 }
 
 

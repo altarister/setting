@@ -121,7 +121,7 @@ define(function() { return webpackJsonp([6],[
 	            image: {
 	                type: 'square', //circle, wide, square
 	                basic: '/components/deal/v.1.0.0/mobile/_images/_image_square_basic.png',
-	                error: '/components/deal/v.1.0.0/mobile/_images/_image_square_error.gif',
+	                error: '/components/deal/v.1.0.0/mobile/_images/_image_square_error.png',
 	                src: 'http://img2.memebox.com/static/contents/img/upload/image_20150706134341_2m0D5I3Z7M.jpg',
 	                size: {
 	                    width: 200,
@@ -331,6 +331,16 @@ define(function() { return webpackJsonp([6],[
 	                    forDeal.remainingTime = $.extend({}, forDeal.remainingTime, { seconds: Math.floor(Math.random() * 5) + 1 });
 	                }
 
+	                if (index == 0) {
+	                    forDeal.review = $.extend({}, forDeal.review, { average: 0, count: 0 });
+	                } else if (index == 1 || index == 2) {
+	                    forDeal.review = $.extend({}, forDeal.review, { average: null, count: null });
+	                } else if (index == 3) {
+	                    forDeal.review = $.extend({}, forDeal.review, { average: 110, count: 50 });
+	                } else {
+	                    forDeal.review = $.extend({}, forDeal.review, { average: 10, count: 1000 });
+	                }
+
 	                if (index == 1) {
 	                    forDeal.delivery = $.extend({}, forDeal.method, { isFree: true, condition: null, method: null });
 	                } else if (index == 3) {
@@ -346,7 +356,7 @@ define(function() { return webpackJsonp([6],[
 	                        type: viewData.image.type,
 	                        src: this.wideImg[index],
 	                        basic: '/components/deal/v.1.0.0/mobile/_images/_image_wide_basic.png',
-	                        error: '/components/deal/v.1.0.0/mobile/_images/_image_wide_error.gif'
+	                        error: '/components/deal/v.1.0.0/mobile/_images/_image_wide_error.png'
 	                    });
 	                    //forDeal.image = $.extend({}, forDeal.image, { type: imageType, src: this.images[index]});
 	                } else {
@@ -354,7 +364,7 @@ define(function() { return webpackJsonp([6],[
 	                        type: viewData.image.type,
 	                        src: this.images[index],
 	                        basic: '/components/deal/v.1.0.0/mobile/_images/_image_square_basic.png',
-	                        error: '/components/deal/v.1.0.0/mobile/_images/_image_square_error.gif'
+	                        error: '/components/deal/v.1.0.0/mobile/_images/_image_square_error.png'
 	                    });
 	                }
 
@@ -782,22 +792,27 @@ define(function() { return webpackJsonp([6],[
 	var Handlebars = __webpack_require__(6);
 	function __default(obj) { return obj && (obj.__esModule ? obj["default"] : obj); }
 	module.exports = (Handlebars["default"] || Handlebars).template({"1":function(container,depth0,helpers,partials,data) {
+	    var stack1, alias1=container.lambda, alias2=container.escapeExpression;
+
+	  return "        <span class=\"memebox-deal-review-star\">\n            <span class=\"memebox-deal-review-star-value\" style=\"width:"
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.review : depth0)) != null ? stack1.average : stack1), depth0))
+	    + "%;\"></span>\n        </span>\n        <strong class=\"memebox-deal-review-average\">\n            <span class=\"memebox-deal-review-average-value\">"
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.review : depth0)) != null ? stack1.average : stack1), depth0))
+	    + "</span>점\n        </strong>\n        <em class=\"memebox-deal-review-count\">\n            리뷰 <span class=\"memebox-deal-review-count-value\">"
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.review : depth0)) != null ? stack1.count : stack1), depth0))
+	    + "</span>\n        </em>\n";
+	},"3":function(container,depth0,helpers,partials,data) {
 	    var stack1;
 
 	  return "    <span class=\"memebox-deal-sold-out\">"
 	    + container.escapeExpression(container.lambda(((stack1 = (depth0 != null ? depth0.sold : depth0)) != null ? stack1.soon : stack1), depth0))
 	    + "</span>\n";
 	},"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
-	    var stack1, alias1=container.lambda, alias2=container.escapeExpression;
+	    var stack1, alias1=depth0 != null ? depth0 : {};
 
-	  return "<div class=\"memebox-deal-current-status\">\n    <span class=\"memebox-deal-review-star\">\n        <span class=\"memebox-deal-review-star-value\" style=\"width:"
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.review : depth0)) != null ? stack1.average : stack1), depth0))
-	    + "%;\"></span>\n    </span>\n    <strong class=\"memebox-deal-review-average\">\n        <span class=\"memebox-deal-review-average-value\">"
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.review : depth0)) != null ? stack1.average : stack1), depth0))
-	    + "</span>점\n    </strong>\n    <em class=\"memebox-deal-review-count\">\n        리뷰 <span class=\"memebox-deal-review-count-value\">"
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.review : depth0)) != null ? stack1.count : stack1), depth0))
-	    + "</span>\n    </em>\n"
-	    + ((stack1 = helpers["if"].call(depth0 != null ? depth0 : {},((stack1 = (depth0 != null ? depth0.sold : depth0)) != null ? stack1.soon : stack1),{"name":"if","hash":{},"fn":container.program(1, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+	  return "<div class=\"memebox-deal-current-status\">\n"
+	    + ((stack1 = helpers["if"].call(alias1,((stack1 = (depth0 != null ? depth0.review : depth0)) != null ? stack1.count : stack1),{"name":"if","hash":{},"fn":container.program(1, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+	    + ((stack1 = helpers["if"].call(alias1,((stack1 = (depth0 != null ? depth0.sold : depth0)) != null ? stack1.soon : stack1),{"name":"if","hash":{},"fn":container.program(3, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
 	    + "</div>";
 	},"useData":true});
 

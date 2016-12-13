@@ -33,8 +33,8 @@ var SampleDealAPI = function(viewData){
             },
             delivery: {// 테그
                 isFree: true,
-                condition: '조건부무료배송',
-                method: '미미배송',
+                condition: null,//'조건부무료배송',
+                method: '미미배송',//null,//
                 price: {info: '', value: '25,000', unit: '원'}
             },
             poke: {
@@ -44,7 +44,7 @@ var SampleDealAPI = function(viewData){
             image: {
                 type: 'square', //circle, wide, square
                 basic: '/components/deal/v.1.0.0/mobile/_images/_image_square_basic.png',
-                error: '/components/deal/v.1.0.0/mobile/_images/_image_square_error.gif',
+                error: '/components/deal/v.1.0.0/mobile/_images/_image_square_error.png',
                 src: 'http://img2.memebox.com/static/contents/img/upload/image_20150706134341_2m0D5I3Z7M.jpg',
                 size: {
                     width: 200,
@@ -278,12 +278,33 @@ var SampleDealAPI = function(viewData){
                 }else{
                     forDeal.remainingTime = $.extend({}, forDeal.remainingTime, {seconds: Math.floor(Math.random() * 5) + 1});
                 }
+
+                if(index == 0){
+                    forDeal.review = $.extend({}, forDeal.review, {average: 0, count: 0});
+                }else if(index == 1 || index == 2){
+                    forDeal.review = $.extend({}, forDeal.review, {average: null, count: null});
+                }else if(index == 3){
+                    forDeal.review = $.extend({}, forDeal.review, {average: 110, count: 50});
+                }else{
+                    forDeal.review = $.extend({}, forDeal.review, {average: 10, count: 1000});
+                }
+
+                if(index == 1){
+                    forDeal.delivery = $.extend({}, forDeal.method, {isFree: true, condition: null, method: null,});
+                }else if(index == 3){
+                    forDeal.delivery = $.extend({}, forDeal.method, {isFree: true, condition: '조건부무료배송', method: '미미배송'});
+                }else if(index == 2){
+                    forDeal.delivery = $.extend({}, forDeal.method, {isFree: true, condition: '조건부무료배송', method: null});
+                }else{
+                    forDeal.delivery = $.extend({}, forDeal.method, {isFree: true, condition: null, method: '미미배송'});
+                }
+
                 if(viewData.image.type === 'wide'){
                     forDeal.image = $.extend({}, forDeal.image, {
                         type: viewData.image.type,
                         src: this.wideImg[index],
                         basic: '/components/deal/v.1.0.0/mobile/_images/_image_wide_basic.png',
-                        error: '/components/deal/v.1.0.0/mobile/_images/_image_wide_error.gif'
+                        error: '/components/deal/v.1.0.0/mobile/_images/_image_wide_error.png'
                     });
                     //forDeal.image = $.extend({}, forDeal.image, { type: imageType, src: this.images[index]});
                 }else{
@@ -291,7 +312,7 @@ var SampleDealAPI = function(viewData){
                         type: viewData.image.type,
                         src: this.images[index],
                         basic: '/components/deal/v.1.0.0/mobile/_images/_image_square_basic.png',
-                        error: '/components/deal/v.1.0.0/mobile/_images/_image_square_error.gif'
+                        error: '/components/deal/v.1.0.0/mobile/_images/_image_square_error.png'
                     });
                 }
 
