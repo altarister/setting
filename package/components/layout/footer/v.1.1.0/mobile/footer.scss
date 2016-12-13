@@ -1,0 +1,98 @@
+.layout-structure-footer {
+  border-top: 1px solid #e0e0e0;
+  background-color: #f9f9fb;
+}
+
+/* 레이아웃 구조 footer 중간 ************************************ */
+.layout-structure-footer-middle {
+}
+/* 회사 정보 ***************** */
+.corporation-information {
+  position: relative;
+  text-align: center;
+}
+/* 회사명 */
+.corporation-name {
+  display: none;
+}
+/* 회사 정책 링크 */
+.corporation-report {}
+.corporation-report-policy {
+  overflow: hidden;
+  list-style: none;
+  margin: 0 0 10px 0;
+  padding: 0;
+}
+.corporation-aboutUs-wrap,
+.corporation-report-policy-terms-youth-wrap,
+.corporation-report-policy-terms-email-wrap {
+  display: none;
+}
+.corporation-report-policy-terms-use-wrap {
+  float: left;
+}
+.corporation-report-policy-terms-privacy-wrap,
+.corporation-report-bizinfo-wrap {
+  float: left;
+  margin-left: 10px;
+  padding-left: 10px;
+  border-left: 1px solid #c0c0c0;
+}
+
+.corporation-aboutUs,
+.corporation-report-policy-terms-use,
+.corporation-report-policy-terms-privacy,
+.corporation-report-policy-terms-youth,
+.corporation-report-policy-terms-email,
+.corporation-report-bizinfo {
+  color: #555;
+  text-decoration: none;
+  font-size: 12px;
+}
+
+/* 회사 정보 공개 */
+.corporation-report-info {}
+.corporation-report-info-step {
+  text-align: center;
+  margin-top: 5px;
+}
+.corporation-report-info-step.UPlus {
+  display: none;
+}
+.corporation-report-info-step-dl {
+  margin: 0;
+  overflow: hidden;
+  font-size: 10px;
+  color: #a1a1a1;
+}
+.corporation-report-info-step-dl dt {
+  float: left;
+  border-left: 1px solid #c0c0c0;
+  margin-left: 5px;
+  padding-left: 5px;
+  font-weight: bold;
+}
+.corporation-report-info-step-dl dt:first-child {
+  margin-left: 0;
+  padding-left: 0;
+  border-left: none;
+}
+.corporation-report-info-step-dl dt:after {
+  padding-left: 2px;
+  content: ":";
+}
+.corporation-report-info-step-dl dd {
+  float: left;
+  padding-left: 2px;
+  margin: 0;
+}
+.corporation-report-info-step-dl dd a{
+  display: none;
+}
+.corporation-report-info-step-dl dd address{
+  font-style: normal;
+}
+.corporation-report-info-step-dt-hide {
+  display: none;
+}
+

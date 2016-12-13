@@ -1,12 +1,3 @@
-.memebox-menu {
-  overflow: hidden;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  content: 'pc'; }
-
-.memebox-menu li {
-  margin-right: 10px; }
 @charset "UTF-8";
 .zip-code-search {
   background-color: #fff;

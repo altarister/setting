@@ -1,13 +1,3 @@
-.memebox-menu {
-  overflow: hidden;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  content: 'mobile'; }
-
-.memebox-menu li {
-  float: left;
-  margin-right: 10px; }
 @charset "UTF-8";
 /* ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ 상품 ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ */
 .deal_type_horizontal_square_10 {
@@ -927,7 +917,8 @@
   margin-top: 5px;
   text-align: right;
   font-size: 0;
-  line-height: 1.0; }
+  line-height: 1.0;
+  height: 12px; }
 
 .deal_type_vertical_square_10 .memebox-deal-delivery-shipping,
 .deal_type_vertical_square_10 .memebox-deal-delivery-type {

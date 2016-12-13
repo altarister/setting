@@ -296,22 +296,26 @@ $_service-CSCenter-tel-icon: $assetHost+"/components/layout/footer/v.1.1.0/_imag
   margin: 0 0 10px 0;
   padding: 0;
 }
-.corporation-report-policy-li {
+.corporation-aboutUs-wrap {
+  float: left;
+}
+.corporation-report-policy-terms-use-wrap,
+.corporation-report-policy-terms-privacy-wrap,
+.corporation-report-policy-terms-youth-wrap,
+.corporation-report-policy-terms-email-wrap,
+.corporation-report-bizinfo-wrap {
   float: left;
   margin-left: 10px;
   padding-left: 10px;
   border-left: 1px solid #c0c0c0;
 }
-.corporation-report-policy-li:first-child {
-  margin-left: 0;
-  padding-left: 0;
-  border-left: none;
-}
+
 .corporation-aboutUs,
 .corporation-report-policy-terms-use,
 .corporation-report-policy-terms-privacy,
 .corporation-report-policy-terms-youth,
-.corporation-report-policy-terms-email {
+.corporation-report-policy-terms-email,
+.corporation-report-bizinfo {
   color: #555;
   text-decoration: none;
   font-size: 12px;
@@ -385,7 +389,7 @@ $_service-CSCenter-tel-icon: $assetHost+"/components/layout/footer/v.1.1.0/_imag
 /* 수상 내역 */
 .corporation-awards {
   float: left;
-  width: 65%;
+  width: 70%;
 }
 .corporation-awards-navigation {
   overflow: hidden;
@@ -558,7 +562,7 @@ $_service-CSCenter-tel-icon: $assetHost+"/components/layout/footer/v.1.1.0/_imag
 /* 회사가 운영하는 SNS */
 .corporation-service-SNS {
   float: left;
-  width: 15%;
+  width: 10%;
   overflow: hidden;
   margin-top: 14px;
 }

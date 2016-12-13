@@ -47,11 +47,11 @@ var DEFAULT_COMMON_CHUNK = {
 };
 
 var PC_COMMON_CHUNK = {
-    //"pcCommon": requirejsConfig.PROVIDER.pc + "/common/_common"
+    "pcCommon": requirejsConfig.PROVIDER.pc + "/common/_common"
 };
 
 var MOBILE_COMMON_CHUNK = {
-    //"mobileCommon": requirejsConfig.PROVIDER.mobile + "/common/_common"
+    "mobileCommon": requirejsConfig.PROVIDER.mobile + "/common/_common"
 };
 
 module.exports = function (serviceString, envString, deviceString) {
@@ -167,12 +167,18 @@ module.exports = function (serviceString, envString, deviceString) {
 
                     new CommonsChunkPlugin({
                         name: "common",
-                        filename: device.isMobile ? "vendor/mobile.commons.chunk.js" : "vendor/pc.commons.chunk.js",
+                        filename: device.isMobile ? "dist/memebox/mobile/common/mobile.commons.chunk.js" : "dist/memebox/pc/common/pc.commons.chunk.js",
+                        //filename: device.isMobile ? "vendor/mobile.commons.chunk.js" : "vendor/pc.commons.chunk.js",
                         minChunks: Infinity
                     }),
                     new ExtractTextPlugin(
                         '[name].css',
                         { allChunks: true }
+                        // {
+                        //     name: "common",
+                        //     filename: device.isMobile ? "vendor/mobile.commons.chunk.js" : "vendor/pc.commons.chunk.js",
+                        //     minChunks: Infinity
+                        // }
                     )
                 ];
             }else{

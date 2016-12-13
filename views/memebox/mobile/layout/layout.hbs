@@ -11,13 +11,11 @@
 <body id="memebox-service"
       {{> elements/config}}>
 
-    {{!> mobile/layout/header}}
     {{{block "memebox-header"}}}
-
-    {{{block "memebox-content"}}}
-
+    <div class="layout-structure-content">
+        {{{block "memebox-content"}}}
+    </div>
     {{{block "memebox-footer"}}}
-    {{> mobile/layout/footer}}
 
     {{{block "memebox-components"}}}
 

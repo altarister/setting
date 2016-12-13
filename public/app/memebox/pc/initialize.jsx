@@ -1,6 +1,6 @@
 require('modernizr');
-//var $ = require('jquery');
-//var Common = require('pcCommon');
+var $ = require('jquery');
+var Common = require('pcCommon');
 
 const memeboxWrapSelector = '#memebox-service';
 
@@ -44,7 +44,8 @@ module.exports = function () {
     globalSubscribePublishEvent();
 
     // payment 전체 공통함수 실행
-    //new Common(memeboxWrapSelector);
+    // new Common(memeboxWrapSelector);
+    new Common();
 
     // 페이지 controller 실행하기
     pageControllerInitialize();

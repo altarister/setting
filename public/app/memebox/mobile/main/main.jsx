@@ -1,6 +1,6 @@
 var $ = require('jquery');
 var utility = require('utility');
-var Menu = require('components/menu/v.1.0.0/_menu.jsx');
+
 
 require('./main.scss');
 
@@ -12,7 +12,8 @@ var main = function(){
 
         initialize: function(){
             utility.uiEnhancements.call(this);
-            new Menu();
+            //new header();
+            new footer();
             this.addEventListener();
         },
 

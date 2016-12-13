@@ -7,7 +7,7 @@ define(["modernizr"], function(__WEBPACK_EXTERNAL_MODULE_54__) { return webpackJ
 
 	__webpack_require__(54);
 	var $ = __webpack_require__(1);
-	//var Common = require('pcCommon');
+	var Common = __webpack_require__(55);
 
 	var memeboxWrapSelector = '#memebox-service';
 
@@ -57,6 +57,7 @@ define(["modernizr"], function(__WEBPACK_EXTERNAL_MODULE_54__) { return webpackJ
 
 	    // payment 전체 공통함수 실행
 	    //new Common(memeboxWrapSelector);
+	    new Common();
 
 	    // 페이지 controller 실행하기
 	    pageControllerInitialize();
