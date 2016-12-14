@@ -75,27 +75,56 @@ module.exports = function (serviceString, envString, deviceString) {
             : PC_COMMON_CHUNK
     );
 
+    var objectAssignAgs = (function(){
+
+        var commmonObject = {};
+
+        var name = 'dist/'+serviceString+'/'+(device.isMobile ? 'mobile' : 'pc')+'/common/common.chunk';
+        //var name = 'common'
+        var HELPER_CHUNK = [
+            requirejsConfig.PROVIDER.common + '/handlebars-helpers/json',
+            requirejsConfig.PROVIDER.common + '/handlebars-helpers/formatNumber'
+
+            //requirejsConfig.PROVIDER.helper + '/json'
+            //HELPER_DIR + '/json'
+        ];
+
+        for(var key in COMMON_CHUNK){
+            HELPER_CHUNK.push(COMMON_CHUNK[key]);
+        }
+         console.log('HELPER_CHUNK = ',HELPER_CHUNK)
+        commmonObject[name] = HELPER_CHUNK;
+        //return HELPER_CHUNK;
+        return commmonObject;
+    })();
+
     var ENTRY_POINTS = device.isMobile ? webpackMobileEntries : webpackPcEntries;
 
     return {
         context: PUBLIC_DIR,
+        // entry: objectAssign(
+        //     {common: (function(){
+        //         var HELPER_CHUNK = [
+        //             requirejsConfig.PROVIDER.common + '/handlebars-helpers/json',
+        //             requirejsConfig.PROVIDER.common + '/handlebars-helpers/formatNumber'
+        //
+        //             //requirejsConfig.PROVIDER.helper + '/json'
+        //             //HELPER_DIR + '/json'
+        //         ];
+        //
+        //         for(var key in COMMON_CHUNK){
+        //             HELPER_CHUNK.push(COMMON_CHUNK[key]);
+        //         }
+        //         // console.log('HELPER_CHUNK = ',HELPER_CHUNK)
+        //
+        //         return HELPER_CHUNK;
+        //     })()},
+        //     ENTRY_POINTS
+        // ),
         entry: objectAssign(
-            {common: (function(){
-                var HELPER_CHUNK = [
-                    requirejsConfig.PROVIDER.common + '/handlebars-helpers/json',
-                    requirejsConfig.PROVIDER.common + '/handlebars-helpers/formatNumber'
+            //objectAssignAgs['common']
 
-                    //requirejsConfig.PROVIDER.helper + '/json'
-                    //HELPER_DIR + '/json'
-                ];
-
-                for(var key in COMMON_CHUNK){
-                    HELPER_CHUNK.push(COMMON_CHUNK[key]);
-                }
-                // console.log('HELPER_CHUNK = ',HELPER_CHUNK)
-
-                return HELPER_CHUNK;
-            })()},
+            objectAssignAgs,
             ENTRY_POINTS
         ),
         output: {
@@ -166,19 +195,17 @@ module.exports = function (serviceString, envString, deviceString) {
                     // }),
 
                     new CommonsChunkPlugin({
-                        name: "common",
-                        filename: device.isMobile ? "dist/memebox/mobile/common/mobile.commons.chunk.js" : "dist/memebox/pc/common/pc.commons.chunk.js",
+                        name: 'common',
+                        //name: 'dist/'+serviceString+'/'+(device.isMobile ? 'mobile' : 'pc')+'/common/common.chunk',
+                        filename: 'dist/'+serviceString+'/'+(device.isMobile ? 'mobile' : 'pc')+'/common/common.chunk.js',
+
+                        //filename: device.isMobile ? "dist/memebox/mobile/common/commons.chunk.js" : "dist/memebox/pc/common/commons.chunk.js",
                         //filename: device.isMobile ? "vendor/mobile.commons.chunk.js" : "vendor/pc.commons.chunk.js",
                         minChunks: Infinity
                     }),
                     new ExtractTextPlugin(
                         '[name].css',
-                        { allChunks: true }
-                        // {
-                        //     name: "common",
-                        //     filename: device.isMobile ? "vendor/mobile.commons.chunk.js" : "vendor/pc.commons.chunk.js",
-                        //     minChunks: Infinity
-                        // }
+                        {allChunks: true}
                     )
                 ];
             }else{

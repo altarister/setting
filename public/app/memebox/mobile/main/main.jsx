@@ -13,7 +13,6 @@ var main = function(){
         initialize: function(){
             utility.uiEnhancements.call(this);
             //new header();
-            new footer();
             this.addEventListener();
         },
 

@@ -20,7 +20,8 @@
         map : REQUIRE_JS_MAP
     });
 
-    memeboxRequire(['es5-shim', 'vendor/{{config.info.device}}.commons.chunk'], function () {
+    memeboxRequire(['es5-shim', 'dist/{{config.info.service}}/{{config.info.device}}/common/common.chunk'], function () {
+    //memeboxRequire(['es5-shim', 'vendor/{{!config.info.device}}.commons.chunk'], function () {
         memeboxRequire(['path_{{config.info.device}}/initialize'], function (initialize) {
             initialize();
         });

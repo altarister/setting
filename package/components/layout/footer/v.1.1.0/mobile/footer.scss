@@ -1,11 +1,74 @@
+$assetHost: '';
+$_service-mobile-quick-link-top: $assetHost+"/components/layout/footer/v.1.1.0/_images/service-mobile-quick-link-top.png";
+
+
 .layout-structure-footer {
   border-top: 1px solid #e0e0e0;
+  padding-bottom: 10px;
   background-color: #f9f9fb;
+}
+/* 레이아웃 구조 footer 상단 ************************************ */
+.layout-structure-footer-top {
+  //border-bottom: 1px solid #e0e0e0;
+  padding: 15px 0;
+}
+.service-mobile-quick-link {
+  text-align: center;
+}
+.service-mobile-quick-link a {
+  display: inline-block;
+  width: 60px;
+  padding-top: 2px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  line-height: 2.5;
+  font-size: 10px;
+  text-decoration: none;
+  color: #2e2e2e;
+}
+
+.service-mobile-quick-link-invite {}
+.service-mobile-quick-link-login {}
+.service-mobile-quick-link-pcView {}
+.service-mobile-quick-link-top {
+  text-indent: 10px;
+  background-image: url($_service-mobile-quick-link-top);
+  background-repeat: no-repeat;
+  background-position: 30% 45%;
+  background-size: 8px;
 }
 
 /* 레이아웃 구조 footer 중간 ************************************ */
 .layout-structure-footer-middle {
+  position: relative;
 }
+/* 서비스 메뉴 공통 ***************** */
+
+/* 고객만족센터 */
+.service-CSCenter {
+  //position: absolute;
+  //display: block;
+  text-align: center;
+  bottom: 10px;
+  margin: 0;
+}
+.service-CSCenter-title,
+.service-CSCenter-tel {
+  font-size: 10px;
+  text-decoration: none;
+  color: #909191;
+}
+.service-CSCenter-trigger {
+  display: none;
+}
+.service-CSCenter-info {
+  font-size: 10px;
+  color: #909191;
+}
+/* 기업 문화 */
+/* 고객의 소리 */
+/* 파트너 서비스 */
+
 /* 회사 정보 ***************** */
 .corporation-information {
   position: relative;
@@ -16,12 +79,14 @@
   display: none;
 }
 /* 회사 정책 링크 */
-.corporation-report {}
+.corporation-report {
+}
 .corporation-report-policy {
-  overflow: hidden;
+  //overflow: hidden;
   list-style: none;
-  margin: 0 0 10px 0;
+  margin: 10px 0 0 0;
   padding: 0;
+  font-size: 0;
 }
 .corporation-aboutUs-wrap,
 .corporation-report-policy-terms-youth-wrap,
@@ -29,13 +94,15 @@
   display: none;
 }
 .corporation-report-policy-terms-use-wrap {
-  float: left;
+  //float: left;
+  display: inline-block;
 }
 .corporation-report-policy-terms-privacy-wrap,
 .corporation-report-bizinfo-wrap {
-  float: left;
-  margin-left: 10px;
-  padding-left: 10px;
+  //float: left;
+  display: inline-block;
+  margin-left: 5px;
+  padding-left: 5px;
   border-left: 1px solid #c0c0c0;
 }
 
@@ -45,16 +112,19 @@
 .corporation-report-policy-terms-youth,
 .corporation-report-policy-terms-email,
 .corporation-report-bizinfo {
-  color: #555;
+  color: #a1a1a1;
   text-decoration: none;
-  font-size: 12px;
+  font-size: 10px;
 }
 
 /* 회사 정보 공개 */
-.corporation-report-info {}
+.corporation-report-info {
+  margin: 10px 0 0 0;
+}
 .corporation-report-info-step {
   text-align: center;
-  margin-top: 5px;
+  width: 90%;
+  margin: 0 auto 0;
 }
 .corporation-report-info-step.UPlus {
   display: none;
@@ -62,15 +132,22 @@
 .corporation-report-info-step-dl {
   margin: 0;
   overflow: hidden;
-  font-size: 10px;
-  color: #a1a1a1;
+  font-size: 0;
+  color: #909191;
+  line-height: 1.1;
 }
 .corporation-report-info-step-dl dt {
-  float: left;
-  border-left: 1px solid #c0c0c0;
+  display: inline-block;
+  font-weight: normal;
+  font-size: 10px;
+  color: #717171;
+  //float: left;
+  //border-left: 1px solid #c0c0c0;
   margin-left: 5px;
+  margin-bottom: 3px;
   padding-left: 5px;
-  font-weight: bold;
+  font-weight: normal;
+
 }
 .corporation-report-info-step-dl dt:first-child {
   margin-left: 0;
@@ -80,11 +157,14 @@
 .corporation-report-info-step-dl dt:after {
   padding-left: 2px;
   content: ":";
+  color: #717171;
 }
 .corporation-report-info-step-dl dd {
-  float: left;
+  display: inline-block;
+  font-size: 10px;
+  //float: left;
   padding-left: 2px;
-  margin: 0;
+  margin: 0 0 5px 0;
 }
 .corporation-report-info-step-dl dd a{
   display: none;
@@ -92,7 +172,9 @@
 .corporation-report-info-step-dl dd address{
   font-style: normal;
 }
-.corporation-report-info-step-dt-hide {
+.corporation-report-info-step-dl .corporation-report-info-step-dt-hide {
   display: none;
 }
-
+.corporation-report-info-step.corporation-report-copyright {
+  //margin-top: 40px;
+}

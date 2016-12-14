@@ -100,6 +100,7 @@ $_service-CSCenter-tel-icon: $assetHost+"/components/layout/footer/v.1.1.0/_imag
 .layout-structure-footer-middle {
   width: 1048px;
   margin: 0 auto;
+  overflow: hidden;
 }
 /* 서비스 메뉴 공통 ***************** */
 .service-menus {
@@ -153,6 +154,9 @@ $_service-CSCenter-tel-icon: $assetHost+"/components/layout/footer/v.1.1.0/_imag
 /* 고객만족센터 */
 .service-CSCenter {
   margin: 0;
+}
+.service-CSCenter-title {
+  display: none;
 }
 .service-CSCenter-tel {
   display: block;

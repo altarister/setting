@@ -1,3 +1,13 @@
+.memebox-menu {
+  overflow: hidden;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  content: 'mobile'; }
+
+.memebox-menu li {
+  float: left;
+  margin-right: 10px; }
 @charset "UTF-8";
 /* ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ 상품 ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ */
 .deal_type_horizontal_square_10 {
@@ -60,7 +70,7 @@
   left: 5px;
   width: 22px;
   height: 24px;
-  background-image: url("/components/deal/v.1.0.0/mobile/_images//_ranking_bg@3x.png");
+  background-image: url("/components/deal/v.1.0.0/mobile/_images/_ranking_bg@3x.png");
   background-repeat: no-repeat;
   background-position: 0 0;
   background-size: 22px 24px;
@@ -127,7 +137,7 @@
   margin-right: 4px;
   vertical-align: top;
   background-color: #fff;
-  background-image: url("/components/deal/v.1.0.0/mobile/_images//_star_review@3x.png");
+  background-image: url("/components/deal/v.1.0.0/mobile/_images/_star_review@3x.png");
   background-size: 65px 50px;
   background-repeat: no-repeat;
   background-position: 0 -20px; }
@@ -138,7 +148,7 @@
   height: 12px;
   width: 100%;
   background-color: #fff;
-  background-image: url("/components/deal/v.1.0.0/mobile/_images//_star_review@3x.png");
+  background-image: url("/components/deal/v.1.0.0/mobile/_images/_star_review@3x.png");
   background-size: 65px 50px;
   background-repeat: no-repeat;
   background-position: 0 -35px; }
@@ -287,7 +297,7 @@
   position: absolute;
   top: 12.5%;
   left: 12.5%;
-  background-image: url("/components/deal/v.1.0.0/mobile/_images//_ranking_bg@3x.png");
+  background-image: url("/components/deal/v.1.0.0/mobile/_images/_ranking_bg@3x.png");
   background-repeat: no-repeat;
   background-position: 0 0;
   background-size: 22px 24px;
@@ -345,7 +355,7 @@
   height: 14px;
   width: 83px;
   background-color: #fff;
-  background-image: url("/components/deal/v.1.0.0/mobile/_images//_star_review@3x.png");
+  background-image: url("/components/deal/v.1.0.0/mobile/_images/_star_review@3x.png");
   background-repeat: no-repeat;
   background-position: 0 -14px; }
 
@@ -355,7 +365,7 @@
   height: 14px;
   width: 100%;
   background-color: #fff;
-  background-image: url("/components/deal/v.1.0.0/mobile/_images//_star_review@3x.png");
+  background-image: url("/components/deal/v.1.0.0/mobile/_images/_star_review@3x.png");
   background-repeat: no-repeat;
   background-position: 0 0; }
 
@@ -518,7 +528,7 @@
   position: absolute;
   top: 5px;
   left: 5px;
-  background-image: url("/components/deal/v.1.0.0/mobile/_images//_ranking_bg@3x.png");
+  background-image: url("/components/deal/v.1.0.0/mobile/_images/_ranking_bg@3x.png");
   background-repeat: no-repeat;
   background-position: 0 0;
   background-size: 22px 24px;
@@ -569,7 +579,7 @@
   height: 14px;
   width: 83px;
   background-color: #fff;
-  background-image: url("/components/deal/v.1.0.0/mobile/_images//_star_review@3x.png");
+  background-image: url("/components/deal/v.1.0.0/mobile/_images/_star_review@3x.png");
   background-repeat: no-repeat;
   background-position: 0 -14px; }
 
@@ -579,7 +589,7 @@
   height: 14px;
   width: 100%;
   background-color: #fff;
-  background-image: url("/components/deal/v.1.0.0/mobile/_images//_star_review@3x.png");
+  background-image: url("/components/deal/v.1.0.0/mobile/_images/_star_review@3x.png");
   background-repeat: no-repeat;
   background-position: 0 0; }
 
@@ -756,7 +766,7 @@
   position: absolute;
   top: 5px;
   left: 5px;
-  background-image: url("/components/deal/v.1.0.0/mobile/_images//_ranking_bg@3x.png");
+  background-image: url("/components/deal/v.1.0.0/mobile/_images/_ranking_bg@3x.png");
   background-repeat: no-repeat;
   background-position: 0 0;
   background-size: 22px 24px;
@@ -820,7 +830,7 @@
   margin-right: 4px;
   vertical-align: top;
   background-color: #fff;
-  background-image: url("/components/deal/v.1.0.0/mobile/_images//_star_review@3x.png");
+  background-image: url("/components/deal/v.1.0.0/mobile/_images/_star_review@3x.png");
   background-size: 65px 50px;
   background-repeat: no-repeat;
   background-position: 0 0; }
@@ -831,7 +841,7 @@
   height: 9px;
   width: 100%;
   background-color: #fff;
-  background-image: url("/components/deal/v.1.0.0/mobile/_images//_star_review@3x.png");
+  background-image: url("/components/deal/v.1.0.0/mobile/_images/_star_review@3x.png");
   background-size: 65px 50px;
   background-repeat: no-repeat;
   background-position: 0 -10px; }
@@ -1042,7 +1052,7 @@
   height: 14px;
   width: 83px;
   background-color: #fff;
-  background-image: url("/components/deal/v.1.0.0/mobile/_images//_star_review@3x.png");
+  background-image: url("/components/deal/v.1.0.0/mobile/_images/_star_review@3x.png");
   background-repeat: no-repeat;
   background-position: 0 -14px; }
 
@@ -1052,7 +1062,7 @@
   height: 14px;
   width: 100%;
   background-color: #fff;
-  background-image: url("/components/deal/v.1.0.0/mobile/_images//_star_review@3x.png");
+  background-image: url("/components/deal/v.1.0.0/mobile/_images/_star_review@3x.png");
   background-repeat: no-repeat;
   background-position: 0 0; }
 

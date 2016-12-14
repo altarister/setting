@@ -2,7 +2,7 @@ var $ = require('jquery');
 var utility = require('utility');
 var slick = require('slick');
 
-//require('modules/_designViewer/_select/v.1.0.0/line/_select.scss');
+require('modules/_designViewer/_select/v.1.0.0/line/_select.scss');
 require('./footer.scss');
 
 var footer = function(){

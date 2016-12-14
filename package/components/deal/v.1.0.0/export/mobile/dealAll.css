@@ -60,7 +60,7 @@
     left: 5px;
     width: 22px;
     height: 24px;
-    background-image: url("/components/deal/v.1.0.0/mobile/_images//_ranking_bg@3x.png");
+    background-image: url("/components/deal/v.1.0.0/mobile/_images/_ranking_bg@3x.png");
     background-repeat: no-repeat;
     background-position: 0 0;
     background-size: 22px 24px;
@@ -127,7 +127,7 @@
     margin-right: 4px;
     vertical-align: top;
     background-color: #fff;
-    background-image: url("/components/deal/v.1.0.0/mobile/_images//_star_review@3x.png");
+    background-image: url("/components/deal/v.1.0.0/mobile/_images/_star_review@3x.png");
     background-size: 65px 50px;
     background-repeat: no-repeat;
     background-position: 0 -20px; }
@@ -138,7 +138,7 @@
     height: 12px;
     width: 100%;
     background-color: #fff;
-    background-image: url("/components/deal/v.1.0.0/mobile/_images//_star_review@3x.png");
+    background-image: url("/components/deal/v.1.0.0/mobile/_images/_star_review@3x.png");
     background-size: 65px 50px;
     background-repeat: no-repeat;
     background-position: 0 -35px; }
@@ -287,7 +287,7 @@
     position: absolute;
     top: 12.5%;
     left: 12.5%;
-    background-image: url("/components/deal/v.1.0.0/mobile/_images//_ranking_bg@3x.png");
+    background-image: url("/components/deal/v.1.0.0/mobile/_images/_ranking_bg@3x.png");
     background-repeat: no-repeat;
     background-position: 0 0;
     background-size: 22px 24px;
@@ -345,7 +345,7 @@
     height: 14px;
     width: 83px;
     background-color: #fff;
-    background-image: url("/components/deal/v.1.0.0/mobile/_images//_star_review@3x.png");
+    background-image: url("/components/deal/v.1.0.0/mobile/_images/_star_review@3x.png");
     background-repeat: no-repeat;
     background-position: 0 -14px; }
 
@@ -355,7 +355,7 @@
     height: 14px;
     width: 100%;
     background-color: #fff;
-    background-image: url("/components/deal/v.1.0.0/mobile/_images//_star_review@3x.png");
+    background-image: url("/components/deal/v.1.0.0/mobile/_images/_star_review@3x.png");
     background-repeat: no-repeat;
     background-position: 0 0; }
 
@@ -462,7 +462,7 @@
     border: none;
     text-indent: -99999px;
     background-color: #fff;
-    background-image: url("/components/deal/v.1.0.0/mobile/_images/");
+    background-image: url("/components/deal/v.1.0.0/mobile/_images/_poke.png");
     background-repeat: no-repeat; }
 
 .deal_type_vertical_circle_4 .memebox-deal-poke:hover {
@@ -508,18 +508,17 @@
     width: 100%;
     text-align: center;
     margin-top: -10px;
-    font-size: 20px;
-    line-height: 1.0;
+    font-size: 14px;
+    text-shadow: 2px 2px 2px gray;
     color: #fff;
-    font-family: HelveticaNeue-Light, AppleSDGothicNeo-Light, "Malgun Gothic", "\B9D1\C740   \ACE0\B515", sans-serif;
-    font-weight: bold; }
+    font-family: HelveticaNeue-Light, AppleSDGothicNeo-Light, "Malgun Gothic", "\B9D1\C740   \ACE0\B515", sans-serif; }
 
 .deal_type_vertical_square_4 .memebox-deal-ranking {
     display: block;
     position: absolute;
     top: 5px;
     left: 5px;
-    background-image: url("/components/deal/v.1.0.0/mobile/_images//_ranking_bg@3x.png");
+    background-image: url("/components/deal/v.1.0.0/mobile/_images/_ranking_bg@3x.png");
     background-repeat: no-repeat;
     background-position: 0 0;
     background-size: 22px 24px;
@@ -570,7 +569,7 @@
     height: 14px;
     width: 83px;
     background-color: #fff;
-    background-image: url("/components/deal/v.1.0.0/mobile/_images//_star_review@3x.png");
+    background-image: url("/components/deal/v.1.0.0/mobile/_images/_star_review@3x.png");
     background-repeat: no-repeat;
     background-position: 0 -14px; }
 
@@ -580,7 +579,7 @@
     height: 14px;
     width: 100%;
     background-color: #fff;
-    background-image: url("/components/deal/v.1.0.0/mobile/_images//_star_review@3x.png");
+    background-image: url("/components/deal/v.1.0.0/mobile/_images/_star_review@3x.png");
     background-repeat: no-repeat;
     background-position: 0 0; }
 
@@ -695,7 +694,7 @@
     border: none;
     text-indent: -99999px;
     background-color: #fff;
-    background-image: url("/components/deal/v.1.0.0/mobile/_images/");
+    background-image: url("/components/deal/v.1.0.0/mobile/_images/_poke.png");
     background-repeat: no-repeat; }
 
 .deal_type_vertical_square_4 .memebox-deal-poke:hover {
@@ -757,7 +756,7 @@
     position: absolute;
     top: 5px;
     left: 5px;
-    background-image: url("/components/deal/v.1.0.0/mobile/_images//_ranking_bg@3x.png");
+    background-image: url("/components/deal/v.1.0.0/mobile/_images/_ranking_bg@3x.png");
     background-repeat: no-repeat;
     background-position: 0 0;
     background-size: 22px 24px;
@@ -821,7 +820,7 @@
     margin-right: 4px;
     vertical-align: top;
     background-color: #fff;
-    background-image: url("/components/deal/v.1.0.0/mobile/_images//_star_review@3x.png");
+    background-image: url("/components/deal/v.1.0.0/mobile/_images/_star_review@3x.png");
     background-size: 65px 50px;
     background-repeat: no-repeat;
     background-position: 0 0; }
@@ -832,7 +831,7 @@
     height: 9px;
     width: 100%;
     background-color: #fff;
-    background-image: url("/components/deal/v.1.0.0/mobile/_images//_star_review@3x.png");
+    background-image: url("/components/deal/v.1.0.0/mobile/_images/_star_review@3x.png");
     background-size: 65px 50px;
     background-repeat: no-repeat;
     background-position: 0 -10px; }
@@ -968,7 +967,7 @@
     border: none;
     text-indent: -99999px;
     background-color: #fff;
-    background-image: url("/components/deal/v.1.0.0/mobile/_images/");
+    background-image: url("/components/deal/v.1.0.0/mobile/_images/_poke.png");
     background-repeat: no-repeat; }
 
 .deal_type_vertical_square_10 .memebox-deal-poke:hover {
@@ -1043,7 +1042,7 @@
     height: 14px;
     width: 83px;
     background-color: #fff;
-    background-image: url("/components/deal/v.1.0.0/mobile/_images//_star_review@3x.png");
+    background-image: url("/components/deal/v.1.0.0/mobile/_images/_star_review@3x.png");
     background-repeat: no-repeat;
     background-position: 0 -14px; }
 
@@ -1053,7 +1052,7 @@
     height: 14px;
     width: 100%;
     background-color: #fff;
-    background-image: url("/components/deal/v.1.0.0/mobile/_images//_star_review@3x.png");
+    background-image: url("/components/deal/v.1.0.0/mobile/_images/_star_review@3x.png");
     background-repeat: no-repeat;
     background-position: 0 0; }
 
@@ -1129,7 +1128,7 @@
     border: none;
     text-indent: -99999px;
     background-color: #fff;
-    background-image: url("/components/deal/v.1.0.0/mobile/_images/");
+    background-image: url("/components/deal/v.1.0.0/mobile/_images/_poke.png");
     background-repeat: no-repeat; }
 
 .deal_type_vertical_wide_2 .memebox-deal-poke:hover {
@@ -1146,7 +1145,7 @@
     width: 46px;
     height: 46px;
     background-color: #fff;
-    background-image: url("/components/deal/v.1.0.0/mobile/_image/_sticker.png");
+    background-image: url("/components/deal/v.1.0.0/mobile/_images/_sticker.png");
     background-repeat: no-repeat;
     background-position: 0 0; }
 
