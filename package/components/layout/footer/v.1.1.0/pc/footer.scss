@@ -11,14 +11,15 @@ $_service-CSCenter-tel-icon: $assetHost+"/components/layout/footer/v.1.1.0/_imag
 }
 /* 레이아웃 구조 footer 상단 ************************************ */
 .layout-structure-footer-top {
-  border-bottom: 1px solid #e0e0e0;
-  padding: 20px 0;
+  padding: 20px 0 0;
 }
 
 /* 서비스 렌딩 메뉴 */
 .service-landing-components {
   width: 1048px;
   margin: 0 auto;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #e0e0e0;
 }
 .service-landing-title {
   display: none;

@@ -1,36 +1,17 @@
 {{#extend "memebox-header"}}
     {{> components/menu/v.1.0.0/_templates/_menu}}
+    {{> components/layout/header/v.1.1.0/pc/header_simple}}
 {{/extend}}
 
 {{#extend "memebox-content"}}
-
-    {{> pc/member/signUp/_element/header}}
-
-    <div class="signUp-SNS-wrap">
-        <div class="signUp-SNS-confirmation">
-            <span class="signUp-SNS-icon-facebook">facebook</span>
-            <span class="signUp-SNS-name">송유정</span>님,
-            <span class="signUp-SNS-facebook">facebook</span>
-            계정으로 회원가입을 시작합니다.
-        </div>
-        <div class="signUp-SNS-information-wrap">
-            <a class="signUp-SNS-contactUs" href="">본인의 계정이 아닌가요</a>
-
-            <div class="module-tooltip-hover">
-                <span class="module-tooltip-hover-trigger">i</span>
-
-                <p class="module-tooltip-hover-content-wrap">
-                    <span class="module-tooltip-hover-arrow"></span>
-                    여러명이 사용하는 공용컴퓨터는 다른 사람이 로그인 한 후 로그아웃하지 않아 다른 계정이 보일 수 있습니다.
-                    해당 연동 사이트로 이동하여 로그아웃 후 본인 계정으로 로그인 해주세요.
-                </p>
-            </div>
-        </div>
-    </div>
+    {{> pc/member/signUp/signUpHeader/signUpHeader}}
 
     <form class="signUp-form" action="/signup/action" method="post">
         <fieldset>
             <legend>미미박스 회원 가입</legend>
+
+            {{> pc/member/signUp/signUpSNS/signUpSNS}}
+
             <div class="signUp-form-required">
                 <strong class="signUp-form-required-title">기본정보</strong>
                 <ul class="signUp-form-required-ul">
@@ -127,54 +108,6 @@
                             <input class="signUp-recommendUser-input" type="text" placeholder="추천인 이메일 아이디 또는 코드 입력">
                         </div>
                     </li>
-                    <li class="signUp-form-optional-li">
-                        <div class="signUp-receive-wrap">
-                            <input class="signUp-receive-email" type="checkbox">
-                            <label class="signUp-receive-email-label">쇼핑 이메일 수신</label>
-                            <input class="signUp-receive-SNS" type="checkbox">
-                            <label class="signUp-receive-SNS-label">쇼핑 SNS 수신</label>
-                        </div>
-                        <p class="signUp-form-optional-info">
-                            수신 동의 시 미미박스만의 특별한 혜택을 받아보실 수 있습니다.
-                        </p>
-                    </li>
-                </ul>
-            </div>
-
-            <div class="signUp-form-agreement">
-                <strong class="signUp-form-agreement-title">약관동의</strong>
-                <ul class="signUp-form-agreement-ul">
-                    <li class="signUp-form-agreement-li">
-                        <div class="agreement-memeboxUse">
-                            <input class="agreement-memeboxUse-checkbox" type="checkbox">
-                            <label class="agreement-memeboxUse-label">미미박스 이용약관에 동의합니다.</label>
-                            <a href="#signUpMemeboxUseContent" class="terms-view-trigger">내용보기</a>
-                        </div>
-                        <p class="validate-message">미미박스 이용약관에 동의해 주세요.</p>
-                    </li>
-                    <li class="signUp-form-agreement-li">
-                        <div class="agreement-privacy">
-                            <input class="agreement-privacy-checkbox" type="checkbox">
-                            <label class="agreement-privacy-label">개인정보 수집 및 이용에 동의합니다.</label>
-                            <a href="#signUpPrivacyContent" class="terms-view-trigger">내용보기</a>
-                        </div>
-                        <p class="validate-message">개인정보 수집 및 이용에 동의해 주세요.</p>
-                    </li>
-                    <li class="signUp-form-agreement-li">
-                        <div class="agreement-thirdParty">
-                            <input class="agreement-thirdParty-checkbox" type="checkbox">
-                            <label class="agreement-thirdParty-label">개인정보 제3자(판매자) 제공에 동의합니다.</label>
-                            <a href="#signUpThirdPartyContent" class="terms-view-trigger">내용보기</a>
-                        </div>
-                        <p class="validate-message">개인정보 제3자(판매자) 제공에 동의해 주세요.</p>
-                    </li>
-                    <li class="signUp-form-agreement-li">
-                        <div class="agreement-overFourteen">
-                            <input class="agreement-overFourteen-checkbox" type="checkbox">
-                            <label class="agreement-overFourteen-label">만 14세 이상입니다.</label>
-                        </div>
-                        <p class="validate-message">만 14세 이하는 가입 하실 수 없습니다.</p>
-                    </li>
                 </ul>
             </div>
 
@@ -183,30 +116,10 @@
             </div>
         </fieldset>
     </form>
+{{/extend}}
 
-    <div class="signUp-terms">
-        <ul class="signUp-terms-ul">
-            <li class="signUp-terms-li">
-                <strong id="signUpMemeboxUseContent" class="signUp-terms-title">미미박스 패밀리 사이트 이용약관</strong>
-                <div class="signUp-terms-content-text">
-                    {{> modules/_terms/memeboxUse}}
-                </div>
-            </li>
-            <li class="signUp-terms-li">
-                <strong id="signUpPrivacyContent" class="signUp-terms-title">개인정보 수집 및 이용 안내</strong>
-                <div class="signUp-terms-content-table">
-                    {{> modules/_terms/privacy}}
-                </div>
-            </li>
-            <li class="signUp-terms-li">
-                <strong id="signUpThirdPartyContent" class="signUp-terms-title">개인정보 제3자(판매자) 제공</strong>
-                <div class="signUp-terms-content-table">
-                    {{> modules/_terms/thirdParty}}
-                </div>
-            </li>
-        </ul>
-
-    </div>
+{{#extend "memebox-footer"}}
+    {{> components/layout/footer/v.1.1.0/pc/footer}}
 {{/extend}}
 
 {{> pc/layout/layout}}

@@ -1,4 +1,4 @@
-define(["jquery"], function(__WEBPACK_EXTERNAL_MODULE_2__) { return webpackJsonp([9,11],[
+define(["jquery"], function(__WEBPACK_EXTERNAL_MODULE_2__) { return webpackJsonp([12,14],[
 /* 0 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -9,9 +9,9 @@ define(["jquery"], function(__WEBPACK_EXTERNAL_MODULE_2__) { return webpackJsonp
 	var Menu = __webpack_require__(1);
 	var SampleDealAPI = __webpack_require__(26);
 	var DealContainer = __webpack_require__(27);
-	var DealSimpleChoice = __webpack_require__(83);
+	var DealSimpleChoice = __webpack_require__(85);
 
-	__webpack_require__(90);
+	__webpack_require__(92);
 
 	var SearchResult = function SearchResult() {
 	    var controller = {
@@ -2718,7 +2718,9 @@ define(["jquery"], function(__WEBPACK_EXTERNAL_MODULE_2__) { return webpackJsonp
 /* 80 */,
 /* 81 */,
 /* 82 */,
-/* 83 */
+/* 83 */,
+/* 84 */,
+/* 85 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -2726,14 +2728,14 @@ define(["jquery"], function(__WEBPACK_EXTERNAL_MODULE_2__) { return webpackJsonp
 	var $ = __webpack_require__(2);
 	var utility = __webpack_require__(3);
 
-	__webpack_require__(84);
-	__webpack_require__(85);
+	__webpack_require__(86);
+	__webpack_require__(87);
 
 	var dealEasyChoiceOption_templates = {
-	    dealItemSelectedOption: __webpack_require__(86),
-	    option: __webpack_require__(87),
-	    accordionInfo: __webpack_require__(88),
-	    accordionContent: __webpack_require__(89)
+	    dealItemSelectedOption: __webpack_require__(88),
+	    option: __webpack_require__(89),
+	    accordionInfo: __webpack_require__(90),
+	    accordionContent: __webpack_require__(91)
 	};
 
 	var DealEasyChoiceOption = function DealEasyChoiceOption() {
@@ -2973,21 +2975,21 @@ define(["jquery"], function(__WEBPACK_EXTERNAL_MODULE_2__) { return webpackJsonp
 	module.exports = DealEasyChoiceOption;
 
 /***/ },
-/* 84 */
+/* 86 */
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
 	module.exports = {"deal-simple-choice-wrap":"deal-simple-choice-wrap","deal-simple-choice-target-info":"deal-simple-choice-target-info","deal-simple-choice-target-title":"deal-simple-choice-target-title","deal-simple-choice-target-title-sub":"deal-simple-choice-target-title-sub","deal-simple-choice-select-wrap":"deal-simple-choice-select-wrap","design-template-accordion-info":"design-template-accordion-info","design-template-accordion-title":"design-template-accordion-title","design-template-accordion-selected":"design-template-accordion-selected","design-template-accordion-controller":"design-template-accordion-controller","design-template-accordion-list":"design-template-accordion-list","accordion-open":"accordion-open","deal-item-option-viewer":"deal-item-option-viewer","deal-item-option-viewer-title":"deal-item-option-viewer-title","deal-item-option-viewer-location":"deal-item-option-viewer-location","deal-simple-choice-result-wrap":"deal-simple-choice-result-wrap","deal-simple-choice-result-value-info":"deal-simple-choice-result-value-info","deal-simple-choice-result-list":"deal-simple-choice-result-list","deal-simple-choice-result-sub-list":"deal-simple-choice-result-sub-list","deal-simple-choice-result-sub-item":"deal-simple-choice-result-sub-item","deal-item-selected-option-wrap":"deal-item-selected-option-wrap","deal-item-selected-option-title":"deal-item-selected-option-title","deal-item-selected-option-amount-wrap":"deal-item-selected-option-amount-wrap","deal-item-selected-option-amount-value":"deal-item-selected-option-amount-value","deal-item-selected-option-amount-up":"deal-item-selected-option-amount-up","deal-item-selected-option-amount-down":"deal-item-selected-option-amount-down","deal-item-selected-option-value":"deal-item-selected-option-value","deal-item-selected-option-delete":"deal-item-selected-option-delete","deal-simple-choice-result-price-wrap":"deal-simple-choice-result-price-wrap","deal-simple-choice-result-price-title":"deal-simple-choice-result-price-title","deal-simple-choice-result-price-total-value":"deal-simple-choice-result-price-total-value","deal-simple-choice-result-price-unit":"deal-simple-choice-result-price-unit","deal-simple-choice-submit":"deal-simple-choice-submit","deal-simple-choice-submit-cart":"deal-simple-choice-submit-cart","deal-simple-choice-submit-order":"deal-simple-choice-submit-order","deal-simple-choice-submit-wishList":"deal-simple-choice-submit-wishList"};
 
 /***/ },
-/* 85 */
+/* 87 */
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
 	module.exports = {"select-design-viewer":"select-design-viewer","select-design-viewer-option-selector":"select-design-viewer-option-selector","value":"value","trigger":"trigger","select-design-viewer-list-box":"select-design-viewer-list-box","select-design-viewer-list":"select-design-viewer-list","select-design-viewer-option":"select-design-viewer-option"};
 
 /***/ },
-/* 86 */
+/* 88 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var Handlebars = __webpack_require__(6);
@@ -2997,7 +2999,7 @@ define(["jquery"], function(__WEBPACK_EXTERNAL_MODULE_2__) { return webpackJsonp
 	},"useData":true});
 
 /***/ },
-/* 87 */
+/* 89 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var Handlebars = __webpack_require__(6);
@@ -3015,7 +3017,7 @@ define(["jquery"], function(__WEBPACK_EXTERNAL_MODULE_2__) { return webpackJsonp
 	},"useData":true});
 
 /***/ },
-/* 88 */
+/* 90 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var Handlebars = __webpack_require__(6);
@@ -3027,7 +3029,7 @@ define(["jquery"], function(__WEBPACK_EXTERNAL_MODULE_2__) { return webpackJsonp
 	},"useData":true});
 
 /***/ },
-/* 89 */
+/* 91 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var Handlebars = __webpack_require__(6);
@@ -3049,7 +3051,7 @@ define(["jquery"], function(__WEBPACK_EXTERNAL_MODULE_2__) { return webpackJsonp
 	},"useData":true});
 
 /***/ },
-/* 90 */
+/* 92 */
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin

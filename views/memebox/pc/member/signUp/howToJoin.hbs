@@ -1,13 +1,10 @@
 {{#extend "memebox-header"}}
     {{> components/menu/v.1.0.0/_templates/_menu}}
+    {{> components/layout/header/v.1.1.0/pc/header_simple}}
 {{/extend}}
 
-
-
 {{#extend "memebox-content"}}
-
-    {{> pc/member/signUp/_element/header}}
-
+    {{> pc/member/signUp/signUpHeader/signUpHeader}}
     <div class="easy-signUp-method">
         이메일 주소 혹은 SNS 계정으로 간편하게 회원가입 가능합니다.
         <ul class="easy-signUp-SNS">
@@ -49,7 +46,10 @@
         &nbsp;&nbsp;|&nbsp;&nbsp;
         <a href="#" ga-event="로그인,회원가입_이메일">회원가입</a>
     </div>
+{{/extend}}
 
+{{#extend "memebox-footer"}}
+    {{> components/layout/footer/v.1.1.0/pc/footer}}
 {{/extend}}
 
 {{> pc/layout/layout}}

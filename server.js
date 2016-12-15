@@ -158,27 +158,45 @@ app.get('/search/result', function(req, res) {
 
 //member 회원 가입 page/////////////////////////
 // sns 회원 가입
-app.get('/member/signUp/signUpSNS', function(req, res) {
+app.get('/member/signUp/howToJoin', function(req, res) {
     var device = req.useragent.isMobile? 'mobile' : 'pc';
 
-    data.config.controller = 'memebox/'+device+'/member/signUp/signUpSNS';
-    data.config.title = '회원가입 SNS';
+    data.config.controller = 'memebox/'+device+'/member/signUp/howToJoin';
+    data.config.title = '가입방법';
     data.config.info.device = device;
     data.config.info.service = 'memebox';
     data.component.menu = menuData;
-    res.render('memebox/'+device+'/member/signUp/signUpSNS',data);
+    res.render('memebox/'+device+'/member/signUp/howToJoin',data);
 });
-// 회원 가입
-app.get('/member/signUp/signUp', function(req, res) {
+app.get('/member/signUp/acceptTerms', function(req, res) {
     var device = req.useragent.isMobile? 'mobile' : 'pc';
 
-    data.config.controller = 'memebox/'+device+'/member/signUp/signUp';
-    data.config.title = '회원가입';
+    data.config.controller = 'memebox/'+device+'/member/signUp/acceptTerms';
+    data.config.title = '약관동의';
     data.config.info.device = device;
     data.config.info.service = 'memebox';
     data.component.menu = menuData;
+    res.render('memebox/'+device+'/member/signUp/acceptTerms',data);
+});
+app.get('/member/signUp/enterUserInformation', function(req, res) {
+    var device = req.useragent.isMobile? 'mobile' : 'pc';
 
-    res.render('memebox/'+device+'/member/signUp/signUp',data);
+    data.config.controller = 'memebox/'+device+'/member/signUp/enterUserInformation';
+    data.config.title = '정보입력';
+    data.config.info.device = device;
+    data.config.info.service = 'memebox';
+    data.component.menu = menuData;
+    res.render('memebox/'+device+'/member/signUp/enterUserInformation',data);
+});
+app.get('/member/signUp/SignedUp', function(req, res) {
+    var device = req.useragent.isMobile? 'mobile' : 'pc';
+
+    data.config.controller = 'memebox/'+device+'/member/signUp/SignedUp';
+    data.config.title = '가입완료';
+    data.config.info.device = device;
+    data.config.info.service = 'memebox';
+    data.component.menu = menuData;
+    res.render('memebox/'+device+'/member/signUp/SignedUp',data);
 });
 
 //view Test

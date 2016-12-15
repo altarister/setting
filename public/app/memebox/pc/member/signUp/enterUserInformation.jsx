@@ -1,11 +1,11 @@
 var $ = require('jquery');
 var utility = require('utility');
-var Menu = require('components/menu/v.1.0.0/_menu.jsx');
 
-require('./signUp.scss');
-require('modules/_designViewer/_select/v.1.0.0/line/_select.scss');
+require('./enterUserInformation.scss');
+require('./signUpHeader/signUpHeader.scss');
+require('./signUpSNS/signUpSNS.scss');
 
-var SignUp = function () {
+var EnterUserInformation = function () {
     var controller = {
 
         element: '#memebox-service',
@@ -18,7 +18,6 @@ var SignUp = function () {
         },
 
         initialize: function () {
-            new Menu();
             utility.uiEnhancements.call(this);
             this.addEventListener();
         },
@@ -27,7 +26,6 @@ var SignUp = function () {
             this.element.off()
                 .on('click', this.ui.__uiString.emailSelect, $.proxy(this.emailSelectEvent, this))
                 .on('click', this.ui.__uiString.emailSelectOption, $.proxy(this.emailSelectOptionEvent, this))
-
         },
 
         emailSelectEvent: function (event) {
@@ -46,4 +44,4 @@ var SignUp = function () {
     controller.initialize();
 };
 
-module.exports = SignUp;
+module.exports = EnterUserInformation;

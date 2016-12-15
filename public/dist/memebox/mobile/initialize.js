@@ -1578,7 +1578,7 @@ define(["jquery","modernizr"], function(__WEBPACK_EXTERNAL_MODULE_1__, __WEBPACK
 	//var header = require('components/layout/header/v.1.1.0/mobile/header.jsx');
 	var footer = __webpack_require__(56);
 
-	__webpack_require__(75);
+	__webpack_require__(58);
 
 	var Common = function Common() {
 	    var controller = {
@@ -1602,7 +1602,7 @@ define(["jquery","modernizr"], function(__WEBPACK_EXTERNAL_MODULE_1__, __WEBPACK
 	var $ = __webpack_require__(1);
 	var utility = __webpack_require__(2);
 
-	__webpack_require__(58);
+	__webpack_require__(57);
 
 	var footer = function footer() {
 	    var controller = {
@@ -1627,31 +1627,14 @@ define(["jquery","modernizr"], function(__WEBPACK_EXTERNAL_MODULE_1__, __WEBPACK
 	module.exports = footer;
 
 /***/ },
-/* 57 */,
-/* 58 */
+/* 57 */
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
 	module.exports = {"layout-structure-footer":"layout-structure-footer","layout-structure-footer-top":"layout-structure-footer-top","service-mobile-quick-link":"service-mobile-quick-link","service-mobile-quick-link-top":"service-mobile-quick-link-top","layout-structure-footer-middle":"layout-structure-footer-middle","service-CSCenter":"service-CSCenter","service-CSCenter-title":"service-CSCenter-title","service-CSCenter-tel":"service-CSCenter-tel","service-CSCenter-trigger":"service-CSCenter-trigger","service-CSCenter-info":"service-CSCenter-info","corporation-information":"corporation-information","corporation-name":"corporation-name","corporation-report-policy":"corporation-report-policy","corporation-aboutUs-wrap":"corporation-aboutUs-wrap","corporation-report-policy-terms-youth-wrap":"corporation-report-policy-terms-youth-wrap","corporation-report-policy-terms-email-wrap":"corporation-report-policy-terms-email-wrap","corporation-report-policy-terms-use-wrap":"corporation-report-policy-terms-use-wrap","corporation-report-policy-terms-privacy-wrap":"corporation-report-policy-terms-privacy-wrap","corporation-report-bizinfo-wrap":"corporation-report-bizinfo-wrap","corporation-aboutUs":"corporation-aboutUs","corporation-report-policy-terms-use":"corporation-report-policy-terms-use","corporation-report-policy-terms-privacy":"corporation-report-policy-terms-privacy","corporation-report-policy-terms-youth":"corporation-report-policy-terms-youth","corporation-report-policy-terms-email":"corporation-report-policy-terms-email","corporation-report-bizinfo":"corporation-report-bizinfo","corporation-report-info":"corporation-report-info","corporation-report-info-step":"corporation-report-info-step","UPlus":"UPlus","corporation-report-info-step-dl":"corporation-report-info-step-dl","corporation-report-info-step-dt-hide":"corporation-report-info-step-dt-hide"};
 
 /***/ },
-/* 59 */,
-/* 60 */,
-/* 61 */,
-/* 62 */,
-/* 63 */,
-/* 64 */,
-/* 65 */,
-/* 66 */,
-/* 67 */,
-/* 68 */,
-/* 69 */,
-/* 70 */,
-/* 71 */,
-/* 72 */,
-/* 73 */,
-/* 74 */,
-/* 75 */
+/* 58 */
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin

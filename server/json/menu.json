@@ -24,12 +24,20 @@
 		"text" : "검색 결과"
 	},
 	{
-		"url" : "/member/signUp/signUpSNS",
-		"text" : "회원 가입 SNS"
+		"url" : "/member/signUp/howToJoin",
+		"text" : "가입 방법"
 	},
 	{
-		"url" : "/member/signUp/signUp",
-		"text" : "회원 가입"
+		"url" : "/member/signUp/acceptTerms",
+		"text" : "약관 동의"
+	},
+	{
+		"url" : "/member/signUp/enterUserInformation",
+		"text" : "정보 입력"
+	},
+	{
+		"url" : "/member/signUp/SignedUp",
+		"text" : "가입 완료"
 	},
 	{
 		"url" : "/dealAll/dealAll",

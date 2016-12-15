@@ -1,0 +1,165 @@
+$baseFontFamily: 나눔고딕, NanumGothic, 돋움, Dotum, AppleSDGothic, AppleGothic, 굴림, Gulim, sans-serif;
+
+
+#memebox-service {
+  background-color: #f9f9f9;
+}
+.layout-structure-content {
+  background-color: #fff;
+  border-top: 1px solid #e0e0e0;
+  padding-bottom: 200px;
+}
+// from 요소 공통 ////////////////////////////////
+.signUp-form {
+  width: 465px;
+  margin: 0 auto;
+}
+.signUp-form fieldset {
+  padding: 0;
+  margin: 0;
+  border: none;
+}
+.signUp-form legend {
+  display: none;
+}
+.signUp-form input {
+  line-height: 28px;
+  padding: 0;
+}
+.signUp-form label {
+  font-family: $baseFontFamily;
+  color: #555555;
+}
+
+//약관동의 /////////////////////////////////
+.agreement-all {
+  margin-top: 70px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #e0e0e0;
+}
+.agreement-all-label {}
+.agreement-all-checkbox {}
+.agreement-all-text {
+  font-size: 15px;
+}
+.signUp-agreement {
+  margin-top: 30px;
+}
+.signUp-agreement-ul {
+  list-style: none;
+  margin: 10px 0 0;
+  padding: 0 0 15px 0;
+  border: 1px solid #ddd;
+  background-color: #fff;
+}
+.signUp-agreement-li {
+  padding: 0;
+  margin: 15px 15px 0;
+}
+.agreement-use,
+.agreement-privacy,
+.agreement-thirdParty,
+.agreement-receive-email,
+.agreement-receive-SNS {
+  position: relative;
+  padding-right: 70px;
+}
+.agreement-use-label,
+.agreement-privacy-label,
+.agreement-thirdParty-label,
+.agreement-receive-email-label,
+.agreement-receive-SNS-label {
+  position: relative;
+  display: block;
+  padding-left: 20px;
+  font-size: 15px;
+}
+.agreement-use-checkbox,
+.agreement-privacy-checkbox,
+.agreement-thirdParty-checkbox,
+.agreement-receive-email-checkbox,
+.agreement-receive-SNS-checkbox {
+  display: block;
+  position: absolute;
+  top: 2px;
+  left: 0;
+}
+.terms-view-trigger {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  margin-top: -1em;
+  display: inline-block;
+  padding: 7px 10px 5px;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  text-decoration: none;
+  font-size: 13px;
+  color: #555;
+}
+.validate-message {
+  margin: 8px 0 0 0;
+  color: #f00;
+  //display: none;
+  font-size: 13px;
+}
+// 혜택 설명
+.signUp-form-optional-info {
+  margin: 20px 0 0 ;
+  font-size: 0;
+}
+.signUp-form-optional-info p {
+  margin: 0;
+  padding: 10px 0 0 0;
+  font-size: 13px;
+  color: #555;
+}
+
+
+//가입하기 //////////////////////////////
+.signUp-form-controller {
+  margin-top: 30px;
+}
+.signUp-form-submit {
+  display: block;
+  width: 100%;
+  text-align: center;
+  padding: 22px 0;
+  color: #fff;
+  font-size: 26px;
+  background-color: #ff4f73;
+  border: none;
+  border-radius: 3px;
+}
+
+
+//약관 내용 보기 //////////////////////////////
+
+.signUp-terms {
+  width: 465px;
+  margin: 170px auto 0;
+}
+.signUp-terms-ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.signUp-terms-li {
+  margin-top: 30px;
+}
+.signUp-terms-title {
+  display: block;
+  color: #555;
+}
+.signUp-terms-content-text,
+.signUp-terms-content-table {
+  overflow: auto;
+  max-height: 200px;
+  border: 1px solid #ddd;
+  margin-top: 10px;
+  padding: 10px;
+  background-color: #fff;
+}
+
+
+

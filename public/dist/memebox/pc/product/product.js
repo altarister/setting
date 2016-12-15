@@ -1,4 +1,4 @@
-define(["jquery"], function(__WEBPACK_EXTERNAL_MODULE_2__) { return webpackJsonp([7,11],[
+define(["jquery"], function(__WEBPACK_EXTERNAL_MODULE_2__) { return webpackJsonp([10,14],[
 /* 0 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -10,7 +10,7 @@ define(["jquery"], function(__WEBPACK_EXTERNAL_MODULE_2__) { return webpackJsonp
 	var SampleDealAPI = __webpack_require__(26);
 	var DealContainer = __webpack_require__(27);
 
-	__webpack_require__(81);
+	__webpack_require__(83);
 
 	var Product = function Product() {
 	    var controller = {
@@ -2715,7 +2715,9 @@ define(["jquery"], function(__WEBPACK_EXTERNAL_MODULE_2__) { return webpackJsonp
 /* 78 */,
 /* 79 */,
 /* 80 */,
-/* 81 */
+/* 81 */,
+/* 82 */,
+/* 83 */
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
