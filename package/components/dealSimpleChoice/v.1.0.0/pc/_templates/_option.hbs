@@ -5,36 +5,36 @@
 
     <div class="deal-simple-choice-select-wrap">
         <em class="deal-simple-choice-target-title-sub">
-            '기본상품 : {{option.basicProduct}}'
+            '기본상품 : {{options.basicProduct}}'
         </em>
 
-        <div class="select-design-viewer">
-            <p class="select-design-viewer-option-selector">
-                <span class="value">상품을 선택해주세요.</span>
-                <span class="trigger">검색</span>
-            </p>
-            <div class="select-design-viewer-list-box">
-                <ul class="select-design-viewer-list">
-                    {{!#each option.dealOptionCategory}}
-                    <!--<li class="select-design-viewer-option">-->
-                        <!--<div  class="design-template-accordion-wrap  {{!#if option.type}}accordion-open{{!/if}}">-->
+        <!--<div class="select-design-viewer">-->
+            <!--<p class="select-design-viewer-option-selector">-->
+                <!--<span class="value">상품을 선택해주세요.</span>-->
+                <!--<span class="trigger">검색</span>-->
+            <!--</p>-->
+            <!--<div class="select-design-viewer-list-box">-->
+                <!--<ul class="select-design-viewer-list">-->
+                    <!--{{!#each option.dealOptionCategory}}-->
+                    <!--&lt;!&ndash;<li class="select-design-viewer-option">&ndash;&gt;-->
+                        <!--&lt;!&ndash;<div  class="design-template-accordion-wrap  {{!#if option.type}}accordion-open{{!/if}}">&ndash;&gt;-->
 
-                            <!--<ul class="design-template-accordion-list">-->
+                            <!--&lt;!&ndash;<ul class="design-template-accordion-list">&ndash;&gt;-->
 
-                            <!--</ul>-->
-                        <!--</div>-->
-                    <!--</li>-->
-                    {{!/each}}
-                </ul>
-            </div>
-        </div>
+                            <!--&lt;!&ndash;</ul>&ndash;&gt;-->
+                        <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                    <!--&lt;!&ndash;</li>&ndash;&gt;-->
+                    <!--{{!/each}}-->
+                <!--</ul>-->
+            <!--</div>-->
+        <!--</div>-->
 
         <!--this.selectDesignViewer()-->
     </div>
 
     <div class="deal-simple-choice-result-wrap">
         <p class="deal-simple-choice-result-value-info">
-            (최대 구매 수량 {{option.MaximumPurchaseQuantity}}개)
+            (최대 구매 수량 {{options.MaximumPurchaseQuantity}}개)
         </p>
 
         <ul class="deal-simple-choice-result-list">

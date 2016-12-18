@@ -1,0 +1,74 @@
+$assetHost: '/components/member/signUpSNS/v.1.0.0/pc/_images/';
+
+$_signup_btn_icon_email_wh: $assetHost+"signup_btn_icon_email_wh.png";
+$_signup_btn_icon_facebook_wh: $assetHost+"signup_btn_icon_facebook_wh.png";
+$_signup_btn_icon_kakao: $assetHost+"signup_btn_icon_kakao.png";
+$_signup_btn_icon_naver_wh: $assetHost+"signup_btn_icon_naver_wh.png";
+
+$baseFontFamily: 나눔고딕, NanumGothic, 돋움, Dotum, AppleSDGothic, AppleGothic, 굴림, Gulim, sans-serif;
+
+
+#memebox-service {
+  background-color: #f9f9f9;
+}
+.layout-structure-content {
+  background-color: #fff;
+  border-top: 1px solid #e0e0e0;
+  padding-bottom: 200px;
+}
+
+
+// sns 링크 ////////////////////////////////
+.signed-up {
+  width: 425px;
+  margin: 0 auto;
+}
+// 환영 메시지
+.signed-up-message {
+  margin: 70px 10px 0;
+  text-align: center;
+}
+.signed-up-message strong {
+  display: block;
+  font-size: 50px;
+  font-weight: normal;
+  color: #555;
+  letter-spacing: -1px;
+}
+.signed-up-message span {
+  margin-top: 30px;
+  display: block;
+  font-size: 15px;
+  color: #555;
+}
+
+// 가입완료 event
+.signed-up-event-wrap {
+  margin-top: 40px;
+  padding-bottom: 20px;
+  border-top: 1px solid #e0e0e0;
+}
+.signed-up-event-content {
+  display: block;
+  padding-top: 20px;
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+  color: #5b5bab;
+}
+
+//가입하기 //////////////////////////////
+.signed-up-form-controller {
+  margin-top: 30px;
+}
+.signed-up-form-submit {
+  display: block;
+  width: 100%;
+  text-align: center;
+  padding: 22px 0;
+  color: #fff;
+  font-size: 26px;
+  background-color: #ff4f73;
+  border: none;
+  border-radius: 3px;
+}

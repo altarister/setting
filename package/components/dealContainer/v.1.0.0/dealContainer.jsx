@@ -19,8 +19,6 @@ var DealContainer = function ($element, lineAmount, deals) {
         },
 
         initialize: function () {
-            console.log($element, lineAmount, deals)
-
             this.remainingTimeController();
             this.makeDealList()
         },

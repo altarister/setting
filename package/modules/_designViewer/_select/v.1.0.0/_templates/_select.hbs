@@ -1,0 +1,69 @@
+<div class="select-design-viewer">
+    <p class="select-design-viewer-option-selector">
+        <span class="value">선택해주세요.</span>
+        <span class="trigger">검색</span>
+    </p>
+    <div class="select-design-viewer-list-box">
+        <ul class="select-design-viewer-list" data-isDefaultType="{{isDefaultType}}">
+            {{#if isDefaultType}}
+                {{#each options}}
+                    <li class="select-design-viewer-option" data-index="{{@index}}">
+                        {{> _option_default}}
+                    </li>
+                {{/each}}
+            {{else}}
+                {{#if hasMultiProducts}}
+                    {{> _select_accordion}}
+                    {{!--
+                    {{#each multiProducts}}
+                        <li class="design-template-accordion-content"
+                            data-option-title="{{@key}}">
+                            <div  class="design-template-accordion-wrap{{#if isDefault}} accordion-open{{/if}}">
+                                <p class="design-template-accordion-info">
+                                    <strong class="design-template-accordion-title">{{title}}</strong>
+                                    <span class="design-template-accordion-selected"></span>
+                                    <span class="design-template-accordion-controller">controller</span>
+                                </p>
+                                <ul class="design-template-accordion-list">
+                                    {{#each value}}
+                                        <li class="select-design-viewer-option"
+                                            data-option-key="{{../key}}"
+                                            data-option-value="{{name}}">
+                                            {{!> _option_deal}}
+                                            <span class="deal-item-option-viewer" href="#">
+                                                <em class="deal-item-option-viewer-title">{{name}}</em>
+                                                {{#if price}}
+                                                    <strong class="deal-item-option-viewer-location">
+                                                        <span class="deal-item-option-viewer-price">{{price}}</span>
+                                                        <span class="deal-item-option-viewer-unit">원</span>
+                                                    </strong>
+                                                {{/if}}
+                                            </span>
+                                        </li>
+                                    {{/each}}
+                                </ul>
+                            </div>
+                        </li>
+                    {{/each}}
+                    --}}
+                {{else}}
+                    {{#each products}}
+                        <li class="select-design-viewer-option"
+                            data-option-value="{{name}}">
+                            {{!> _option_deal}}
+                            <span class="deal-item-option-viewer">
+                                <em class="deal-item-option-viewer-title">{{category.type.value}}</em>
+                                {{#if category.type.price}}
+                                    <strong class="deal-item-option-viewer-location">
+                                        <span class="deal-item-option-viewer-price">{{category.type.price}}</span>
+                                        <span class="deal-item-option-viewer-unit">원</span>
+                                    </strong>
+                                {{/if}}
+                            </span>
+                        </li>
+                    {{/each}}
+                {{/if}}
+            {{/if}}
+        </ul>
+    </div>
+</div>

@@ -8,7 +8,7 @@ define(["jquery"], function(__WEBPACK_EXTERNAL_MODULE_2__) { return webpackJsonp
 	var $ = __webpack_require__(2);
 	var utility = __webpack_require__(3);
 
-	__webpack_require__(63);
+	__webpack_require__(67);
 
 	var main = function main() {
 	    var controller = {
@@ -237,7 +237,7 @@ define(["jquery"], function(__WEBPACK_EXTERNAL_MODULE_2__) { return webpackJsonp
 
 /***/ },
 
-/***/ 63:
+/***/ 67:
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin

@@ -27,7 +27,6 @@ var SearchResult = function(){
                 if(viewData){
                     var API = new SampleDealAPI(viewData);
 
-                    console.log('lineAmount',lineAmount);
                     new DealContainer($element, lineAmount, API.get());
                 }
             });

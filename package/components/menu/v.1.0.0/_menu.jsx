@@ -35,7 +35,6 @@ var menu = function(){
                     "menu" : menuData
                 }
             };
-            console.log('component = ',component)
             var html = templates.menu(component);
             this.element.html(html);
         }

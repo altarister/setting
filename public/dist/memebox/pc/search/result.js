@@ -9,9 +9,9 @@ define(["jquery"], function(__WEBPACK_EXTERNAL_MODULE_2__) { return webpackJsonp
 	var Menu = __webpack_require__(1);
 	var SampleDealAPI = __webpack_require__(26);
 	var DealContainer = __webpack_require__(27);
-	var DealSimpleChoice = __webpack_require__(85);
+	var DealSimpleChoice = __webpack_require__(90);
 
-	__webpack_require__(92);
+	__webpack_require__(96);
 
 	var SearchResult = function SearchResult() {
 	    var controller = {
@@ -35,7 +35,6 @@ define(["jquery"], function(__WEBPACK_EXTERNAL_MODULE_2__) { return webpackJsonp
 	                if (viewData) {
 	                    var API = new SampleDealAPI(viewData);
 
-	                    console.log('lineAmount', lineAmount);
 	                    new DealContainer($element, lineAmount, API.get());
 	                }
 	            });
@@ -88,7 +87,6 @@ define(["jquery"], function(__WEBPACK_EXTERNAL_MODULE_2__) { return webpackJsonp
 	                    "menu": menuData
 	                }
 	            };
-	            console.log('component = ', component);
 	            var html = templates.menu(component);
 	            this.element.html(html);
 	        }
@@ -1579,82 +1577,29 @@ define(["jquery"], function(__WEBPACK_EXTERNAL_MODULE_2__) { return webpackJsonp
 	                origin: { info: '', value: '32,000', unit: '원' },
 	                result: { info: '미미가격', value: '16,000', unit: '원', from: '~' }
 	            },
-	            option: {
+	            options: {
 	                MaximumPurchaseQuantity: 10,
+	                hasMultiProducts: true,
+	                multiProducts: null,
+	                // multiProducts : {
+	                //     type: {
+	                //         isDefault: true,
+	                //         title: '상품명',
+	                //         value: [{name:'에어',price:'11,000'}, {name:'조던',price:'12,000'}]
+	                //     },
+	                //     color: {
+	                //         isDefault: false,
+	                //         title: '색상',
+	                //         value: [{name:'red',price:null}, {name:'black',price:null}, {name:'blue',price:null}]
+	                //     },
+	                //     size: {
+	                //         isDefault: false,
+	                //         title: '사이즈',
+	                //         value: [{name:'220',price:null}, {name:'230',price:null}]
+	                //     }
+	                // },
 	                basicProduct: '#EX400 문라이즈',
-	                products: [{
-	                    id: 'i1',
-	                    name: '나이키 ',
-	                    category: {
-	                        type: { title: '상품명', value: '에어', price: '11,000' },
-	                        color: { title: '색상', value: 'red' },
-	                        size: { title: '사이즈', value: '220' }
-	                    },
-	                    stock: 30
-	                }, {
-	                    id: 'i2',
-	                    name: '나이키 ',
-	                    category: {
-	                        type: { title: '상품명', value: '에어', price: '11,000' },
-	                        color: { title: '색상', value: 'black' },
-	                        size: { title: '사이즈', value: '230' }
-	                    },
-	                    stock: 30
-	                }, {
-	                    id: 'i3',
-	                    name: '나이키 ',
-	                    category: {
-	                        type: { title: '상품명', value: '에어', price: '11,000' },
-	                        color: { title: '색상', value: 'blue' },
-	                        size: { title: '사이즈', value: '220' }
-	                    },
-	                    stock: 30
-	                }, {
-	                    id: 'i4',
-	                    name: '나이키 ',
-	                    category: {
-	                        type: { title: '상품명', value: '에어', price: '11,000' },
-	                        color: { title: '색상', value: 'blue' },
-	                        size: { title: '사이즈', value: '230' }
-	                    },
-	                    stock: 30
-	                }, {
-	                    id: 'i5',
-	                    name: '나이키 ',
-	                    category: {
-	                        type: { title: '상품명', value: '조던', price: '12,000' },
-	                        color: { title: '색상', value: 'red' },
-	                        size: { title: '사이즈', value: '220' }
-	                    },
-	                    stock: 30
-	                }, {
-	                    id: 'i6',
-	                    name: '나이키 ',
-	                    category: {
-	                        type: { title: '상품명', value: '조던', price: '12,000' },
-	                        color: { title: '색상', value: 'red' },
-	                        size: { title: '사이즈', value: '230' }
-	                    },
-	                    stock: 30
-	                }, {
-	                    id: 'i7',
-	                    name: '나이키 ',
-	                    category: {
-	                        type: { title: '상품명', value: '조던', price: '12,000' },
-	                        color: { title: '색상', value: 'blue' },
-	                        size: { title: '사이즈', value: '220' }
-	                    },
-	                    stock: 30
-	                }, {
-	                    id: 'i8',
-	                    name: '나이키 ',
-	                    category: {
-	                        type: { title: '상품명', value: '조던', price: '12,000' },
-	                        color: { title: '색상', value: 'blue' },
-	                        size: { title: '사이즈', value: '230' }
-	                    },
-	                    stock: 30
-	                }],
+
 	                additionItem: [{
 	                    id: 'i4',
 	                    name: '나이키 신발끈',
@@ -1684,11 +1629,11 @@ define(["jquery"], function(__WEBPACK_EXTERNAL_MODULE_2__) { return webpackJsonp
 	        },
 	        images: ['https://img1.memebox.com/cwxhija3/contents/img/memeboxProductItem/20161007044103_d9a89db2f80151988b380a3af833c706.jpg', 'https://img1.memebox.com/3uqvc4to/contents/img/memeboxProductItem/20161115103443_eae03a379a2daeb8e71be12e7ec67dba.jpg', 'https://img1.memebox.com/c2jq97q2/contents/img/memeboxProductItem/20161111052448_a60d63f5a0ade3646d6aa950cc132e3e.jpg', 'https://img1.memebox.com/v6uciugt/contents/img/memeboxProductItem/20161114081753_c47132518d9a1eaf6f7c15eb7bbf7ba2.jpg', 'https://img1.memebox.com/a70vqlis/contents/img/memeboxProductItem/20161114043824_52a43af20a8ad9190b7aef3793608d79.jpg'],
 
-	        wideImg: ["https://img2.memebox.com/static/contents/img/upload/image_20160518211225_b3VcRp7GzN.jpg",
-	        // "https://img1.memebox.com/72gfsdk0/contents/img/memeboxProductItem/20161020043220_930526a3bd0a25d11ca0f2a1a499dd4f.jpg",
-	        'https://img1.memebox.com/a70vqlis/contents/img/memeboxProductItem/20161114043824_52a43af20a8ad9190b7aef3793608d79.jpg', "https://img1.memebox.com/z0uovgml/contents/img/memeboxProductItem/20161011020338_ee3dcef775880ff08c8e5a0a6cd198f5.jpg",
-	        //"https://img1.memebox.com/uphu35f8/contents/img/memeboxProductItem/20161108055135_1a2ed3ce8ccd02052ce6d7db53571689.jpg",
-	        "https://img1.memebox.com/72gfsdk0/contents/img/memeboxProductItem/error.jpg", "https://img1.memebox.com/lahnslxd/contents/img/memeboxProductItem/20161114101656_4f39cb7f88f79f1f8cd22cac23e2d4a3.jpg"],
+	        wideImg: ['https://img2.memebox.com/static/contents/img/upload/image_20160518211225_b3VcRp7GzN.jpg',
+	        // 'https://img1.memebox.com/72gfsdk0/contents/img/memeboxProductItem/20161020043220_930526a3bd0a25d11ca0f2a1a499dd4f.jpg',
+	        'https://img1.memebox.com/a70vqlis/contents/img/memeboxProductItem/20161114043824_52a43af20a8ad9190b7aef3793608d79.jpg', 'https://img1.memebox.com/z0uovgml/contents/img/memeboxProductItem/20161011020338_ee3dcef775880ff08c8e5a0a6cd198f5.jpg',
+	        //'https://img1.memebox.com/uphu35f8/contents/img/memeboxProductItem/20161108055135_1a2ed3ce8ccd02052ce6d7db53571689.jpg',
+	        'https://img1.memebox.com/72gfsdk0/contents/img/memeboxProductItem/error.jpg', 'https://img1.memebox.com/lahnslxd/contents/img/memeboxProductItem/20161114101656_4f39cb7f88f79f1f8cd22cac23e2d4a3.jpg'],
 
 	        viewType: [{
 	            view: {
@@ -1748,7 +1693,6 @@ define(["jquery"], function(__WEBPACK_EXTERNAL_MODULE_2__) { return webpackJsonp
 	        },
 
 	        set: function set(viewData) {
-	            console.log('-----------------', viewData);
 	            this.deals = [];
 	            for (var index in this.images) {
 	                var forDeal = $.extend({}, this.deal);
@@ -1857,8 +1801,6 @@ define(["jquery"], function(__WEBPACK_EXTERNAL_MODULE_2__) { return webpackJsonp
 	        },
 
 	        initialize: function initialize() {
-	            console.log($element, lineAmount, deals);
-
 	            this.remainingTimeController();
 	            this.makeDealList();
 	        },
@@ -2577,7 +2519,6 @@ define(["jquery"], function(__WEBPACK_EXTERNAL_MODULE_2__) { return webpackJsonp
 	            var triggerIndex = parseInt($currentTarget.data('trigger-index'));
 	            var dealId = $currentTarget.attr('href');
 	            var deal = this.getSelectedDeal(dealId);
-	            console.log(deal);
 	            var optionIndex = this.getOptionIndex(triggerIndex);
 	            var $dealTooltipFloatingContent = $(tooltip_floating_templates.box(dealId));
 	            var dealTooltipFloatingContentClassNmae = $dealTooltipFloatingContent.attr('class');
@@ -2608,7 +2549,6 @@ define(["jquery"], function(__WEBPACK_EXTERNAL_MODULE_2__) { return webpackJsonp
 	        },
 
 	        getOptionIndex: function getOptionIndex(triggerIndex) {
-	            console.log('triggerIndex = ', triggerIndex);
 	            triggerIndex += 1;
 	            var optionIndex = triggerIndex - 1;
 	            var remainder = triggerIndex % this.lineAmount;
@@ -2616,7 +2556,6 @@ define(["jquery"], function(__WEBPACK_EXTERNAL_MODULE_2__) { return webpackJsonp
 	            if (remainder > 0) {
 	                optionIndex += this.lineAmount - remainder;
 	            }
-	            console.log('optionIndex = ', optionIndex);
 	            return optionIndex;
 	        }
 	    };
@@ -2695,11 +2634,326 @@ define(["jquery"], function(__WEBPACK_EXTERNAL_MODULE_2__) { return webpackJsonp
 /* 57 */,
 /* 58 */,
 /* 59 */,
-/* 60 */,
-/* 61 */,
-/* 62 */,
-/* 63 */,
-/* 64 */,
+/* 60 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var $ = __webpack_require__(2);
+	var utility = __webpack_require__(3);
+
+	__webpack_require__(61);
+
+	var select_templates = {
+	    _select: __webpack_require__(62),
+	    _select_accordion: __webpack_require__(64)
+	};
+
+	var Select = function Select(data, $wrap) {
+	    var controller = {
+
+	        element: $wrap,
+	        ui: {
+	            selector: '.select-design-viewer-option-selector',
+	            selected: '.select-design-viewer-option-selector .value',
+	            optionList: '.select-design-viewer-list',
+	            option: '.select-design-viewer-option',
+	            accordionWrap: '.design-template-accordion-wrap',
+	            accordionController: '.design-template-accordion-controller'
+	        },
+
+	        initialize: function initialize() {
+	            this.makeSelect();
+	        },
+
+	        makeSelect: function makeSelect() {
+	            if (!$wrap) {
+	                this.element = $(select_templates._select(data));
+	            }
+	            utility.uiEnhancements.call(this);
+	            this.eventListener();
+
+	            if (!data.hasOwnProperty('isDefaultType')) {
+	                this.addEventListener();
+	            } else {
+	                this.ui.selected.data('value', data.options[0].data[0].value).text(data.options[0].text);
+	            }
+	        },
+
+	        eventListener: function eventListener() {
+	            this.element.off().on('click', this.ui.__uiString.selector, $.proxy(this.selectorEvent, this)).on('click', this.ui.__uiString.option, $.proxy(this.optionEvent, this));
+	        },
+
+	        addEventListener: function addEventListener() {
+	            this.element.off().on('click', this.ui.__uiString.selector, $.proxy(this.selectorEvent, this)).on('click', this.ui.__uiString.option, $.proxy(this.accordionOptionEvent, this)).on('click', this.ui.__uiString.accordionController, $.proxy(this.accordionControllerEvent, this));
+	        },
+
+	        selectorEvent: function selectorEvent() {
+	            this.ui.optionList.toggle();
+	        },
+
+	        optionEvent: function optionEvent(event) {
+	            var $currentElement = $(event.currentTarget);
+	            var index = $currentElement.data('index');
+	            var currentOption = data.options[index];
+	            this.ui.selected.data('value', currentOption.data[0].value).text(currentOption.text);
+	            this.ui.optionList.toggle();
+	        },
+
+	        accordionOptionEvent: function accordionOptionEvent(event) {
+	            if (data.hasMultiProducts) {
+	                var $currentElement = $(event.currentTarget);
+	                var value = $currentElement.data('option-value');
+	                var text = value + ' / ';
+	                var key = $currentElement.data('option-key');
+	                var $select = this.ui.selected.find('[data-key=' + key + ']');
+	                if ($select.length === 0) {
+	                    this.ui.selected.append($('<span data-key="' + key + '" data-value="' + value + '">').text(text));
+	                } else {
+	                    $select.data('value', value).text(text);
+	                }
+	                this.displayAccordion(this.getChoiceOption(data.products.slice()));
+	            } else {
+	                //todo:
+	                this.ui.optionList.toggle();
+	            }
+	        },
+
+	        displayAccordion: function displayAccordion(products) {
+	            var productsCategory = {};
+	            var openAccordion = false;
+	            for (var index in products) {
+	                var category = products[index].category;
+	                for (var key in category) {
+	                    if (!productsCategory.hasOwnProperty(key)) {
+	                        var isDefault = true;
+	                        if (this.ui.selected.find('[data-key="' + key + '"]').length > 0 || openAccordion) {
+	                            isDefault = false;
+	                        } else {
+	                            isDefault = true;
+	                            openAccordion = true;
+	                        }
+
+	                        productsCategory[key] = {
+	                            isDefault: isDefault,
+	                            title: category[key].title,
+	                            value: [],
+	                            names: [],
+	                            key: key
+	                        };
+	                    }
+
+	                    if (productsCategory[key].names.indexOf(category[key].value) < 0) {
+	                        var price = null;
+	                        if (category[key].hasOwnProperty('price')) {
+	                            price = category[key].price; //productsCategory[key].price.push(category[key].price);
+	                        }
+
+	                        var obj = { name: category[key].value, price: price };
+	                        productsCategory[key].value.push(obj);
+	                        productsCategory[key].names.push(category[key].value);
+	                    }
+	                }
+	            }
+	            var multiProducts = { multiProducts: productsCategory };
+
+	            this.ui.optionList.empty().append(select_templates._select_accordion(multiProducts));
+	            utility.uiEnhancements.call(this);
+	            this.addEventListener();
+	        },
+
+	        getChoiceOption: function getChoiceOption(products) {
+	            var $selected = this.ui.selected.find('[data-key]');
+
+	            $selected.each(function (index, element) {
+	                var key = $(element).data('key');
+	                var value = $(element).data('value');
+
+	                for (var i = 0; i < products.length; i++) {
+	                    if (products[i].category[key].value != value) {
+	                        products.splice(i, 1);
+	                        i--;
+	                    }
+	                }
+	            });
+	            return products;
+	        },
+
+	        accordionControllerEvent: function accordionControllerEvent(event) {
+	            this.ui.accordionWrap.removeClass('accordion-open');
+	            $(event.currentTarget).closest(this.ui.__uiString.accordionWrap).addClass('accordion-open');
+	        },
+
+	        getElement: function getElement() {
+	            return this.element;
+	        }
+
+	    };
+
+	    controller.initialize();
+
+	    return controller;
+	};
+
+	module.exports = Select;
+
+/***/ },
+/* 61 */
+/***/ function(module, exports) {
+
+	// removed by extract-text-webpack-plugin
+	module.exports = {"select-design-viewer":"select-design-viewer","select-design-viewer-option-selector":"select-design-viewer-option-selector","value":"value","trigger":"trigger","select-design-viewer-list-box":"select-design-viewer-list-box","select-design-viewer-list":"select-design-viewer-list","select-design-viewer-option":"select-design-viewer-option","design-template-accordion-info":"design-template-accordion-info","design-template-accordion-title":"design-template-accordion-title","design-template-accordion-selected":"design-template-accordion-selected","design-template-accordion-controller":"design-template-accordion-controller","design-template-accordion-list":"design-template-accordion-list","accordion-open":"accordion-open","deal-item-option-viewer":"deal-item-option-viewer","deal-item-option-viewer-title":"deal-item-option-viewer-title","deal-item-option-viewer-location":"deal-item-option-viewer-location"};
+
+/***/ },
+/* 62 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var Handlebars = __webpack_require__(6);
+	function __default(obj) { return obj && (obj.__esModule ? obj["default"] : obj); }
+	module.exports = (Handlebars["default"] || Handlebars).template({"1":function(container,depth0,helpers,partials,data) {
+	    var stack1;
+
+	  return ((stack1 = helpers.each.call(depth0 != null ? depth0 : {},(depth0 != null ? depth0.options : depth0),{"name":"each","hash":{},"fn":container.program(2, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "");
+	},"2":function(container,depth0,helpers,partials,data) {
+	    var stack1;
+
+	  return "                    <li class=\"select-design-viewer-option\" data-index=\""
+	    + container.escapeExpression(container.lambda((data && data.index), depth0))
+	    + "\">\n"
+	    + ((stack1 = container.invokePartial(__webpack_require__(63),depth0,{"name":"_option_default","data":data,"indent":"                        ","helpers":helpers,"partials":partials,"decorators":container.decorators})) != null ? stack1 : "")
+	    + "                    </li>\n";
+	},"4":function(container,depth0,helpers,partials,data) {
+	    var stack1;
+
+	  return ((stack1 = helpers["if"].call(depth0 != null ? depth0 : {},(depth0 != null ? depth0.hasMultiProducts : depth0),{"name":"if","hash":{},"fn":container.program(5, data, 0),"inverse":container.program(7, data, 0),"data":data})) != null ? stack1 : "");
+	},"5":function(container,depth0,helpers,partials,data) {
+	    var stack1;
+
+	  return ((stack1 = container.invokePartial(__webpack_require__(64),depth0,{"name":"_select_accordion","data":data,"indent":"                    ","helpers":helpers,"partials":partials,"decorators":container.decorators})) != null ? stack1 : "");
+	},"7":function(container,depth0,helpers,partials,data) {
+	    var stack1;
+
+	  return ((stack1 = helpers.each.call(depth0 != null ? depth0 : {},(depth0 != null ? depth0.products : depth0),{"name":"each","hash":{},"fn":container.program(8, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "");
+	},"8":function(container,depth0,helpers,partials,data) {
+	    var stack1, alias1=container.lambda, alias2=container.escapeExpression;
+
+	  return "                        <li class=\"select-design-viewer-option\"\n                            data-option-value=\""
+	    + alias2(alias1((depth0 != null ? depth0.name : depth0), depth0))
+	    + "\">\n                            <span class=\"deal-item-option-viewer\">\n                                <em class=\"deal-item-option-viewer-title\">"
+	    + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? depth0.category : depth0)) != null ? stack1.type : stack1)) != null ? stack1.value : stack1), depth0))
+	    + "</em>\n"
+	    + ((stack1 = helpers["if"].call(depth0 != null ? depth0 : {},((stack1 = ((stack1 = (depth0 != null ? depth0.category : depth0)) != null ? stack1.type : stack1)) != null ? stack1.price : stack1),{"name":"if","hash":{},"fn":container.program(9, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+	    + "                            </span>\n                        </li>\n";
+	},"9":function(container,depth0,helpers,partials,data) {
+	    var stack1;
+
+	  return "                                    <strong class=\"deal-item-option-viewer-location\">\n                                        <span class=\"deal-item-option-viewer-price\">"
+	    + container.escapeExpression(container.lambda(((stack1 = ((stack1 = (depth0 != null ? depth0.category : depth0)) != null ? stack1.type : stack1)) != null ? stack1.price : stack1), depth0))
+	    + "</span>\n                                        <span class=\"deal-item-option-viewer-unit\">원</span>\n                                    </strong>\n";
+	},"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
+	    var stack1;
+
+	  return "<div class=\"select-design-viewer\">\n    <p class=\"select-design-viewer-option-selector\">\n        <span class=\"value\">선택해주세요.</span>\n        <span class=\"trigger\">검색</span>\n    </p>\n    <div class=\"select-design-viewer-list-box\">\n        <ul class=\"select-design-viewer-list\" data-isDefaultType=\""
+	    + container.escapeExpression(container.lambda((depth0 != null ? depth0.isDefaultType : depth0), depth0))
+	    + "\">\n"
+	    + ((stack1 = helpers["if"].call(depth0 != null ? depth0 : {},(depth0 != null ? depth0.isDefaultType : depth0),{"name":"if","hash":{},"fn":container.program(1, data, 0),"inverse":container.program(4, data, 0),"data":data})) != null ? stack1 : "")
+	    + "        </ul>\n    </div>\n</div>\n";
+	},"usePartial":true,"useData":true});
+
+/***/ },
+/* 63 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var Handlebars = __webpack_require__(6);
+	function __default(obj) { return obj && (obj.__esModule ? obj["default"] : obj); }
+	module.exports = (Handlebars["default"] || Handlebars).template({"1":function(container,depth0,helpers,partials,data) {
+	    var stack1;
+
+	  return ((stack1 = helpers.each.call(depth0 != null ? depth0 : {},depth0,{"name":"each","hash":{},"fn":container.program(2, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "");
+	},"2":function(container,depth0,helpers,partials,data) {
+	    var helper, alias1=container.escapeExpression;
+
+	  return "            "
+	    + alias1(((helper = (helper = helpers.key || (data && data.key)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : {},{"name":"key","hash":{},"data":data}) : helper)))
+	    + "=\""
+	    + alias1(container.lambda(depth0, depth0))
+	    + "\"\n";
+	},"4":function(container,depth0,helpers,partials,data) {
+	    var stack1;
+
+	  return ((stack1 = helpers.each.call(depth0 != null ? depth0 : {},depth0,{"name":"each","hash":{},"fn":container.program(5, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+	    + "    ";
+	},"5":function(container,depth0,helpers,partials,data) {
+	    var helper, alias1=container.escapeExpression;
+
+	  return "            data-"
+	    + alias1(((helper = (helper = helpers.key || (data && data.key)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : {},{"name":"key","hash":{},"data":data}) : helper)))
+	    + "=\""
+	    + alias1(container.lambda(depth0, depth0))
+	    + "\"\n";
+	},"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
+	    var stack1, helper, options, alias1=container.lambda, alias2=container.escapeExpression, alias3=depth0 != null ? depth0 : {}, alias4=helpers.helperMissing, alias5="function", alias6=helpers.blockHelperMissing, buffer = 
+	  "<"
+	    + alias2(alias1((depth0 != null ? depth0.tegName : depth0), depth0))
+	    + "\n";
+	  stack1 = ((helper = (helper = helpers.attribute || (depth0 != null ? depth0.attribute : depth0)) != null ? helper : alias4),(options={"name":"attribute","hash":{},"fn":container.program(1, data, 0),"inverse":container.noop,"data":data}),(typeof helper === alias5 ? helper.call(alias3,options) : helper));
+	  if (!helpers.attribute) { stack1 = alias6.call(depth0,stack1,options)}
+	  if (stack1 != null) { buffer += stack1; }
+	  stack1 = ((helper = (helper = helpers.data || (depth0 != null ? depth0.data : depth0)) != null ? helper : alias4),(options={"name":"data","hash":{},"fn":container.program(4, data, 0),"inverse":container.noop,"data":data}),(typeof helper === alias5 ? helper.call(alias3,options) : helper));
+	  if (!helpers.data) { stack1 = alias6.call(depth0,stack1,options)}
+	  if (stack1 != null) { buffer += stack1; }
+	  return buffer + ">\n\n    "
+	    + alias2(alias1((depth0 != null ? depth0.text : depth0), depth0))
+	    + "\n\n</"
+	    + alias2(alias1((depth0 != null ? depth0.tegName : depth0), depth0))
+	    + ">";
+	},"useData":true});
+
+/***/ },
+/* 64 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var Handlebars = __webpack_require__(6);
+	function __default(obj) { return obj && (obj.__esModule ? obj["default"] : obj); }
+	module.exports = (Handlebars["default"] || Handlebars).template({"1":function(container,depth0,helpers,partials,data,blockParams,depths) {
+	    var stack1, helper, alias1=depth0 != null ? depth0 : {}, alias2=helpers.helperMissing, alias3="function", alias4=container.escapeExpression;
+
+	  return "<li class=\"design-template-accordion-content\"\n    data-option-title=\""
+	    + alias4(((helper = (helper = helpers.key || (data && data.key)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"key","hash":{},"data":data}) : helper)))
+	    + "\">\n    <div  class=\"design-template-accordion-wrap"
+	    + ((stack1 = helpers["if"].call(alias1,(depth0 != null ? depth0.isDefault : depth0),{"name":"if","hash":{},"fn":container.program(2, data, 0, blockParams, depths),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+	    + "\">\n        <p class=\"design-template-accordion-info\">\n            <strong class=\"design-template-accordion-title\">"
+	    + alias4(((helper = (helper = helpers.title || (depth0 != null ? depth0.title : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"title","hash":{},"data":data}) : helper)))
+	    + "</strong>\n            <span class=\"design-template-accordion-selected\"></span>\n            <span class=\"design-template-accordion-controller\">controller</span>\n        </p>\n        <ul class=\"design-template-accordion-list\">\n"
+	    + ((stack1 = helpers.each.call(alias1,(depth0 != null ? depth0.value : depth0),{"name":"each","hash":{},"fn":container.program(4, data, 0, blockParams, depths),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+	    + "        </ul>\n    </div>\n</li>\n";
+	},"2":function(container,depth0,helpers,partials,data) {
+	    return " accordion-open";
+	},"4":function(container,depth0,helpers,partials,data,blockParams,depths) {
+	    var stack1, helper, alias1=container.escapeExpression, alias2=depth0 != null ? depth0 : {}, alias3=helpers.helperMissing, alias4="function";
+
+	  return "                <li class=\"select-design-viewer-option\"\n                    data-option-key=\""
+	    + alias1(container.lambda((depths[1] != null ? depths[1].key : depths[1]), depth0))
+	    + "\"\n                    data-option-value=\""
+	    + alias1(((helper = (helper = helpers.name || (depth0 != null ? depth0.name : depth0)) != null ? helper : alias3),(typeof helper === alias4 ? helper.call(alias2,{"name":"name","hash":{},"data":data}) : helper)))
+	    + "\">\n                    <span class=\"deal-item-option-viewer\" href=\"#\">\n                        <em class=\"deal-item-option-viewer-title\">"
+	    + alias1(((helper = (helper = helpers.name || (depth0 != null ? depth0.name : depth0)) != null ? helper : alias3),(typeof helper === alias4 ? helper.call(alias2,{"name":"name","hash":{},"data":data}) : helper)))
+	    + "</em>\n"
+	    + ((stack1 = helpers["if"].call(alias2,(depth0 != null ? depth0.price : depth0),{"name":"if","hash":{},"fn":container.program(5, data, 0, blockParams, depths),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+	    + "                    </span>\n                </li>\n";
+	},"5":function(container,depth0,helpers,partials,data) {
+	    var helper;
+
+	  return "                            <strong class=\"deal-item-option-viewer-location\">\n                                <span class=\"deal-item-option-viewer-price\">"
+	    + container.escapeExpression(((helper = (helper = helpers.price || (depth0 != null ? depth0.price : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : {},{"name":"price","hash":{},"data":data}) : helper)))
+	    + "</span>\n                                <span class=\"deal-item-option-viewer-unit\">원</span>\n                            </strong>\n";
+	},"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data,blockParams,depths) {
+	    var stack1;
+
+	  return ((stack1 = helpers.each.call(depth0 != null ? depth0 : {},(depth0 != null ? depth0.multiProducts : depth0),{"name":"each","hash":{},"fn":container.program(1, data, 0, blockParams, depths),"inverse":container.noop,"data":data})) != null ? stack1 : "");
+	},"useData":true,"useDepths":true});
+
+/***/ },
 /* 65 */,
 /* 66 */,
 /* 67 */,
@@ -2720,229 +2974,269 @@ define(["jquery"], function(__WEBPACK_EXTERNAL_MODULE_2__) { return webpackJsonp
 /* 82 */,
 /* 83 */,
 /* 84 */,
-/* 85 */
+/* 85 */,
+/* 86 */,
+/* 87 */,
+/* 88 */,
+/* 89 */,
+/* 90 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 	var $ = __webpack_require__(2);
 	var utility = __webpack_require__(3);
+	var Select = __webpack_require__(60);
 
-	__webpack_require__(86);
-	__webpack_require__(87);
+	__webpack_require__(91);
+	//require('modules/_designViewer/_select/v.1.0.0/box/_select.scss');
 
 	var dealEasyChoiceOption_templates = {
-	    dealItemSelectedOption: __webpack_require__(88),
-	    option: __webpack_require__(89),
-	    accordionInfo: __webpack_require__(90),
-	    accordionContent: __webpack_require__(91)
+	    dealItemSelectedOption: __webpack_require__(92),
+	    option: __webpack_require__(93),
+	    accordionInfo: __webpack_require__(94),
+	    accordionContent: __webpack_require__(95)
 	};
 
 	var DealEasyChoiceOption = function DealEasyChoiceOption() {
 	    var controller = {
 	        element: '.deal-simple-choice-wrap',
 	        ui: {
+	            selectWrap: '.deal-simple-choice-select-wrap',
 	            optionSelector: '.select-design-viewer-option-selector',
 	            selectDesignViewer: '.select-design-viewer-list',
 	            selectDesignViewerOption: '.select-design-viewer-option',
 	            option: '.deal-item-option-viewer',
-	            resultItem: '.deal-simple-choice-result-item',
-	            accordionWrap: '.design-template-accordion-wrap',
-	            accordionController: '.design-template-accordion-controller'
+	            resultItem: '.deal-simple-choice-result-item'
 	        },
 
-	        optionData: {},
+	        //optionData: {},
 
 	        initialize: function initialize() {
 	            this.eventListener();
 	        },
 
+	        getMultiProducts: function getMultiProducts(id) {
+	            console.log('getMultiProducts = ', id);
+	            return [{
+	                id: 'i1',
+	                name: '나이키 ',
+	                category: {
+	                    type: { title: '상품명', value: '에어', price: '11,000' },
+	                    color: { title: '색상', value: 'red' },
+	                    size: { title: '사이즈', value: '220' }
+	                },
+	                stock: 30
+	            }, {
+	                id: 'i2',
+	                name: '나이키 ',
+	                category: {
+	                    type: { title: '상품명', value: '에어', price: '11,000' },
+	                    color: { title: '색상', value: 'black' },
+	                    size: { title: '사이즈', value: '230' }
+	                },
+	                stock: 30
+	            }, {
+	                id: 'i3',
+	                name: '나이키 ',
+	                category: {
+	                    type: { title: '상품명', value: '에어', price: '11,000' },
+	                    color: { title: '색상', value: 'blue' },
+	                    size: { title: '사이즈', value: '220' }
+	                },
+	                stock: 30
+	            }, {
+	                id: 'i4',
+	                name: '나이키 ',
+	                category: {
+	                    type: { title: '상품명', value: '에어', price: '11,000' },
+	                    color: { title: '색상', value: 'blue' },
+	                    size: { title: '사이즈', value: '230' }
+	                },
+	                stock: 30
+	            }, {
+	                id: 'i5',
+	                name: '나이키 ',
+	                category: {
+	                    type: { title: '상품명', value: '조던', price: '12,000' },
+	                    color: { title: '색상', value: 'red' },
+	                    size: { title: '사이즈', value: '220' }
+	                },
+	                stock: 30
+	            }, {
+	                id: 'i6',
+	                name: '나이키 ',
+	                category: {
+	                    type: { title: '상품명', value: '조던', price: '12,000' },
+	                    color: { title: '색상', value: 'red' },
+	                    size: { title: '사이즈', value: '230' }
+	                },
+	                stock: 30
+	            }, {
+	                id: 'i7',
+	                name: '나이키 ',
+	                category: {
+	                    type: { title: '상품명', value: '조던', price: '12,000' },
+	                    color: { title: '색상', value: 'blue' },
+	                    size: { title: '사이즈', value: '220' }
+	                },
+	                stock: 30
+	            }, {
+	                id: 'i8',
+	                name: '나이키 ',
+	                category: {
+	                    type: { title: '상품명', value: '조던', price: '12,000' },
+	                    color: { title: '색상', value: 'blue' },
+	                    size: { title: '사이즈', value: '230' }
+	                },
+	                stock: 30
+	            }];
+	        },
+
+	        getProducts: function getProducts(id) {
+	            console.log('getProducts = ', id);
+	            return [{
+	                id: 'i1',
+	                name: '나이키 ',
+	                category: {
+	                    type: { title: '상품명', value: '에어', price: '11,000' }
+	                    // ,color: {title: '색상', value: 'red'}
+	                    // ,size: {title: '사이즈', value: '220'}
+	                },
+	                stock: 30
+	            }, {
+	                id: 'i2',
+	                name: '나이키 ',
+	                category: {
+	                    type: { title: '상품명', value: '에어', price: '11,000' }
+	                    // ,color: {title: '색상', value: 'black'}
+	                    // ,size: {title: '사이즈', value: '230'}
+	                },
+	                stock: 30
+	            }, {
+	                id: 'i3',
+	                name: '나이키 ',
+	                category: {
+	                    type: { title: '상품명', value: '에어', price: '11,000' }
+	                    // ,color: {title: '색상', value: 'blue'}
+	                    // ,size: {title: '사이즈', value: '220'}
+	                },
+	                stock: 30
+	            }, {
+	                id: 'i4',
+	                name: '나이키 ',
+	                category: {
+	                    type: { title: '상품명', value: '에어', price: '11,000' }
+	                    // ,color: {title: '색상', value: 'blue'}
+	                    // ,size: {title: '사이즈', value: '230'}
+	                },
+	                stock: 30
+	            }, {
+	                id: 'i5',
+	                name: '나이키 ',
+	                category: {
+	                    type: { title: '상품명', value: '조던', price: '12,000' }
+	                    // ,color: {title: '색상', value: 'red'}
+	                    // ,size: {title: '사이즈', value: '220'}
+	                },
+	                stock: 30
+	            }, {
+	                id: 'i6',
+	                name: '나이키 ',
+	                category: {
+	                    type: { title: '상품명', value: '조던', price: '12,000' }
+	                    // ,color: {title: '색상', value: 'red'}
+	                    // ,size: {title: '사이즈', value: '230'}
+	                },
+	                stock: 30
+	            }, {
+	                id: 'i7',
+	                name: '나이키 ',
+	                category: {
+	                    type: { title: '상품명', value: '조던', price: '12,000' }
+	                    // ,color: {title: '색상', value: 'blue'}
+	                    // ,size: {title: '사이즈', value: '220'}
+	                },
+	                stock: 30
+	            }, {
+	                id: 'i8',
+	                name: '나이키 ',
+	                category: {
+	                    type: { title: '상품명', value: '조던', price: '12,000' }
+	                    // ,color: {title: '색상', value: 'blue'}
+	                    // ,size: {title: '사이즈', value: '230'}
+	                },
+	                stock: 30
+	            }];
+	        },
+
 	        eventListener: function eventListener() {
-	            //$.subscribe('deal.easyChoiceOption.open', $.proxy(this.displayDealEasyChoiceOption, this));
 	            $.subscribe('deal.easyChoiceOption.open', $.proxy(this.setDealEasyChoiceOption, this));
 	        },
 
 	        setDealEasyChoiceOption: function setDealEasyChoiceOption(event, params) {
-	            var items = params.deal.option.products;
-	            var dealOptionCategory = {};
+	            var products = params.deal.options.products;
 	            var productsCategory = {};
-	            var productsCategoryResult = {
-	                type: { title: '상품명', value: ['에어', '조던'], price: ['11,000', '13,000'] },
-	                color: { title: '색생', value: ['red', 'blue'] },
-	                size: { title: '사이즈', value: ['230', '240'] }
-	            };
-	            var dealProduct = [];
-	            var $dealEasyChoiceOption = $(dealEasyChoiceOption_templates.option(params.deal));
 
-	            for (var index in items) {
-	                var category = items[index].category;
+	            if (params.deal.options.hasMultiProducts) {
+	                products = this.getMultiProducts(params.deal.id);
+	            } else {
+	                products = this.getProducts(params.deal.id);
+	            }
+	            params.deal.options.products = products;
 
+	            for (var index in products) {
+	                var category = products[index].category;
 	                for (var key in category) {
 	                    if (!productsCategory.hasOwnProperty(key)) {
+	                        var isDefault = key === 'type' ? true : false;
 	                        productsCategory[key] = {
+	                            isDefault: isDefault,
 	                            title: category[key].title,
 	                            value: [],
-	                            price: []
+	                            names: [],
+	                            key: key
+	                            //price: []
 	                        };
 	                    }
-	                    if (productsCategory[key].value.indexOf(category[key].value) < 0) {
-	                        productsCategory[key].value.push(category[key].value);
+
+	                    if (productsCategory[key].names.indexOf(category[key].value) < 0) {
+	                        var price = null;
 	                        if (category[key].hasOwnProperty('price')) {
-	                            productsCategory[key].price.push(category[key].price);
+	                            price = category[key].price; //productsCategory[key].price.push(category[key].price);
 	                        }
+
+	                        var obj = { name: category[key].value, price: price };
+	                        productsCategory[key].value.push(obj);
+	                        productsCategory[key].names.push(category[key].value);
 	                    }
 	                }
 	            }
 
-	            console.log('productsCategory = ', productsCategory);
-	            this.makeDealEasyChoiceOption(productsCategory, params);
+	            params.deal.options.multiProducts = productsCategory;
+	            console.log('params.deal.options.options = ', params.deal.options.options);
+	            this.makeDealEasyChoiceOption(params);
 	        },
 
-	        makeDealEasyChoiceOption: function makeDealEasyChoiceOption(productsCategory, params) {
-	            var items = params.deal.option.products;
-	            var content = '';
-
-	            if (Object.keys(productsCategory).length > 1) {
-	                console.log('아코디언');
-	                for (var key in productsCategory) {
-	                    content += '<li class="select-design-viewer-option">';
-	                    content += '   <div  class="design-template-accordion-wrap' + (key === "type" ? ' accordion-open' : '') + '">';
-	                    content += dealEasyChoiceOption_templates.accordionInfo(productsCategory[key].title);
-	                    content += '        <ul class="design-template-accordion-list">';
-	                    for (var index in productsCategory[key].value) {
-	                        content += '            <li class="design-template-accordion-content">';
-	                        content += dealEasyChoiceOption_templates.accordionContent({
-	                            value: productsCategory[key].value[index],
-	                            price: productsCategory[key].price[index]
-	                        });
-	                        content += '            </li>';
-	                    }
-	                    content += '        </ul>';
-	                    content += '    </div>';
-	                    content += '</li>';
-	                }
-	            } else {
-	                console.log('싱클리스트');
-	                for (var index in items) {
-	                    if (items[index].stock > 0) {
-	                        content += '<li class="select-design-viewer-option">';
-	                        content += dealEasyChoiceOption_templates.accordionContent({
-	                            value: items[index].category.type.value,
-	                            price: items[index].category.type.price
-	                        });
-	                        content += '</li>';
-	                    }
-	                }
-	            }
-
+	        makeDealEasyChoiceOption: function makeDealEasyChoiceOption(params) {
+	            var select = new Select(params.deal.options);
+	            var selectElement = select.getElement();
 	            var $dealEasyChoiceOption = $(dealEasyChoiceOption_templates.option(params.deal));
-	            $dealEasyChoiceOption.find('.select-design-viewer-list').prepend(content);
+
+	            $dealEasyChoiceOption.find('.deal-simple-choice-select-wrap').append(selectElement);
 	            params.$element.empty();
 	            params.$element.append($dealEasyChoiceOption);
 	            utility.uiEnhancements.call(this);
-	            this.addEventListener();
+	            //this.addEventListener();
 	        },
 
-	        displayDealEasyChoiceOption: function displayDealEasyChoiceOption(event, params) {
-	            console.log('params.deal==================================');
-	            var items = params.deal.option.items;
-	            var dealOptionCategory = {};
-	            var dealProduct = [];
-	            var $dealEasyChoiceOption = $(dealEasyChoiceOption_templates.option(params.deal));
-
-	            var $viewrList = $dealEasyChoiceOption.find('.select-design-viewer-list');
-
-	            for (var index in items) {
-	                var category = items[index].category;
-	                var name = items[index].name;
-
-	                if (dealProduct.indexOf(name) < 0) {
-	                    dealProduct.push(name);
-	                }
-	                for (var key in category) {
-	                    if (!dealOptionCategory.hasOwnProperty(key)) {
-	                        console.log('새로만들어 넣는다');
-	                        dealOptionCategory[key] = [];
-	                    }
-	                    if (dealOptionCategory[key].indexOf(category[key]) < 0) {
-	                        dealOptionCategory[key].push(category[key]);
-	                    }
-	                }
-	            }
-
-	            var content = '';
-	            if (Object.keys(dealOptionCategory).length > 1) {
-	                content += '<li class="select-design-viewer-option">';
-	                content += '   <div  class="design-template-accordion-wrap accordion-open">';
-	                content += dealEasyChoiceOption_templates.accordionInfo('상품');
-	                content += '        <ul class="design-template-accordion-list">';
-	                for (var index in dealProduct) {
-	                    content += '            <li class="design-template-accordion-content">';
-	                    content += dealEasyChoiceOption_templates.accordionContent({
-	                        info: dealProduct[index],
-	                        value: index,
-	                        unit: '원'
-	                    });
-	                    content += '            </li>';
-	                }
-	                content += '        </ul>';
-	                content += '    </div>';
-	                content += '</li>';
-
-	                for (var key in dealOptionCategory) {
-	                    content += '<li class="select-design-viewer-option">';
-	                    content += '   <div  class="design-template-accordion-wrap">';
-	                    content += dealEasyChoiceOption_templates.accordionInfo(key);
-	                    content += '        <ul class="design-template-accordion-list">';
-	                    for (var index in dealOptionCategory[key]) {
-	                        content += '            <li class="design-template-accordion-content">';
-	                        content += dealEasyChoiceOption_templates.accordionContent({
-	                            info: dealOptionCategory[key][index],
-	                            value: '',
-	                            unit: ''
-	                        });
-	                        content += '            </li>';
-	                    }
-	                    content += '        </ul>';
-	                    content += '    </div>';
-	                    content += '</li>';
-	                }
-	            } else {
-	                for (var index in items) {
-	                    if (items[index].stock > 0) {
-	                        content += '<li class="select-design-viewer-option">';
-	                        content += dealEasyChoiceOption_templates.accordionContent({ info: items[index].name, value: items[index].price, unit: items[index].unit });
-	                        content += '</li>';
-	                    }
-	                }
-	            }
-
-	            console.log('this.dealOptionCategory = ', dealOptionCategory);
-	            console.log('params.deal==================================');
-
-	            var accordionInfo = dealEasyChoiceOption_templates.accordionInfo('gggg');
-
-	            //var accordionContent = dealEasyChoiceOption_templates.accordionContent({info:'aa', value:'ss', unit:'22'});
-	            $dealEasyChoiceOption.find('.select-design-viewer-list').prepend(content);
-	            // $dealEasyChoiceOption.find('.design-template-accordion-wrap').prepend(accordionInfo);
-	            // $dealEasyChoiceOption.find('.design-template-accordion-list').prepend(accordionContent);
-
-	            //dealEasyChoiceOption_templates.accordionInfo();
-
-	            this.setOptionData(params.deal.option.type);
-	            params.$element.empty();
-	            params.$element.append($dealEasyChoiceOption);
-	            utility.uiEnhancements.call(this);
-	            this.addEventListener();
-	        },
-	        //{id: 'i1', category: 'size', info: '220', stock: 30, value: '11,000', unit: '원'}
-	        setOptionData: function setOptionData(option) {
-	            for (var index in option) {
-	                var key = option[index].id;
-	                this.optionData[key] = option[index];
-	            }
-	            console.log('this.optionData = ', this.optionData);
-	        },
+	        // setOptionData: function(option){
+	        //     for(var index in option){
+	        //         var key = option[index].id;
+	        //         this.optionData[key] = option[index]
+	        //     }
+	        //     console.log('this.optionData = ',this.optionData)
+	        // },
 
 	        addEventListener: function addEventListener() {
 	            this.element.off().on('click', this.ui.__uiString.optionSelector, $.proxy(this.displaySelectDesignViewerEvent, this)).on('click', this.ui.__uiString.selectDesignViewerOption, $.proxy(this.selectDesignViewerOptionEvent, this)).on('click', this.ui.__uiString.option, $.proxy(this.optionEvent, this)).on('click', this.ui.__uiString.accordionController, $.proxy(this.accordionControllerEvent, this));
@@ -2951,7 +3245,6 @@ define(["jquery"], function(__WEBPACK_EXTERNAL_MODULE_2__) { return webpackJsonp
 	        optionEvent: function optionEvent(event) {
 	            event.preventDefault();
 	            var $element = $(event.currentTarget);
-	            console.log('999');
 	            var selectedOption = dealEasyChoiceOption_templates.dealItemSelectedOption();
 	            this.ui.resultItem.prepend();
 	        },
@@ -2975,21 +3268,14 @@ define(["jquery"], function(__WEBPACK_EXTERNAL_MODULE_2__) { return webpackJsonp
 	module.exports = DealEasyChoiceOption;
 
 /***/ },
-/* 86 */
+/* 91 */
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
-	module.exports = {"deal-simple-choice-wrap":"deal-simple-choice-wrap","deal-simple-choice-target-info":"deal-simple-choice-target-info","deal-simple-choice-target-title":"deal-simple-choice-target-title","deal-simple-choice-target-title-sub":"deal-simple-choice-target-title-sub","deal-simple-choice-select-wrap":"deal-simple-choice-select-wrap","design-template-accordion-info":"design-template-accordion-info","design-template-accordion-title":"design-template-accordion-title","design-template-accordion-selected":"design-template-accordion-selected","design-template-accordion-controller":"design-template-accordion-controller","design-template-accordion-list":"design-template-accordion-list","accordion-open":"accordion-open","deal-item-option-viewer":"deal-item-option-viewer","deal-item-option-viewer-title":"deal-item-option-viewer-title","deal-item-option-viewer-location":"deal-item-option-viewer-location","deal-simple-choice-result-wrap":"deal-simple-choice-result-wrap","deal-simple-choice-result-value-info":"deal-simple-choice-result-value-info","deal-simple-choice-result-list":"deal-simple-choice-result-list","deal-simple-choice-result-sub-list":"deal-simple-choice-result-sub-list","deal-simple-choice-result-sub-item":"deal-simple-choice-result-sub-item","deal-item-selected-option-wrap":"deal-item-selected-option-wrap","deal-item-selected-option-title":"deal-item-selected-option-title","deal-item-selected-option-amount-wrap":"deal-item-selected-option-amount-wrap","deal-item-selected-option-amount-value":"deal-item-selected-option-amount-value","deal-item-selected-option-amount-up":"deal-item-selected-option-amount-up","deal-item-selected-option-amount-down":"deal-item-selected-option-amount-down","deal-item-selected-option-value":"deal-item-selected-option-value","deal-item-selected-option-delete":"deal-item-selected-option-delete","deal-simple-choice-result-price-wrap":"deal-simple-choice-result-price-wrap","deal-simple-choice-result-price-title":"deal-simple-choice-result-price-title","deal-simple-choice-result-price-total-value":"deal-simple-choice-result-price-total-value","deal-simple-choice-result-price-unit":"deal-simple-choice-result-price-unit","deal-simple-choice-submit":"deal-simple-choice-submit","deal-simple-choice-submit-cart":"deal-simple-choice-submit-cart","deal-simple-choice-submit-order":"deal-simple-choice-submit-order","deal-simple-choice-submit-wishList":"deal-simple-choice-submit-wishList"};
+	module.exports = {"deal-simple-choice-wrap":"deal-simple-choice-wrap","deal-simple-choice-target-info":"deal-simple-choice-target-info","deal-simple-choice-target-title":"deal-simple-choice-target-title","deal-simple-choice-target-title-sub":"deal-simple-choice-target-title-sub","deal-simple-choice-select-wrap":"deal-simple-choice-select-wrap","deal-simple-choice-result-wrap":"deal-simple-choice-result-wrap","deal-simple-choice-result-value-info":"deal-simple-choice-result-value-info","deal-simple-choice-result-list":"deal-simple-choice-result-list","deal-simple-choice-result-sub-list":"deal-simple-choice-result-sub-list","deal-simple-choice-result-sub-item":"deal-simple-choice-result-sub-item","deal-item-selected-option-wrap":"deal-item-selected-option-wrap","deal-item-selected-option-title":"deal-item-selected-option-title","deal-item-selected-option-amount-wrap":"deal-item-selected-option-amount-wrap","deal-item-selected-option-amount-value":"deal-item-selected-option-amount-value","deal-item-selected-option-amount-up":"deal-item-selected-option-amount-up","deal-item-selected-option-amount-down":"deal-item-selected-option-amount-down","deal-item-selected-option-value":"deal-item-selected-option-value","deal-item-selected-option-delete":"deal-item-selected-option-delete","deal-simple-choice-result-price-wrap":"deal-simple-choice-result-price-wrap","deal-simple-choice-result-price-title":"deal-simple-choice-result-price-title","deal-simple-choice-result-price-total-value":"deal-simple-choice-result-price-total-value","deal-simple-choice-result-price-unit":"deal-simple-choice-result-price-unit","deal-simple-choice-submit":"deal-simple-choice-submit","deal-simple-choice-submit-cart":"deal-simple-choice-submit-cart","deal-simple-choice-submit-order":"deal-simple-choice-submit-order","deal-simple-choice-submit-wishList":"deal-simple-choice-submit-wishList"};
 
 /***/ },
-/* 87 */
-/***/ function(module, exports) {
-
-	// removed by extract-text-webpack-plugin
-	module.exports = {"select-design-viewer":"select-design-viewer","select-design-viewer-option-selector":"select-design-viewer-option-selector","value":"value","trigger":"trigger","select-design-viewer-list-box":"select-design-viewer-list-box","select-design-viewer-list":"select-design-viewer-list","select-design-viewer-option":"select-design-viewer-option"};
-
-/***/ },
-/* 88 */
+/* 92 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var Handlebars = __webpack_require__(6);
@@ -2999,7 +3285,7 @@ define(["jquery"], function(__WEBPACK_EXTERNAL_MODULE_2__) { return webpackJsonp
 	},"useData":true});
 
 /***/ },
-/* 89 */
+/* 93 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var Handlebars = __webpack_require__(6);
@@ -3010,14 +3296,14 @@ define(["jquery"], function(__WEBPACK_EXTERNAL_MODULE_2__) { return webpackJsonp
 	  return "<div class=\"deal-simple-choice-wrap\">\n    <div class=\"deal-simple-choice-target-info\">\n        <strong class=\"deal-simple-choice-target-title\">"
 	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.name : depth0)) != null ? stack1.main : stack1), depth0))
 	    + "</strong>\n    </div>\n\n    <div class=\"deal-simple-choice-select-wrap\">\n        <em class=\"deal-simple-choice-target-title-sub\">\n            '기본상품 : "
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.option : depth0)) != null ? stack1.basicProduct : stack1), depth0))
-	    + "'\n        </em>\n\n        <div class=\"select-design-viewer\">\n            <p class=\"select-design-viewer-option-selector\">\n                <span class=\"value\">상품을 선택해주세요.</span>\n                <span class=\"trigger\">검색</span>\n            </p>\n            <div class=\"select-design-viewer-list-box\">\n                <ul class=\"select-design-viewer-list\">\n                    <!--<li class=\"select-design-viewer-option\">-->\n                        <!--<div  class=\"design-template-accordion-wrap  accordion-open\">-->\n\n                            <!--<ul class=\"design-template-accordion-list\">-->\n\n                            <!--</ul>-->\n                        <!--</div>-->\n                    <!--</li>-->\n                </ul>\n            </div>\n        </div>\n\n        <!--this.selectDesignViewer()-->\n    </div>\n\n    <div class=\"deal-simple-choice-result-wrap\">\n        <p class=\"deal-simple-choice-result-value-info\">\n            (최대 구매 수량 "
-	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.option : depth0)) != null ? stack1.MaximumPurchaseQuantity : stack1), depth0))
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.options : depth0)) != null ? stack1.basicProduct : stack1), depth0))
+	    + "'\n        </em>\n\n        <!--<div class=\"select-design-viewer\">-->\n            <!--<p class=\"select-design-viewer-option-selector\">-->\n                <!--<span class=\"value\">상품을 선택해주세요.</span>-->\n                <!--<span class=\"trigger\">검색</span>-->\n            <!--</p>-->\n            <!--<div class=\"select-design-viewer-list-box\">-->\n                <!--<ul class=\"select-design-viewer-list\">-->\n                    <!---->\n                    <!--&lt;!&ndash;<li class=\"select-design-viewer-option\">&ndash;&gt;-->\n                        <!--&lt;!&ndash;<div  class=\"design-template-accordion-wrap  accordion-open\">&ndash;&gt;-->\n\n                            <!--&lt;!&ndash;<ul class=\"design-template-accordion-list\">&ndash;&gt;-->\n\n                            <!--&lt;!&ndash;</ul>&ndash;&gt;-->\n                        <!--&lt;!&ndash;</div>&ndash;&gt;-->\n                    <!--&lt;!&ndash;</li>&ndash;&gt;-->\n                    <!---->\n                <!--</ul>-->\n            <!--</div>-->\n        <!--</div>-->\n\n        <!--this.selectDesignViewer()-->\n    </div>\n\n    <div class=\"deal-simple-choice-result-wrap\">\n        <p class=\"deal-simple-choice-result-value-info\">\n            (최대 구매 수량 "
+	    + alias2(alias1(((stack1 = (depth0 != null ? depth0.options : depth0)) != null ? stack1.MaximumPurchaseQuantity : stack1), depth0))
 	    + "개)\n        </p>\n\n        <ul class=\"deal-simple-choice-result-list\">\n            <li class=\"deal-simple-choice-result-item\" data-id=\"\" data-additional=\"false\">\n                this.dealItemSelectedOption()\n                <ul class=\"deal-simple-choice-result-sub-list\">\n                    <li class=\"deal-simple-choice-result-sub-item\" data-id=\"1095927\" data-additional=\"false\">\n                        this.dealItemSelectedOption()\n                    </li>\n                    <li class=\"deal-simple-choice-result-sub-item\" data-id=\"1095927\" data-additional=\"false\">\n                        this.dealItemSelectedOption()\n                    </li>\n                </ul>\n            </li>\n            <li class=\"deal-simple-choice-result-item\" data-id=\"1095927\" data-additional=\"false\">\n                this.dealItemSelectedOption()\n                <ul class=\"deal-simple-choice-result-sub-list\">\n                    <li class=\"deal-simple-choice-result-sub-item\" data-id=\"1095927\" data-additional=\"false\">\n                        this.dealItemSelectedOption()\n                    </li>\n                    <li class=\"deal-simple-choice-result-sub-item\" data-id=\"1095927\" data-additional=\"false\">\n                        this.dealItemSelectedOption()\n                    </li>\n                    <li class=\"deal-simple-choice-result-sub-item\" data-id=\"1095927\" data-additional=\"false\">\n                        this.dealItemSelectedOption()\n                    </li>\n                    <li class=\"deal-simple-choice-result-sub-item\" data-id=\"1095927\" data-additional=\"false\">\n                        this.dealItemSelectedOption()\n                    </li>\n                    <li class=\"deal-simple-choice-result-sub-item\" data-id=\"1095927\" data-additional=\"false\">\n                        this.dealItemSelectedOption()\n                    </li>\n                </ul>\n            </li>\n        </ul>\n\n        <p class=\"deal-simple-choice-result-price-wrap\">\n            <span class=\"deal-simple-choice-result-price-title\">총 상품금액</span>\n            <strong class=\"deal-simple-choice-result-price-total-value\">0</strong>\n            <span class=\"deal-simple-choice-result-price-unit\">원</span>\n        </p>\n    </div>\n\n    <div class=\"deal-simple-choice-submit\">\n        <button type=\"submit\" class=\"deal-simple-choice-submit-cart\">장바구니</button>\n        <button type=\"submit\" class=\"deal-simple-choice-submit-order\">즉시구매</button>\n    </div>\n</div>";
 	},"useData":true});
 
 /***/ },
-/* 90 */
+/* 94 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var Handlebars = __webpack_require__(6);
@@ -3029,7 +3315,7 @@ define(["jquery"], function(__WEBPACK_EXTERNAL_MODULE_2__) { return webpackJsonp
 	},"useData":true});
 
 /***/ },
-/* 91 */
+/* 95 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var Handlebars = __webpack_require__(6);
@@ -3051,7 +3337,7 @@ define(["jquery"], function(__WEBPACK_EXTERNAL_MODULE_2__) { return webpackJsonp
 	},"useData":true});
 
 /***/ },
-/* 92 */
+/* 96 */
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin

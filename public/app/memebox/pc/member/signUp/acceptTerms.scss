@@ -30,8 +30,15 @@ $baseFontFamily: 나눔고딕, NanumGothic, 돋움, Dotum, AppleSDGothic, AppleG
   font-family: $baseFontFamily;
   color: #555555;
 }
+.validate-message {
+  margin: 8px 0 0 0;
+  color: #f00;
+  display: none;
+  font-size: 13px;
+}
 
-//약관동의 /////////////////////////////////
+// 약관동의 /////////////////////////////////
+// 모두 동의
 .agreement-all {
   margin-top: 70px;
   padding-bottom: 10px;
@@ -42,8 +49,13 @@ $baseFontFamily: 나눔고딕, NanumGothic, 돋움, Dotum, AppleSDGothic, AppleG
 .agreement-all-text {
   font-size: 15px;
 }
+// 동의 목록
 .signUp-agreement {
   margin-top: 30px;
+}
+.signUp-agreement-title {
+  display: block;
+  color: #555;
 }
 .signUp-agreement-ul {
   list-style: none;
@@ -56,6 +68,8 @@ $baseFontFamily: 나눔고딕, NanumGothic, 돋움, Dotum, AppleSDGothic, AppleG
   padding: 0;
   margin: 15px 15px 0;
 }
+
+//내용
 .agreement-use,
 .agreement-privacy,
 .agreement-thirdParty,
@@ -97,12 +111,7 @@ $baseFontFamily: 나눔고딕, NanumGothic, 돋움, Dotum, AppleSDGothic, AppleG
   font-size: 13px;
   color: #555;
 }
-.validate-message {
-  margin: 8px 0 0 0;
-  color: #f00;
-  //display: none;
-  font-size: 13px;
-}
+
 // 혜택 설명
 .signUp-form-optional-info {
   margin: 20px 0 0 ;

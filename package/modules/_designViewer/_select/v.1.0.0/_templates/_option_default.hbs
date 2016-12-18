@@ -1,0 +1,15 @@
+<{{this.tegName}}
+    {{#attribute}}
+        {{#each this}}
+            {{@key}}="{{this}}"
+        {{/each}}
+    {{/attribute}}
+    {{#data}}
+        {{#each this}}
+            data-{{@key}}="{{this}}"
+        {{/each}}
+    {{/data}}>
+
+    {{this.text}}
+
+</{{this.tegName}}>

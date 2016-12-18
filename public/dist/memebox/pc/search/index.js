@@ -8,7 +8,7 @@ define(["jquery"], function(__WEBPACK_EXTERNAL_MODULE_2__) { return webpackJsonp
 	var utility = __webpack_require__(3);
 	var Menu = __webpack_require__(1);
 
-	__webpack_require__(84);
+	__webpack_require__(89);
 
 	var SearchIndex = function SearchIndex() {
 	    var controller = {
@@ -69,7 +69,6 @@ define(["jquery"], function(__WEBPACK_EXTERNAL_MODULE_2__) { return webpackJsonp
 	                    "menu": menuData
 	                }
 	            };
-	            console.log('component = ', component);
 	            var html = templates.menu(component);
 	            this.element.html(html);
 	        }
@@ -1555,7 +1554,12 @@ define(["jquery"], function(__WEBPACK_EXTERNAL_MODULE_2__) { return webpackJsonp
 /* 81 */,
 /* 82 */,
 /* 83 */,
-/* 84 */
+/* 84 */,
+/* 85 */,
+/* 86 */,
+/* 87 */,
+/* 88 */,
+/* 89 */
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin

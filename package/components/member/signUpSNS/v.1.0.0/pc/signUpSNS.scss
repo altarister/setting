@@ -1,0 +1,124 @@
+$assetHost: '/components/member/signUpSNS/v.1.0.0/pc/_images/';
+
+$_common_icon_i: $assetHost+"common_icon_i.png";
+$_signup_btn_icon_email_wh: $assetHost+"signup_btn_icon_email_wh.png";
+$_signup_btn_icon_facebook: $assetHost+"signup_btn_icon_facebook.png";
+$_signup_btn_icon_kakao: $assetHost+"signup_btn_icon_kakao.png";
+$_signup_btn_icon_naver: $assetHost+"signup_btn_icon_naver.png";
+$_module-tooltip-hover-arrow: $assetHost+"module-tooltip-hover-arrow.png";
+
+$baseFontFamily: 나눔고딕, NanumGothic, 돋움, Dotum, AppleSDGothic, AppleGothic, 굴림, Gulim, sans-serif;
+
+// sns로 회원 가입 ////////////////////////////////
+.signUp-SNS-wrap {
+  position: relative;
+  width: 465px;
+  margin: 0 auto 30px;
+  background-color: #f9f9fa;
+}
+.signUp-SNS-confirmation {
+  padding: 12px 0 0 65px;
+  font-size: 15px;
+  color: #555;
+  font-weight: bold;
+  font-family: $baseFontFamily;
+}
+.signUp-SNS-icon-email,
+.signUp-SNS-icon-naver,
+.signUp-SNS-icon-facebook,
+.signUp-SNS-icon-kakao {
+  display: block;
+  width: 50px;
+  height: 50px;
+  text-indent: -99999px;
+  position: absolute;
+  left: 6px;
+  top: 6px;
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-position: right center;
+}
+.signUp-SNS-icon-naver {
+  background-image: url($_signup_btn_icon_naver);
+}
+.signUp-SNS-icon-facebook {
+  background-image: url($_signup_btn_icon_facebook);
+}
+.signUp-SNS-icon-kakao {
+  background-image: url($_signup_btn_icon_kakao);
+}
+.signUp-SNS-facebook {
+  color: #32599d;
+}
+.signUp-SNS-naver {
+  color: #01a301;
+}
+.signUp-SNS-kakao {
+  color: #e6ad00;
+}
+
+/* 아래줄 안내 */
+.signUp-SNS-information-wrap {
+  //position: relative;
+  overflow: hidden;
+  padding: 10px 0 12px 65px;
+}
+.signUp-SNS-contactUs {
+  float: left;
+  color: #555;
+  font-size: 13px;
+  font-family: $baseFontFamily;
+}
+.signUp-SNS-information-wrap .module-tooltip-hover {
+  float: left;
+
+}
+/* 말풍선 */
+.module-tooltip-hover {}
+.module-tooltip-hover:hover .module-tooltip-hover-content-wrap {
+  display: block;
+}
+.module-tooltip-hover-trigger {
+  display: block;
+  width: 16px;
+  height: 16px;
+  margin-right: 5px;
+  text-indent: -99999px;
+  background-color: transparent;
+  background-image: url($_common_icon_i);
+  background-repeat: no-repeat;
+  background-position: 0 0;
+}
+.module-tooltip-hover-arrow {
+  position: absolute;
+  top: -7px;
+  left: 54px;
+  display: block;
+  width: 12px;
+  height: 7px;
+  background-color: transparent;
+  background-image: url($_module-tooltip-hover-arrow);
+  background-repeat: no-repeat;
+  background-position: 0 0;
+}
+.module-tooltip-hover-content-wrap {
+  display: none;
+  position: absolute;
+  top: 63px;
+  left: 0;
+  margin: 0 12px;
+  padding: 15px 20px;
+  border: 1px solid #767676;
+  background-color: #fff;
+  z-index: 1;
+}
+.module-tooltip-hover-content-wrap p {
+  width: 100%;
+  margin: 0;
+
+  font-family: $baseFontFamily;
+  font-weight: bold;
+  font-size: 11px;
+  line-height: 1.4;
+  color: #757575;
+}

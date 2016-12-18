@@ -57,7 +57,6 @@ var DealTooltipFloating = function (element, className, deals, service) {
             var triggerIndex = parseInt($currentTarget.data('trigger-index'));
             var dealId = $currentTarget.attr('href');
             var deal = this.getSelectedDeal(dealId);
-            console.log(deal);
             var optionIndex = this.getOptionIndex(triggerIndex);
             var $dealTooltipFloatingContent = $(tooltip_floating_templates.box(dealId));
             var dealTooltipFloatingContentClassNmae = $dealTooltipFloatingContent.attr('class');
@@ -90,7 +89,6 @@ var DealTooltipFloating = function (element, className, deals, service) {
         },
 
         getOptionIndex: function (triggerIndex) {
-            console.log('triggerIndex = ',triggerIndex);
             triggerIndex += 1;
             var optionIndex = triggerIndex - 1;
             var remainder = triggerIndex % this.lineAmount;
@@ -98,7 +96,6 @@ var DealTooltipFloating = function (element, className, deals, service) {
             if (remainder > 0) {
                 optionIndex += (this.lineAmount - remainder)
             }
-            console.log('optionIndex = ',optionIndex)
             return optionIndex;
         }
     };

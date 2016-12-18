@@ -102,28 +102,7 @@ module.exports = function (serviceString, envString, deviceString) {
 
     return {
         context: PUBLIC_DIR,
-        // entry: objectAssign(
-        //     {common: (function(){
-        //         var HELPER_CHUNK = [
-        //             requirejsConfig.PROVIDER.common + '/handlebars-helpers/json',
-        //             requirejsConfig.PROVIDER.common + '/handlebars-helpers/formatNumber'
-        //
-        //             //requirejsConfig.PROVIDER.helper + '/json'
-        //             //HELPER_DIR + '/json'
-        //         ];
-        //
-        //         for(var key in COMMON_CHUNK){
-        //             HELPER_CHUNK.push(COMMON_CHUNK[key]);
-        //         }
-        //         // console.log('HELPER_CHUNK = ',HELPER_CHUNK)
-        //
-        //         return HELPER_CHUNK;
-        //     })()},
-        //     ENTRY_POINTS
-        // ),
         entry: objectAssign(
-            //objectAssignAgs['common']
-
             objectAssignAgs,
             ENTRY_POINTS
         ),
@@ -152,7 +131,7 @@ module.exports = function (serviceString, envString, deviceString) {
                     loader: 'handlebars-loader?helperDirs[]=' + path.resolve(PUBLIC_DIR, './app/common/handlebars-helpers')
                 },
                 // {
-                //     test: /\.png$/,
+                //     test: /.*\.(gif|png|jpe?g|svg)$/i,
                 //     loaders: ['file?name=i/[hash].[ext]']
                 // },
                 {
@@ -166,12 +145,10 @@ module.exports = function (serviceString, envString, deviceString) {
             root: [ROOT_DIR, PUBLIC_DIR, path.resolve('./package')],
             extensions: ['', '.js', '.jsx'],
             modulesDirectories: ['node_modules'],
-            //alias: COMMON_CHUNK
             alias: (function(){
                 COMMON_CHUNK['device'] = './'+deviceString;
                 COMMON_CHUNK['deal_inline_gallery'] = 'modules/dealViews/_deal_inline_gallery/v.1.0.0/'+deviceString;
                 COMMON_CHUNK['deal_tooltip_floating'] = 'modules/dealViews/_deal_tooltip_floating/v.1.0.0/'+deviceString;
-
                 return COMMON_CHUNK;
             })()
         },plugins: (function () {
@@ -196,11 +173,7 @@ module.exports = function (serviceString, envString, deviceString) {
 
                     new CommonsChunkPlugin({
                         name: 'common',
-                        //name: 'dist/'+serviceString+'/'+(device.isMobile ? 'mobile' : 'pc')+'/common/common.chunk',
                         filename: 'dist/'+serviceString+'/'+(device.isMobile ? 'mobile' : 'pc')+'/common/common.chunk.js',
-
-                        //filename: device.isMobile ? "dist/memebox/mobile/common/commons.chunk.js" : "dist/memebox/pc/common/commons.chunk.js",
-                        //filename: device.isMobile ? "vendor/mobile.commons.chunk.js" : "vendor/pc.commons.chunk.js",
                         minChunks: Infinity
                     }),
                     new ExtractTextPlugin(

@@ -1,0 +1,30 @@
+{{#each multiProducts}}
+<li class="design-template-accordion-content"
+    data-option-title="{{@key}}">
+    <div  class="design-template-accordion-wrap{{#if isDefault}} accordion-open{{/if}}">
+        <p class="design-template-accordion-info">
+            <strong class="design-template-accordion-title">{{title}}</strong>
+            <span class="design-template-accordion-selected"></span>
+            <span class="design-template-accordion-controller">controller</span>
+        </p>
+        <ul class="design-template-accordion-list">
+            {{#each value}}
+                <li class="select-design-viewer-option"
+                    data-option-key="{{../key}}"
+                    data-option-value="{{name}}">
+                    {{!> _option_deal}}
+                    <span class="deal-item-option-viewer" href="#">
+                        <em class="deal-item-option-viewer-title">{{name}}</em>
+                        {{#if price}}
+                            <strong class="deal-item-option-viewer-location">
+                                <span class="deal-item-option-viewer-price">{{price}}</span>
+                                <span class="deal-item-option-viewer-unit">원</span>
+                            </strong>
+                        {{/if}}
+                    </span>
+                </li>
+            {{/each}}
+        </ul>
+    </div>
+</li>
+{{/each}}

@@ -140,7 +140,6 @@ define(["jquery"], function(__WEBPACK_EXTERNAL_MODULE_2__) { return webpackJsonp
 	                    "menu": menuData
 	                }
 	            };
-	            console.log('component = ', component);
 	            var html = templates.menu(component);
 	            this.element.html(html);
 	        }
