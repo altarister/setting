@@ -1,0 +1,55 @@
+
+.signUp-header-wrap {
+  background-color: #fff;
+  padding: 13px 15px;
+  border-bottom: 1px solid #e0e0e0;
+}
+.signUp-header {
+}
+.signUp-header-title {
+  display: inline-block;
+  margin: 0;
+  font-size: 17px;
+  color: #555555;
+  font-weight: normal;
+}
+.signUp-step-viewer {
+  float: right;
+  margin: 35px 0 0;
+}
+.signUp-step {
+  float: left;
+  display: list-item;
+  list-style-type: decimal;
+  list-style-position: inside;
+  padding: 0;
+  font-weight: bold;
+  color: #aaaaaa;
+}
+.signUp-step {
+  *zoom: 1;
+  font-size: 18px;
+}
+.signUp-step:after {
+  padding-right: 15px;
+  content: '>';
+  line-height: 0;
+  color: #aaaaaa;
+}
+.signUp-step:last-child:after {
+  display: none;
+}
+.signUp-step:after {
+  clear: both;
+}
+.signUp-step strong {
+  padding-right: 10px;
+  color: #aaaaaa;
+}
+.signUp-step.signUp-current-step {
+  color: #ff5073;
+}
+.signUp-step.signUp-current-step:after,
+.signUp-step.signUp-current-step strong{
+  color: #555555;
+}

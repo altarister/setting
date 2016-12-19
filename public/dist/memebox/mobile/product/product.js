@@ -1,4 +1,4 @@
-define(["jquery","slick"], function(__WEBPACK_EXTERNAL_MODULE_1__, __WEBPACK_EXTERNAL_MODULE_45__) { return webpackJsonp([6,10],[
+define(["jquery","slick"], function(__WEBPACK_EXTERNAL_MODULE_1__, __WEBPACK_EXTERNAL_MODULE_45__) { return webpackJsonp([11,15],[
 /* 0 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -10,7 +10,7 @@ define(["jquery","slick"], function(__WEBPACK_EXTERNAL_MODULE_1__, __WEBPACK_EXT
 	var SampleDealAPI = __webpack_require__(26);
 	var DealContainer = __webpack_require__(27);
 
-	__webpack_require__(72);
+	__webpack_require__(84);
 
 	var Product = function Product() {
 	    var controller = {
@@ -33,7 +33,6 @@ define(["jquery","slick"], function(__WEBPACK_EXTERNAL_MODULE_1__, __WEBPACK_EXT
 	                if (viewData) {
 	                    var API = new SampleDealAPI(viewData);
 
-	                    console.log('lineAmount', lineAmount);
 	                    new DealContainer($element, lineAmount, API.get());
 	                }
 	            });
@@ -287,7 +286,6 @@ define(["jquery","slick"], function(__WEBPACK_EXTERNAL_MODULE_1__, __WEBPACK_EXT
 	                    "menu": menuData
 	                }
 	            };
-	            console.log('component = ', component);
 	            var html = templates.menu(component);
 	            this.element.html(html);
 	        }
@@ -1577,82 +1575,29 @@ define(["jquery","slick"], function(__WEBPACK_EXTERNAL_MODULE_1__, __WEBPACK_EXT
 	                origin: { info: '', value: '32,000', unit: '원' },
 	                result: { info: '미미가격', value: '16,000', unit: '원', from: '~' }
 	            },
-	            option: {
+	            options: {
 	                MaximumPurchaseQuantity: 10,
+	                hasMultiProducts: true,
+	                multiProducts: null,
+	                // multiProducts : {
+	                //     type: {
+	                //         isDefault: true,
+	                //         title: '상품명',
+	                //         value: [{name:'에어',price:'11,000'}, {name:'조던',price:'12,000'}]
+	                //     },
+	                //     color: {
+	                //         isDefault: false,
+	                //         title: '색상',
+	                //         value: [{name:'red',price:null}, {name:'black',price:null}, {name:'blue',price:null}]
+	                //     },
+	                //     size: {
+	                //         isDefault: false,
+	                //         title: '사이즈',
+	                //         value: [{name:'220',price:null}, {name:'230',price:null}]
+	                //     }
+	                // },
 	                basicProduct: '#EX400 문라이즈',
-	                products: [{
-	                    id: 'i1',
-	                    name: '나이키 ',
-	                    category: {
-	                        type: { title: '상품명', value: '에어', price: '11,000' },
-	                        color: { title: '색상', value: 'red' },
-	                        size: { title: '사이즈', value: '220' }
-	                    },
-	                    stock: 30
-	                }, {
-	                    id: 'i2',
-	                    name: '나이키 ',
-	                    category: {
-	                        type: { title: '상품명', value: '에어', price: '11,000' },
-	                        color: { title: '색상', value: 'black' },
-	                        size: { title: '사이즈', value: '230' }
-	                    },
-	                    stock: 30
-	                }, {
-	                    id: 'i3',
-	                    name: '나이키 ',
-	                    category: {
-	                        type: { title: '상품명', value: '에어', price: '11,000' },
-	                        color: { title: '색상', value: 'blue' },
-	                        size: { title: '사이즈', value: '220' }
-	                    },
-	                    stock: 30
-	                }, {
-	                    id: 'i4',
-	                    name: '나이키 ',
-	                    category: {
-	                        type: { title: '상품명', value: '에어', price: '11,000' },
-	                        color: { title: '색상', value: 'blue' },
-	                        size: { title: '사이즈', value: '230' }
-	                    },
-	                    stock: 30
-	                }, {
-	                    id: 'i5',
-	                    name: '나이키 ',
-	                    category: {
-	                        type: { title: '상품명', value: '조던', price: '12,000' },
-	                        color: { title: '색상', value: 'red' },
-	                        size: { title: '사이즈', value: '220' }
-	                    },
-	                    stock: 30
-	                }, {
-	                    id: 'i6',
-	                    name: '나이키 ',
-	                    category: {
-	                        type: { title: '상품명', value: '조던', price: '12,000' },
-	                        color: { title: '색상', value: 'red' },
-	                        size: { title: '사이즈', value: '230' }
-	                    },
-	                    stock: 30
-	                }, {
-	                    id: 'i7',
-	                    name: '나이키 ',
-	                    category: {
-	                        type: { title: '상품명', value: '조던', price: '12,000' },
-	                        color: { title: '색상', value: 'blue' },
-	                        size: { title: '사이즈', value: '220' }
-	                    },
-	                    stock: 30
-	                }, {
-	                    id: 'i8',
-	                    name: '나이키 ',
-	                    category: {
-	                        type: { title: '상품명', value: '조던', price: '12,000' },
-	                        color: { title: '색상', value: 'blue' },
-	                        size: { title: '사이즈', value: '230' }
-	                    },
-	                    stock: 30
-	                }],
+
 	                additionItem: [{
 	                    id: 'i4',
 	                    name: '나이키 신발끈',
@@ -1682,11 +1627,11 @@ define(["jquery","slick"], function(__WEBPACK_EXTERNAL_MODULE_1__, __WEBPACK_EXT
 	        },
 	        images: ['https://img1.memebox.com/cwxhija3/contents/img/memeboxProductItem/20161007044103_d9a89db2f80151988b380a3af833c706.jpg', 'https://img1.memebox.com/3uqvc4to/contents/img/memeboxProductItem/20161115103443_eae03a379a2daeb8e71be12e7ec67dba.jpg', 'https://img1.memebox.com/c2jq97q2/contents/img/memeboxProductItem/20161111052448_a60d63f5a0ade3646d6aa950cc132e3e.jpg', 'https://img1.memebox.com/v6uciugt/contents/img/memeboxProductItem/20161114081753_c47132518d9a1eaf6f7c15eb7bbf7ba2.jpg', 'https://img1.memebox.com/a70vqlis/contents/img/memeboxProductItem/20161114043824_52a43af20a8ad9190b7aef3793608d79.jpg'],
 
-	        wideImg: ["https://img2.memebox.com/static/contents/img/upload/image_20160518211225_b3VcRp7GzN.jpg",
-	        // "https://img1.memebox.com/72gfsdk0/contents/img/memeboxProductItem/20161020043220_930526a3bd0a25d11ca0f2a1a499dd4f.jpg",
-	        'https://img1.memebox.com/a70vqlis/contents/img/memeboxProductItem/20161114043824_52a43af20a8ad9190b7aef3793608d79.jpg', "https://img1.memebox.com/z0uovgml/contents/img/memeboxProductItem/20161011020338_ee3dcef775880ff08c8e5a0a6cd198f5.jpg",
-	        //"https://img1.memebox.com/uphu35f8/contents/img/memeboxProductItem/20161108055135_1a2ed3ce8ccd02052ce6d7db53571689.jpg",
-	        "https://img1.memebox.com/72gfsdk0/contents/img/memeboxProductItem/error.jpg", "https://img1.memebox.com/lahnslxd/contents/img/memeboxProductItem/20161114101656_4f39cb7f88f79f1f8cd22cac23e2d4a3.jpg"],
+	        wideImg: ['https://img2.memebox.com/static/contents/img/upload/image_20160518211225_b3VcRp7GzN.jpg',
+	        // 'https://img1.memebox.com/72gfsdk0/contents/img/memeboxProductItem/20161020043220_930526a3bd0a25d11ca0f2a1a499dd4f.jpg',
+	        'https://img1.memebox.com/a70vqlis/contents/img/memeboxProductItem/20161114043824_52a43af20a8ad9190b7aef3793608d79.jpg', 'https://img1.memebox.com/z0uovgml/contents/img/memeboxProductItem/20161011020338_ee3dcef775880ff08c8e5a0a6cd198f5.jpg',
+	        //'https://img1.memebox.com/uphu35f8/contents/img/memeboxProductItem/20161108055135_1a2ed3ce8ccd02052ce6d7db53571689.jpg',
+	        'https://img1.memebox.com/72gfsdk0/contents/img/memeboxProductItem/error.jpg', 'https://img1.memebox.com/lahnslxd/contents/img/memeboxProductItem/20161114101656_4f39cb7f88f79f1f8cd22cac23e2d4a3.jpg'],
 
 	        viewType: [{
 	            view: {
@@ -1746,7 +1691,6 @@ define(["jquery","slick"], function(__WEBPACK_EXTERNAL_MODULE_1__, __WEBPACK_EXT
 	        },
 
 	        set: function set(viewData) {
-	            console.log('-----------------', viewData);
 	            this.deals = [];
 	            for (var index in this.images) {
 	                var forDeal = $.extend({}, this.deal);
@@ -1855,8 +1799,6 @@ define(["jquery","slick"], function(__WEBPACK_EXTERNAL_MODULE_1__, __WEBPACK_EXT
 	        },
 
 	        initialize: function initialize() {
-	            console.log($element, lineAmount, deals);
-
 	            this.remainingTimeController();
 	            this.makeDealList();
 	        },
@@ -2532,7 +2474,19 @@ define(["jquery","slick"], function(__WEBPACK_EXTERNAL_MODULE_1__, __WEBPACK_EXT
 /* 69 */,
 /* 70 */,
 /* 71 */,
-/* 72 */
+/* 72 */,
+/* 73 */,
+/* 74 */,
+/* 75 */,
+/* 76 */,
+/* 77 */,
+/* 78 */,
+/* 79 */,
+/* 80 */,
+/* 81 */,
+/* 82 */,
+/* 83 */,
+/* 84 */
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin

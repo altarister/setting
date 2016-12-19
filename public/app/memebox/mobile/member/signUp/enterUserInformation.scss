@@ -1,0 +1,266 @@
+$assetHost: '/modules/_designViewer/_select/v.1.0.0/box/_images/';
+$_signUp-cellphone-certification-end: $assetHost+'_select.png';
+$zipcodeSprite: "/components/zipcode/v.1.0.0/mobile/_zipcode.png";
+
+$baseFontFamily: 나눔고딕, NanumGothic, 돋움, Dotum, AppleSDGothic, AppleGothic, 굴림, Gulim, sans-serif;
+
+
+#memebox-service {
+  background-color: #f9f9f9;
+}
+.layout-structure-content {
+  background-color: #fff;
+  border-top: 1px solid #e0e0e0;
+  padding-bottom: 200px;
+}
+// from 요소 공통 ////////////////////////////////
+.signUp-form {
+  margin: 0 15px;
+}
+.signUp-form fieldset {
+  padding: 0;
+  margin: 0;
+  border: none;
+}
+.signUp-form legend {
+  display: none;
+}
+.signUp-form input {
+  line-height: 2.8;
+  padding: 0;
+  font-size: 17px;
+  color: #555;
+}
+.signUp-form label {
+  font-family: $baseFontFamily;
+  color: #555555;
+}
+.validate-message {
+  //display: none;
+  margin: 8px 0 0 0;
+  color: #ff5073;
+  font-size: 13px;
+}
+
+
+// 사용자 입력 ////////////////////////////////
+// 입력 목록
+.signUp-form-required,
+.signUp-form-optional {
+  margin-top: 30px;
+}
+.signUp-form-required-title,
+.signUp-form-optional-title {
+  display: inline-block;
+  color: #555;
+  font-weight: normal;
+  font-size: 15px;
+  padding-right: 10px;
+  padding-bottom: 5px;
+  border-bottom: 2px solid #000;
+}
+.signUp-form-required-title span,
+.signUp-form-optional-title span {
+  color: #aaaaaa;
+  font-size: 13px;
+}
+.signUp-form-required-ul,
+.signUp-form-optional-ul {
+  list-style: none;
+  margin: 10px 0 0;
+  padding: 0;
+  background-color: #fff;
+}
+.signUp-form-required-li,
+.signUp-form-optional-li {
+  padding: 3px 0 0 0;
+  margin: 0;
+}
+
+//내용
+.signUp-name-wrap,
+.signUp-email-wrap,
+.signUp-password-wrap,
+.signUp-password-confirm-wrap,
+.signUp-cellphone-wrap,
+.signUp-cellphone-certification-wrap,
+.signUp-recommendUser-wrap {
+  position: relative;
+  border-bottom: 1px solid #e0e0e0;
+}
+.signUp-name-label,
+.signUp-email-label,
+.signUp-password-label,
+.signUp-password-confirm-label,
+.signUp-cellphone-label,
+.signUp-cellphone-certification-label,
+.signUp-recommendUser-label {
+  display: block;
+  font-size: 17px;
+}
+.signUp-name-text,
+.signUp-email-text,
+.signUp-password-text,
+.signUp-password-confirm-text,
+.signUp-cellphone-text,
+.signUp-cellphone-certification-text,
+.signUp-recommendUser-text {
+  display: none;
+}
+.signUp-name-input,
+.signUp-email-input,
+.signUp-password-input,
+.signUp-password-confirm-input,
+.signUp-cellphone-input,
+.signUp-cellphone-certification-input,
+.signUp-recommendUser-input {
+  display: block;
+  width: 100%;
+}
+// 이메일 예외처리 ///////////////////
+.signUp-email-label {
+  margin-right: 40px;
+}
+.signUp-email-host-select {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  display: block;
+  height: 10px;
+  width: 25px;
+  margin-top: -8px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  outline: none;
+  padding: 0;
+  border: none;
+  text-indent: -9999px;
+  font-size: 12px;
+  background-color: #fff;
+  background-image: url($zipcodeSprite);
+  background-repeat: no-repeat;
+  background-position: 8px 50%;
+  background-size: 25px auto;
+}
+.signUp-email-host-option {
+  font-size: 15px;
+  color: #555555;
+  padding: 0 10px;
+}
+// 디자인 select 디자인 수정
+.signUp-email-host-select .select-design-viewer-option-selector {
+  font-size: 15px;
+}
+.signUp-email-host-select .select-design-viewer-option-selector .value {
+  line-height: 2.8;
+}
+.signUp-email-host-select .select-design-viewer-option-selector .trigger {
+  width: 46px;
+  height: 46px;
+  background-size: 47px;
+}
+.signUp-email-host-select .select-design-viewer-list-box {
+  margin-right: 46px;
+}
+// 번호인증 예외처리
+.signUp-cellphone-label,
+.signUp-cellphone-certification-label {
+  width: 72%;
+}
+.signUp-cellphone-certification-remaining-time-wrap {
+  margin: 0;
+  color: #555555;
+  font-size: 14px;
+  line-height: 2.5;
+}
+.signUp-cellphone-certification-remaining-time {
+  color: #ff5073;
+}
+.signUp-cellphone-certification,
+.signUp-cellphone-certification-end {
+  display: block;
+  width: 25%;
+  position: absolute;
+  top: 50%;
+  right: 0;
+  margin-top: -19px;
+  text-decoration: none;
+  border-radius: 3px;
+  text-align: center;
+  font-size: 13px;
+  line-height: 2.4;
+  font-weight: normal;
+}
+.signUp-cellphone-certification {
+  border: 1px solid #e0e0e0;
+  background-color: #fff;
+  color: #555555;
+}
+.signUp-cellphone-certification-end {
+  border: 1px solid #fff;
+  color: #6bb0ff;
+  text-indent: -20px;
+  background-color: #fff;
+  background-image: url($_signUp-cellphone-certification-end);
+  background-repeat: no-repeat;
+  background-position: 78px -180px;
+}
+
+//
+.signUp-cellphone-certification-error {
+
+}
+.signUp-cellphone-certification-error-info {
+  margin: 10px 0 0 0;
+  font-size: 14px;
+  line-height: 1.7;
+  color: #8a8a8a;
+}
+.signUp-cellphone-certification-error-info em {
+  font-size: 13px;
+  font-style: normal;
+  line-height: 1.7;
+  color: #ff5073;
+}
+.signUp-identity-verification {
+  //padding: 3px 10px 2px;
+  //border-radius: 3px;
+  //text-decoration: none;
+  //font-size: 13px;
+  //border: 1px solid #cccccc;
+  //color: #555555;
+
+
+  display: block;
+  width: 100px;
+  margin-top: 8px;
+  text-decoration: none;
+  border-radius: 3px;
+  text-align: center;
+  font-size: 13px;
+  line-height: 2.4;
+  font-weight: normal;
+  border: 1px solid #e0e0e0;
+  background-color: #fff;
+  color: #555555;
+}
+
+//가입하기 //////////////////////////////
+.signUp-form-controller {
+  margin-top: 30px;
+}
+.signUp-form-submit {
+  display: block;
+  width: 100%;
+  text-align: center;
+  padding: 13px 0;
+  color: #fff;
+  font-size: 17px;
+  font-weight: normal;
+  background-color: #ff4f73;
+  border: none;
+  border-radius: 3px;
+}
+
+
+

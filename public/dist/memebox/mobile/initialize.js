@@ -1,4 +1,4 @@
-define(["jquery","modernizr"], function(__WEBPACK_EXTERNAL_MODULE_1__, __WEBPACK_EXTERNAL_MODULE_54__) { return webpackJsonp([1,10],[
+define(["jquery","modernizr"], function(__WEBPACK_EXTERNAL_MODULE_1__, __WEBPACK_EXTERNAL_MODULE_54__) { return webpackJsonp([1,15],[
 /* 0 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -308,7 +308,6 @@ define(["jquery","modernizr"], function(__WEBPACK_EXTERNAL_MODULE_1__, __WEBPACK
 	                    "menu": menuData
 	                }
 	            };
-	            console.log('component = ', component);
 	            var html = templates.menu(component);
 	            this.element.html(html);
 	        }

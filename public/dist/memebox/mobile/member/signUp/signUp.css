@@ -54,40 +54,6 @@
 .signUp-SNS-information-wrap .module-tooltip-hover {
   float: left; }
 
-.module-tooltip-hover:hover .module-tooltip-hover-content-wrap {
-  display: block; }
-
-.module-tooltip-hover-trigger {
-  display: block;
-  width: 20px;
-  height: 20px;
-  background-color: #fff;
-  background-repeat: no-repeat;
-  background-position: right center;
-  background-size: 14px auto; }
-
-.module-tooltip-hover-arrow {
-  position: absolute;
-  top: -10px;
-  left: 50%;
-  display: block;
-  width: 10px;
-  height: 10px;
-  background-color: #999; }
-
-.module-tooltip-hover-content-wrap {
-  display: none;
-  position: absolute;
-  top: 80px;
-  left: 0;
-  margin: 0 12px;
-  padding: 15px 20px;
-  border: 1px solid #767676;
-  background-color: #fff;
-  font-weight: bold;
-  color: #757575;
-  z-index: 1; }
-
 .signUp-form fieldset {
   padding: 0;
   margin: 0;

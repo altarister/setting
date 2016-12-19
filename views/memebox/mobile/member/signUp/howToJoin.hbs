@@ -3,42 +3,39 @@
 {{/extend}}
 
 {{#extend "memebox-content"}}
-    <div class="wrap">
-        <p class="text">회원 가입 SNS</p>
-    </div>
-    <br>
-
-    <div>
-        MEMEBOX
-    </div>
+    {{> mobile/member/signUp/signUpHeader/signUpHeader}}
     <div class="easy-signUp-method">
-        이메일 주소 혹은 SNS 계정으로 간편하게 회원가입 가능합니다.
+        <div class="signUp-welcome-message">
+            <strong>미미박스에 오신 걸 환영합니다.</strong>
+            <span>이메일 주소 혹은 SNS 계정으로 간편하게 회원가입 가능합니다.</span>
+        </div>
+
         <ul class="easy-signUp-SNS">
             <li class="easy-signUp-SNS-list">
                 <a class="easy-signUp-SNS-email"
                    href="">
-                    <span class="easy-signUp-SNS-icon">email</span>
+                    <span class="easy-signUp-SNS-icon-email">email</span>
                     <strong class="easy-signUp-SNS-text">이메일로 회원가입</strong>
                 </a>
             </li>
             <li class="easy-signUp-SNS-list">
                 <a class="easy-signUp-SNS-naver"
                    href="">
-                    <span class="easy-signUp-SNS-icon">naver</span>
+                    <span class="easy-signUp-SNS-icon-naver">naver</span>
                     <strong class="easy-signUp-SNS-text">네이버 계정으로 회원가입</strong>
                 </a>
             </li>
             <li class="easy-signUp-SNS-list">
                 <a class="easy-signUp-SNS-facebook"
                    href="">
-                    <span class="easy-signUp-SNS-icon">facebook</span>
+                    <span class="easy-signUp-SNS-icon-facebook">facebook</span>
                     <strong class="easy-signUp-SNS-text">페이스북 계정으로 회원가입</strong>
                 </a>
             </li>
             <li class="easy-signUp-SNS-list">
                 <a class="easy-signUp-SNS-kakao"
                    href="">
-                    <span class="easy-signUp-SNS-icon">kakao</span>
+                    <span class="easy-signUp-SNS-icon-kakao">kakao</span>
                     <strong class="easy-signUp-SNS-text">카카오 계정으로 회원가입</strong>
                 </a>
             </li>
@@ -46,13 +43,17 @@
     </div>
 
     <div class="member-method">
-        <a href="#" ga-event="로그인,이메일찾기">아이디 찾기</a>
-        &nbsp;&nbsp;|&nbsp;&nbsp;
-        <a href="#" ga-event="로그인,비밀번호찾기">비밀번호 찾기</a>
-        &nbsp;&nbsp;|&nbsp;&nbsp;
-        <a href="#" ga-event="로그인,회원가입_이메일">회원가입</a>
+        <a href="#"
+           class=""
+           ga-event="로그인,이메일찾기">아이디 찾기</a>
+        <a href="#"
+           class=""
+           ga-event="로그인,비밀번호찾기">비밀번호 찾기</a>
     </div>
-
 {{/extend}}
 
-{{> mobile/layout/layout}}
+{{#extend "memebox-footer"}}
+    {{> components/layout/footer/v.1.1.0/mobile/footer}}
+{{/extend}}
+
+{{> pc/layout/layout}}

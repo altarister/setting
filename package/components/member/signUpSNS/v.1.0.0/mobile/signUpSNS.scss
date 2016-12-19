@@ -1,0 +1,71 @@
+$assetHost: '/components/member/signUpSNS/v.1.0.0/pc/_images/';
+
+$_signup_btn_icon_facebook_wh: $assetHost+"signup_btn_icon_facebook_wh.png";
+$_signup_btn_icon_kakao: $assetHost+"signup_btn_icon_kakao.png";
+$_signup_btn_icon_naver_wh: $assetHost+"signup_btn_icon_naver_wh.png";
+
+$baseFontFamily: 나눔고딕, NanumGothic, 돋움, Dotum, AppleSDGothic, AppleGothic, 굴림, Gulim, sans-serif;
+
+// sns로 회원 가입 ////////////////////////////////
+.signUp-SNS-wrap {
+  margin-top: 30px;
+  text-align: center;
+  padding-bottom: 10px;
+}
+.signUp-SNS-confirmation {
+  position: relative;
+  height: 36px;
+  font-family: $baseFontFamily;
+}
+
+.signUp-SNS-icon-naver,
+.signUp-SNS-icon-facebook,
+.signUp-SNS-icon-kakao {
+  display: block;
+  width: 30px;
+  height: 30px;
+  text-indent: -99999px;
+  position: absolute;
+  left: 50%;
+  top: 0;
+  margin-left: -15px;
+  border-radius: 50%;
+  background-repeat: no-repeat;
+  background-position: right center;
+  background-size: 30px auto;
+}
+.signUp-SNS-icon-naver {
+  background-color: #1ec800;
+  background-image: url($_signup_btn_icon_naver_wh);
+}
+.signUp-SNS-icon-facebook {
+  background-color: #405d9a;
+  background-image: url($_signup_btn_icon_facebook_wh);
+}
+.signUp-SNS-icon-kakao {
+  background-color: #ffd400;
+  background-image: url($_signup_btn_icon_kakao);
+}
+.signUp-SNS-facebook {
+  color: #32599d;
+}
+.signUp-SNS-naver {
+  color: #01a301;
+}
+.signUp-SNS-kakao {
+  color: #e6ad00;
+}
+
+.signUp-SNS-icon-email {
+  font-size: 33px;
+  color: #ff5073;
+  font-weight: bold;
+}
+
+
+/* 아래줄 안내 */
+.signUp-SNS-information-wrap {
+  margin-top: 4px;
+  font-size: 15px;
+  color: #555;
+}

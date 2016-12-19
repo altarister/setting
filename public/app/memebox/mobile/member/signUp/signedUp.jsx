@@ -1,17 +1,16 @@
 var $ = require('jquery');
 var utility = require('utility');
-var Menu = require('components/menu/v.1.0.0/_menu.jsx');
 
-require('./signUpSNS.scss');
+require('./signedUp.scss');
+require('./signUpHeader/signUpHeader.scss');
 
-var SignUpSNS = function(){
+var SignedUp = function(){
     var controller = {
 
         element: '#memebox-service',
         ui: {},
 
         initialize: function(){
-            new Menu();
             utility.uiEnhancements.call(this);
         },
 
@@ -23,4 +22,4 @@ var SignUpSNS = function(){
     controller.initialize();
 };
 
-module.exports = SignUpSNS;
+module.exports = SignedUp;

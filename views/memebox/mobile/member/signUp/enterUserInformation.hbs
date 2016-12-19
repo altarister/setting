@@ -1,0 +1,149 @@
+{{#extend "memebox-header"}}
+    {{> components/menu/v.1.0.0/_templates/_menu}}
+{{/extend}}
+
+{{#extend "memebox-content"}}
+    {{> mobile/member/signUp/signUpHeader/signUpHeader}}
+
+    <form class="signUp-form" action="/signup/action" method="post">
+        <fieldset>
+            <legend>미미박스 회원 가입</legend>
+
+            <div class="signUp-form-required">
+                <strong class="signUp-form-required-title">기본정보 <span>(필수)</span></strong>
+                <ul class="signUp-form-required-ul">
+                    <li class="signUp-form-required-li">
+                        <div class="signUp-name-wrap">
+                            <label class="signUp-name-label">
+                                <span class="signUp-name-text">이름</span>
+                                <input class="signUp-name-input"
+                                       type="text"
+                                       name="name"
+                                       placeholder="이름">
+                            </label>
+                        </div>
+                        <p class="validate-message">이름을 정확히 입력하세요.</p>
+                    </li>
+                    <li class="signUp-form-required-li">
+                        <div class="signUp-email-wrap">
+                            <label class="signUp-email-label">
+                                <span class="signUp-email-text">아이디(이메일)</span>
+                                <input class="signUp-email-input"
+                                       type="text"
+                                       name="email"
+                                       placeholder="아이디(이메일)">
+                            </label>
+                            <select class="signUp-email-host-select">
+                                <option>직접입력</option>
+                                <option>@naver.com</option>
+                                <option>@daum.net</option>
+                                <option>@gmail.com</option>
+                                <option>@hotmail.com</option>
+                                <option>@lycos.co.kr</option>
+                                <option>@empal.com</option>
+                                <option>@dreamwiz.com</option>
+                                <option>@korea.com</option>
+                            </select>
+                        </div>
+                        <p class="validate-message">이메일 형식이 잘못되었습니다.</p>
+                    </li>
+                    <li class="signUp-form-required-li">
+                        <div class="signUp-password-wrap">
+                            <label class="signUp-password-label">
+                                <span class="signUp-password-text">비밀번호</span>
+                                <input class="signUp-password-input"
+                                       type="password"
+                                       name="password"
+                                       placeholder="비밀번호">
+                            </label>
+                        </div>
+                        <p class="validate-message">비밀번호는 6-15자 이내로 입력 바랍니다.</p>
+                    </li>
+                    <li class="signUp-form-required-li">
+                        <div class="signUp-password-confirm-wrap">
+                            <label class="signUp-password-confirm-label">
+                                <span class="signUp-password-confirm-text">비밀번호 확인</span>
+                                <input class="signUp-password-confirm-input"
+                                       type="password"
+                                       name="confirm"
+                                       placeholder="비밀번호 확인">
+                            </label>
+                        </div>
+                        <p class="validate-message">입력하신 비밀번호가 일치하지 않습니다.</p>
+                    </li>
+                    <li class="signUp-form-required-li">
+                        <div class="signUp-cellphone-wrap">
+                            <label class="signUp-cellphone-label">
+                                <span class="signUp-cellphone-text">휴대폰번호</span>
+                                <input class="signUp-cellphone-input"
+                                       type="tel"
+                                       name="cellphone"
+                                       placeholder="휴대폰번호">
+                            </label>
+
+                            <a href="#"
+                               class="signUp-cellphone-certification">번호인증</a>
+                        </div>
+                        <p class="validate-message">휴대폰번호를 다시 확인해 주세요.</p>
+                    </li>
+
+                    <li class="signUp-form-required-li">
+                        <p class="signUp-cellphone-certification-remaining-time-wrap">
+                            인증완료 까지
+                            <span class="signUp-cellphone-certification-remaining-time">3:00</span>
+                        </p>
+                        <div class="signUp-cellphone-certification-wrap">
+                            <label class="signUp-cellphone-certification-label">
+                                <span class="signUp-cellphone-certification-text">인증번호</span>
+                                <input class="signUp-cellphone-certification-input"
+                                       type="number"
+                                       placeholder="인증번호">
+                            </label>
+                            <a href="#"
+                               class="signUp-cellphone-certification">인증하기</a>
+                            <!--<a href="#"-->
+                               <!--class="signUp-cellphone-certification-end">인증완료</a>-->
+                        </div>
+                        <div class="signUp-cellphone-certification-error">
+                            <p class="signUp-cellphone-certification-error-info">
+                                <em>memebo*****</em> 아이디로 가입 된 휴대폰번호 입니다.<br>
+                                본인의 아이디가 아니라면 본인인증 해 주세요.
+                            </p>
+                            <a href="#"
+                               class="signUp-identity-verification">
+                                <strong>+</strong> 본인 인증하기
+                            </a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="signUp-form-optional">
+                <strong class="signUp-form-optional-title">부가정보</strong>
+                <ul class="signUp-form-optional-ul">
+                    <li class="signUp-form-required-li">
+                        <div class="signUp-recommendUser-wrap">
+                            <label class="signUp-recommendUser-label">
+                                <span class="signUp-recommendUser-text">추천인 이메일 아이디 또는 코드 입력</span>
+                                <input class="signUp-recommendUser-input"
+                                       type="text"
+                                       placeholder="추천인 이메일 아이디 또는 코드 입력">
+                            </label>
+                        </div>
+                        <p class="validate-message">추천인 아이디 또는 코드가 없습니다.</p>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="signUp-form-controller">
+                <button class="signUp-form-submit" type="submit">확인</button>
+            </div>
+        </fieldset>
+    </form>
+{{/extend}}
+
+{{#extend "memebox-footer"}}
+    {{> components/layout/footer/v.1.1.0/mobile/footer}}
+{{/extend}}
+
+{{> pc/layout/layout}}

@@ -1,0 +1,36 @@
+{{#extend "memebox-header"}}
+    {{> components/menu/v.1.0.0/_templates/_menu}}
+{{/extend}}
+
+{{#extend "memebox-content"}}
+    <div class="signed-up">
+        <div class="signed-up-message-wrap">
+            <img src="" alt="memebox">
+            <strong class="signed-up-message-title">
+                회원가입을 축하합니다.
+            </strong>
+            <p class="signed-up-message">
+                고객님의 ID는 <br>
+                <strong>meme123@memebox.com</strong>
+                입니다.
+            </p>
+        </div>
+
+        <div class="signed-up-event-wrap">
+            <span class="signed-up-event-content">
+                즉시 사용가능 한 <strong>할인쿠폰 3종</strong> 발급!
+            </span>
+        </div>
+
+        <div class="signUp-form-controller">
+            <button class="signUp-form-submit" type="submit">미미박스 시작하기</button>
+        </div>
+    </div>
+
+{{/extend}}
+
+{{#extend "memebox-footer"}}
+    {{> components/layout/footer/v.1.1.0/mobile/footer}}
+{{/extend}}
+
+{{> pc/layout/layout}}

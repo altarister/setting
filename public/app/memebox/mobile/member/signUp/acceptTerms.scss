@@ -1,0 +1,199 @@
+$zipcodeSprite: "/components/zipcode/v.1.0.0/mobile/_zipcode.png";
+
+$baseFontFamily: 나눔고딕, NanumGothic, 돋움, Dotum, AppleSDGothic, AppleGothic, 굴림, Gulim, sans-serif;
+
+
+#memebox-service {
+  background-color: #f9f9f9;
+}
+.layout-structure-content {
+  background-color: #fff;
+  border-top: 1px solid #e0e0e0;
+  padding-bottom: 200px;
+}
+// from 요소 공통 ////////////////////////////////
+.signUp-form {
+  margin: 0 15px;
+}
+.signUp-form fieldset {
+  padding: 0;
+  margin: 0;
+  border: none;
+}
+.signUp-form legend {
+  display: none;
+}
+.signUp-form input {
+  line-height: 2.8;
+  padding: 0;
+}
+.signUp-form label {
+  font-family: $baseFontFamily;
+  color: #555555;
+  font-size: 15px;
+}
+.validate-message {
+  //display: none;
+  margin: 8px 0 0 0;
+  color: #ff5073;
+  font-size: 13px;
+}
+
+// 약관동의 /////////////////////////////////
+//// 모두 동의
+//.agreement-all {
+//  margin-top: 70px;
+//  padding-bottom: 10px;
+//  border-bottom: 1px solid #e0e0e0;
+//}
+//.agreement-all-label {}
+//.agreement-all-checkbox {}
+//.agreement-all-text {
+//  font-size: 15px;
+//}
+// 동의 목록
+.signUp-agreement {
+  margin-top: 0;
+}
+.signUp-agreement-title {
+  display: none;
+}
+.signUp-agreement-ul {
+  list-style: none;
+  margin: 0;
+  padding: 0 0 24px 0;
+  border-bottom: 1px solid #ddd;
+  background-color: #fff;
+}
+.signUp-agreement-li {
+  padding: 0;
+  margin: 24px 0 0;
+}
+
+//내용
+.agreement-all,
+.agreement-use,
+.agreement-privacy,
+.agreement-thirdParty,
+.agreement-receive-email,
+.agreement-receive-SNS {
+  position: relative;
+  padding-right: 0;
+}
+.agreement-all-label,
+.agreement-use-label,
+.agreement-privacy-label,
+.agreement-thirdParty-label,
+.agreement-receive-email-label,
+.agreement-receive-SNS-label {
+  position: relative;
+  display: block;
+  padding-left: 0;
+  font-size: 15px;
+}
+.agreement-all-text span,
+.agreement-use-text span,
+.agreement-privacy-text span,
+.agreement-thirdParty-text span,
+.agreement-receive-email-text span,
+.agreement-receive-SNS-text span {
+  color: #8a8a8a;
+  font-size: 13px;
+}
+.agreement-all-checkbox,
+.agreement-use-checkbox,
+.agreement-privacy-checkbox,
+.agreement-thirdParty-checkbox,
+.agreement-receive-email-checkbox,
+.agreement-receive-SNS-checkbox {
+  display: block;
+  position: absolute;
+  top: 2px;
+  right: 0;
+}
+.terms-view-trigger {
+  display: inline-block;
+  height: 10px;
+  width: 25px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  outline: none;
+  padding: 0;
+  border: none;
+  background-color: #fff;
+  background-image: url($zipcodeSprite);
+  background-repeat: no-repeat;
+  background-position: 8px 50%;
+  background-size: 16px auto;
+}
+.agreement-all-text {
+  font-size: 16px;
+  color: #000000;
+  font-weight: bold;
+}
+
+
+// 혜택 설명
+.signUp-form-optional-info {
+  margin: 20px 0 0 ;
+  font-size: 0;
+}
+.signUp-form-optional-info span {
+  display: block;
+  margin: 0;
+  padding: 10px 0 0 0;
+  font-size: 12px;
+  color: #8a8a8a;
+}
+
+
+//가입하기 //////////////////////////////
+.signUp-form-controller {
+  margin-top: 30px;
+}
+.signUp-form-submit {
+  display: block;
+  width: 100%;
+  text-align: center;
+  padding: 13px 0;
+  color: #fff;
+  font-size: 17px;
+  font-weight: normal;
+  background-color: #ff4f73;
+  border: none;
+  border-radius: 3px;
+}
+
+
+//약관 내용 보기 //////////////////////////////
+
+.signUp-terms {
+  width: 465px;
+  margin: 170px auto 0;
+}
+.signUp-terms-ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.signUp-terms-li {
+  margin-top: 30px;
+}
+.signUp-terms-title {
+  display: block;
+  color: #555;
+}
+.signUp-terms-content-text,
+.signUp-terms-content-table {
+  //display: none;
+  overflow: auto;
+  max-height: 120px;
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+  margin-top: 10px;
+  padding: 10px;
+  background-color: rgba(242, 242, 242, 0.6);
+}
+
+
+

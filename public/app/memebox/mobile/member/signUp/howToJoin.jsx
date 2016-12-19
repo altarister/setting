@@ -1,9 +1,10 @@
 var $ = require('jquery');
 var utility = require('utility');
 
-require('device/signUpSNS.scss');
+require('./howToJoin.scss');
+require('./signUpHeader/signUpHeader.scss');
 
-var SignUpSNS = function(){
+var HowToJoin = function(){
     var controller = {
 
         element: '#memebox-service',
@@ -14,11 +15,11 @@ var SignUpSNS = function(){
         },
 
         addEventListener: function(){
-            // this.element.off()
-            //     .on('click', this.ui.__uiString.zipcodeTrigger, $.proxy(this.zipcodeEvent, this))
+            this.element.off()
+                .on('click', this.ui.__uiString.zipcodeTrigger, $.proxy(this.zipcodeEvent, this))
         }
     };
     controller.initialize();
 };
 
-module.exports = SignUpSNS
+module.exports = HowToJoin;

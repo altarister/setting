@@ -1,0 +1,75 @@
+$assetHost: '/components/member/signUpSNS/v.1.0.0/pc/_images/';
+
+$_signup_btn_icon_email_wh: $assetHost+"signup_btn_icon_email_wh.png";
+
+$baseFontFamily: 나눔고딕, NanumGothic, 돋움, Dotum, AppleSDGothic, AppleGothic, 굴림, Gulim, sans-serif;
+
+
+#memebox-service {
+  background-color: #f9f9f9;
+}
+.layout-structure-content {
+  background-color: #fff;
+  border-top: 1px solid #e0e0e0;
+  padding-bottom: 200px;
+}
+
+
+// sns 링크 ////////////////////////////////
+.signed-up {
+  margin: 0 15px;
+}
+// 환영 메시지
+.signed-up-message-wrap {
+  margin: 146px 0 0;
+  text-align: center;
+}
+.signed-up-message-title {
+  display: block;
+  font-size: 22px;
+  margin-top: 8px;
+  font-weight: normal;
+  color: #555;
+}
+.signed-up-message {
+  margin: 80px 0 0 0;
+  font-size: 15px;
+  line-height: 1.5;
+}
+.signed-up-message strong {
+  display: block;
+  font-size: 18px;
+  color: #ff5073;
+  font-weight: normal;
+}
+
+// 가입완료 event
+.signed-up-event-wrap {
+  margin-top: 120px;
+}
+.signed-up-event-content {
+  display: block;
+  font-size: 15px;
+  text-align: center;
+  color: #555;
+}
+.signed-up-event-content strong {
+  color: #ff5073;
+}
+
+//가입하기 //////////////////////////////
+.signUp-form-controller {
+  margin-top: 30px;
+}
+.signUp-form-submit {
+  display: block;
+  width: 100%;
+  text-align: center;
+  padding: 13px 0;
+  color: #fff;
+  font-size: 17px;
+  font-weight: normal;
+  background-color: #ff4f73;
+  border: none;
+  border-radius: 3px;
+}

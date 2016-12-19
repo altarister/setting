@@ -1,0 +1,142 @@
+$assetHost: '/components/member/signUpSNS/v.1.0.0/pc/_images/';
+
+$_signup_btn_icon_email_wh: $assetHost+"signup_btn_icon_email_wh.png";
+$_signup_btn_icon_facebook_wh: $assetHost+"signup_btn_icon_facebook_wh.png";
+$_signup_btn_icon_kakao: $assetHost+"signup_btn_icon_kakao.png";
+$_signup_btn_icon_naver_wh: $assetHost+"signup_btn_icon_naver_wh.png";
+
+$baseFontFamily: 나눔고딕, NanumGothic, 돋움, Dotum, AppleSDGothic, AppleGothic, 굴림, Gulim, sans-serif;
+
+
+#memebox-service {
+  background-color: #f9f9f9;
+}
+.layout-structure-content {
+  background-color: #fff;
+  border-top: 1px solid #e0e0e0;
+  padding-bottom: 200px;
+}
+
+
+// sns 링크 ////////////////////////////////
+.easy-signUp-method {
+  width: 425px;
+  margin: 0 auto;
+}
+// 환영 메시지
+.signUp-welcome-message {
+  margin: 70px 20px 0;
+  text-align: center;
+}
+.signUp-welcome-message strong {
+  display: block;
+  font-size: 50px;
+  font-weight: normal;
+  color: #555;
+  letter-spacing: -1px;
+}
+.signUp-welcome-message span {
+  margin-top: 30px;
+  display: block;
+  font-size: 15px;
+  color: #555;
+}
+// sns 링크
+.easy-signUp-SNS {
+  list-style: none;
+  margin: 40px 0 0 0;
+  padding: 0;
+}
+.easy-signUp-SNS-list {
+  margin-top: 10px;
+}
+.easy-signUp-SNS-list:first-child {
+  margin-top: 0;
+}
+
+.easy-signUp-SNS-email,
+.easy-signUp-SNS-naver,
+.easy-signUp-SNS-facebook,
+.easy-signUp-SNS-kakao {
+  position: relative;
+  display: block;
+  border-radius: 3px;
+  padding: 10px;
+  text-decoration: none;
+}
+.easy-signUp-SNS-email {
+  background-color: #ff5073;
+}
+.easy-signUp-SNS-naver {
+  background-color: #55b155;
+}
+.easy-signUp-SNS-facebook {
+  background-color: #5a78ac;
+}
+.easy-signUp-SNS-kakao {
+  background-color: #fee339;
+}
+
+.easy-signUp-SNS-icon-email,
+.easy-signUp-SNS-icon-naver,
+.easy-signUp-SNS-icon-facebook,
+.easy-signUp-SNS-icon-kakao {
+  display: block;
+  width: 50px;
+  height: 50px;
+  text-indent: -99999px;
+  position: absolute;
+  left: 35px;
+  top: 50%;
+  margin-top: -25px;
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-position: right center;
+}
+.easy-signUp-SNS-icon-email {
+  background-image: url($_signup_btn_icon_email_wh);
+}
+.easy-signUp-SNS-icon-naver {
+  background-image: url($_signup_btn_icon_naver_wh);
+}
+.easy-signUp-SNS-icon-facebook {
+  background-image: url($_signup_btn_icon_facebook_wh);
+}
+.easy-signUp-SNS-icon-kakao {
+  background-image: url($_signup_btn_icon_kakao);
+}
+
+.easy-signUp-SNS-text {
+  display: block;
+  font-size: 24px;
+  font-weight: normal;
+  line-height: 2;
+  text-align: center;
+  text-indent: 40px;
+  color: #fff;
+}
+.easy-signUp-SNS-kakao .easy-signUp-SNS-text{
+  color: #865926;
+}
+
+// 기존 회원 링크 ////////////////////////////////
+.member-method {
+  width: 425px;
+  margin: 40px auto 0;
+  text-align: center;
+  font-size: 0;
+}
+.member-method a {
+  font-size: 13px;
+  text-align: center;
+  color: #555555;
+  text-decoration: none;
+  margin-left: 15px;
+  padding-left: 15px;
+  border-left: 1px solid #555;
+}
+.member-method a:first-child {
+  margin-left: 0;
+  padding-left: 0;
+  border-left: none;
+}
