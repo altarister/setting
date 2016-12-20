@@ -12,7 +12,18 @@
     overflow: hidden;
     margin-bottom: 9px;
     background-color: #fff;
-    border: 1px solid #dcdcdc;
+}
+.deal_type_vertical_wide_2 .memebox-deal-image-wrap:after { /* 이미지 안쪽으로 그림자 효과 주기 */
+    position: absolute;
+    display: block;
+    content: "";
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    box-shadow: inset 0 0 1px rgba(0, 0, 0, 0.2),
+    inset 0 0 1px rgba(0, 0, 0, 0.2);
+    box-sizing: border-box;
 }
 .deal_type_vertical_wide_2 .memebox-deal-timer {
     display: none;
