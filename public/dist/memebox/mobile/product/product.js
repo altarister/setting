@@ -1,4 +1,4 @@
-define(["jquery","slick"], function(__WEBPACK_EXTERNAL_MODULE_1__, __WEBPACK_EXTERNAL_MODULE_45__) { return webpackJsonp([11,15],[
+define(["jquery","slick"], function(__WEBPACK_EXTERNAL_MODULE_1__, __WEBPACK_EXTERNAL_MODULE_45__) { return webpackJsonp([9,13],[
 /* 0 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -10,7 +10,7 @@ define(["jquery","slick"], function(__WEBPACK_EXTERNAL_MODULE_1__, __WEBPACK_EXT
 	var SampleDealAPI = __webpack_require__(26);
 	var DealContainer = __webpack_require__(27);
 
-	__webpack_require__(84);
+	__webpack_require__(82);
 
 	var Product = function Product() {
 	    var controller = {
@@ -2484,9 +2484,7 @@ define(["jquery","slick"], function(__WEBPACK_EXTERNAL_MODULE_1__, __WEBPACK_EXT
 /* 79 */,
 /* 80 */,
 /* 81 */,
-/* 82 */,
-/* 83 */,
-/* 84 */
+/* 82 */
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin

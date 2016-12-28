@@ -1,8 +1,10 @@
-<div class="signUp-SNS-wrap">
-    <div class="signUp-SNS-confirmation">
-        <span class="signUp-SNS-icon-kakao">Welcome!</span>
+{{#if config.sns.service}}
+    <div class="signUp-SNS-wrap">
+        <div class="signUp-SNS-confirmation">
+            <span class="signUp-SNS-icon-{{config.sns.service}}">Welcome!</span>
+        </div>
+        <div class="signUp-SNS-information-wrap">
+            {{config.sns.welcomeText}}
+        </div>
     </div>
-    <div class="signUp-SNS-information-wrap">
-        미미박스 회원이 되기 위한 간단한 과정!
-    </div>
-</div>
+{{/if}}

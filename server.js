@@ -176,6 +176,10 @@ app.get('/member/signUp/acceptTerms', function(req, res) {
     data.config.info.device = device;
     data.config.info.service = 'memebox';
     data.component.menu = menuData;
+    data.config.sns = {
+        service : 'naver',
+        welcomeText: '미미박스 회원이 되기 위한 간단한 과정!'
+    };
     res.render('memebox/'+device+'/member/signUp/acceptTerms',data);
 });
 app.get('/member/signUp/enterUserInformation', function(req, res) {

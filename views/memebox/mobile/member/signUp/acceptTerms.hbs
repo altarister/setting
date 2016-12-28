@@ -3,6 +3,7 @@
 {{/extend}}
 
 {{#extend "memebox-content"}}
+
     {{> mobile/member/signUp/signUpHeader/signUpHeader}}
 
     <form class="signUp-form" action="/signup/action" method="post">
@@ -25,7 +26,7 @@
                 </ul>
             </div>
 
-            <div class="signUp-agreement">
+            <div class="signUp-agreement signUp-agreement-required">
                 <strong class="signUp-agreement-title">필수 동의 항목</strong>
                 <ul class="signUp-agreement-ul">
                     <li class="signUp-agreement-li">
@@ -36,7 +37,7 @@
                                    class="terms-view-trigger"></a>
                                 <input class="agreement-use-checkbox" type="checkbox">
                             </label>
-                            <div class="signUp-terms-content-text">
+                            <div id="signUpMemeboxUseContent" class="signUp-terms-content visible">
                                 {{> modules/_terms/memeboxUse}}
                             </div>
                         </div>
@@ -47,9 +48,12 @@
                                 <span class="agreement-privacy-text">미미박스 회원 개인정보 수집/이용  <span>(필수)</span></span>
                                 <a href="#signUpPrivacyContent"
                                    class="terms-view-trigger"></a>
-                                <input class="agreement-privacy-checkbox" type="checkbox">
+                                <input class="agreement-privacy-checkbox"
+                                       type="checkbox"
+                                       data-required="true"
+                                       data-required-wrap="signUp-agreement-required">
                             </label>
-                            <div class="signUp-terms-content-table">
+                            <div id="signUpPrivacyContent" class="signUp-terms-content">
                                 {{> modules/_terms/privacy}}
                             </div>
                         </div>
@@ -60,9 +64,12 @@
                                 <span class="agreement-thirdParty-text">개인정보 제 3자(판매자) 제공  <span>(필수)</span></span>
                                 <a href="#signUpThirdPartyContent"
                                    class="terms-view-trigger"></a>
-                                <input class="agreement-thirdParty-checkbox" type="checkbox">
+                                <input class="agreement-thirdParty-checkbox"
+                                       type="checkbox"
+                                       data-required="true"
+                                       data-required-wrap="signUp-agreement-required">
                             </label>
-                            <div class="signUp-terms-content-table">
+                            <div id="signUpThirdPartyContent" class="signUp-terms-content">
                                 {{> modules/_terms/thirdParty}}
                             </div>
                         </div>

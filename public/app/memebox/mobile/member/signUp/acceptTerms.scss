@@ -33,7 +33,7 @@ $baseFontFamily: 나눔고딕, NanumGothic, 돋움, Dotum, AppleSDGothic, AppleG
   font-size: 15px;
 }
 .validate-message {
-  //display: none;
+  display: none;
   margin: 8px 0 0 0;
   color: #ff5073;
   font-size: 13px;
@@ -183,9 +183,8 @@ $baseFontFamily: 나눔고딕, NanumGothic, 돋움, Dotum, AppleSDGothic, AppleG
   display: block;
   color: #555;
 }
-.signUp-terms-content-text,
-.signUp-terms-content-table {
-  //display: none;
+.signUp-terms-content {
+  display: none;
   overflow: auto;
   max-height: 120px;
   border-top: 1px solid #ddd;
@@ -194,6 +193,5 @@ $baseFontFamily: 나눔고딕, NanumGothic, 돋움, Dotum, AppleSDGothic, AppleG
   padding: 10px;
   background-color: rgba(242, 242, 242, 0.6);
 }
-
 
 

@@ -1,5 +1,9 @@
+$assetHost: '/app/memebox/mobile/member/signUp/signUpHeader/';
+$_history-back: $assetHost+'_history-back.png';
+
 
 .signUp-header-wrap {
+  position: relative;
   background-color: #fff;
   padding: 13px 15px;
   border-bottom: 1px solid #e0e0e0;
@@ -7,49 +11,29 @@
 .signUp-header {
 }
 .signUp-header-title {
-  display: inline-block;
+  display: block;
   margin: 0;
+  padding-left: 30px;
   font-size: 17px;
   color: #555555;
   font-weight: normal;
+  line-height: 1.1;
 }
 .signUp-step-viewer {
   float: right;
   margin: 35px 0 0;
 }
-.signUp-step {
-  float: left;
-  display: list-item;
-  list-style-type: decimal;
-  list-style-position: inside;
-  padding: 0;
-  font-weight: bold;
-  color: #aaaaaa;
+.history-back {
+  position: absolute;
+  top: 50%;
+  left: 15px;
+  display: block;
+  width: 20px;
+  height: 20px;
+  margin-top: -10px;
+  background-image: url($_history-back);
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  background-size: 20px auto;
 }
-.signUp-step {
-  *zoom: 1;
-  font-size: 18px;
-}
-.signUp-step:after {
-  padding-right: 15px;
-  content: '>';
-  line-height: 0;
-  color: #aaaaaa;
-}
-.signUp-step:last-child:after {
-  display: none;
-}
-.signUp-step:after {
-  clear: both;
-}
-.signUp-step strong {
-  padding-right: 10px;
-  color: #aaaaaa;
-}
-.signUp-step.signUp-current-step {
-  color: #ff5073;
-}
-.signUp-step.signUp-current-step:after,
-.signUp-step.signUp-current-step strong{
-  color: #555555;
-}
+

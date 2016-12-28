@@ -1,7 +1,3 @@
-$assetHost: '/components/member/signUpSNS/v.1.0.0/pc/_images/';
-
-$_signup_btn_icon_email_wh: $assetHost+"signup_btn_icon_email_wh.png";
-
 $baseFontFamily: 나눔고딕, NanumGothic, 돋움, Dotum, AppleSDGothic, AppleGothic, 굴림, Gulim, sans-serif;
 
 
@@ -23,6 +19,14 @@ $baseFontFamily: 나눔고딕, NanumGothic, 돋움, Dotum, AppleSDGothic, AppleG
 .signed-up-message-wrap {
   margin: 146px 0 0;
   text-align: center;
+}
+.signed-up-message-logo {
+  //background: url('imgs/memebox_logo.png') no-repeat 0 0;
+  //background-size: 293px 41px;
+  //width: 293px;
+  //height: 41px;
+  width: 146px;
+  height: 20px;
 }
 .signed-up-message-title {
   display: block;

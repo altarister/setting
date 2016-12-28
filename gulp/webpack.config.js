@@ -132,7 +132,40 @@ module.exports = function (serviceString, envString, deviceString) {
                 },
                 // {
                 //     test: /.*\.(gif|png|jpe?g|svg)$/i,
-                //     loaders: ['file?name=i/[hash].[ext]']
+                //     loaders: 'url-loader'//['file?name=i/[hash].[ext]']
+                // },
+                // {
+                //     test: /\.(png|jpg)$/,
+                //     loader: 'file-loader'
+                // },
+                // {
+                //     test: /\.(jpe?g|png|gif|svg)$/i,
+                //     loader: "file-loader?name=/public/icons/[name].[ext]"
+                // },
+                // {
+                //     test: /\.(jpe?g|png|gif|svg)$/i,
+                //     loaders: [
+                //         'file?hash=sha512&digest=hex&name=[hash].[ext]',
+                //         'image-webpack?bypassOnDebug&optimizationLevel=7&interlaced=false'
+                //     ]
+                // },
+                // {
+                //     test: /.*\.(gif|png|jpe?g|svg)$/i,
+                //     loaders: [
+                //         'file-loader',
+                //         {
+                //             loader: 'image-webpack',
+                //             query: {
+                //                 progressive: true,
+                //                 optimizationLevel: 7,
+                //                 interlaced: false,
+                //                 pngquant: {
+                //                     quality: '65-90',
+                //                     speed: 4
+                //                 }
+                //             }
+                //         }
+                //     ]
                 // },
                 {
                     test: /\.(s?)css$/,
@@ -180,6 +213,10 @@ module.exports = function (serviceString, envString, deviceString) {
                         '[name].css',
                         {allChunks: true}
                     )
+                    // ,new ExtractTextPlugin(
+                    //     '[name].png',
+                    //     {allChunks: true}
+                    // )
                 ];
             }else{
                 plugins = [
