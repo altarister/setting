@@ -1,0 +1,73 @@
+$assetHost: '/modules/_designViewer/_select/v.1.0.0/box/_images/';
+$_cellphone-certification-end: $assetHost+'_select.png';
+
+.cellphone-certification-wrap {}
+.cellphone-certification-label {}
+.cellphone-certification-text {}
+.cellphone-certification-input {}
+
+// 번호 인증 내용
+.cellphone-label {
+  width: 72%;
+}
+.cellphone-certification-label {
+  width: 72%;
+}
+
+
+// wrap
+.cellphone-certification-wrap {}
+.cellphone-certification-remaining-time-wrap {
+  margin: 0;
+  color: #555555;
+  font-size: 14px;
+  line-height: 2.5;
+}
+.cellphone-certification-remaining-time {
+  color: #ff5073;
+}
+.cellphone-certification-start {
+  display: block;
+  width: 25%;
+  position: absolute;
+  top: 50%;
+  right: 0;
+  margin-top: -19px;
+  text-decoration: none;
+  border-radius: 3px;
+  text-align: center;
+  font-size: 13px;
+  line-height: 2.4;
+  font-weight: normal;
+  border: 1px solid #e0e0e0;
+  background-color: #fff;
+  color: #555555;
+}
+// error
+.cellphone-certification-error {}
+.cellphone-certification-error-info {
+  margin: 10px 0 0 0;
+  font-size: 14px;
+  line-height: 1.7;
+  color: #8a8a8a;
+}
+.cellphone-certification-error-info em {
+  font-size: 13px;
+  font-style: normal;
+  line-height: 1.7;
+  color: #ff5073;
+}
+.identity-verification {
+  display: block;
+  width: 100px;
+  margin-top: 8px;
+  text-decoration: none;
+  border-radius: 3px;
+  text-align: center;
+  font-size: 13px;
+  line-height: 2.4;
+  font-weight: normal;
+  border: 1px solid #e0e0e0;
+  background-color: #fff;
+  color: #555555;
+}

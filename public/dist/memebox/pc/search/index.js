@@ -8,7 +8,7 @@ define(["jquery"], function(__WEBPACK_EXTERNAL_MODULE_2__) { return webpackJsonp
 	var utility = __webpack_require__(3);
 	var Menu = __webpack_require__(1);
 
-	__webpack_require__(89);
+	__webpack_require__(94);
 
 	var SearchIndex = function SearchIndex() {
 	    var controller = {
@@ -1559,7 +1559,12 @@ define(["jquery"], function(__WEBPACK_EXTERNAL_MODULE_2__) { return webpackJsonp
 /* 86 */,
 /* 87 */,
 /* 88 */,
-/* 89 */
+/* 89 */,
+/* 90 */,
+/* 91 */,
+/* 92 */,
+/* 93 */,
+/* 94 */
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin

@@ -85,6 +85,10 @@ var validate = {
         str = validate.trim(str);
         return (/^[a-zA-Z]+$/).test(str);
     },
+    isName: function (str) {
+        str = validate.trim(str);
+        return (/^[가-힝a-zA-Z]+$/).test(str);
+    },
     isEmail: function (str) {
         return (/\w+([-+.]\w+)*@\w+([-.]\w+)*\.[a-zA-Z]{2,4}$/).test(str);
     },

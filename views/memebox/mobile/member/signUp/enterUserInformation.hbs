@@ -19,10 +19,14 @@
                                 <input class="signUp-name-input"
                                        type="text"
                                        name="name"
+                                       data-required="true"
+                                       data-run-validate=""
+                                       data-required-wrap="signUp-name-wrap"
+                                       data-required-message="이름을 정확히 입력하세요."
                                        placeholder="이름">
                             </label>
                         </div>
-                        <p class="validate-message">이름을 정확히 입력하세요.</p>
+                        <p class="validate-message"></p>
                     </li>
                     <li class="signUp-form-required-li">
                         <div class="signUp-email-wrap">
@@ -31,6 +35,11 @@
                                 <input class="signUp-email-input"
                                        type="text"
                                        name="email"
+                                       data-required="true"
+                                       data-validate=""
+                                       data-run-validate=""
+                                       data-required-wrap="signUp-email-wrap"
+                                       data-required-message="올바른 이메일을 입력해 주세요 "
                                        placeholder="아이디(이메일)">
                             </label>
                             <select class="signUp-email-host-select">
@@ -45,7 +54,7 @@
                                 <option>@korea.com</option>
                             </select>
                         </div>
-                        <p class="validate-message">이메일 형식이 잘못되었습니다.</p>
+                        <p class="validate-message"></p>
                     </li>
                     <li class="signUp-form-required-li">
                         <div class="signUp-password-wrap">
@@ -54,10 +63,14 @@
                                 <input class="signUp-password-input"
                                        type="password"
                                        name="password"
+                                       data-required="true"
+                                       data-run-validate=""
+                                       data-required-wrap="signUp-password-wrap"
+                                       data-required-message="6~15자의 영문(대소문자), 숫자, 특수문자 중 2가지 이상 조합하여 작성합니다."
                                        placeholder="비밀번호">
                             </label>
                         </div>
-                        <p class="validate-message">비밀번호는 6-15자 이내로 입력 바랍니다.</p>
+                        <p class="validate-message"></p>
                     </li>
                     <li class="signUp-form-required-li">
                         <div class="signUp-password-confirm-wrap">
@@ -66,10 +79,14 @@
                                 <input class="signUp-password-confirm-input"
                                        type="password"
                                        name="confirm"
+                                       data-required="true"
+                                       data-run-validate=""
+                                       data-required-wrap="signUp-password-confirm-wrap"
+                                       data-required-message="입력하신 비밀번호가 일치하지 않습니다."
                                        placeholder="비밀번호 확인">
                             </label>
                         </div>
-                        <p class="validate-message">입력하신 비밀번호가 일치하지 않습니다.</p>
+                        <p class="validate-message"></p>
                     </li>
                     <li class="signUp-form-required-li">
                         <div class="signUp-cellphone-wrap">
@@ -78,42 +95,30 @@
                                 <input class="signUp-cellphone-input"
                                        type="tel"
                                        name="cellphone"
+                                       data-required="true"
+                                       data-run-validate=""
+                                       data-required-wrap="signUp-cellphone-wrap"
+                                       data-required-message="휴대폰번호를 확인해 주세요."
+                                       value=""
                                        placeholder="휴대폰번호">
                             </label>
-
-                            <a href="#"
-                               class="signUp-cellphone-certification">번호인증</a>
+                            <input class="signUp-cellphone-certification-trigger"
+                                   type="button"
+                                   name="verification"
+                                   data-required="true"
+                                   data-run-validate=""
+                                   data-required-wrap="signUp-cellphone-wrap"
+                                   data-required-message="번호 인증을 하여야 합니다."
+                                   value="번호인증">
+                            <input class="cellphone-certification-end"
+                                    type="button"
+                                    value="인증완료">
                         </div>
-                        <p class="validate-message">휴대폰번호를 다시 확인해 주세요.</p>
+                        <p class="validate-message"></p>
                     </li>
 
-                    <li class="signUp-form-required-li">
-                        <p class="signUp-cellphone-certification-remaining-time-wrap">
-                            인증완료 까지
-                            <span class="signUp-cellphone-certification-remaining-time">3:00</span>
-                        </p>
-                        <div class="signUp-cellphone-certification-wrap">
-                            <label class="signUp-cellphone-certification-label">
-                                <span class="signUp-cellphone-certification-text">인증번호</span>
-                                <input class="signUp-cellphone-certification-input"
-                                       type="number"
-                                       placeholder="인증번호">
-                            </label>
-                            <a href="#"
-                               class="signUp-cellphone-certification">인증하기</a>
-                            <!--<a href="#"-->
-                               <!--class="signUp-cellphone-certification-end">인증완료</a>-->
-                        </div>
-                        <div class="signUp-cellphone-certification-error">
-                            <p class="signUp-cellphone-certification-error-info">
-                                <em>memebo*****</em> 아이디로 가입 된 휴대폰번호 입니다.<br>
-                                본인의 아이디가 아니라면 본인인증 해 주세요.
-                            </p>
-                            <a href="#"
-                               class="signUp-identity-verification">
-                                <strong>+</strong> 본인 인증하기
-                            </a>
-                        </div>
+                    <li class="signUp-form-required-li signUp-cellphone-certification-content">
+
                     </li>
                 </ul>
             </div>
@@ -127,6 +132,12 @@
                                 <span class="signUp-recommendUser-text">추천인 이메일 아이디 또는 코드 입력</span>
                                 <input class="signUp-recommendUser-input"
                                        type="text"
+                                       name="recommendUser"
+                                       data-required="true"
+                                       data-validate=""
+                                       data-run-validate=""
+                                       data-required-wrap="signUp-recommendUser-wrap"
+                                       data-required-message="추천인 아이디 또는 코드를 입력해 주세요."
                                        placeholder="추천인 이메일 아이디 또는 코드 입력">
                             </label>
                         </div>
@@ -136,7 +147,10 @@
             </div>
 
             <div class="signUp-form-controller">
-                <button class="signUp-form-submit" type="submit">확인</button>
+                <input class="signUp-form-submit"
+                       type="submit"
+                       value="확인"
+                       disabled>
             </div>
         </fieldset>
     </form>

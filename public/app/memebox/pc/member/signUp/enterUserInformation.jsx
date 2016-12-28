@@ -3,6 +3,7 @@ var utility = require('utility');
 
 var SignUpSNS = require('components/member/signUpSNS/v.1.0.0/signUpSNS.jsx');
 var Select = require('modules/_designViewer/_select/v.1.0.0/box/_select.jsx');
+var Verification_cellphone = require('components/verification/cellphone/v.1.0.0/cellphone.jsx');
 
 require('./enterUserInformation.scss');
 require('./signUpHeader/signUpHeader.scss');
@@ -12,6 +13,7 @@ var EnterUserInformation = function () {
 
         element: '#memebox-service',
         ui: {
+            SNSWrap: '.signUp-SNS-wrap',
             emailSelect: '.signUp-email-wrap .select-design-viewer-option-selector',
             emailSelectBox: '.signUp-email-wrap .select-design-viewer-list',
             emailSelectOption: '.signUp-email-wrap .signUp-email-host-option',
@@ -117,7 +119,7 @@ var EnterUserInformation = function () {
         },
 
         initialize: function () {
-            new SignUpSNS();
+            new SignUpSNS(this.ui.SNSWrap);
             utility.uiEnhancements.call(this);
             this.makeEmailSelect(this.ui.selectWrap);
             this.addEventListener();

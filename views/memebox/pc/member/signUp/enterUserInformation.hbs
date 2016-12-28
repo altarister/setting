@@ -75,37 +75,16 @@
                                        name="cellphone"
                                        placeholder="휴대폰번호">
                             </label>
-                            <span class="signUp-cellphone-certification-remaining-time">3:00</span>
+                            <!--<span class="signUp-cellphone-certification-remaining-time">3:00</span>-->
                             <a href="#"
-                               class="signUp-cellphone-certification">번호인증</a>
+                               class="signUp-cellphone-certification-trigger">번호인증</a>
                         </div>
                         <p class="validate-message">휴대폰번호를 다시 확인해 주세요.</p>
                     </li>
 
 
-                    <li class="signUp-form-required-li">
-                        <div class="signUp-cellphone-certification-wrap">
-                            <label class="signUp-cellphone-certification-label">
-                                <span class="signUp-cellphone-certification-text">인증번호</span>
-                                <input class="signUp-cellphone-certification-input"
-                                       type="number"
-                                       placeholder="인증번호">
-                            </label>
-                            <a href="#"
-                               class="signUp-cellphone-certification">인증하기</a>
-                            <a href="#"
-                               class="signUp-cellphone-certification-end">인증완료</a>
-                        </div>
-                        <div class="signUp-cellphone-certification-error">
-                            <p class="signUp-cellphone-certification-error-info">
-                                memebox1201 아이디(이메일)로 가입 된 휴대폰번호 입니다.<br>
-                                본인의 아이디(이메일)가 아니라면 본인인증 해 주세요.
-                            </p>
-                            <a href="#"
-                               class="signUp-identity-verification">
-                                본인 인증하기
-                            </a>
-                        </div>
+                    <li class="signUp-form-required-li  signUp-cellphone-certification-content">
+                        {{> components/verification/cellphone/v.1.0.0/_templates/cellphone}}
                     </li>
                 </ul>
             </div>

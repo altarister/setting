@@ -71,7 +71,7 @@ $baseFontFamily: 나눔고딕, NanumGothic, 돋움, Dotum, AppleSDGothic, AppleG
 .signUp-password-wrap,
 .signUp-password-confirm-wrap,
 .signUp-cellphone-wrap,
-.signUp-cellphone-certification-wrap,
+.cellphone-certification-wrap,
 .signUp-recommendUser-wrap {
   position: relative;
 }
@@ -80,7 +80,7 @@ $baseFontFamily: 나눔고딕, NanumGothic, 돋움, Dotum, AppleSDGothic, AppleG
 .signUp-password-label,
 .signUp-password-confirm-label,
 .signUp-cellphone-label,
-.signUp-cellphone-certification-label,
+.cellphone-certification-label,
 .signUp-recommendUser-label {
   display: block;
   font-size: 15px;
@@ -90,7 +90,7 @@ $baseFontFamily: 나눔고딕, NanumGothic, 돋움, Dotum, AppleSDGothic, AppleG
 .signUp-password-text,
 .signUp-password-confirm-text,
 .signUp-cellphone-text,
-.signUp-cellphone-certification-text,
+.cellphone-certification-text,
 .signUp-recommendUser-text {
   display: none;
 }
@@ -99,7 +99,7 @@ $baseFontFamily: 나눔고딕, NanumGothic, 돋움, Dotum, AppleSDGothic, AppleG
 .signUp-password-input,
 .signUp-password-confirm-input,
 .signUp-cellphone-input,
-.signUp-cellphone-certification-input,
+.cellphone-certification-input,
 .signUp-recommendUser-input {
   display: block;
   border: 1px solid #ddd;
@@ -136,21 +136,7 @@ $baseFontFamily: 나눔고딕, NanumGothic, 돋움, Dotum, AppleSDGothic, AppleG
 .signUp-email-host-select .select-design-viewer-list-box {
   margin-right: 46px;
 }
-// 번호인증 예외처리
-.signUp-cellphone-label,
-.signUp-cellphone-certification-label {
-  width: 72%;
-}
-.signUp-cellphone-certification-remaining-time {
-  display: inline-block;
-  position: absolute;
-  top: 0;
-  right: 30%;
-  line-height: 3;
-  color: #ff0000;
-}
-.signUp-cellphone-certification,
-.signUp-cellphone-certification-end {
+.signUp-cellphone-certification-trigger {
   display: block;
   width: 25%;
   position: absolute;
@@ -161,40 +147,16 @@ $baseFontFamily: 나눔고딕, NanumGothic, 돋움, Dotum, AppleSDGothic, AppleG
   text-align: center;
   font-size: 15px;
   line-height: 3;
-}
-.signUp-cellphone-certification {
   border: 1px solid #cccccc;
   background-color: #c6c6c6;
   color: #fff;
 }
-.signUp-cellphone-certification-end {
-  border: 1px solid #96e8e7;
-  background-color: #fff;
-  color: #07b4b2;
-  text-indent: -20px;
-  background-image: url($_signUp-cellphone-certification-end);
-  background-repeat: no-repeat;
-  background-position: 78px -180px;
+.signUp-cellphone-certification-content {
+  //display: none;
 }
 
-//
-.signUp-cellphone-certification-error {
 
-}
-.signUp-cellphone-certification-error-info {
-  font-size: 13px;
-  line-height: 1.7;
-  color: #ff0000;
-}
-.signUp-identity-verification {
-  display: inline-block;
-  padding: 3px 10px 2px;
-  border-radius: 3px;
-  text-decoration: none;
-  font-size: 13px;
-  border: 1px solid #cccccc;
-  color: #555555;
-}
+
 
 //가입하기 //////////////////////////////
 .signUp-form-controller {

@@ -323,7 +323,8 @@ var zipcode = function(collBackFunction, $wraper, zipcode_params, trackFunction)
         },
         //API통신 시도
         ajaxSearchRequest: function(requestData, isMoreRequest){
-            var url = this.zipcodeAPI[requestData.type]
+            var url = this.zipcodeAPI[requestData.type];
+
             $.ajax({
                 url: url,
                 data: requestData,
@@ -341,7 +342,7 @@ var zipcode = function(collBackFunction, $wraper, zipcode_params, trackFunction)
                     }else{
                         controller.makeResultContentsWrap(result.data, requestData);
                     }
-                    controller.setSearchPossible(result.data)
+                    controller.setSearchPossible(result.data);
 
                     try{
                         //console.log('analytics imp '+requestData.keyword);
