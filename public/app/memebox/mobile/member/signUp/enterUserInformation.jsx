@@ -85,12 +85,12 @@ var EnterUserInformation = function () {
             this.validate($(event.currentTarget));
         },
 
-        passwordKeyEvent: function(event){
-            this.validate($(event.currentTarget));
-        },
-
         hostSelectEvent: function(event){
             this.makeEmailText($(event.currentTarget).val())
+        },
+
+        passwordKeyEvent: function(event){
+            this.validate($(event.currentTarget));
         },
 
         cellphoneFocusInEvent: function(event){

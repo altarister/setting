@@ -1,5 +1,5 @@
-$assetHost: '/modules/_designViewer/_select/v.1.0.0/box/_images/';
-$_signUp-cellphone-certification-end: $assetHost+'_select.png';
+$assetHost: '/app/memebox/pc/member/signUp/_images/';
+$_certification-end: $assetHost+'ic-check-pass.png';
 
 $baseFontFamily: 나눔고딕, NanumGothic, 돋움, Dotum, AppleSDGothic, AppleGothic, 굴림, Gulim, sans-serif;
 
@@ -25,18 +25,24 @@ $baseFontFamily: 나눔고딕, NanumGothic, 돋움, Dotum, AppleSDGothic, AppleG
 .signUp-form legend {
   display: none;
 }
-.signUp-form input {
+.signUp-form input[type="text"],
+.signUp-form input[type="password"],
+.signUp-form input[type="tel"],
+.signUp-form input[type="number"] {
   line-height: 3;
   padding: 0;
+}
+.signUp-form input[type="button"] {
+
 }
 .signUp-form label {
   font-family: $baseFontFamily;
   color: #555555;
 }
 .validate-message {
+  display: none;
   margin: 8px 0 0 0;
   color: #f00;
-  display: none;
   font-size: 13px;
 }
 
@@ -136,6 +142,10 @@ $baseFontFamily: 나눔고딕, NanumGothic, 돋움, Dotum, AppleSDGothic, AppleG
 .signUp-email-host-select .select-design-viewer-list-box {
   margin-right: 46px;
 }
+// 번호인증 예외처리
+.signUp-cellphone-label {
+  width: 72%;
+}
 .signUp-cellphone-certification-trigger {
   display: block;
   width: 25%;
@@ -146,13 +156,32 @@ $baseFontFamily: 나눔고딕, NanumGothic, 돋움, Dotum, AppleSDGothic, AppleG
   border-radius: 3px;
   text-align: center;
   font-size: 15px;
-  line-height: 3;
+  line-height: 2.7;
   border: 1px solid #cccccc;
   background-color: #c6c6c6;
   color: #fff;
 }
+.cellphone-certification-end {
+  display: none;
+  width: 25%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  text-decoration: none;
+  border-radius: 3px;
+  text-align: center;
+  font-size: 15px;
+  line-height: 2.7;
+  border: 1px solid #96e8e7;
+  color: #07b4b2;
+  text-indent: -20px;
+  background-color: #fff;
+  background-image: url($_certification-end);
+  background-repeat: no-repeat;
+  background-position: 85% 40%;
+}
 .signUp-cellphone-certification-content {
-  //display: none;
+  display: none;
 }
 
 

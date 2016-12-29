@@ -18,6 +18,8 @@ $_cellphone-certification-end: $assetHost+'_select.png';
   width: 72%;
 }
 
+// wrap
+.cellphone-certification-wrap {}
 .cellphone-certification-remaining-time-wrap {
   position: relative;
   margin: 0;
@@ -42,7 +44,10 @@ $_cellphone-certification-end: $assetHost+'_select.png';
   border-radius: 3px;
   text-align: center;
   font-size: 15px;
-  line-height: 3;
+  line-height: 2.7;
+  border: 1px solid #cccccc;
+  background-color: #c6c6c6;
+  color: #fff;
 }
 .cellphone-certification-end {
   border: 1px solid #96e8e7;
@@ -72,8 +77,11 @@ $_cellphone-certification-end: $assetHost+'_select.png';
   padding: 3px 10px 2px;
   border-radius: 3px;
   text-decoration: none;
+  text-align: center;
   font-size: 13px;
+  line-height: 2.4;
   border: 1px solid #cccccc;
+  background-color: #fff;
   color: #555555;
 }
 

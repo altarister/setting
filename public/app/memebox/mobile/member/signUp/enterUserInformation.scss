@@ -154,21 +154,6 @@ $baseFontFamily: 나눔고딕, NanumGothic, 돋움, Dotum, AppleSDGothic, AppleG
   color: #555555;
   padding: 0 10px;
 }
-// 디자인 select 디자인 수정
-.signUp-email-host-select .select-design-viewer-option-selector {
-  font-size: 15px;
-}
-.signUp-email-host-select .select-design-viewer-option-selector .value {
-  line-height: 2.8;
-}
-.signUp-email-host-select .select-design-viewer-option-selector .trigger {
-  width: 46px;
-  height: 46px;
-  background-size: 47px;
-}
-.signUp-email-host-select .select-design-viewer-list-box {
-  margin-right: 46px;
-}
 // 번호인증 예외처리
 .signUp-cellphone-label {
   width: 72%;
