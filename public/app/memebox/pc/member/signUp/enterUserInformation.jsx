@@ -284,7 +284,7 @@ var EnterUserInformation = function () {
             );
             console.log('this.verification_hasCellphone',this.verification_hasCellphone)
             this.ui.certificationContent.show();
-            this.ui.certificationTrigger.hide();
+            this.ui.certificationTrigger.prop('disabled', true);//.hide();
         },
 
         hasCellphoneWrapClose: function(data){
@@ -293,15 +293,15 @@ var EnterUserInformation = function () {
 
             if(data){
                 if(data.success){
-                    controller.ui.certificationTrigger.hide();
+                    controller.ui.certificationTrigger.prop('disabled', true);//.hide();
                     controller.ui.certificationEnd.show();
                     controller.ui.param_cellphone.prop('disabled', true);
                     controller.validate(controller.ui.param_cellphone);
                 }else{
-                    controller.ui.certificationTrigger.show();
+                    controller.ui.certificationTrigger.prop('disabled', false);//.show();
                 }
             }else{
-                controller.ui.certificationTrigger.hide();
+                controller.ui.certificationTrigger.prop('disabled', true);//.hide();
             }
         },
 
@@ -380,13 +380,13 @@ var EnterUserInformation = function () {
                     break;
                 case 'cellphone':
                     if(!validate.cellphoneByAll(value)){
-                        this.ui.certificationTrigger.hide();
+                        this.ui.certificationTrigger.prop('disabled', true);//.hide();
                         isValidate = false;
                     }else{
                         if(this.ui.certificationContent.is(':visible')){
-                            this.ui.certificationTrigger.hide();
+                            this.ui.certificationTrigger.prop('disabled', true);//.hide();
                         }else{
-                            this.ui.certificationTrigger.show();
+                            this.ui.certificationTrigger.prop('disabled', false);//.show();
                         }
                     }
                     break;

@@ -13,37 +13,10 @@
                 <strong class="signUp-form-required-title">기본정보 <span>(필수)</span></strong>
                 <ul class="signUp-form-required-ul">
                     <li class="signUp-form-required-li">
-                        <!--<div class="signUp-name-wrap">-->
-                            <!--<label class="signUp-name-label">-->
-                                <!--<span class="signUp-name-text">이름</span>-->
-                                <!--<input class="signUp-name-input"-->
-                                       <!--type="text"-->
-                                       <!--name="name"-->
-                                       <!--data-required="true"-->
-                                       <!--data-run-validate=""-->
-                                       <!--data-required-wrap="signUp-name-wrap"-->
-                                       <!--data-required-message="이름을 정확히 입력하세요."-->
-                                       <!--placeholder="이름">-->
-                            <!--</label>-->
-                        <!--</div>-->
-                        <!--<p class="validate-message"></p>-->
-
                         {{> templates/member/signUp/_name}}
                     </li>
                     <li class="signUp-form-required-li">
                         <div class="signUp-email-wrap">
-                            <!--<label class="signUp-email-label">-->
-                                <!--<span class="signUp-email-text">아이디(이메일)</span>-->
-                                <!--<input class="signUp-email-input"-->
-                                       <!--type="text"-->
-                                       <!--name="email"-->
-                                       <!--data-required="true"-->
-                                       <!--data-validate=""-->
-                                       <!--data-run-validate=""-->
-                                       <!--data-required-wrap="signUp-email-wrap"-->
-                                       <!--data-required-message="올바른 이메일을 입력해 주세요 "-->
-                                       <!--placeholder="아이디(이메일)">-->
-                            <!--</label>-->
                             {{> templates/member/signUp/_email_label}}
                             <select class="signUp-email-host-select">
                                 <option value="">직접입력</option>
@@ -60,66 +33,12 @@
                         <p class="validate-message"></p>
                     </li>
                     <li class="signUp-form-required-li">
-                        <!--<div class="signUp-password-wrap">-->
-                            <!--<label class="signUp-password-label">-->
-                                <!--<span class="signUp-password-text">비밀번호</span>-->
-                                <!--<input class="signUp-password-input"-->
-                                       <!--type="password"-->
-                                       <!--name="password"-->
-                                       <!--data-required="true"-->
-                                       <!--data-run-validate=""-->
-                                       <!--data-required-wrap="signUp-password-wrap"-->
-                                       <!--data-required-message="6~15자의 영문(대소문자), 숫자, 특수문자 중 2가지 이상 조합하여 작성합니다."-->
-                                       <!--placeholder="비밀번호">-->
-                            <!--</label>-->
-                        <!--</div>-->
-                        <!--<p class="validate-message"></p>-->
                         {{> templates/member/signUp/_password}}
                     </li>
                     <li class="signUp-form-required-li">
-                        <!--<div class="signUp-password-confirm-wrap">-->
-                            <!--<label class="signUp-password-confirm-label">-->
-                                <!--<span class="signUp-password-confirm-text">비밀번호 확인</span>-->
-                                <!--<input class="signUp-password-confirm-input"-->
-                                       <!--type="password"-->
-                                       <!--name="confirm"-->
-                                       <!--data-required="true"-->
-                                       <!--data-run-validate=""-->
-                                       <!--data-required-wrap="signUp-password-confirm-wrap"-->
-                                       <!--data-required-message="입력하신 비밀번호가 일치하지 않습니다."-->
-                                       <!--placeholder="비밀번호 확인">-->
-                            <!--</label>-->
-                        <!--</div>-->
-                        <!--<p class="validate-message"></p>-->
                         {{> templates/member/signUp/_confirm}}
                     </li>
                     <li class="signUp-form-required-li">
-                        <!--<div class="signUp-cellphone-wrap">-->
-                            <!--<label class="signUp-cellphone-label">-->
-                                <!--<span class="signUp-cellphone-text">휴대폰번호</span>-->
-                                <!--<input class="signUp-cellphone-input"-->
-                                       <!--type="tel"-->
-                                       <!--name="cellphone"-->
-                                       <!--data-required="true"-->
-                                       <!--data-run-validate=""-->
-                                       <!--data-required-wrap="signUp-cellphone-wrap"-->
-                                       <!--data-required-message="휴대폰번호를 확인해 주세요."-->
-                                       <!--value=""-->
-                                       <!--placeholder="휴대폰번호">-->
-                            <!--</label>-->
-                            <!--<input class="signUp-cellphone-certification-trigger"-->
-                                   <!--type="button"-->
-                                   <!--name="verification"-->
-                                   <!--data-required="true"-->
-                                   <!--data-run-validate=""-->
-                                   <!--data-required-wrap="signUp-cellphone-wrap"-->
-                                   <!--data-required-message="번호 인증을 하여야 합니다."-->
-                                   <!--value="번호인증">-->
-                            <!--<input class="cellphone-certification-end"-->
-                                    <!--type="button"-->
-                                    <!--value="인증완료">-->
-                        <!--</div>-->
-                        <!--<p class="validate-message"></p>-->
                         {{> templates/member/signUp/_cellphone}}
                     </li>
 
@@ -133,21 +52,6 @@
                 <strong class="signUp-form-optional-title">부가정보</strong>
                 <ul class="signUp-form-optional-ul">
                     <li class="signUp-form-required-li">
-                        <!--<div class="signUp-recommendUser-wrap">-->
-                            <!--<label class="signUp-recommendUser-label">-->
-                                <!--<span class="signUp-recommendUser-text">추천인 이메일 아이디 또는 코드 입력</span>-->
-                                <!--<input class="signUp-recommendUser-input"-->
-                                       <!--type="text"-->
-                                       <!--name="recommendUser"-->
-                                       <!--data-required="true"-->
-                                       <!--data-validate=""-->
-                                       <!--data-run-validate=""-->
-                                       <!--data-required-wrap="signUp-recommendUser-wrap"-->
-                                       <!--data-required-message="추천인 아이디 또는 코드를 입력해 주세요."-->
-                                       <!--placeholder="추천인 이메일 아이디 또는 코드 입력">-->
-                            <!--</label>-->
-                        <!--</div>-->
-                        <!--<p class="validate-message"></p>-->
                         {{> templates/member/signUp/_recommendUser}}
                     </li>
                 </ul>
