@@ -15,9 +15,9 @@ var EnterUserInformation = function () {
         element: '#memebox-service',
         // ui: {
         //     SNSWrap: '.signUp-SNS-wrap',
-        //     emailSelect: '.signUp-email-wrap .select-design-viewer-option-selector',
-        //     emailSelectBox: '.signUp-email-wrap .select-design-viewer-list',
-        //     emailSelectOption: '.signUp-email-wrap .signUp-email-host-option',
+        //     hostSelect: '.signUp-email-wrap .select-design-viewer-option-selector',
+        //     hostSelectBox: '.signUp-email-wrap .select-design-viewer-list',
+        //     hostSelectOption: '.signUp-email-wrap .signUp-email-host-option',
         //
         //     emailHost: '.signUp-email-input-host'
         //     ,selectWrap: '.signUp-email-host-select'
@@ -33,9 +33,9 @@ var EnterUserInformation = function () {
             ,param_required: '[data-required="true"]'
 
             ,SNSWrap: '.signUp-SNS-wrap'
-            ,emailSelect: '.signUp-email-wrap .select-design-viewer-option-selector'
-            ,emailSelectBox: '.signUp-email-wrap .select-design-viewer-list'
-            ,emailSelectOption: '.signUp-email-wrap .signUp-email-host-option'
+            ,hostSelect: '.signUp-email-wrap .select-design-viewer-option-selector'
+            ,hostSelectBox: '.signUp-email-wrap .select-design-viewer-list'
+            ,hostSelectOption: '.signUp-email-wrap .signUp-email-host-option'
 
             ,form: '.signUp-form'
             ,certificationTrigger: '.signUp-cellphone-certification-trigger'
@@ -178,8 +178,8 @@ var EnterUserInformation = function () {
                 .on('focusout', this.ui.__uiString.param_email, $.proxy(this.setRunValidate,this))
 
                 // .on('change', this.ui.__uiString.hostSelect, $.proxy(this.hostSelectEvent,this))
-                .on('click', this.ui.__uiString.emailSelect, $.proxy(this.emailSelectEvent, this))
-                .on('click', this.ui.__uiString.emailSelectOption, $.proxy(this.emailSelectOptionEvent, this))
+                .on('click', this.ui.__uiString.hostSelect, $.proxy(this.hostSelectEvent, this))
+                .on('click', this.ui.__uiString.hostSelectOption, $.proxy(this.hostSelectOptionEvent, this))
 
                 .on('keyup', this.ui.__uiString.param_password, $.proxy(this.passwordKeyEvent,this))
                 .on('focusout', this.ui.__uiString.param_password, $.proxy(this.setRunValidate,this))
@@ -216,16 +216,16 @@ var EnterUserInformation = function () {
         //     this.makeEmailText($(event.currentTarget).val())
         // },
 
-        emailSelectEvent: function (event) {
-            this.ui.emailSelectBox.toggle();
+        hostSelectEvent: function (event) {
+            this.ui.hostSelectBox.toggle();
         },
 
-        emailSelectOptionEvent: function (event) {
+        hostSelectOptionEvent: function (event) {
             var $element = $(event.currentTarget);
             var elementText = $element.data('value');
             console.log('elementText',elementText)
             this.ui.hostSelect.val(elementText);
-            this.ui.emailSelectBox.toggle();
+            this.ui.hostSelectBox.toggle();
             this.makeEmailText(elementText)
         },
 
@@ -318,7 +318,7 @@ var EnterUserInformation = function () {
 
         setSelectionRange: function(input, selectionStart, selectionEnd) {
             if (input.setSelectionRange) {
-                input.focus();
+                $(input).focus();
                 input.setSelectionRange(selectionStart, selectionEnd);
             }
             else if (input.createTextRange) {
