@@ -32,9 +32,7 @@ var EnterUserInformation = function () {
             EMPTY: '필수 입력란입니다.',
             VERIFICATION: '인증을 하여야 합니다.',
             CHECKING_RECOMMEND: '추천인 코드를 조회 중입니다.',
-            CHECK_FAIL_RECOMMEND: '추천인 아이디 또는 코드가 없습니다.',
-            CHECKING_REGISTER_EMAIL: '중복 아이디를 조회 중입니다',
-            CHECK_FAIL_REGISTER_EMAIL: '다른 아이디를 입력해 주세요.'
+            CHECKING_REGISTER_EMAIL: '중복 아이디를 조회 중입니다'
         },
 
         API: {
@@ -56,7 +54,6 @@ var EnterUserInformation = function () {
                 .on('keyup', this.ui.__uiString.param_name, $.proxy(this.nameKeyEvent,this))
                 .on('focusout', this.ui.__uiString.param_name, $.proxy(this.setRunValidate,this))
                 .on('keyup', this.ui.__uiString.param_email, $.proxy(this.emailKeyEvent,this))
-                // .on('focusin', this.ui.__uiString.param_email, $.proxy(this.emailFocusInEvent,this))
                 .on('focusout', this.ui.__uiString.param_email, $.proxy(this.setRunValidate,this))
                 .on('change', this.ui.__uiString.hostSelect, $.proxy(this.hostSelectEvent,this))
                 .on('keyup', this.ui.__uiString.param_password, $.proxy(this.passwordKeyEvent,this))
@@ -197,7 +194,7 @@ var EnterUserInformation = function () {
             var value = validate.trim($element.val());
             var name = $element.prop('name');
             var runValidate = $element.data('runValidate');
-            var message = null;
+            var message = $element.data('required-message');
             var isValidate = true;
 
             switch (name){
@@ -210,19 +207,18 @@ var EnterUserInformation = function () {
                     var registerEmail = this.ui.param_email.data('validate');
 
                     if(!validate.isEmail(value)){
-                        console.log('1 registerEmail = ',registerEmail);
                         isValidate = false;
                     }else{
-                        console.log('2 registerEmail = ',registerEmail);
                         if(registerEmail === ''){
                             message = controller.message.CHECKING_REGISTER_EMAIL;
                             controller.ajaxRegisterEmail();
                             isValidate = false;
                         }else{
+                            message = '';
                             if(registerEmail){
                             }else{
-                                message = controller.message.CHECK_FAIL_REGISTER_EMAIL;
                                 isValidate = false;
+                                console.log('여기면 메시지 지우기 ')
                             }
                         }
                     }
@@ -232,11 +228,7 @@ var EnterUserInformation = function () {
                     if(!isValidPassword){
                         isValidate = false;
                     }
-                    // console.log('isValidPassword = ',isValidPassword);
-                    // if(value.length < 6 || value.length > 15){
-                    //     //연속된 숫자
-                    //     isValidate = false;
-                    // }
+                    console.log('todo : 연속 숫자')
                     break;
                 case 'confirm':
                     if(this.ui.param_password.val() !== value){
@@ -280,15 +272,15 @@ var EnterUserInformation = function () {
                             this.ajaxRecommendUser();
                             isValidate = false;
                         }else{
+                            message = '';
                             if(findUser){
                             }else{
-                                message = this.message.CHECK_FAIL_RECOMMEND;
+                                //message = this.message.CHECK_FAIL_RECOMMEND;
                                 isValidate = false;
                             }
                         }
                     }
                     break;
-
             }
             if(runValidate){
                 this.displayValidateMessage($element, isValidate, message);
@@ -314,12 +306,11 @@ var EnterUserInformation = function () {
                     console.log('false')
                 }
             }).fail(function() {
-
                 var random = Math.floor(Math.random() * 2);
                 var result = {
                     status:'success',
                     isRegisterEmail: (random > 0)? true : false,
-                    message: (random > 0)? '중복된 아이디입니다 ' : '등록 가능한 아이디 입니다'
+                    message: (random > 0)? 'ajax 중복된 아이디입니다 ' : '등록 가능한 아이디 입니다'
                 };
 
                 if(result.status === 'success'){
@@ -356,7 +347,7 @@ var EnterUserInformation = function () {
                 var result = {
                     status:'success',
                     findUser: (random > 0)? true : false,
-                    message: (random > 0)? '친구추천 성공 ' : '친구추천 실패'
+                    message: (random > 0)? '친구추천 성공 ' : '추천인 아이디 또는 코드가 없습니다.'
                 };
 
                 if(result.status === 'success'){
@@ -367,7 +358,7 @@ var EnterUserInformation = function () {
                 }else{
                     console.log('fail')
                 }
-                controller.ui.param_recommendUser.data('validate',isValidate)
+                controller.ui.param_recommendUser.data('validate',isValidate);
                 controller.displayValidateMessage($recommendUser, isValidate, result.message);
             });
         },
@@ -375,9 +366,6 @@ var EnterUserInformation = function () {
         displayValidateMessage: function($element, isValidate, message){
             var name = $element.prop('name');
             var $wrap = $element.closest('.'+$element.data('required-wrap'));
-            if(!message){
-                message = $element.data('required-message');
-            }
             var $validate = $wrap.siblings('.validate-message');
             if(isValidate){
                 $validate.hide();
@@ -399,8 +387,6 @@ var EnterUserInformation = function () {
                     isValidate = false;
                 }
             });
-
-
 
             if( isValidate ){
                 alert('성공')

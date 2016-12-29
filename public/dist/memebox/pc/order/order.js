@@ -1701,6 +1701,11 @@ define(["jquery","jquery.ui.position"], function(__WEBPACK_EXTERNAL_MODULE_2__, 
 	        return (/^[a-zA-Z]+$/.test(str)
 	        );
 	    },
+	    isName: function isName(str) {
+	        str = validate.trim(str);
+	        return (/^[가-힝a-zA-Z]+$/.test(str)
+	        );
+	    },
 	    isEmail: function isEmail(str) {
 	        return (/\w+([-+.]\w+)*@\w+([-.]\w+)*\.[a-zA-Z]{2,4}$/.test(str)
 	        );

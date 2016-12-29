@@ -16,70 +16,75 @@
                 <strong class="signUp-form-required-title">기본정보</strong>
                 <ul class="signUp-form-required-ul">
                     <li class="signUp-form-required-li">
-                        <div class="signUp-name-wrap">
-                            <label class="signUp-name-label">
-                                <span class="signUp-name-text">이름</span>
-                                <input class="signUp-name-input"
-                                       type="text"
-                                       name="name"
-                                       placeholder="이름">
-                            </label>
-                        </div>
-                        <p class="validate-message">이름을 정확히 입력하세요.</p>
+                        <!--<div class="signUp-name-wrap">-->
+                            <!--<label class="signUp-name-label">-->
+                                <!--<span class="signUp-name-text">이름</span>-->
+                                <!--<input class="signUp-name-input"-->
+                                       <!--type="text"-->
+                                       <!--name="name"-->
+                                       <!--placeholder="이름">-->
+                            <!--</label>-->
+                        <!--</div>-->
+                        <!--<p class="validate-message">이름을 정확히 입력하세요.</p>-->
+                        {{> templates/member/signUp/_name}}
                     </li>
                     <li class="signUp-form-required-li">
                         <div class="signUp-email-wrap">
-                            <label class="signUp-email-label">
-                                <span class="signUp-email-text">아이디(이메일)</span>
-                                <input class="signUp-email-input"
-                                       type="text"
-                                       name="email"
-                                       placeholder="아이디(이메일)">
-                            </label>
+                            <!--<label class="signUp-email-label">-->
+                                <!--<span class="signUp-email-text">아이디(이메일)</span>-->
+                                <!--<input class="signUp-email-input"-->
+                                       <!--type="text"-->
+                                       <!--name="email"-->
+                                       <!--placeholder="아이디(이메일)">-->
+                            <!--</label>-->
+                            {{> templates/member/signUp/_email_label}}
                             <div class="signUp-email-host-select">
 
                             </div>
                         </div>
-                        <p class="validate-message">이메일 형식이 잘못되었습니다.</p>
+                        <p class="validate-message"></p>
                     </li>
                     <li class="signUp-form-required-li">
-                        <div class="signUp-password-wrap">
-                            <label class="signUp-password-label">
-                                <span class="signUp-password-text">비밀번호</span>
-                                <input class="signUp-password-input"
-                                       type="password"
-                                       name="password"
-                                       placeholder="비밀번호">
-                            </label>
-                        </div>
-                        <p class="validate-message">비밀번호는 6-15자 이내로 입력 바랍니다.</p>
+                        <!--<div class="signUp-password-wrap">-->
+                            <!--<label class="signUp-password-label">-->
+                                <!--<span class="signUp-password-text">비밀번호</span>-->
+                                <!--<input class="signUp-password-input"-->
+                                       <!--type="password"-->
+                                       <!--name="password"-->
+                                       <!--placeholder="비밀번호">-->
+                            <!--</label>-->
+                        <!--</div>-->
+                        <!--<p class="validate-message">비밀번호는 6-15자 이내로 입력 바랍니다.</p>-->
+                        {{> templates/member/signUp/_password}}
                     </li>
                     <li class="signUp-form-required-li">
-                        <div class="signUp-password-confirm-wrap">
-                            <label class="signUp-password-confirm-label">
-                                <span class="signUp-password-confirm-text">비밀번호 확인</span>
-                                <input class="signUp-password-confirm-input"
-                                       type="password"
-                                       name="confirm"
-                                       placeholder="비밀번호 확인">
-                            </label>
-                        </div>
-                        <p class="validate-message">입력하신 비밀번호가 일치하지 않습니다.</p>
+                        <!--<div class="signUp-password-confirm-wrap">-->
+                            <!--<label class="signUp-password-confirm-label">-->
+                                <!--<span class="signUp-password-confirm-text">비밀번호 확인</span>-->
+                                <!--<input class="signUp-password-confirm-input"-->
+                                       <!--type="password"-->
+                                       <!--name="confirm"-->
+                                       <!--placeholder="비밀번호 확인">-->
+                            <!--</label>-->
+                        <!--</div>-->
+                        <!--<p class="validate-message">입력하신 비밀번호가 일치하지 않습니다.</p>-->
+                        {{> templates/member/signUp/_confirm}}
                     </li>
                     <li class="signUp-form-required-li">
-                        <div class="signUp-cellphone-wrap">
-                            <label class="signUp-cellphone-label">
-                                <span class="signUp-cellphone-text">휴대폰번호</span>
-                                <input class="signUp-cellphone-input"
-                                       type="tel"
-                                       name="cellphone"
-                                       placeholder="휴대폰번호">
-                            </label>
-                            <!--<span class="signUp-cellphone-certification-remaining-time">3:00</span>-->
-                            <a href="#"
-                               class="signUp-cellphone-certification-trigger">번호인증</a>
-                        </div>
-                        <p class="validate-message">휴대폰번호를 다시 확인해 주세요.</p>
+                        <!--<div class="signUp-cellphone-wrap">-->
+                            <!--<label class="signUp-cellphone-label">-->
+                                <!--<span class="signUp-cellphone-text">휴대폰번호</span>-->
+                                <!--<input class="signUp-cellphone-input"-->
+                                       <!--type="tel"-->
+                                       <!--name="cellphone"-->
+                                       <!--placeholder="휴대폰번호">-->
+                            <!--</label>-->
+                            <!--&lt;!&ndash;<span class="signUp-cellphone-certification-remaining-time">3:00</span>&ndash;&gt;-->
+                            <!--<a href="#"-->
+                               <!--class="signUp-cellphone-certification-trigger">번호인증</a>-->
+                        <!--</div>-->
+                        <!--<p class="validate-message">휴대폰번호를 다시 확인해 주세요.</p>-->
+                        {{> templates/member/signUp/_cellphone}}
                     </li>
 
 
@@ -93,21 +98,25 @@
                 <strong class="signUp-form-optional-title">부가정보</strong>
                 <ul class="signUp-form-optional-ul">
                     <li class="signUp-form-required-li">
-                        <div class="signUp-recommendUser-wrap">
-                            <label class="signUp-recommendUser-label">
-                                <span class="signUp-recommendUser-text">추천인 이메일 아이디 또는 코드 입력</span>
-                                <input class="signUp-recommendUser-input"
-                                       type="text"
-                                       placeholder="추천인 이메일 아이디 또는 코드 입력">
-                            </label>
-                        </div>
-                        <p class="validate-message">추천인 아이디 또는 코드가 없습니다.</p>
+                        <!--<div class="signUp-recommendUser-wrap">-->
+                            <!--<label class="signUp-recommendUser-label">-->
+                                <!--<span class="signUp-recommendUser-text">추천인 이메일 아이디 또는 코드 입력</span>-->
+                                <!--<input class="signUp-recommendUser-input"-->
+                                       <!--type="text"-->
+                                       <!--placeholder="추천인 이메일 아이디 또는 코드 입력">-->
+                            <!--</label>-->
+                        <!--</div>-->
+                        <!--<p class="validate-message">추천인 아이디 또는 코드가 없습니다.</p>-->
+                        {{> templates/member/signUp/_recommendUser}}
                     </li>
                 </ul>
             </div>
 
             <div class="signUp-form-controller">
-                <button class="signUp-form-submit" type="submit">회원가입</button>
+                <input class="signUp-form-submit"
+                       type="submit"
+                       value="확인"
+                       disabled>
             </div>
         </fieldset>
     </form>
