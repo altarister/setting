@@ -56,7 +56,7 @@ gulp.task('front-browser-mobile-sync', ['local_build_mobile'], function() {//'lo
     browserSync_front.init({
         proxy: "http://localhost:5000",
         browser: "google chrome",
-        port: 7000
+        port: 8000
     });
 
     gulp.watch(files.view).on("change", browserSync_front.reload);
@@ -68,7 +68,7 @@ gulp.task('front-browser-pc-sync', ['local_build_pc'], function() {//'local_buil
     browserSync_front.init({
         proxy: "http://localhost:5000",
         browser: "google chrome",
-        port: 7000
+        port: 8000
     });
 
     gulp.watch(files.view).on("change", browserSync_front.reload);

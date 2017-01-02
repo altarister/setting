@@ -35,7 +35,13 @@
                                 <span class="agreement-use-text">미미박스 이용약관  <span>(필수)</span></span>
                                 <a href="#signUpMemeboxUseContent"
                                    class="terms-view-trigger"></a>
-                                <input class="agreement-use-checkbox" type="checkbox">
+                                <input class="agreement-use-checkbox"
+                                       type="checkbox"
+                                       name="agreementUse"
+                                       data-required="true"
+                                       data-run-validate=""
+                                       data-required-wrap="signUp-agreement"
+                                       data-required-message="미미박스 이용약관에 동의해 주세요.">
                             </label>
                             <div id="signUpMemeboxUseContent" class="signUp-terms-content visible">
                                 {{> modules/_terms/memeboxUse}}
@@ -50,8 +56,11 @@
                                    class="terms-view-trigger"></a>
                                 <input class="agreement-privacy-checkbox"
                                        type="checkbox"
+                                       name="privacy"
                                        data-required="true"
-                                       data-required-wrap="signUp-agreement-required">
+                                       data-run-validate=""
+                                       data-required-wrap="signUp-agreement"
+                                       data-required-message="미미박스 이용약관에 동의해 주세요.">
                             </label>
                             <div id="signUpPrivacyContent" class="signUp-terms-content">
                                 {{> modules/_terms/privacy}}
@@ -66,8 +75,11 @@
                                    class="terms-view-trigger"></a>
                                 <input class="agreement-thirdParty-checkbox"
                                        type="checkbox"
+                                       name="thirdParty"
                                        data-required="true"
-                                       data-required-wrap="signUp-agreement-required">
+                                       data-run-validate=""
+                                       data-required-wrap="signUp-agreement"
+                                       data-required-message="미미박스 이용약관에 동의해 주세요.">
                             </label>
                             <div id="signUpThirdPartyContent" class="signUp-terms-content">
                                 {{> modules/_terms/thirdParty}}
@@ -76,7 +88,7 @@
                     </li>
                 </ul>
             </div>
-            <p class="validate-message">개인정보 제3자(판매자) 제공에 동의해 주세요.</p>
+            <p class="validate-message"></p>
 
             <div class="signUp-agreement">
                 <strong class="signUp-agreement-title">선택 동의 항목</strong>

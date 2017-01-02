@@ -90,7 +90,14 @@ var EnterUserInformation = function () {
         },
 
         passwordKeyEvent: function(event){
-            this.validate($(event.currentTarget));
+            var $element = $(event.currentTarget);
+            var temp = $element.val();
+            var value = temp.replace(/(\s*)/g, '');
+
+            $element.val(value);
+
+            console.log('value = ',value);
+            this.validate($element);
         },
 
         cellphoneFocusInEvent: function(event){
@@ -224,6 +231,23 @@ var EnterUserInformation = function () {
                     }
                     break;
                 case 'password':
+                    //str.replace(/(^\s*)|(\s*$)/g, "");
+                    // var value = (typeof value !== 'string') ? '' + value : value;
+                    // value.replace(/(^\s*)|(\s*$)/g, '');
+                    //
+                    //
+                    // str.replace(/(^\s*)|(\s*$)/g, "");
+                    // pwStr = pwStr.replace(/\s+/g, '');
+                    // var str = $.trim(pwStr).length;
+                    // console.log('1 str = ',str)
+                    //
+                    // str = str.replace(/(^\s*)|(\s*$)/g, '');
+                    //
+                    // console.log('2 str = ',str)
+
+
+
+
                     if(!validatePassword.validatePassword(value)){
                         isValidate = false;
                     }

@@ -10,13 +10,13 @@ var AcceptTerms = function(){
 
         element: '#memebox-service',
         ui: {
-            SNSWrap: '.signUp-SNS-wrap'
+            param_required: '[data-required="true"]'
+
+            ,SNSWrap: '.signUp-SNS-wrap'
             ,form: '.signUp-form'
             ,agreementAll: '.agreement-all-checkbox'
-            ,agreement: '.signUp-agreement'
+            // ,agreement: '.signUp-agreement'
             ,allInput: '.signUp-agreement input[type="checkbox"]'
-            ,requiredInput: '.signUp-agreement-required input[type="checkbox"]'
-            ,validateMessage: '.validate-message'
             ,toggle: '.terms-view-trigger'
             ,termsContent: '.signUp-terms-content'
         },
@@ -27,6 +27,93 @@ var AcceptTerms = function(){
             new SignUpSNS(this.ui.SNSWrap);
         },
 
+
+        addEventListener: function(){
+            this.element.off()
+                .on('change', this.ui.__uiString.agreementAll, $.proxy(this.agreementAllEvent, this))
+                .on('change', this.ui.__uiString.param_required, $.proxy(this.changeEvent, this))
+                .on('click', this.ui.__uiString.toggle, $.proxy(this.displayTermContent,this))
+                .on('submit', this.ui.__uiString.form, $.proxy(this.submitEvent,this));
+        },
+
+        agreementAllEvent: function(event){
+            var $allAgreement = $(event.currentTarget);
+            var allAgreementValue = $allAgreement.prop('checked');
+
+            this.ui.param_required.data('runValidate',true);
+            if(allAgreementValue){
+                this.ui.allInput.prop('checked', true);
+            }else{
+                this.ui.allInput.prop('checked', false);
+            }
+
+            this.ui.param_required.each(function(index, element){
+                controller.validate($(element));
+            });
+        },
+
+        changeEvent: function(event){
+            this.validate($(event.currentTarget));
+        },
+
+        validate: function($element){
+            var runValidate = $element.data('runValidate');
+            var message = $element.data('required-message');
+            var isValidate = true;
+
+            this.ui.param_required.each(function(index, element){
+                if(!$(element).prop('checked')){
+                    isValidate = false;
+                }
+            });
+
+            if(isValidate){
+                this.ui.agreementAll.prop('checked', true);
+            }else{
+                this.ui.agreementAll.prop('checked', false);
+            }
+
+            if(runValidate){
+                this.displayValidateMessage($element, isValidate, message);
+            }else{
+                isValidate = false;
+            }
+            return isValidate;
+        },
+
+        displayValidateMessage: function($element, isValidate, message){
+            var name = $element.prop('name');
+            var $wrap = $element.closest('.'+$element.data('required-wrap'));
+            var $validate = $wrap.siblings('.validate-message');
+            if(isValidate){
+                $validate.hide();
+            }else{
+                $validate.text(message).show();
+            }
+        },
+
+        submitEvent: function(event) {
+            var isValidate = true;
+            var $element;
+
+            this.ui.param_required.each(function(index, element){
+                $element = $(element);
+
+                $element.data('runValidate',true);
+
+                if(!controller.validate($element)){
+                    isValidate = false;
+                }
+            });
+
+            if( isValidate ){
+                alert('성공')
+            }else{
+                event.preventDefault();
+                console.log('실패')
+            }
+        },
+        /*
         addEventListener: function(){
             this.element.off()
                 .on('change', this.ui.__uiString.agreementAll, $.proxy(this.agreementAllEvent, this))
@@ -78,6 +165,9 @@ var AcceptTerms = function(){
                 this.ui.validateMessage.show();
             }
         },
+
+
+        */
 
         displayTermContent: function(event){
             event.preventDefault();

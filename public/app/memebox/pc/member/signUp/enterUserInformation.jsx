@@ -220,7 +220,22 @@ var EnterUserInformation = function () {
         },
 
         passwordKeyEvent: function(event){
-            this.validate($(event.currentTarget));
+            var $element = $(event.currentTarget);
+            var temp = $element.val();
+            var value = temp.replace(/(\s*$)/g, '');
+
+            $element.val(value);
+
+            console.log('value = ',value);
+            // if(validate.isEmpty(value)){
+            //     console.log('aaa');
+            // }else{
+            //     console.log('bbb');
+            // }
+            this.validate($element);
+
+
+            //this.validate($(event.currentTarget));
         },
 
         cellphoneFocusInEvent: function(event){
@@ -354,6 +369,7 @@ var EnterUserInformation = function () {
                     }
                     break;
                 case 'password':
+                    console.log('validate = ',value)
                     if(!validatePassword.validatePassword(value)){
                         isValidate = false;
                     }
