@@ -14,7 +14,7 @@ var validate_password = {
         }
     },
 
-    checkCapslock: function(e) {
+    checkCapsLock: function(e) {
         var myKeyCode = 0;
         var myShiftKey = false;
         if (window.event) { // IE
@@ -40,39 +40,37 @@ var validate_password = {
         }
     },
 
-    temp: function(){
-        var sameCharRegexp = /[a-zA-Z]\a\a/; // 같은 문자 반복 3개
-        var sameNumberRegexp = /(\w)\1\1/; // 같은 숫자 반복 3개
-    },
+    validatePassword: function (str) {
+        var isValidPassword = true;
+        var security_step = 0;
+        var reg_sequential = {
+            english : /[a-zA-Z]\a\a/,
+            number : /(\w)\1\1/
+        };
+        var reg_character = {
+            english : /.*[a-zA-Z]/,
+            specialCharacter : /.*[!@#$%^&+=]/,
+            number : /.*[0-9]/
+        };
 
-    isValidPassword: function (str) {
-        var cnt = 0;
-        if (str == "") {
-            return false;
+        // 필요 문자 여부 확인
+        for(var character_key in reg_character){
+            if (reg_character[character_key].test(str)) {
+                ++security_step;
+            }
         }
-
-        /* check whether input value is included space or not */
-        // var retVal = checkSpace(str);
-        // if (retVal) {
-        //     return false;
-        // }
-        if (str.length < 6) {
-            return false;
-        }
-        for (var i = 0; i < str.length; ++i) {
-            if (str.charAt(0) == str.substring(i, i + 1))
-                ++cnt;
-        }
-        if (cnt == str.length) {
-            return false;
-        }
-
-        var isPW = /^[A-Za-z0-9`\-=\\\[\];',\./~!@#\$%\^&\*\(\)_\+|\{\}:"<>\?]{6,16}$/;
-        if (!isPW.test(str)) {
-            return false;
+        // 연속된 문자 숫자 확인
+        for(var sequential_key in reg_sequential){
+            if (reg_sequential[sequential_key].test(str)) {
+                return isValidPassword = false;
+            }
         }
 
-        return true;
+        if (security_step < 2) {
+            isValidPassword = false;
+        }
+
+        return isValidPassword;
     }
 };
 

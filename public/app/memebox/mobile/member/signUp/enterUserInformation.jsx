@@ -224,11 +224,9 @@ var EnterUserInformation = function () {
                     }
                     break;
                 case 'password':
-                    var isValidPassword = validatePassword.isValidPassword(value);
-                    if(!isValidPassword){
+                    if(!validatePassword.validatePassword(value)){
                         isValidate = false;
                     }
-                    console.log('todo : 연속 숫자')
                     break;
                 case 'confirm':
                     if(this.ui.param_password.val() !== value){

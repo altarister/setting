@@ -13,16 +13,6 @@ var EnterUserInformation = function () {
     var controller = {
 
         element: '#memebox-service',
-        // ui: {
-        //     SNSWrap: '.signUp-SNS-wrap',
-        //     hostSelect: '.signUp-email-wrap .select-design-viewer-option-selector',
-        //     hostSelectBox: '.signUp-email-wrap .select-design-viewer-list',
-        //     hostSelectOption: '.signUp-email-wrap .signUp-email-host-option',
-        //
-        //     emailHost: '.signUp-email-input-host'
-        //     ,selectWrap: '.signUp-email-host-select'
-        // },
-
         ui: {
             param_name: '[name=name]'
             ,param_email: '[name=email]'
@@ -33,7 +23,6 @@ var EnterUserInformation = function () {
             ,param_required: '[data-required="true"]'
 
             ,SNSWrap: '.signUp-SNS-wrap'
-            ,hostSelect: '.signUp-email-wrap .select-design-viewer-option-selector'
             ,hostSelectBox: '.signUp-email-wrap .select-design-viewer-list'
             ,hostSelectOption: '.signUp-email-wrap .signUp-email-host-option'
 
@@ -49,7 +38,8 @@ var EnterUserInformation = function () {
             EMPTY: '필수 입력란입니다.',
             VERIFICATION: '인증을 하여야 합니다.',
             CHECKING_RECOMMEND: '추천인 코드를 조회 중입니다.',
-            CHECKING_REGISTER_EMAIL: '중복 아이디를 조회 중입니다'
+            CHECKING_REGISTER_EMAIL: '중복 아이디를 조회 중입니다',
+            CHECKING_SEQUENTIAL_NUMBER: '동일한 문자나 숫자를 연속으로 사용할 수 없습니다.'
         },
 
         API: {
@@ -364,11 +354,9 @@ var EnterUserInformation = function () {
                     }
                     break;
                 case 'password':
-                    var isValidPassword = validatePassword.isValidPassword(value);
-                    if(!isValidPassword){
+                    if(!validatePassword.validatePassword(value)){
                         isValidate = false;
                     }
-                    console.log('todo : 연속 숫자')
                     break;
                 case 'confirm':
                     if(this.ui.param_password.val() !== value){

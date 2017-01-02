@@ -33,6 +33,8 @@ var validate_password = {
                 } else if( reg_pwd_nuSp.test(pwStr) ){ // 숫자 + 특수문자
                     isCombined = true;
                 }
+
+
                 if( !isCombined ){
                     handleErrorValidationText('* 영문(대소문자), 숫자, 특수문자 중 2가지 이상을 조합하여 작성합니다.',1);
                     return false;
