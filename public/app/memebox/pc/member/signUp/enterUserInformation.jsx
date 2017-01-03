@@ -222,20 +222,10 @@ var EnterUserInformation = function () {
         passwordKeyEvent: function(event){
             var $element = $(event.currentTarget);
             var temp = $element.val();
-            var value = temp.replace(/(\s*$)/g, '');
+            var value = temp.replace(/(\s)/g, '');
 
             $element.val(value);
-
-            console.log('value = ',value);
-            // if(validate.isEmpty(value)){
-            //     console.log('aaa');
-            // }else{
-            //     console.log('bbb');
-            // }
             this.validate($element);
-
-
-            //this.validate($(event.currentTarget));
         },
 
         cellphoneFocusInEvent: function(event){

@@ -92,11 +92,9 @@ var EnterUserInformation = function () {
         passwordKeyEvent: function(event){
             var $element = $(event.currentTarget);
             var temp = $element.val();
-            var value = temp.replace(/(\s*)/g, '');
+            var value = temp.replace(/(\s)/g, '');
 
             $element.val(value);
-
-            console.log('value = ',value);
             this.validate($element);
         },
 
@@ -127,6 +125,7 @@ var EnterUserInformation = function () {
         },
 
         _allowOnlyNumber: function(event){
+            console.log('aaa')
             var code = event.keyCode || event.which;
             var isValidKey = !(code != 46 && code > 31 && (code < 48 || code > 57));
 
