@@ -42,5 +42,9 @@
 	{
 		"url" : "/dealAll/dealAll",
 		"text" : "딜 모두 보기"
+	},
+	{
+		"url" : "/",
+		"text" : "index"
 	}
 ]
