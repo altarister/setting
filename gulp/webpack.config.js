@@ -76,11 +76,8 @@ module.exports = function (serviceString, envString, deviceString) {
     );
 
     var objectAssignAgs = (function(){
-
         var commmonObject = {};
-
         var name = 'dist/'+serviceString+'/'+(device.isMobile ? 'mobile' : 'pc')+'/common/common.chunk';
-        //var name = 'common'
         var HELPER_CHUNK = [
             requirejsConfig.PROVIDER.common + '/handlebars-helpers/json',
             requirejsConfig.PROVIDER.common + '/handlebars-helpers/formatNumber'
@@ -92,9 +89,8 @@ module.exports = function (serviceString, envString, deviceString) {
         for(var key in COMMON_CHUNK){
             HELPER_CHUNK.push(COMMON_CHUNK[key]);
         }
-         console.log('HELPER_CHUNK = ',HELPER_CHUNK)
+
         commmonObject[name] = HELPER_CHUNK;
-        //return HELPER_CHUNK;
         return commmonObject;
     })();
 

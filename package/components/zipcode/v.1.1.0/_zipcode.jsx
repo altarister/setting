@@ -16,15 +16,15 @@
 var $ = require('jquery');
 var utility = require('utility');
 var validate = require('validate');
-//require('./pc/_zipcode.scss');
-require('./mobile/_zipcode.scss');
+require('device/_zipcode.scss');
+//require('./mobile/_zipcode.scss');
 
 var zipcode_templates = {
-    gide: require('./_gide.hbs'),
-    result: require('./_result.hbs'),
-    address: require('./_address.hbs'),
-    zipcode: require('./_zipcode.hbs'),
-    selectOption: require('./_selectOption.hbs')
+    gide: require('./_templates/_gide.hbs'),
+    result: require('./_templates/_result.hbs'),
+    address: require('./_templates/_address.hbs'),
+    zipcode: require('./_templates/_zipcode.hbs'),
+    selectOption: require('./_templates/_selectOption.hbs')
 };
 
 var zipcode = function(collBackFunction, $wraper, zipcode_params, trackFunction){
@@ -151,6 +151,7 @@ var zipcode = function(collBackFunction, $wraper, zipcode_params, trackFunction)
         },
         //초기화
         initialize: function(){
+            console.log('a')
             if(zipcode_params.zipcodeAPI){
                 this.zipcodeAPI = zipcode_params.zipcodeAPI;
             }

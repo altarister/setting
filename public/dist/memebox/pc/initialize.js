@@ -7,11 +7,11 @@ define(["jquery","modernizr","slick"], function(__WEBPACK_EXTERNAL_MODULE_2__, _
 	__webpack_require__(57);
 	var $ = __webpack_require__(2);
 	var Common = __webpack_require__(58);
-
 	var memeboxWrapSelector = '#memebox-service';
 
 	function globalSubscribePublishEvent() {
 	    var o = $({});
+
 	    $.subscribe = function () {
 	        o.on.apply(o, arguments);
 	    };
@@ -28,7 +28,7 @@ define(["jquery","modernizr","slick"], function(__WEBPACK_EXTERNAL_MODULE_2__, _
 
 	function pageControllerInitialize() {
 	    var controller = $(memeboxWrapSelector).data('controller');
-	    console.log('controller === ', controller);
+
 	    if (controller) {
 	        memeboxRequire(['dist/' + controller], function (controller) {
 	            if (controller && controller instanceof Function) {
@@ -42,6 +42,7 @@ define(["jquery","modernizr","slick"], function(__WEBPACK_EXTERNAL_MODULE_2__, _
 	    $('[data-widget]').each(function (index, widget) {
 	        var path = $(widget).data('widget'),
 	            data = $(widget).data('widget-data');
+
 	        memeboxRequire([path], function (widgetFunction) {
 	            if (widgetFunction && widgetFunction instanceof Function) {
 	                widgetFunction(widget, data);

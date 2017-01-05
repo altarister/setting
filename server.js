@@ -7,6 +7,8 @@ var app = express();
 var useragent = require('express-useragent');
 var index = require('./server/memebox/routes/index');
 var service = 'memebox';
+var bodyParser = require('body-parser');
+
 
 //hbs.register/////////////////////////
 var blocks = {};
@@ -49,6 +51,7 @@ app.engine('html', require('hbs').__express);
 app.set('views', 'views');
 app.set('view engine', 'hbs');
 app.use(useragent.express());
+app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static(__dirname +'/public'));
 app.use(express.static(__dirname +'/views'));
 app.use(express.static(__dirname +'/package'));

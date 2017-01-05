@@ -1,7 +1,0 @@
-{
-  "type":"GET",
-  "cache":"true",
-  "data":"",
-  "dataType":"json",
-  "url":"/dealAPI"
-}

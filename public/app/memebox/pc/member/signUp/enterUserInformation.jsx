@@ -277,7 +277,7 @@ var EnterUserInformation = function () {
                 if(data.success){
                     controller.ui.certificationTrigger.prop('disabled', true);
                     controller.ui.certificationEnd.show();
-                    controller.ui.param_cellphone.prop('disabled', true);
+                    controller.ui.param_cellphone.prop('readonly', true);
                     controller.validate(controller.ui.param_cellphone);
                 }else{
                     controller.ui.certificationTrigger.prop('disabled', false);
@@ -368,9 +368,10 @@ var EnterUserInformation = function () {
                             this.ui.certificationTrigger.prop('disabled', false);
                         }
                     }
+
                     break;
                 case 'verification':
-                    if(!this.ui.param_cellphone.prop('disabled')){
+                    if(!this.ui.param_cellphone.prop('readonly')){
                         message = this.message.VERIFICATION;
                         isValidate = false;
                     }

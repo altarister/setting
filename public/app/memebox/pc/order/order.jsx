@@ -1,7 +1,7 @@
 var $ = require('jquery');
 var utility = require('utility');
 var Menu = require('components/menu/v.1.0.0/_menu.jsx');
-var zipcode = require('components/zipcode/v.1.0.0/_zipcode.jsx');
+var zipcode = require('components/zipcode/v.1.1.0/_zipcode.jsx');
 var layer_modal = require('modules/layer/modal/v.1.0.0/_modal.jsx');
 
 require('./order.scss');

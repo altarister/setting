@@ -1776,8 +1776,8 @@ define(["jquery","jquery.ui.position"], function(__WEBPACK_EXTERNAL_MODULE_2__, 
 	var $ = __webpack_require__(2);
 	var utility = __webpack_require__(3);
 	var validate = __webpack_require__(70);
-
 	__webpack_require__(83);
+	//require('./mobile/_zipcode.scss');
 
 	var zipcode_templates = {
 	    gide: __webpack_require__(84),
@@ -1787,8 +1787,7 @@ define(["jquery","jquery.ui.position"], function(__WEBPACK_EXTERNAL_MODULE_2__, 
 	    selectOption: __webpack_require__(88)
 	};
 
-	var zipcode = function zipcode(collBackFunction, $wraper, zipcode_params) {
-	    console.log('new--');
+	var zipcode = function zipcode(collBackFunction, $wraper, zipcode_params, trackFunction) {
 	    var controller = {
 	        //UI selecter
 	        element: '.zip-code-search',
@@ -1851,7 +1850,7 @@ define(["jquery","jquery.ui.position"], function(__WEBPACK_EXTERNAL_MODULE_2__, 
 	                    gide: {
 	                        input: "시/도 , 시/군/구 선택 후 주소명을 입력해주세요.",
 	                        placeholder: "(예: 판교역로14번길 20)",
-	                        choice: ["도로명 입력 (예 : 반포대로)", "도로명 + 건물번호 입력 (예 : 반포대로 58)", "건물명 입력 (예: 국립중앙박물관)"]
+	                        choice: ["도로명 입력 (예 : 반포대로)", "도로명 + 건물번호 입력 (예 : 반포대로 58)", "건물명 입력 (예: 국립중앙박물관)", "시/군/구가 존재하지 않는 경우 지번 주소 찾기를 이용해주세요."]
 	                    }
 	                },
 	                resultNoting: {
@@ -1886,12 +1885,12 @@ define(["jquery","jquery.ui.position"], function(__WEBPACK_EXTERNAL_MODULE_2__, 
 	        },
 	        //초기화
 	        initialize: function initialize() {
+	            console.log('a');
 	            if (zipcode_params.zipcodeAPI) {
 	                this.zipcodeAPI = zipcode_params.zipcodeAPI;
 	            }
 
 	            var zipcodeHtml = zipcode_templates.zipcode(this.viewData);
-	            console.log('zipcodeHtml = ', zipcodeHtml);
 	            $wraper.html(zipcodeHtml);
 	            utility.uiEnhancements.call(this);
 	            var $city = this.element.find('select[name=zip-code-search-user-select-city]');
@@ -1904,7 +1903,22 @@ define(["jquery","jquery.ui.position"], function(__WEBPACK_EXTERNAL_MODULE_2__, 
 	            this.displayFilter(this.beforeSearchStatus.type);
 	            this.setDisplayZipcodeBox();
 	            this.addEventListener();
+
+	            this.tracking();
+
+	            try {
+	                var eventCategory = zipcode_params.device === 'pc' ? '주소검색_PC' : '주소검색_Mobile';
+	                ga('send', {
+	                    hitType: 'event',
+	                    eventCategory: eventCategory,
+	                    eventAction: '상단탭클릭',
+	                    eventLabel: '도로명주소'
+	                });
+	            } catch (e) {}
 	        },
+
+	        tracking: function tracking() {},
+
 	        //최초 우편번호 검색 html 붙여넣기
 	        setDisplayZipcodeBox: function setDisplayZipcodeBox() {
 	            var contentsWrap = this.ui.zipcodeSearchContents.outerHeight(true) - this.ui.zipcodeSearchContents.innerHeight();
@@ -1927,13 +1941,13 @@ define(["jquery","jquery.ui.position"], function(__WEBPACK_EXTERNAL_MODULE_2__, 
 	            var townValue = this.element.find('select[name=zip-code-search-user-select-town]').val();
 	            var keyword = this.ui.searchKeyword.val();
 
-	            this.requestParameterForAPI.page = 1;
 	            this.requestParameterForAPI.sido = '';
 	            this.requestParameterForAPI.sigungu = '';
 	            if (this.beforeSearchStatus.type === 'road') {
 	                this.requestParameterForAPI.sido = cityValue;
 	                this.requestParameterForAPI.sigungu = townValue;
 	            }
+	            this.requestParameterForAPI.page = 1;
 	            this.requestParameterForAPI.keyword = keyword;
 	            this.beforeSearchStatus.isNewZipCodeSearch = true;
 	            this.decideSearchRequestType();
@@ -1986,7 +2000,6 @@ define(["jquery","jquery.ui.position"], function(__WEBPACK_EXTERNAL_MODULE_2__, 
 	                    }
 	                });
 	            } else {
-	                console.log('시/군/구 선택 불가');
 	                controller.element.find('select[name=zip-code-search-user-select-town]').prop('disabled', true);
 	            }
 	        },
@@ -2000,7 +2013,7 @@ define(["jquery","jquery.ui.position"], function(__WEBPACK_EXTERNAL_MODULE_2__, 
 	                    count: 0
 	                });
 	            }
-	            for (var index in optionArray) {
+	            for (var index = 0; index < optionArray.length; index++) {
 	                selectOptionHtml += zipcode_templates.selectOption(optionArray[index]);
 	            }
 	            $select.empty().append($(selectOptionHtml));
@@ -2039,8 +2052,8 @@ define(["jquery","jquery.ui.position"], function(__WEBPACK_EXTERNAL_MODULE_2__, 
 	        },
 	        //API통신 시도
 	        ajaxSearchRequest: function ajaxSearchRequest(requestData, isMoreRequest) {
-	            console.log('ajax 진행 requestData.type = ', requestData.type);
 	            var url = this.zipcodeAPI[requestData.type];
+
 	            $.ajax({
 	                url: url,
 	                data: requestData,
@@ -2059,6 +2072,28 @@ define(["jquery","jquery.ui.position"], function(__WEBPACK_EXTERNAL_MODULE_2__, 
 	                        controller.makeResultContentsWrap(result.data, requestData);
 	                    }
 	                    controller.setSearchPossible(result.data);
+
+	                    try {
+	                        //console.log('analytics imp '+requestData.keyword);
+
+	                        analytics.track('Address Search', {
+	                            s_logType: 'impAddress',
+	                            s_sido: requestData.sido ? requestData.sido : null, //값이 없으면(지번주소) null
+	                            s_sigungu: requestData.sigungu ? requestData.sigungu : null, //값이 없으면(지번주소) null
+	                            s_keywords: requestData.keyword,
+	                            s_transactionCount: result.data.totalCount
+	                        });
+
+	                        var eventCategory = zipcode_params.device === 'pc' ? '주소검색_PC' : '주소검색_Mobile';
+	                        ga('send', {
+	                            hitType: 'event',
+	                            eventCategory: eventCategory,
+	                            eventAction: '검색',
+	                            eventLabel: requestData.keyword
+	                        });
+	                    } catch (e) {
+	                        //console.log(e);
+	                    }
 	                } else {
 	                    alert(controller.message.SYSTEM_ERROR);
 	                }
@@ -2068,10 +2103,7 @@ define(["jquery","jquery.ui.position"], function(__WEBPACK_EXTERNAL_MODULE_2__, 
 	        setSearchPossible: function setSearchPossible(data) {
 	            this.beforeSearchStatus.isSearchPossible = true;
 	            if (data.address.length < this.requestParameterForAPI.limit) {
-	                console.log(data.address.length, '건 발견되어 더 이상 로드할 필요 없다');
 	                this.beforeSearchStatus.isSearchPossible = false;
-	            } else {
-	                console.log(data.address.length, '건 발견 더 찾아 봐야 한다 ');
 	            }
 	        },
 	        //검색된 결과 html 만들기
@@ -2081,30 +2113,19 @@ define(["jquery","jquery.ui.position"], function(__WEBPACK_EXTERNAL_MODULE_2__, 
 	            this.ui.result.append(resultHtml).show();
 
 	            if (data.address.length <= 0) {
-
-	                // 주소가 없는 경우
 	                if (!this.beforeSearchStatus.hasResult) {
-	                    //주소가 없어서 범위검색으로 다시 보내야 한다.
 	                    this.beforeSearchStatus.hasResult = true;
 	                    this.beforeSearchStatus.isSearchPossible = false;
-	                    console.log('범위 검색도 없는 경우 그냥 끝 ');
-	                } else {
-	                    //범위검색 도 없는 경우.
-	                    console.log('범위 검색 스펙 아웃 되어 범위검색으로 다시 찾지 않는다.');
+	                } else {//범위 검색 스펙 아웃 되어 범위검색으로 다시 찾지 않는다.
 	                    // this.requestParameterForAPI.type = 'range';
 	                    // this.beforeSearchStatus.hasResult = false;
 	                    // this.beforeSearchStatus.isNewZipCodeSearch = true;
 	                    // this.decideSearchRequestType();
 	                }
 	                this.element.find('.zip-code-search-result-gide').text(this.viewData.information.resultNoting.gide);
-	                // 주소가 없어서 범위까지 없는 경우
-	                //this.element.find('.zip-code-search-result-contents-wrap').empty();
 	                this.setResultNotingTrigger(zipcode_params.device);
 	                this.element.find('.zip-code-search-result-noting-wrap').show();
-	                //}else if(){
 	            } else {
-
-	                //this.beforeSearchStatus.hasResult = true;
 	                this.element.find('.zip-code-search-result-noting-wrap').hide();
 	                this.makeResultAddress(data);
 	                this.resultEventListener();
@@ -2119,6 +2140,7 @@ define(["jquery","jquery.ui.position"], function(__WEBPACK_EXTERNAL_MODULE_2__, 
 	            var $resultContentsWrap = this.element.find('.zip-code-search-result-contents-wrap');
 	            var SearchContents = this.ui.zipcodeSearchContents.innerHeight();
 	            var height = 0;
+
 	            if (device === 'pc') {
 	                var userChoiceWrap = this.ui.userChoiceWrap.outerHeight(true);
 	                var resultInfoWrap = this.element.find('.zip-code-search-result-info-wrap').outerHeight(true);
@@ -2177,12 +2199,48 @@ define(["jquery","jquery.ui.position"], function(__WEBPACK_EXTERNAL_MODULE_2__, 
 	        },
 	        //주소 클릭시 콜백 함수 실행
 	        resultTriggerEvent: function resultTriggerEvent(event) {
+	            try {
+	                var s_clickType = this.requestParameterForAPI.type === 'road' ? 'ZRD' : 'ZJB';
+	                //console.log('analytics clk address '+s_clickType);
+
+	                analytics.track('Address Search', {
+	                    s_logType: 'clk',
+	                    s_keyword: this.requestParameterForAPI.keyword,
+	                    s_clickType: s_clickType,
+	                    s_clickAction: 'CLK'
+	                });
+	            } catch (e) {
+	                //console.log(e);
+	            }
 	            event.preventDefault();
 	            var zipcode = $(event.currentTarget).data('zipcode');
 	            collBackFunction(zipcode);
 	        },
 	        //tab 변경
 	        selectTypeEvent: function selectTypeEvent(event) {
+	            try {
+	                var tabText = event.currentTarget.childNodes[0].innerText;
+	                var s_clickType = tabText === '지번 주소' ? 'ZJB' : 'ZRD';
+	                //console.log('analytics clk tab '+s_clickType);
+
+	                analytics.track('Address Search', {
+	                    s_logType: 'clk',
+	                    s_clickType: s_clickType,
+	                    s_clickAction: 'TAB'
+	                });
+
+	                var eventCategory = zipcode_params.device === 'pc' ? '주소검색_PC' : '주소검색_Mobile';
+	                var eventLabel = tabText === '지번 주소' ? '지번주소' : '도로명주소';
+	                ga('send', {
+	                    hitType: 'event',
+	                    eventCategory: eventCategory,
+	                    eventAction: '상단탭클릭',
+	                    eventLabel: eventLabel
+	                });
+	            } catch (e) {
+	                //console.log(e);
+	            }
+
 	            event.preventDefault();
 	            var $current = $(event.currentTarget);
 	            var typeChangeHistory = this.beforeSearchStatus.type;
@@ -2225,7 +2283,6 @@ define(["jquery","jquery.ui.position"], function(__WEBPACK_EXTERNAL_MODULE_2__, 
 	        },
 	        //tab view
 	        displaySelector: function displaySelector(selectorType) {
-	            console.log('displaySelector = ', selectorType);
 	            this.ui.typeSelectorTrigger.each(function (index, element) {
 	                var $element = $(element);
 	                var currentType = $element.data('search-type');
