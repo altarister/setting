@@ -27,8 +27,7 @@ var config = {
     APP_DIR_RESOURCES : APP_DIR_RESOURCES,
     APP_DIR_APP : APP_DIR_APP,
     APP_DIR_DIST : APP_DIR_DIST,
-    APP_DIR_VIEW : APP_DIR_VIEW,
-    APP_DIR_SERVER : SERVER_DIR
+    APP_DIR_VIEW : APP_DIR_VIEW
 };
 
 var files = {
@@ -86,8 +85,8 @@ gulp.task('watch', function(){
 
 gulp.task('start', ['server'], function() {
     return nodemon({
-        script: 'server.js',
-        watch: config.APP_DIR_SERVER
+        script: 'server.js',//SERVER_DIR+
+        watch: SERVER_DIR
     });
 });
 
@@ -99,6 +98,6 @@ gulp.task('browser-sync', function(){
     })
 });
 
-gulp.task('default', ['clean', 'Webpack_mobile', 'Webpack_pc', 'watch', 'start', 'browser-sync'], function() {
+gulp.task('default', ['clean', 'Webpack_pc', 'Webpack_mobile', 'watch', 'start', 'browser-sync'], function() { //
     gutil.log('Gulp is running');
 });

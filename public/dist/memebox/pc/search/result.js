@@ -2634,7 +2634,8 @@ define(["jquery"], function(__WEBPACK_EXTERNAL_MODULE_2__) { return webpackJsonp
 /* 57 */,
 /* 58 */,
 /* 59 */,
-/* 60 */
+/* 60 */,
+/* 61 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -2642,11 +2643,11 @@ define(["jquery"], function(__WEBPACK_EXTERNAL_MODULE_2__) { return webpackJsonp
 	var $ = __webpack_require__(2);
 	var utility = __webpack_require__(3);
 
-	__webpack_require__(61);
+	__webpack_require__(62);
 
 	var select_templates = {
-	    _select: __webpack_require__(62),
-	    _select_accordion: __webpack_require__(64)
+	    _select: __webpack_require__(63),
+	    _select_accordion: __webpack_require__(65)
 	};
 
 	var Select = function Select(data, $wrap) {
@@ -2798,14 +2799,14 @@ define(["jquery"], function(__WEBPACK_EXTERNAL_MODULE_2__) { return webpackJsonp
 	module.exports = Select;
 
 /***/ },
-/* 61 */
+/* 62 */
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
 	module.exports = {"select-design-viewer":"select-design-viewer","select-design-viewer-option-selector":"select-design-viewer-option-selector","value":"value","trigger":"trigger","select-design-viewer-list-box":"select-design-viewer-list-box","select-design-viewer-list":"select-design-viewer-list","select-design-viewer-option":"select-design-viewer-option","design-template-accordion-info":"design-template-accordion-info","design-template-accordion-title":"design-template-accordion-title","design-template-accordion-selected":"design-template-accordion-selected","design-template-accordion-controller":"design-template-accordion-controller","design-template-accordion-list":"design-template-accordion-list","accordion-open":"accordion-open","deal-item-option-viewer":"deal-item-option-viewer","deal-item-option-viewer-title":"deal-item-option-viewer-title","deal-item-option-viewer-location":"deal-item-option-viewer-location"};
 
 /***/ },
-/* 62 */
+/* 63 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var Handlebars = __webpack_require__(6);
@@ -2820,7 +2821,7 @@ define(["jquery"], function(__WEBPACK_EXTERNAL_MODULE_2__) { return webpackJsonp
 	  return "                    <li class=\"select-design-viewer-option\" data-index=\""
 	    + container.escapeExpression(container.lambda((data && data.index), depth0))
 	    + "\">\n"
-	    + ((stack1 = container.invokePartial(__webpack_require__(63),depth0,{"name":"_option_default","data":data,"indent":"                        ","helpers":helpers,"partials":partials,"decorators":container.decorators})) != null ? stack1 : "")
+	    + ((stack1 = container.invokePartial(__webpack_require__(64),depth0,{"name":"_option_default","data":data,"indent":"                        ","helpers":helpers,"partials":partials,"decorators":container.decorators})) != null ? stack1 : "")
 	    + "                    </li>\n";
 	},"4":function(container,depth0,helpers,partials,data) {
 	    var stack1;
@@ -2829,7 +2830,7 @@ define(["jquery"], function(__WEBPACK_EXTERNAL_MODULE_2__) { return webpackJsonp
 	},"5":function(container,depth0,helpers,partials,data) {
 	    var stack1;
 
-	  return ((stack1 = container.invokePartial(__webpack_require__(64),depth0,{"name":"_select_accordion","data":data,"indent":"                    ","helpers":helpers,"partials":partials,"decorators":container.decorators})) != null ? stack1 : "");
+	  return ((stack1 = container.invokePartial(__webpack_require__(65),depth0,{"name":"_select_accordion","data":data,"indent":"                    ","helpers":helpers,"partials":partials,"decorators":container.decorators})) != null ? stack1 : "");
 	},"7":function(container,depth0,helpers,partials,data) {
 	    var stack1;
 
@@ -2861,7 +2862,7 @@ define(["jquery"], function(__WEBPACK_EXTERNAL_MODULE_2__) { return webpackJsonp
 	},"usePartial":true,"useData":true});
 
 /***/ },
-/* 63 */
+/* 64 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var Handlebars = __webpack_require__(6);
@@ -2910,7 +2911,7 @@ define(["jquery"], function(__WEBPACK_EXTERNAL_MODULE_2__) { return webpackJsonp
 	},"useData":true});
 
 /***/ },
-/* 64 */
+/* 65 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var Handlebars = __webpack_require__(6);
@@ -2954,7 +2955,6 @@ define(["jquery"], function(__WEBPACK_EXTERNAL_MODULE_2__) { return webpackJsonp
 	},"useData":true,"useDepths":true});
 
 /***/ },
-/* 65 */,
 /* 66 */,
 /* 67 */,
 /* 68 */,
@@ -2992,7 +2992,7 @@ define(["jquery"], function(__WEBPACK_EXTERNAL_MODULE_2__) { return webpackJsonp
 
 	var $ = __webpack_require__(2);
 	var utility = __webpack_require__(3);
-	var Select = __webpack_require__(60);
+	var Select = __webpack_require__(61);
 
 	__webpack_require__(97);
 	//require('modules/_designViewer/_select/v.1.0.0/box/_select.scss');

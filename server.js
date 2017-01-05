@@ -5,18 +5,14 @@ var express = require('express');
 var hbs = require('hbs');
 var app = express();
 var useragent = require('express-useragent');
-var dealAPI = require('./server/routes/dealAPI');
-var zipCodeAPI = require('./server/routes/zipCodeAPI');
+var index = require('./server/memebox/routes/index');
 var service = 'memebox';
 
 //hbs.register/////////////////////////
 var blocks = {};
 
-
-
 hbs.registerPartials(__dirname + '/views/'+service+'/layouts');
 hbs.registerPartials(__dirname + '/views/'+service);
-
 hbs.registerPartials(__dirname + '/views/common/');
 hbs.registerPartials(__dirname + '/package');
 
@@ -37,39 +33,21 @@ hbs.registerHelper('block', function(name) {
     return val;
 });
 
-var helper = require('./public/app/common/handlebars-helpers/json');
+var helper = require('./package/handlebars-helpers/json');
 hbs.registerHelper('json', function(context) {
     return helper(context);
 });
 
-var formatNumber = require('./public/app/common/handlebars-helpers/formatNumber');
+var formatNumber = require('./package/handlebars-helpers/formatNumber');
 hbs.registerHelper('formatNumber', function(context) {
     return formatNumber(context);
 });
 
-//data.register/////////////////////////
-var configData = require('./server/json/config.json');
-var dealData = require('./server/json/deal.json');
-var menuData = require('./server/json/menu.json');
-var dealView_menuData = require('./server/json/dealView_menu.json');
-var dealView_APIData = require('./server/json/dealView_API.json');
-var zipcodeData = require('./server/json/zipcode.json');
-
-function dealview_API(){
-    return dealView_APIData.data = dealData;
-};
-
-var data = {
-    "config" : configData,
-    "component" : {}
-};
 
 //express.register/////////////////////////
 app.engine('html', require('hbs').__express);
 app.set('views', 'views');
 app.set('view engine', 'hbs');
-app.use('/dealAPI', dealAPI);
-app.use('/zipCodeAPI', zipCodeAPI);
 app.use(useragent.express());
 app.use(express.static(__dirname +'/public'));
 app.use(express.static(__dirname +'/views'));
@@ -77,155 +55,30 @@ app.use(express.static(__dirname +'/package'));
 
 
 
-//main page/////////////////////////
-app.get('/', function(req, res) {
-    var device = req.useragent.isMobile? 'mobile' : 'pc';
+// home //////////////////////////////////////////////////
+app.use('/', index.page.home);
 
-    data.config.controller = 'memebox/'+device+'/main/main';
-    data.config.title = '홈';
-    data.config.info.device = device;
-    data.config.info.service = 'memebox';
-    data.component.menu = menuData;
-    res.render('memebox/'+device+'/main/main',data);
-});
+// 회원 가입 //////////////////////////////////////////////////
+app.use('/member/signUp/howToJoin', index.page.howToJoin);
+app.use('/member/signUp/acceptTerms', index.page.acceptTerms);
+app.use('/member/signUp/enterUserInformation', index.page.enterUserInformation);
+app.use('/member/signUp/SignedUp', index.page.SignedUp);
 
-//cart page/////////////////////////
-app.get('/cart', function(req, res) {
-    var device = req.useragent.isMobile? 'mobile' : 'pc';
+// 검색 //////////////////////////////////////////////////
+app.use('/search/index', index.page.search_index);
+app.use('/search/result', index.page.search_result);
 
-    data.config.controller = 'memebox/'+device+'/cart/cart';
-    data.config.title = '장바구니';
-    data.config.info.device = device;
-    data.config.info.service = 'memebox';
-    data.component.menu = menuData;
+//상품 상세 //////////////////////////////////////////////////
+app.use('/product', index.page.product);
 
-    res.render('memebox/'+device+'/cart/cart',data);
-});
+//장바구니 //////////////////////////////////////////////////
+app.use('/cart', index.page.cart);
 
-//order page/////////////////////////
-app.get('/order', function(req, res) {
-    var device = req.useragent.isMobile? 'mobile' : 'pc';
+//주문서 //////////////////////////////////////////////////
+app.use('/order', index.page.order);
 
-    data.config.controller = 'memebox/'+device+'/order/order';
-    data.config.title = '주문서';
-    data.config.info.device = device;
-    data.config.info.service = 'memebox';
-    data.component.menu = menuData;
-
-    res.render('memebox/'+device+'/order/order',data);
-});
-
-//상품 상세 page/////////////////////////
-app.get('/product', function(req, res) {
-    var device = req.useragent.isMobile? 'mobile' : 'pc';
-
-    data.config.controller = 'memebox/'+device+'/product/product';
-    data.config.title = '상품 상세';
-    data.config.info.device = device;
-    data.config.info.service = 'memebox';
-    data.component.menu = menuData;
-
-    res.render('memebox/'+device+'/product/product',data);
-});
-
-
-//검색 /////////////////////////
-//검색 홈 page
-app.get('/search/index', function(req, res) {
-    var device = req.useragent.isMobile? 'mobile' : 'pc';
-
-    data.config.controller = 'memebox/'+device+'/search/index';
-    data.config.title = '검색 홈';
-    data.config.info.device = device;
-    data.config.info.service = 'memebox';
-    data.component.menu = menuData;
-
-    res.render('memebox/'+device+'/search/index',data);
-});
-
-//검색 결과 page
-app.get('/search/result', function(req, res) {
-    var device = req.useragent.isMobile? 'mobile' : 'pc';
-
-    data.config.controller = 'memebox/'+device+'/search/result';
-    data.config.title = '검색 결과';
-    data.config.info.device = device;
-    data.config.info.service = 'memebox';
-    data.component.menu = menuData;
-
-    res.render('memebox/'+device+'/search/result',data);
-});
-
-//member 회원 가입 page/////////////////////////
-// sns 회원 가입
-app.get('/member/signUp/howToJoin', function(req, res) {
-    var device = req.useragent.isMobile? 'mobile' : 'pc';
-
-    data.config.controller = 'memebox/'+device+'/member/signUp/howToJoin';
-    data.config.title = '가입방법';
-    data.config.info.device = device;
-    data.config.info.service = 'memebox';
-    data.component.menu = menuData;
-    res.render('memebox/'+device+'/member/signUp/howToJoin',data);
-});
-app.get('/member/signUp/acceptTerms', function(req, res) {
-    var device = req.useragent.isMobile? 'mobile' : 'pc';
-
-    data.config.controller = 'memebox/'+device+'/member/signUp/acceptTerms';
-    data.config.title = '약관동의';
-    data.config.info.device = device;
-    data.config.info.service = 'memebox';
-    data.component.menu = menuData;
-    data.config.sns = {
-        service : 'naver',
-        welcomeText: '미미박스 회원이 되기 위한 간단한 과정!'
-    };
-    res.render('memebox/'+device+'/member/signUp/acceptTerms',data);
-});
-app.get('/member/signUp/enterUserInformation', function(req, res) {
-    var device = req.useragent.isMobile? 'mobile' : 'pc';
-
-    data.config.controller = 'memebox/'+device+'/member/signUp/enterUserInformation';
-    data.config.title = '정보입력';
-    data.config.info.device = device;
-    data.config.info.service = 'memebox';
-    data.component.menu = menuData;
-    res.render('memebox/'+device+'/member/signUp/enterUserInformation',data);
-});
-app.get('/member/signUp/SignedUp', function(req, res) {
-    var device = req.useragent.isMobile? 'mobile' : 'pc';
-
-    data.config.controller = 'memebox/'+device+'/member/signUp/SignedUp';
-    data.config.title = '가입완료';
-    data.config.info.device = device;
-    data.config.info.service = 'memebox';
-    data.component.menu = menuData;
-    res.render('memebox/'+device+'/member/signUp/SignedUp',data);
-});
-
-//view Test
-app.get('/dealAll/dealAll', function(req, res) {
-    var device = req.useragent.isMobile? 'mobile' : 'pc';
-
-    data.config.controller = 'memebox/'+device+'/dealAll/dealAll';
-    data.config.title = '딜 모두 보기';
-    data.config.info.device = device;
-    data.config.info.service = 'memebox';
-    data.component.menu = menuData;
-
-    res.render('memebox/'+device+'/dealAll/dealAll',data);
-});
-app.get('/dealAll/dealAll_export', function(req, res) {
-    var device = req.useragent.isMobile? 'mobile' : 'pc';
-
-    data.config.controller = 'memebox/'+device+'/dealAll/dealAll';
-    data.config.title = 'js 딜 모두 보기';
-    data.config.info.device = device;
-    data.config.info.service = 'memebox';
-
-    res.render('memebox/'+device+'/dealAll/dealAll_export',data);
-});
-
-
+//ETC //////////////////////////////////////////////////
+app.use('/dealAll/dealAll', index.page.dealAll);
+app.use('/dealAll/dealAll_export', index.page.dealAll_export);
 
 app.listen(5000);

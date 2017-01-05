@@ -1,8 +1,7 @@
 var $ = require('jquery');
 var utility = require('utility');
 
-
-require('./main.scss');
+require('./home.scss');
 
 var main = function(){
     var controller = {
@@ -11,8 +10,8 @@ var main = function(){
         ui: {},
 
         initialize: function(){
+            console.log('a')
             utility.uiEnhancements.call(this);
-            //new header();
             this.addEventListener();
         },
 

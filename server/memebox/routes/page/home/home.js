@@ -5,24 +5,18 @@ var express = require('express');
 var useragent = require('express-useragent');
 var router = express.Router();
 
-var menuData = require('../json/menu.json');
-var configData = require('../json/config.json');
-
-var data = {
-    "config" : configData,
-    "component" : {}
-};
+var data = require('../../../config/index');
 
 router.get('/', function(req, res) {
-    console.log('main.js')
     var device = req.useragent.isMobile? 'mobile' : 'pc';
 
-    data.config.controller = 'memebox/'+device+'/main/main';
+    data.config.controller = 'memebox/'+device+'/home/home';
     data.config.title = '홈';
     data.config.info.device = device;
     data.config.info.service = 'memebox';
-    data.component.menu = menuData;
-    res.render('memebox/'+device+'/main/main',data);
+    data.component.menu = data.mock.menu;
+
+    res.render('memebox/'+device+'/home/home',data);
 });
 
 module.exports = router;
