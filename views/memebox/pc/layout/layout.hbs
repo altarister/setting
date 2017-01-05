@@ -5,16 +5,16 @@
 <!--[if IE 9 ]>    <html lang="ko-KR" class="browser-ie9 browser-modern"> <![endif]-->
 <!--[if (gt IE 9)|!(IE)]><!--> <html lang="ko-KR" class="browser-modern"> <!--<![endif]-->
 <head>
-    {{> elements/meta}}
+    {{> layouts/meta}}
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>{{config.title}}</title>
-    {{> elements/css}}
+    {{> layouts/css}}
     {{{block "css"}}}
 </head>
 
 <body id="memebox-service"
-      {{> elements/config}}>
+      {{> layouts/config}}>
 
     {{!> pc/layout/header}}
     {{{block "memebox-header"}}}
@@ -26,7 +26,7 @@
 
     {{{block "memebox-components"}}}
 
-    {{> elements/scripts}}
+    {{> layouts/scripts}}
     {{{block "scripts"}}}
 </body>
 

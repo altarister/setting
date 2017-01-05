@@ -28,7 +28,6 @@ var SignUpSNS = function($element){
         },
 
         initialize: function(){
-            console.log('ggg -- ',this.element.length);
 
             this.makeSNS();
             utility.uiEnhancements.call(this);

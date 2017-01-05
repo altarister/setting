@@ -13,8 +13,9 @@ var bodyParser = require('body-parser');
 //hbs.register/////////////////////////
 var blocks = {};
 
-hbs.registerPartials(__dirname + '/views/'+service+'/layouts');
+// hbs.registerPartials(__dirname + '/views/'+service+'/layouts');
 hbs.registerPartials(__dirname + '/views/'+service);
+hbs.registerPartials(__dirname + '/views/'+service+'/templates');
 hbs.registerPartials(__dirname + '/views/common/');
 hbs.registerPartials(__dirname + '/package');
 
@@ -66,6 +67,11 @@ app.use('/member/signUp/howToJoin', index.page.howToJoin);
 app.use('/member/signUp/acceptTerms', index.page.acceptTerms);
 app.use('/member/signUp/enterUserInformation', index.page.enterUserInformation);
 app.use('/member/signUp/SignedUp', index.page.SignedUp);
+// todo: 서버에서 작동시 불필요한 코드
+app.use('/sns/naverLoginUrl', index.page.sns);
+app.use('/sns/fbLoginUrl', index.page.sns);
+app.use('/sns/kakaoLoginUrl', index.page.sns);
+
 
 // 검색 //////////////////////////////////////////////////
 app.use('/search/index', index.page.search_index);

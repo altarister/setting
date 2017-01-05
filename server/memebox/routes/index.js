@@ -8,6 +8,7 @@ module.exports = {
         ,acceptTerms: require('./page/member/signUp/acceptTerms')
         ,enterUserInformation: require('./page/member/signUp/enterUserInformation')
         ,SignedUp: require('./page/member/signUp/SignedUp')
+        ,sns: require('./page/member/sns/sns')
 
         // 검색 //////////////////////////////////////////////////
         ,search_index: require('./page/search/index')

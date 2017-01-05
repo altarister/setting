@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
+
+    <title>미미박스</title>
+    <script>
+        var success = '{{success}}';
+        var msg = '{{msg}}';
+
+        if (success == 'ok') {
+            opener.goFbProcess();
+            self.close();
+        } else {
+            alert(msg);
+            self.close();
+        }
+    </script>
+</head>
+
+<body>
+</body>
+</html>

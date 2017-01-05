@@ -1,15 +1,15 @@
 <!doctype html>
 <head>
-    {{> elements/meta}}
+    {{> layouts/meta}}
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>{{config.title}}</title>
-    {{> elements/css}}
+    {{> layouts/css}}
     {{{block "css"}}}
 </head>
 
 <body id="memebox-service"
-      {{> elements/config}}>
+      {{> layouts/config}}>
 
     {{{block "memebox-header"}}}
     <div class="layout-structure-content">
@@ -19,7 +19,7 @@
 
     {{{block "memebox-components"}}}
 
-    {{> elements/scripts}}
+    {{> layouts/scripts}}
     {{{block "scripts"}}}
 </body>
 

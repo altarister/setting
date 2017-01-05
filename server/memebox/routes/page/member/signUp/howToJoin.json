@@ -1,0 +1,29 @@
+{
+  "naver": {
+    "window": "true",
+    "url": "/sns/naverLoginUrl",
+    "title": "naver",
+    "size": {
+      "width": "500",
+      "height": "500"
+    }
+  },
+  "facebook": {
+    "window": "true",
+    "url": "/sns/fbLoginUrl",
+    "title": "facebook",
+    "size": {
+      "width": "1000",
+      "height": "690"
+    }
+  },
+  "kakao": {
+    "window": "true",
+    "url": "/sns/kakaoLoginUrl",
+    "title": "kakao",
+    "size": {
+      "width": "500",
+      "height": "500"
+    }
+  }
+}
