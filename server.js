@@ -71,7 +71,7 @@ app.use('/member/signUp/SignedUp', index.page.SignedUp);
 app.use('/sns/naverLoginUrl', index.page.sns);
 app.use('/sns/fbLoginUrl', index.page.sns);
 app.use('/sns/kakaoLoginUrl', index.page.sns);
-
+app.use('/sns/popupClose', index.page.popupClose);
 
 // 검색 //////////////////////////////////////////////////
 app.use('/search/index', index.page.search_index);

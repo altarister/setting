@@ -1,24 +1,9 @@
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
+{{#extend "memebox-content"}}
+    <div class="popup-window-close"
+         data-result-success="{{success}}"
+         data-result-msg="{{msg}}">
+        fffff
+    </div>
+{{/extend}}
 
-    <title>미미박스</title>
-    <script>
-        var success = '{{success}}';
-        var msg = '{{msg}}';
-
-        if (success == 'ok') {
-            opener.goFbProcess();
-            self.close();
-        } else {
-            alert(msg);
-            self.close();
-        }
-    </script>
-</head>
-
-<body>
-</body>
-</html>
+{{> pc/layout/layout_popup}}

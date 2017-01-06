@@ -9,6 +9,7 @@ module.exports = {
         ,enterUserInformation: require('./page/member/signUp/enterUserInformation')
         ,SignedUp: require('./page/member/signUp/SignedUp')
         ,sns: require('./page/member/sns/sns')
+        ,popupClose: require('./page/member/sns/popupClose')
 
         // 검색 //////////////////////////////////////////////////
         ,search_index: require('./page/search/index')

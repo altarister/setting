@@ -19,12 +19,17 @@ var HowToJoin = function(){
 
         addEventListener: function(){
             this.element.off()
-                .on('click', this.ui.__uiString.popupWindow, $.proxy(this.popupWindowEvent, this));
+                .on('click', this.ui.__uiString.popupWindow, $.proxy(this.popupWindowOpenEvent, this));
 
-            $.publish('sns.windowClose', {targetUrl:'/rocketpay/mypage'});
+            $.subscribe('sns.popupWindow.close', $.proxy(this.popupWindowCloseEvent, this));
         },
 
-        popupWindowEvent: function(event){
+        popupWindowCloseEvent: function(event, data){
+
+            console.log('popupWindowCloseEvent', data);
+        },
+
+        popupWindowOpenEvent: function(event){
             event.preventDefault();
             var $element = $(event.currentTarget);
             var popupData = $element.data('popup');

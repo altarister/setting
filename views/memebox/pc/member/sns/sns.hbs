@@ -9,6 +9,20 @@
 </head>
 
 <body>
-sns 서비스
+<form class="form" action="/sns/popupClose" method="post">
+    <fieldset>
+        <legend>sns</legend>
+        <label class="label">
+            <span class="text">sns 인증 </span>
+
+            <input type="radio" name="success" value="ok" checked>
+            <input type="radio" name="success" value="fail">
+        </label>
+
+        <div class="form-controller">
+            <button class="submit" type="submit">확인</button>
+        </div>
+    </fieldset>
+</form>
 </body>
 </html>
