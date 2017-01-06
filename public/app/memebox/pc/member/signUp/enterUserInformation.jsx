@@ -275,13 +275,15 @@ var EnterUserInformation = function () {
             controller.verification_hasCellphone = null;
             controller.ui.certificationContent.empty().hide();
             if(data){
-                if(data.success){
+                var $param_cellphone = controller.ui.param_cellphone;
+                if(data.certificationCompletion){
                     controller.ui.certificationTrigger.prop('disabled', true);
                     controller.ui.certificationEnd.show();
-                    controller.ui.param_cellphone.prop('readonly', true);
-                    controller.validate(controller.ui.param_cellphone);
+                    $param_cellphone.prop('readonly', true);
+                    controller.validate($param_cellphone);
                 }else{
                     controller.ui.certificationTrigger.prop('disabled', false);
+                    controller.displayValidateMessage($param_cellphone, false, data.message);
                 }
             }else{
                 controller.ui.certificationTrigger.prop('disabled', true);

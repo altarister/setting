@@ -8,6 +8,7 @@ module.exports = {
         ,acceptTerms: require('./page/member/signUp/acceptTerms')
         ,enterUserInformation: require('./page/member/signUp/enterUserInformation')
         ,SignedUp: require('./page/member/signUp/SignedUp')
+
         ,sns: require('./page/member/sns/sns')
         ,popupClose: require('./page/member/sns/popupClose')
 
@@ -31,6 +32,8 @@ module.exports = {
     ajax: {
         deal: require('./ajax/dealAPI')
         ,zipCode: require('./ajax/zipCodeAPI')
+        ,checkRedundantMembership: require('./ajax/checkRedundantMembership')
+        ,checkTheReceivedCharacter: require('./ajax/checkTheReceivedCharacter')
     }
 };
 

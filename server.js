@@ -58,35 +58,42 @@ app.use(express.static(__dirname +'/views'));
 app.use(express.static(__dirname +'/package'));
 
 
+// AJAX //////////////////////////////////////////////////
+// 호원 휴대번호 중복 체크
+app.use('/member/checkRedundantMembership', index.ajax.checkRedundantMembership);
+// 휴대번호로 받은 문자 확인
+app.use('/member/checkTheReceivedCharacter', index.ajax.checkTheReceivedCharacter);
 
-// home //////////////////////////////////////////////////
+
+// PAGE //////////////////////////////////////////////////
+// home
 app.use('/', index.page.home);
 
-// 회원 가입 //////////////////////////////////////////////////
+// 회원 가입
 app.use('/member/signUp/howToJoin', index.page.howToJoin);
 app.use('/member/signUp/acceptTerms', index.page.acceptTerms);
 app.use('/member/signUp/enterUserInformation', index.page.enterUserInformation);
 app.use('/member/signUp/SignedUp', index.page.SignedUp);
-// todo: 서버에서 작동시 불필요한 코드
+// 회원 가입시 todo: 서버에서 작동시 불필요한 코드
 app.use('/sns/naverLoginUrl', index.page.sns);
 app.use('/sns/fbLoginUrl', index.page.sns);
 app.use('/sns/kakaoLoginUrl', index.page.sns);
 app.use('/sns/popupClose', index.page.popupClose);
 
-// 검색 //////////////////////////////////////////////////
+// 검색
 app.use('/search/index', index.page.search_index);
 app.use('/search/result', index.page.search_result);
 
-//상품 상세 //////////////////////////////////////////////////
+//상품 상세
 app.use('/product', index.page.product);
 
-//장바구니 //////////////////////////////////////////////////
+//장바구니
 app.use('/cart', index.page.cart);
 
-//주문서 //////////////////////////////////////////////////
+//주문서
 app.use('/order', index.page.order);
 
-//ETC //////////////////////////////////////////////////
+//ETC
 app.use('/dealAll/dealAll', index.page.dealAll);
 app.use('/dealAll/dealAll_export', index.page.dealAll_export);
 

@@ -23,9 +23,12 @@ var HasCellphone = function ($element, callbackFunction, requestData) {
             remainingTimeWrap: '.cellphone-certification-remaining-time-wrap'
         },
 
-        verificationAPI: {
+        API: {
             confirmRepetition: '/ajax',
-            verification: '/verification'
+            verification: '/verification',
+            checkRedundantMembership: '/member/checkRedundantMembership',
+            checkTheReceivedCharacter: '/member/checkTheReceivedCharacter',
+            ownership: ''
         },
 
         message: {
@@ -39,48 +42,26 @@ var HasCellphone = function ($element, callbackFunction, requestData) {
 
         initialize: function(){
             this.openEvent();
-            this.eventListener();
-        },
-
-        eventListener: function(){
-            //$.subscribe('verification.cellphone.stop', $.proxy(this.verificationEnd, this));
         },
 
         addEventListener: function(){
             this.element.off()
-                 .on('click', this.ui.__uiString.certificationStart, $.proxy(this.verificationStart,this))
-                // .on('click', this.ui.__uiString.certificationEnd, $.proxy(this.verificationEnd,this));
+                 .on('click', this.ui.__uiString.certificationStart, $.proxy(this.verificationStart,this));
         },
 
         openEvent: function(){
-            console.log('서버에 전화 번호 넘김');
+            console.log('서버에 전화 번호 넘김1');
             $.ajax({
-                url: this.verificationAPI.confirmRepetition,
+                url: this.API.checkRedundantMembership,
                 data: requestData
             }).done(function(result){
                 if(result.status === 'success'){
-                    console.log('success')
+                    controller.makeElement(result)
                 }else{
-
+                    alert('fail')
                 }
             }).fail(function() {
                 alert(controller.message.SYSTEM_CELLPHONE_ERROR);
-
-                var result = {
-                    status:'success',
-                    hasNumber: true,
-                    hideUserId: 'alt*******'
-                };
-
-                if(result.status === 'success'){
-
-
-                    controller.makeElement(result)
-
-
-                }else{
-                    console.log('fail')
-                }
             });
         },
 
@@ -91,45 +72,33 @@ var HasCellphone = function ($element, callbackFunction, requestData) {
                 console.log('동일 폰이 있음. 본인인증 필요');
                 template = verification_templates.identity(result);
                 console.log('result.hasNumber',result.hasNumber)
+                $element.empty().append(template);
+                utility.uiEnhancements.call(controller);
             }else{
                 console.log('동일 폰 없음. 인증번호 문자 발송');
                 template = verification_templates.cellphone();
                 console.log('타이머 시작');
-                this.setTimer(10);
+                $element.empty().append(template);
+                utility.uiEnhancements.call(controller);
+                this.setTimer(result.remainingTime);
             }
-            $element.empty().append(template);
-            utility.uiEnhancements.call(controller);
-
-
             //문자 발송..
             this.addEventListener();
         },
 
         verificationAjax: function(value){
-            console.log('서버에 인증값 넘김');
+            console.log('서버에 폰으로 받은 문자 넘김');
             $.ajax({
-                url: this.verificationAPI.verification,
+                url: this.API.checkTheReceivedCharacter,
                 data: value
             }).done(function(result){
                 if(result.status === 'success'){
-                    console.log('success')
+                    controller.verificationEnd(true, result)
                 }else{
-
+                    alert('fail')
                 }
-            }).fail(function() {
+            }).fail(function(result) {
                 alert(controller.message.SYSTEM_VERIFICATION_ERROR);
-
-                var result = {
-                    status:'success',
-                    hasNumber: false,
-                    hideUserId: 'altari*******'
-                };
-
-                if(result.status === 'success'){
-                    controller.verificationEnd(true, 'success')
-                }else{
-                    console.log('fail')
-                }
             });
         },
 
@@ -144,13 +113,12 @@ var HasCellphone = function ($element, callbackFunction, requestData) {
             }
         },
 
-        verificationEnd: function(isInsideCall, value){
-            console.log('isExport',isInsideCall, value)
+        verificationEnd: function(isInsideCall, result){
 
             clearInterval(this.interval);
             if(isInsideCall){
-                var data = {success:value};
-                callbackFunction(data);
+                //var data = {success:value};
+                callbackFunction(result);
             }
         },
 

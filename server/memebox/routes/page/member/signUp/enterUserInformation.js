@@ -4,7 +4,7 @@ var router = express.Router();
 
 var data = require('../../../../config/index');
 
-router.get('/', function(req, res) {
+router.post('/', function(req, res) {
     var device = req.useragent.isMobile? 'mobile' : 'pc';
 
     data.config.controller = 'memebox/'+device+'/member/signUp/enterUserInformation';
