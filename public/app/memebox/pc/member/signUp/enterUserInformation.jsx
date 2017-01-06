@@ -5,7 +5,7 @@ var SignUpSNS = require('components/member/signUpSNS/v.1.0.0/signUpSNS.jsx');
 var Select = require('modules/_designViewer/_select/v.1.0.0/box/_select.jsx');
 var Verification_hasCellphone = require('components/verification/cellphone/v.1.0.0/cellphone.jsx');
 var validatePassword = require('modules/util/validate/password/v.1.0.0/_password.jsx');
-
+//todo : timer
 require('./enterUserInformation.scss');
 require('./signUpHeader/signUpHeader.scss');
 
@@ -164,6 +164,7 @@ var EnterUserInformation = function () {
 
         // 이벤트 등록
         addEventListener: function () {
+            console.log('1')
             this.element.off()
                 .on('focusin focusout', this.ui.__uiString.param_name, $.proxy(this.requiredFocusEvent,this))
                 .on('focusin focusout', this.ui.__uiString.param_email, $.proxy(this.requiredFocusEvent,this))

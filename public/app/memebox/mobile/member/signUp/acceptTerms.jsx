@@ -67,9 +67,7 @@ var AcceptTerms = function(){
                 }
             });
 
-            if(isValidate){
-                this.ui.agreementAll.prop('checked', true);
-            }else{
+            if(!isValidate){
                 this.ui.agreementAll.prop('checked', false);
             }
 

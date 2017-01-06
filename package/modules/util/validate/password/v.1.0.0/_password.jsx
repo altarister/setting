@@ -22,11 +22,6 @@ var validate_password = {
             number : /.*[0-9]/
         };
 
-        if(str.length < 6 || str.length > 15 ){
-            message = this.message.c;
-            isValidPassword = false;
-        }
-
         // 연속된 문자 숫자 확인
         for(var sequential_key in reg_sequential){
             if (reg_sequential[sequential_key].test(str)) {
@@ -49,6 +44,11 @@ var validate_password = {
 
         if (security_step < 2) {
             message = this.message.a;
+            isValidPassword = false;
+        }
+
+        if(str.length < 6 || str.length > 15 ){
+            message = this.message.c;
             isValidPassword = false;
         }
 

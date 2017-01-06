@@ -217,10 +217,12 @@ var EnterUserInformation = function () {
                     }
                     break;
                 case 'password':
-                    if(value.length < 6 || value.length > 15 || !validatePassword.validatePassword(value)){
+                    var result = validatePassword.validatePassword(value);
+
+                    if(!result.isValid){
+                        message = result.message;
                         isValidate = false;
                     }
-                    break;
                 case 'confirm':
                     if(this.ui.param_password.val() !== value){
                         isValidate = false;
@@ -262,6 +264,7 @@ var EnterUserInformation = function () {
                     }
                     break;
             }
+            console.log(name,', elementData.runValidate = ',elementData.runValidate)
             if(elementData.runValidate){
                 this.displayValidateMessage($element, isValidate, message);
             }else{

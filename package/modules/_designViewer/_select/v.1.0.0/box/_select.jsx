@@ -46,6 +46,12 @@ var Select = function (data, $wrap) {
                 .on('click', this.ui.__uiString.option, $.proxy(this.optionEvent, this));
         },
 
+        closeEvent: function(event){
+            if(controller.ui.optionList.is(':visible')){
+                controller.ui.optionList.hide();
+            }
+        },
+
         addEventListener: function(){
             this.element.off()
                 .on('click', this.ui.__uiString.selector, $.proxy(this.selectorEvent, this))
@@ -54,7 +60,10 @@ var Select = function (data, $wrap) {
         },
 
         selectorEvent: function(){
+            event.stopPropagation();
             this.ui.optionList.toggle();
+
+            $('body').on('click', $.proxy(this.closeEvent, this));
         },
 
         optionEvent: function(event){

@@ -3,7 +3,7 @@ var utility = require('utility');
 
 require('./acceptTerms.scss');
 require('./signUpHeader/signUpHeader.scss');
-
+//todo: 동의
 var AcceptTerms = function(){
     var controller = {
 
@@ -59,9 +59,7 @@ var AcceptTerms = function(){
                 }
             });
 
-            if(isValidate){
-                this.ui.agreementAll.prop('checked', true);
-            }else{
+            if(!isValidate){
                 this.ui.agreementAll.prop('checked', false);
             }
 

@@ -1766,12 +1766,21 @@ define(["jquery","modernizr","slick"], function(__WEBPACK_EXTERNAL_MODULE_2__, _
 	            this.element.off().on('click', this.ui.__uiString.selector, $.proxy(this.selectorEvent, this)).on('click', this.ui.__uiString.option, $.proxy(this.optionEvent, this));
 	        },
 
+	        closeEvent: function closeEvent(event) {
+	            if (controller.ui.optionList.is(':visible')) {
+	                controller.ui.optionList.hide();
+	            }
+	        },
+
 	        addEventListener: function addEventListener() {
 	            this.element.off().on('click', this.ui.__uiString.selector, $.proxy(this.selectorEvent, this)).on('click', this.ui.__uiString.option, $.proxy(this.accordionOptionEvent, this)).on('click', this.ui.__uiString.accordionController, $.proxy(this.accordionControllerEvent, this));
 	        },
 
 	        selectorEvent: function selectorEvent() {
+	            event.stopPropagation();
 	            this.ui.optionList.toggle();
+
+	            $('body').on('click', $.proxy(this.closeEvent, this));
 	        },
 
 	        optionEvent: function optionEvent(event) {

@@ -68,8 +68,8 @@ var HasCellphone = function ($element, callbackFunction, requestData) {
 
                 var result = {
                     status:'success',
-                    hasNumber: false,
-                    hideUserId: 'altari*******'
+                    hasNumber: true,
+                    hideUserId: 'alt*******'
                 };
 
                 if(result.status === 'success'){
@@ -95,10 +95,11 @@ var HasCellphone = function ($element, callbackFunction, requestData) {
                 console.log('동일 폰 없음. 인증번호 문자 발송');
                 template = verification_templates.cellphone();
                 console.log('타이머 시작');
+                this.setTimer(10);
             }
             $element.empty().append(template);
             utility.uiEnhancements.call(controller);
-            this.setTimer(10);
+
 
             //문자 발송..
             this.addEventListener();
