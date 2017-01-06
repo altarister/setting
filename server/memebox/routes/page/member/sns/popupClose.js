@@ -15,6 +15,7 @@ router.post('/', function(req, res) {
     data.config.info.device = device;
     data.config.info.service = 'memebox';
     data.success = req.body.success;
+    data.targetUrl = '/member/signUp/acceptTerms?type=email';
     if(req.body.success === 'ok'){
         data.msg = '성공';
     }else{

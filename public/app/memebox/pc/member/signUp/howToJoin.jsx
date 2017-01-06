@@ -26,7 +26,7 @@ var HowToJoin = function(){
 
         popupWindowCloseEvent: function(event, data){
 
-            console.log('popupWindowCloseEvent', data);
+            window.location.href = data.targetUrl;//'/member/signUp/acceptTerms?type=email';
         },
 
         popupWindowOpenEvent: function(event){

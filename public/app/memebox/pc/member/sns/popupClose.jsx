@@ -13,27 +13,17 @@ var popupClose = function(){
             utility.uiEnhancements.call(this);
             var success = this.ui.windowClose.data('resultSuccess');
             var msg = this.ui.windowClose.data('resultMsg');
+            var targetUrl = this.ui.windowClose.data('resultUrl');
 
-            alert(success+' , '+msg)
             if (success == 'ok') {
-                console.log('opener = ',opener)
-
-                this.addEventListener();
-                //$.publish('sns.popupWindow.close', {targetUrl:'/rocketpay/mypage'});
-                opener.$.publish('sns.popupWindow.close', {targetUrl:'/rocketpay/mypage'});
-                //self.close();
+                self.close();
+                opener.$.publish('sns.popupWindow.close', {
+                    targetUrl:targetUrl
+                });
             } else {
                 alert(msg);
                 self.close();
             }
-        },
-
-        addEventListener: function(){
-            $.subscribe('sns.popupWindow.close', $.proxy(this.popupWindowCloseEvent, this));
-        },
-
-        f: function(){
-
         }
     };
     controller.initialize();

@@ -345,7 +345,10 @@ var EnterUserInformation = function () {
                     }
                     break;
                 case 'password':
-                    if(value.length < 6 || value.length > 15 || !validatePassword.validatePassword(value)){
+                    var result = validatePassword.validatePassword(value);
+
+                    if(!result.isValid){
+                        message = result.message;
                         isValidate = false;
                     }
                     break;

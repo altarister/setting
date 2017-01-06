@@ -2,47 +2,16 @@ var validate_password = {
 
     isShift: false,
 
-    checkShiftUp: function (e) {
-        if (e.which && e.which == 16) {
-            this.isShift = false;
-        }
-    },
-
-    checkShiftDown: function (e) {
-        if (e.which && e.which == 16) {
-            this.isShift = true;
-        }
-    },
-
-    checkCapsLock: function(e) {
-        var myKeyCode = 0;
-        var myShiftKey = false;
-        if (window.event) { // IE
-            myKeyCode = e.keyCode;
-            myShiftKey = e.shiftKey;
-        } else if (e.which) { // netscape ff opera
-            myKeyCode = e.which;
-            myShiftKey = this.isShift;
-        }
-
-        var oMsg = document.getElementById("pswd1Msg");
-
-        if ((myKeyCode >= 65 && myKeyCode <= 90) && !myShiftKey) {
-            oMsg.style.display = "block";
-            oMsg.className = "error";
-            oMsg.innerHTML = "Caps Lock이 켜져 있습니다.";
-        } else if ((myKeyCode >= 97 && myKeyCode <= 122) && myShiftKey) {
-            oMsg.style.display = "block";
-            oMsg.className = "error";
-            oMsg.innerHTML = "Caps Lock이 켜져 있습니다.";
-        } else {
-            oMsg.style.display = "none";
-        }
+    message: {
+        a: '영문(대소문자), 숫자, 특수문자 중 2가지 이상을 조합하여 작성합니다.',
+        b: '비밀번호에 동일한 문자나 숫자를 연속으로 사용할 수 없습니다.',
+        c: '비밀번호는 6~15자 이내로 입력 바랍니다.'
     },
 
     validatePassword: function (str) {
         var isValidPassword = true;
         var security_step = 0;
+        var message = '';
         var reg_sequential = {
             english : /[a-zA-Z]\a\a/,
             number : /(\w)\1\1/
@@ -53,24 +22,54 @@ var validate_password = {
             number : /.*[0-9]/
         };
 
+        if(str.length < 6 || str.length > 15 ){
+            message = this.message.c;
+            isValidPassword = false;
+        }
+
+        // 연속된 문자 숫자 확인
+        for(var sequential_key in reg_sequential){
+            if (reg_sequential[sequential_key].test(str)) {
+                message = this.message.b;
+                isValidPassword = false;
+            }
+        }
+
+        if( !this.checkSequencialNumber(str,4) ){
+            message = this.message.b;
+            isValidPassword = false;
+        }
+
         // 필요 문자 여부 확인
         for(var character_key in reg_character){
             if (reg_character[character_key].test(str)) {
                 ++security_step;
             }
         }
-        // 연속된 문자 숫자 확인
-        for(var sequential_key in reg_sequential){
-            if (reg_sequential[sequential_key].test(str)) {
-                return isValidPassword = false;
-            }
-        }
 
         if (security_step < 2) {
+            message = this.message.a;
             isValidPassword = false;
         }
 
-        return isValidPassword;
+        return {
+            isValid: isValidPassword,
+            message: message
+        }
+    },
+
+    checkSequencialNumber: function (str, limit){
+        var origin, d, p, n = 0;
+        var limitLength = limit == null ? 4 : limit;
+        for(var i=0; i<str.length; i++){
+            var c = str.charCodeAt(i);
+            if(i > 0 && (p = origin - c) >-2 && p < 2 && (n = p == d ? n+1 : 0) > limitLength-3){
+                return false;
+            }
+            d = p;
+            origin = c;
+        }
+        return true;
     }
 };
 
