@@ -59,10 +59,14 @@ app.use(express.static(__dirname +'/package'));
 
 
 // AJAX //////////////////////////////////////////////////
-// 호원 휴대번호 중복 체크
+// 이메일 중복 체크
+app.use('/member/checkRegisterUser', index.ajax.checkRegisterUser);
+// 회원 휴대번호 중복 체크
 app.use('/member/checkRedundantMembership', index.ajax.checkRedundantMembership);
 // 휴대번호로 받은 문자 확인
 app.use('/member/checkTheReceivedCharacter', index.ajax.checkTheReceivedCharacter);
+// 추천인 아이디 확인
+app.use('/member/checkRecommendUser', index.ajax.checkRecommendUser);
 
 
 // PAGE //////////////////////////////////////////////////

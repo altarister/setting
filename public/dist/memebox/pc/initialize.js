@@ -1750,6 +1750,7 @@ define(["jquery","modernizr","slick"], function(__WEBPACK_EXTERNAL_MODULE_2__, _
 
 	        makeSelect: function makeSelect() {
 	            if (!$wrap) {
+	                console.log('data', data);
 	                this.element = $(select_templates._select(data));
 	            }
 	            utility.uiEnhancements.call(this);

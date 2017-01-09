@@ -1,0 +1,97 @@
+{
+  "selectData": {
+    "isDefaultType": true,
+    "options": [
+      {
+        "tegName": "span",
+        "attribute": [
+          {"class": "signUp-email-host-option"}
+        ],
+        "data": [
+          {"value": "", "name": ""}
+        ],
+        "text": "직접입력"
+      },
+      {
+        "tegName": "span",
+        "attribute": [
+          {"class": "signUp-email-host-option"}
+        ],
+        "data": [
+          {"value": "@naver.com", "name": "naver"}
+        ],
+        "text": "@naver.com"
+      },
+      {
+        "tegName": "span",
+        "attribute": [
+          {"class": "signUp-email-host-option"}
+        ],
+        "data": [
+          {"value": "@daum.net", "name": "daum"}
+        ],
+        "text": "@daum.net"
+      },
+      {
+        "tegName": "span",
+        "attribute": [
+          {"class": "signUp-email-host-option"}
+        ],
+        "data": [
+          {"value": "@gmail.com", "name": "gmail"}
+        ],
+        "text": "@gmail.com"
+      },
+      {
+        "tegName": "span",
+        "attribute": [
+          {"class": "signUp-email-host-option"}
+        ],
+        "data": [
+          {"value": "@hotmail.com", "name": "hotmail"}
+        ],
+        "text": "@hotmail.com"
+      },
+      {
+        "tegName": "span",
+        "attribute": [
+          {"class": "signUp-email-host-option"}
+        ],
+        "data": [
+          {"value": "@lycos.co.kr", "name": "lycos"}
+        ],
+        "text": "@lycos.co.kr"
+      },
+      {
+        "tegName": "span",
+        "attribute": [
+          {"class": "signUp-email-host-option"}
+        ],
+        "data": [
+          {"value": "@empal.com", "name": "empal"}
+        ],
+        "text": "@empal.com"
+      },
+      {
+        "tegName": "span",
+        "attribute": [
+          {"class": "signUp-email-host-option"}
+        ],
+        "data": [
+          {"value": "@dreamwiz.com", "name": "dreamwiz"}
+        ],
+        "text": "@dreamwiz.com"
+      },
+      {
+        "tegName": "span",
+        "attribute": [
+          {"class": "signUp-email-host-option"}
+        ],
+        "data": [
+          {"value": "@korea.com", "name": "korea"}
+        ],
+        "text": "@korea.com"
+      }
+    ]
+  }
+}

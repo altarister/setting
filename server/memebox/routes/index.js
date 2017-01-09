@@ -34,6 +34,9 @@ module.exports = {
         ,zipCode: require('./ajax/zipCodeAPI')
         ,checkRedundantMembership: require('./ajax/checkRedundantMembership')
         ,checkTheReceivedCharacter: require('./ajax/checkTheReceivedCharacter')
+        ,checkRegisterUser: require('./ajax/checkRegisterUser')
+        ,checkRecommendUser: require('./ajax/checkRecommendUser')
+
     }
 };
 

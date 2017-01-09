@@ -1,11 +1,12 @@
 var $ = require('jquery');
 var utility = require('utility');
 var validate = require('validate');
+var verification_identity = require('components/verification/identity/v.1.0.0/trigger.jsx');
 
 var verification_templates = {
     //error: require('./_templates/_error.hbs'),
     cellphone: require('./_templates/cellphone.hbs'),
-    identity: require('components/verification/identity/v.1.0.0/trigger.hbs')
+    // identity: require('components/verification/identity/v.1.0.0/trigger.hbs')
 };
 
 require('device/cellphone.scss');
@@ -18,7 +19,7 @@ var HasCellphone = function ($element, callbackFunction, requestData) {
             certificationTime: '.cellphone-certification-remaining-time',
             input: '.cellphone-certification-input',
             certification: '.cellphone-certification-wrap',
-            certificationStart: '.cellphone-certification-start',
+            //certificationStart: '.cellphone-certification-start',
             certificationEnd: '.cellphone-certification-end',
             remainingTimeWrap: '.cellphone-certification-remaining-time-wrap'
         },
@@ -32,7 +33,6 @@ var HasCellphone = function ($element, callbackFunction, requestData) {
         },
 
         message: {
-            AJAX_ERROR: 'ajax 실패 ',
             SYSTEM_CELLPHONE_ERROR: '번호인증 전송이 실패했습니다. 잠시 후 다시 시도해 주세요.',
             SYSTEM_VERIFICATION_ERROR: '인증번호 전송이 실패했습니다. 잠시 후 다시 시도해 주세요.',
             EMPTY: '필수 입력란입니다.'
@@ -46,7 +46,7 @@ var HasCellphone = function ($element, callbackFunction, requestData) {
 
         addEventListener: function(){
             this.element.off()
-                 .on('click', this.ui.__uiString.certificationStart, $.proxy(this.verificationStart,this));
+                 // .on('click', this.ui.__uiString.certificationStart, $.proxy(this.verificationStart,this));
         },
 
         openEvent: function(){
@@ -70,10 +70,15 @@ var HasCellphone = function ($element, callbackFunction, requestData) {
 
             if(result.hasNumber){
                 console.log('동일 폰이 있음. 본인인증 필요');
-                template = verification_templates.identity(result);
-                console.log('result.hasNumber',result.hasNumber)
-                $element.empty().append(template);
-                utility.uiEnhancements.call(controller);
+                //template = verification_templates.identity(result);
+                console.log('result.hasNumber',result.hasNumber);
+
+                new verification_identity($element, result);
+                //
+                //
+                //
+                // $element.empty().append(template);
+                //utility.uiEnhancements.call(controller);
             }else{
                 console.log('동일 폰 없음. 인증번호 문자 발송');
                 template = verification_templates.cellphone();
@@ -83,7 +88,7 @@ var HasCellphone = function ($element, callbackFunction, requestData) {
                 this.setTimer(result.remainingTime);
             }
             //문자 발송..
-            this.addEventListener();
+            //this.addEventListener();
         },
 
         verificationAjax: function(value){

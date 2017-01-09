@@ -35,6 +35,7 @@ var EnterUserInformation = function () {
         },
 
         message: {
+            SYSTEM_ERROR: '서버통신에 실패 다시한번 시도해 주세요.',
             EMPTY: '필수 입력란입니다.',
             VERIFICATION: '인증을 하여야 합니다.',
             CHECKING_RECOMMEND: '추천인 코드를 조회 중입니다.',
@@ -43,107 +44,11 @@ var EnterUserInformation = function () {
         },
 
         API: {
-            recommendUser : '/recommendUser',
-            validateRegisterUser: '/signup/validateRegisterUser'
+            checkRecommendUser : '/member/checkRecommendUser',
+            checkRegisterUser: '/member/checkRegisterUser'
         },
 
         verification_hasCellphone: null,
-
-        selectData: {
-            isDefaultType: true,
-            options: [
-                {
-                    tegName: 'span',
-                    attribute: [
-                        {class: 'signUp-email-host-option'}
-                    ],
-                    data: [
-                        {value: '', name: ''}
-                    ],
-                    text: '직접입력'
-                },
-                {
-                    tegName: 'span',
-                    attribute: [
-                        {class: 'signUp-email-host-option'}
-                    ],
-                    data: [
-                        {value: '@naver.com', name: 'naver'}
-                    ],
-                    text: '@naver.com'
-                },
-                {
-                    tegName: 'span',
-                    attribute: [
-                        {class: 'signUp-email-host-option'}
-                    ],
-                    data: [
-                        {value: '@daum.net', name: 'daum'}
-                    ],
-                    text: '@daum.net'
-                },
-                {
-                    tegName: 'span',
-                    attribute: [
-                        {class: 'signUp-email-host-option'}
-                    ],
-                    data: [
-                        {value: '@gmail.com', name: 'gmail'}
-                    ],
-                    text: '@gmail.com'
-                },
-                {
-                    tegName: 'span',
-                    attribute: [
-                        {class: 'signUp-email-host-option'}
-                    ],
-                    data: [
-                        {value: '@hotmail.com', name: 'hotmail'}
-                    ],
-                    text: '@hotmail.com'
-                },
-                {
-                    tegName: 'span',
-                    attribute: [
-                        {class: 'signUp-email-host-option'}
-                    ],
-                    data: [
-                        {value: '@lycos.co.kr', name: 'lycos'}
-                    ],
-                    text: '@lycos.co.kr'
-                },
-                {
-                    tegName: 'span',
-                    attribute: [
-                        {class: 'signUp-email-host-option'}
-                    ],
-                    data: [
-                        {value: '@empal.com', name: 'empal'}
-                    ],
-                    text: '@empal.com'
-                },
-                {
-                    tegName: 'span',
-                    attribute: [
-                        {class: 'signUp-email-host-option'}
-                    ],
-                    data: [
-                        {value: '@dreamwiz.com', name: 'dreamwiz'}
-                    ],
-                    text: '@dreamwiz.com'
-                },
-                {
-                    tegName: 'span',
-                    attribute: [
-                        {class: 'signUp-email-host-option'}
-                    ],
-                    data: [
-                        {value: '@korea.com', name: 'korea'}
-                    ],
-                    text: '@korea.com'
-                }
-            ]
-        },
 
         // 초기화
         initialize: function () {
@@ -157,14 +62,15 @@ var EnterUserInformation = function () {
 
         // 셀렉트 오브젝트
         makeEmailSelect: function($hostSelect){
-            var select = new Select(this.selectData);
+            var selectData = $hostSelect.data('options');
+            var select = new Select(selectData);
             var selectElement = select.getElement();
+
             $hostSelect.append(selectElement);
         },
 
         // 이벤트 등록
         addEventListener: function () {
-            console.log('1')
             this.element.off()
                 .on('focusin focusout', this.ui.__uiString.param_name, $.proxy(this.requiredFocusEvent,this))
                 .on('focusin focusout', this.ui.__uiString.param_email, $.proxy(this.requiredFocusEvent,this))
@@ -411,18 +317,19 @@ var EnterUserInformation = function () {
             var isValidate = false;
 
             $.ajax({
-                url: this.API.validateRegisterUser,
+                url: this.API.checkRegisterUser,
                 data: $element.val()
             }).done(function(result){
                 controller.doneAjaxEmail(result, $element, isValidate);
             }).fail(function() {
-                var random = Math.floor(Math.random() * 2);
-                var result = {
-                    status:'success',
-                    isRegisterEmail: (random > 0)? true : false,
-                    message: (random > 0)? 'ajax 중복된 아이디입니다 ' : '등록 가능한 아이디 입니다'
-                };
-                controller.doneAjaxEmail(result, $element, isValidate);
+                alert(controller.message.SYSTEM_ERROR);
+                // var random = Math.floor(Math.random() * 2);
+                // var result = {
+                //     status:'success',
+                //     isRegisterEmail: (random > 0)? true : false,
+                //     message: (random > 0)? 'ajax 중복된 아이디입니다 ' : '등록 가능한 아이디 입니다'
+                // };
+                // controller.doneAjaxEmail(result, $element, isValidate);
             });
         },
 
@@ -443,18 +350,19 @@ var EnterUserInformation = function () {
             var isValidate = false;
 
             $.ajax({
-                url: this.API.recommendUser,
+                url: this.API.checkRecommendUser,
                 data: $element.val()
             }).done(function(result){
                 controller.doneAjaxRecommendUser(result, $element, isValidate);
             }).fail(function() {
-                var random = Math.floor(Math.random() * 2);
-                var result = {
-                    status:'success',
-                    findUser: (random > 0)? true : false,
-                    message: (random > 0)? '친구추천 성공 ' : '추천인 아이디 또는 코드가 없습니다.'
-                };
-                controller.doneAjaxRecommendUser(result, $element, isValidate);
+                alert(controller.message.SYSTEM_ERROR);
+                // var random = Math.floor(Math.random() * 2);
+                // var result = {
+                //     status:'success',
+                //     findUser: (random > 0)? true : false,
+                //     message: (random > 0)? '친구추천 성공 ' : '추천인 아이디 또는 코드가 없습니다.'
+                // };
+                // controller.doneAjaxRecommendUser(result, $element, isValidate);
             });
         },
 

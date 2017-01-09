@@ -2,12 +2,13 @@
     {{#if hideUserId}}
         <p class="cellphone-certification-error-info">
             <em>{{hideUserId}}</em>
-            <span>아이디로 가입 된 휴대폰번호 입니다.</span>
+            <span>아이디로 가입 된 휴대폰번호 입니다.</span><br>
             <span>본인의 아이디가 아니라면 본인인증 해 주세요.</span>
         </p>
     {{/if}}
-    <a href="#"
-       class="identity-verification">
+    <a class="identity-verification"
+       href="#"
+       data-popup='{{json verification}}'>
         <strong>+</strong> 본인 인증하기
     </a>
 </div>

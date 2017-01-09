@@ -10,7 +10,7 @@ define(["jquery"], function(__WEBPACK_EXTERNAL_MODULE_2__) { return webpackJsonp
 	var SampleDealAPI = __webpack_require__(26);
 	var DealContainer = __webpack_require__(27);
 
-	__webpack_require__(94);
+	__webpack_require__(96);
 
 	var Product = function Product() {
 	    var controller = {
@@ -2667,7 +2667,9 @@ define(["jquery"], function(__WEBPACK_EXTERNAL_MODULE_2__) { return webpackJsonp
 /* 91 */,
 /* 92 */,
 /* 93 */,
-/* 94 */
+/* 94 */,
+/* 95 */,
+/* 96 */
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin

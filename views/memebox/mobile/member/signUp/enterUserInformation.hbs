@@ -19,15 +19,16 @@
                         <div class="signUp-email-wrap">
                             {{> templates/member/signUp/_email_label}}
                             <select class="signUp-email-host-select">
-                                <option value="">직접입력</option>
-                                <option value="@naver.com">@naver.com</option>
-                                <option value="@daum.net">@daum.net</option>
-                                <option value="@gmail.com">@gmail.com</option>
-                                <option value="@hotmail.com">@hotmail.com</option>
-                                <option value="@lycos.co.kr">@lycos.co.kr</option>
-                                <option value="@empal.com">@empal.com</option>
-                                <option value="@dreamwiz.com">@dreamwiz.com</option>
-                                <option value="@korea.com">@korea.com</option>
+                                {{> modules/_designViewer/_select/v.1.0.0/_templates/_option_org}}
+                                <!--<option value="">직접입력</option>-->
+                                <!--<option value="@naver.com">@naver.com</option>-->
+                                <!--<option value="@daum.net">@daum.net</option>-->
+                                <!--<option value="@gmail.com">@gmail.com</option>-->
+                                <!--<option value="@hotmail.com">@hotmail.com</option>-->
+                                <!--<option value="@lycos.co.kr">@lycos.co.kr</option>-->
+                                <!--<option value="@empal.com">@empal.com</option>-->
+                                <!--<option value="@dreamwiz.com">@dreamwiz.com</option>-->
+                                <!--<option value="@korea.com">@korea.com</option>-->
                             </select>
                         </div>
                         <p class="validate-message"></p>

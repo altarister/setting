@@ -28,6 +28,7 @@ var Select = function (data, $wrap) {
 
         makeSelect: function(){
             if(!$wrap){
+                console.log('data',data)
                 this.element = $(select_templates._select(data))
             }
             utility.uiEnhancements.call(this);

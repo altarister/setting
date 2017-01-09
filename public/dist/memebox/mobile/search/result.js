@@ -10,7 +10,7 @@ define(["jquery","slick"], function(__WEBPACK_EXTERNAL_MODULE_1__, __WEBPACK_EXT
 	var SampleDealAPI = __webpack_require__(26);
 	var DealContainer = __webpack_require__(27);
 
-	__webpack_require__(84);
+	__webpack_require__(86);
 
 	var SearchResult = function SearchResult() {
 	    var controller = {
@@ -2486,7 +2486,9 @@ define(["jquery","slick"], function(__WEBPACK_EXTERNAL_MODULE_1__, __WEBPACK_EXT
 /* 81 */,
 /* 82 */,
 /* 83 */,
-/* 84 */
+/* 84 */,
+/* 85 */,
+/* 86 */
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
