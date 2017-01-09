@@ -101,4 +101,7 @@ app.use('/order', index.page.order);
 app.use('/dealAll/dealAll', index.page.dealAll);
 app.use('/dealAll/dealAll_export', index.page.dealAll_export);
 
+//메일 발송
+app.use('/email/default', index.page.email);
+
 app.listen(5000);

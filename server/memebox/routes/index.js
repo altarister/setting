@@ -28,6 +28,9 @@ module.exports = {
         //ETC //////////////////////////////////////////////////
         ,dealAll: require('./page/dealAll/dealAll')
         ,dealAll_export: require('./page/dealAll/dealAll_export')
+
+        //email //////////////////////////////////////////////////
+        ,email: require('./page/email/default')
     },
     ajax: {
         deal: require('./ajax/dealAPI')
